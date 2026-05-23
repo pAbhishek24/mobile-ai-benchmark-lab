@@ -4,6 +4,24 @@ Last updated: May 2026
 
 ---
 
+## Lab Directory
+
+The active benchmarking lab lives in [`ai-lab/`](../ai-lab/):
+
+| Path | Purpose |
+|---|---|
+| [`ai-lab/README.md`](../ai-lab/README.md) | Setup guide — Termux, llama.cpp, running benchmarks |
+| [`ai-lab/prompts/finance-benchmark-prompts.json`](../ai-lab/prompts/finance-benchmark-prompts.json) | 20 Indian finance prompts (the standard test set) |
+| [`ai-lab/scripts/run_llama_benchmark.sh`](../ai-lab/scripts/run_llama_benchmark.sh) | Automated benchmark runner — captures timing, tok/s, thermal |
+| [`ai-lab/scripts/device_snapshot.sh`](../ai-lab/scripts/device_snapshot.sh) | Device state capture — RAM, battery, thermal zones |
+| [`ai-lab/MODEL_EVALUATION_TEMPLATE.md`](../ai-lab/MODEL_EVALUATION_TEMPLATE.md) | Fill one per model evaluated |
+| `ai-lab/results/` | Gitignored — JSONL results, logs, snapshots |
+| `ai-lab/models/` | Gitignored — GGUF model files |
+
+**Start here:** [`ai-lab/README.md`](../ai-lab/README.md) has the complete setup and execution guide for Samsung S24 Ultra and mid-range devices.
+
+---
+
 ## Goals
 
 The Phase 3 AI lab has one purpose: **determine whether a quantized local LLM can meet production quality bars on a real mid-range Android device before any AI code touches the production app.**
