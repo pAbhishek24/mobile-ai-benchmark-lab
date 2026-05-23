@@ -1,0 +1,115 @@
+name: AI Benchmark Result
+description: Submit a model benchmark result from the Phase 3 AI Lab
+labels: ["phase-3", "ai-lab", "benchmark"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to record a Termux + llama.cpp benchmark result.
+        See `docs/PHASE_3_AI_LAB.md` for the full benchmark protocol.
+
+  - type: input
+    id: model
+    attributes:
+      label: Model name
+      placeholder: "e.g. Qwen2.5 1.5B Q4_K_M"
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Test device
+      placeholder: "e.g. Samsung S24 Ultra (Snapdragon 8 Gen 3, 12 GB RAM)"
+    validations:
+      required: true
+
+  - type: input
+    id: android_version
+    attributes:
+      label: Android version
+      placeholder: "e.g. Android 14"
+    validations:
+      required: true
+
+  - type: input
+    id: disk_size
+    attributes:
+      label: Model disk size (MB)
+      placeholder: "e.g. 986"
+    validations:
+      required: true
+
+  - type: input
+    id: ram_usage
+    attributes:
+      label: Peak RAM usage during inference (MB)
+      description: App + model combined, from Android Memory Profiler or /proc/meminfo
+      placeholder: "e.g. 1240"
+    validations:
+      required: true
+
+  - type: input
+    id: first_token_latency
+    attributes:
+      label: First token latency (ms)
+      placeholder: "e.g. 1850"
+    validations:
+      required: true
+
+  - type: input
+    id: tokens_per_sec
+    attributes:
+      label: Tokens/sec (generation speed)
+      placeholder: "e.g. 14.2"
+    validations:
+      required: true
+
+  - type: input
+    id: full_response_time
+    attributes:
+      label: Full response time for 200-token output (seconds)
+      placeholder: "e.g. 12.4"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: thermal_throttle
+    attributes:
+      label: Thermal throttle observed?
+      options:
+        - "No — device stayed cool"
+        - "Mild — slight warmth, no throttle"
+        - "Yes — performance degraded after a few queries"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: quality
+    attributes:
+      label: Finance answer quality (1–5)
+      description: Based on the benchmark prompt set in PHASE_3_AI_LAB.md
+      options:
+        - "5 — Excellent, accurate and actionable"
+        - "4 — Good, mostly relevant"
+        - "3 — Acceptable, some irrelevant content"
+        - "2 — Poor, mostly off-topic"
+        - "1 — Unusable"
+    validations:
+      required: true
+
+  - type: textarea
+    id: sample_response
+    attributes:
+      label: Sample response (finance budget prompt)
+      description: Paste the model's response to the standard budget prompt from the benchmark script
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / observations
+      placeholder: "Model hallucinated rupee amounts. Hindi words in prompt caused confusion. etc."
+    validations:
+      required: false
