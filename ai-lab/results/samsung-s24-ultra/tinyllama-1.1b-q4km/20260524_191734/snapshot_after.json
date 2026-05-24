@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-05-24T13:50:42Z",
+  "label": "after",
+  "device": {
+    "model": "SM-S928B",
+    "brand": "samsung",
+    "board": "pineapple",
+    "android_version": "16",
+    "android_sdk": "36",
+    "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+  },
+  "cpu": {
+    "hardware": "\nunknown",
+    "cores": 8,
+    "max_freq": "2265600kHz",
+    "current_freq": "787200kHz",
+    "load_avg_1_5_15": "unknown"
+  },
+  "memory": {
+    "total_mb": 11085,
+    "available_mb": 2947,
+    "used_mb": 8138
+  },
+  "storage": {
+    "home_total": "222G",
+    "home_used": "156G",
+    "home_free": "66G"
+  },
+  "battery": {
+    "level_pct": "unknown",
+    "status": "unknown",
+    "temp_c": "unknown"
+  },
+  "thermal": {
+    "android_status": "unknown",
+    "zones": [
+      {
+        "zone": "thermal_zone0",
+        "type": "aoss-0",
+        "temp_c": 43.2
+      },
+      {
+        "zone": "thermal_zone1",
+        "type": "cpuss-0",
+        "temp_c": 46.7
+      },
+      {
+        "zone": "thermal_zone10",
+        "type": "cpu-2-2-1",
+        "temp_c": 46.7
+      },
+      {
+        "zone": "thermal_zone11",
+        "type": "cpu-1-0-0",
+        "temp_c": 53.0
+      },
+      {
+        "zone": "thermal_zone12",
+        "type": "cpu-1-0-1",
+        "temp_c": 55.4
+      },
+      {
+        "zone": "thermal_zone13",
+        "type": "cpu-1-1-0",
+        "temp_c": 48.7
+      },
+      {
+        "zone": "thermal_zone14",
+        "type": "cpu-1-1-1",
+        "temp_c": 49.9
+      },
+      {
+        "zone": "thermal_zone15",
+        "type": "aoss-1",
+        "temp_c": 44.8
+      }
+    ]
+  }
+}
