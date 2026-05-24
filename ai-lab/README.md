@@ -146,6 +146,10 @@ cd ~/personal-finance-assistant
   --max-tokens 256
 ```
 
+Optional flags:
+- `--resume` to continue a partial run (skips prompt IDs already present in `benchmark.jsonl`)
+- `--debug` to capture a bash trace in `ai-lab/logs/.../debug_trace.log`
+
 Example (low-end baseline device):
 
 ```bash
@@ -196,6 +200,22 @@ If none exist, build llama.cpp (see Part 2) and re-run.
 - Some models require license acceptance or auth.
 - Confirm the URL in `ai-lab/models/model-registry.json`.
 - Re-run `download_model.sh` after fixing the entry.
+
+---
+
+## Self-Test (recommended before first real run)
+
+```bash
+cd ~/personal-finance-assistant
+./ai-lab/scripts/self_test.sh
+```
+
+This validates:
+- `python3` + `jq`
+- llama.cpp binary detection
+- prompts JSON validity
+- snapshot JSON validity
+- basic report generation
 
 This gives you access to the prompt file and scripts directly on the device.
 
