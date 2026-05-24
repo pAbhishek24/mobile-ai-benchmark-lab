@@ -137,17 +137,33 @@ This does:
 5. snapshot after
 6. write JSONL/CSV/Markdown outputs to `ai-lab/results/...`
 
-Example (Samsung S24 Ultra):
+### Smoke test (run this first — ~2 minutes)
+
+Runs only the first 2 prompts with max-tokens=64. Validates the full pipeline without waiting for all 20 prompts.
 
 ```bash
 cd ~/personal-finance-assistant
 ./ai-lab/scripts/run_model_evaluation.sh \
   --model qwen2.5-1.5b-q4km \
   --device-label samsung-s24-ultra \
-  --max-tokens 256
+  --smoke
+```
+
+If the smoke test completes with at least 1 success, run the full benchmark.
+
+### Full benchmark (Samsung S24 Ultra)
+
+```bash
+cd ~/personal-finance-assistant
+./ai-lab/scripts/run_model_evaluation.sh \
+  --model qwen2.5-1.5b-q4km \
+  --device-label samsung-s24-ultra \
+  --max-tokens 256 \
+  --prompt-timeout 90
 ```
 
 Optional flags:
+- `--prompt-timeout N` — kill a hanging prompt after N seconds (default: 90)
 - `--resume` to continue a partial run (skips prompt IDs already present in `benchmark.jsonl`)
 - `--debug` to capture a bash trace in `ai-lab/logs/.../debug_trace.log`
 
