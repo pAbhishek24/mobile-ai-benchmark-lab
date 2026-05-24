@@ -255,3 +255,49 @@ Rationale:
 - Sets the upper bound — if it passes, evaluate smaller models for wider device support
 
 See `docs/TERMUX_AI_LAB_SETUP.md` for step-by-step execution.
+
+---
+
+## Automated Workflow (Phase 3 AI Lab)
+
+We standardize all benchmarks using the automated scripts under `ai-lab/scripts/` so results are comparable across devices/models.
+
+### One-command run (on-device, Termux)
+
+```bash
+cd ~/personal-finance-assistant
+./ai-lab/scripts/run_model_evaluation.sh \
+  --model qwen2.5-1.5b-q4km \
+  --device-label samsung-s24-ultra \
+  --max-tokens 256
+```
+
+This produces a timestamped folder:
+
+`ai-lab/results/<device>/<model>/<timestamp>/`
+
+Containing:
+- `benchmark.jsonl` (one record per prompt)
+- `summary.csv`
+- `summary.md`
+- `snapshot_before.json`
+- `snapshot_after.json`
+
+### Low-end device requirement before production AI
+
+Before any “production AI” integration is considered, we must run at least one low-end baseline benchmark (smaller model, fewer tokens) and compare:
+- p50 latency
+- tok/s
+- stability (crashes/timeouts)
+- qualitative finance rubric score (no hallucinations)
+
+### Report comparison process
+
+When comparing models, always attach:
+- `summary.md`
+- `summary.csv`
+- snapshots before/after
+
+Do not attach:
+- model binaries (`*.gguf`)
+- personal financial data

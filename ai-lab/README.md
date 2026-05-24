@@ -12,16 +12,26 @@ This directory contains the Phase 3 AI benchmarking lab. It is completely isolat
 ai-lab/
 ├── prompts/
 │   └── finance-benchmark-prompts.json   ← 20 Indian finance prompts
+├── models/
+│   └── model-registry.json              ← model ids + download URLs (NOT model files)
 ├── scripts/
-│   ├── run_llama_benchmark.sh           ← main benchmark runner
-│   └── device_snapshot.sh              ← device state capture
-├── results/                             ← gitignored output (JSONL, logs)
+│   ├── download_model.sh                ← downloads models to ~/llama.cpp/models (never into git)
+│   ├── run_model_evaluation.sh          ← full evaluation runner (snapshots + JSONL/CSV/MD)
+│   ├── push_benchmark_report.sh         ← commits/pushes only report artifacts
+│   ├── device_snapshot.sh               ← device state capture (Termux)
+│   └── run_llama_benchmark.sh           ← legacy runner (kept for reference)
+├── results/                             ← committed benchmark reports (JSONL/CSV/MD/snapshots)
 │   └── .gitkeep
-├── models/                              ← gitignored model files
 └── MODEL_EVALUATION_TEMPLATE.md        ← fill one per model tested
 ```
 
 ---
+
+## Safety / Privacy
+
+- Benchmark prompts are **synthetic**. Do not benchmark using personal SMS, real bank statements, or private exports.
+- Do **not** paste raw private outputs into issues/PRs.
+- Do **not** commit model binaries (`*.gguf`) to git. Models are downloaded to `~/llama.cpp/models/`.
 
 ## Part 1 — Termux Setup
 
@@ -36,7 +46,7 @@ ai-lab/
 
 ```bash
 pkg update -y && pkg upgrade -y
-pkg install -y git clang cmake make python wget curl
+pkg install -y git clang cmake make python wget curl jq coreutils
 ```
 
 Verify:
@@ -44,6 +54,7 @@ Verify:
 clang --version
 python3 --version
 cmake --version
+jq --version
 ```
 
 ### Grant storage access (required once)
@@ -80,12 +91,7 @@ Verify build:
 
 ## Part 3 — Model Folder Convention
 
-Store models here (gitignored):
-```
-ai-lab/models/<model-name>.gguf
-```
-
-Or in Termux home (also fine):
+Store models here (recommended, never in git):
 ```
 ~/llama.cpp/models/<model-name>.gguf
 ```
@@ -100,13 +106,11 @@ Or in Termux home (also fine):
 | 4 | Qwen2.5-0.5B-Instruct-Q4_K_M | ~400MB | Low-end device candidate |
 | 5 | Gemma-2-2B-IT-Q4_K_M | ~1.5GB | Benchmark only — likely too large |
 
-### Download a model (example — Qwen2.5 1.5B)
+### Download a model (one-command, from the registry)
 
 ```bash
-mkdir -p ~/llama.cpp/models
-cd ~/llama.cpp/models
-
-wget "https://huggingface.co/bartowski/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf"
+cd ~/personal-finance-assistant
+./ai-lab/scripts/download_model.sh --model qwen2.5-1.5b-q4km
 ```
 
 ---
@@ -119,6 +123,79 @@ git clone https://github.com/pAbhishek24/personal-finance-assistant.git
 cd personal-finance-assistant
 git checkout phase-3-ai-lab
 ```
+
+---
+
+## One-Command Benchmark (Recommended)
+
+This does:
+1. tool checks
+2. model download (if missing)
+3. snapshot before
+4. run all finance prompts
+5. snapshot after
+6. write JSONL/CSV/Markdown outputs to `ai-lab/results/...`
+
+Example (Samsung S24 Ultra):
+
+```bash
+cd ~/personal-finance-assistant
+./ai-lab/scripts/run_model_evaluation.sh \
+  --model qwen2.5-1.5b-q4km \
+  --device-label samsung-s24-ultra \
+  --max-tokens 256
+```
+
+Example (low-end baseline device):
+
+```bash
+./ai-lab/scripts/run_model_evaluation.sh \
+  --model qwen2.5-0.5b-q4km \
+  --device-label low-end-android \
+  --max-tokens 192
+```
+
+Outputs are written to:
+
+`ai-lab/results/<device>/<model>/<timestamp>/`
+
+- `benchmark.jsonl`
+- `summary.csv`
+- `summary.md`
+- `snapshot_before.json`
+- `snapshot_after.json`
+
+---
+
+## One-Command Report Push (Optional)
+
+After a run completes, push only the report artifacts:
+
+```bash
+cd ~/personal-finance-assistant
+./ai-lab/scripts/push_benchmark_report.sh \
+  --result-dir ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/<timestamp>
+```
+
+---
+
+## Troubleshooting
+
+### Missing `llama-cli` / `main`
+
+- Expected locations:
+  - `llama-cli` in PATH
+  - or `~/llama.cpp/build/bin/llama-cli`
+  - or `main` in PATH
+  - or `~/llama.cpp/main`
+
+If none exist, build llama.cpp (see Part 2) and re-run.
+
+### HuggingFace download fails
+
+- Some models require license acceptance or auth.
+- Confirm the URL in `ai-lab/models/model-registry.json`.
+- Re-run `download_model.sh` after fixing the entry.
 
 This gives you access to the prompt file and scripts directly on the device.
 
