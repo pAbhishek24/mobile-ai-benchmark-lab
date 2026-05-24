@@ -139,7 +139,7 @@ This does:
 
 ### Smoke test (run this first — ~2 minutes)
 
-Runs only the first 2 prompts with max-tokens=64. Validates the full pipeline without waiting for all 20 prompts.
+Runs only the first 2 prompts with max-tokens=48 and thermal-safe defaults. Validates the full pipeline without waiting for all 20 prompts.
 
 ```bash
 cd ~/personal-finance-assistant
@@ -159,11 +159,14 @@ cd ~/personal-finance-assistant
   --model qwen2.5-1.5b-q4km \
   --device-label samsung-s24-ultra \
   --max-tokens 256 \
+  --threads 4 \
   --prompt-timeout 90
 ```
 
 Optional flags:
 - `--prompt-timeout N` — kill a hanging prompt after N seconds (default: 90)
+- `--threads N` — use 4 for realistic mobile usage; use 8 only for stress testing
+- `--cooldown-seconds N` — sleep between prompts to reduce thermal spikes (default: 30)
 - `--resume` to continue a partial run (skips prompt IDs already present in `benchmark.jsonl`)
 - `--debug` to capture a bash trace in `ai-lab/logs/.../debug_trace.log`
 
@@ -173,8 +176,15 @@ Example (low-end baseline device):
 ./ai-lab/scripts/run_model_evaluation.sh \
   --model qwen2.5-0.5b-q4km \
   --device-label low-end-android \
-  --max-tokens 192
+  --max-tokens 192 \
+  --threads 4
 ```
+
+### Mobile-safe guidance
+
+- Prefer `--threads 4` for realistic mobile usage and better thermals.
+- Avoid `--threads 8` unless explicitly stress testing.
+- Keep cooldown enabled (`--cooldown-seconds 30` default).
 
 Outputs are written to:
 
