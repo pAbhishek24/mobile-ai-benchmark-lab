@@ -15,18 +15,38 @@ set -euo pipefail
 
 LABEL="snapshot"
 OUTPUT_FILE=""
+RAW_OUT_FILE=""
 
-while getopts "l:o:h" opt; do
-  case $opt in
-    l) LABEL="$OPTARG" ;;
-    o) OUTPUT_FILE="$OPTARG" ;;
-    h)
-      echo "Usage: $0 [-l <label>] [-o <output_file>]"
-      exit 0
+usage() {
+  cat <<EOF
+Usage:
+  $0 -l <label> -o <output.json> [--raw-out <raw.txt>]
+
+Examples:
+  $0 -l before -o snapshot_before.json
+  $0 -l before -o snapshot_before.json --raw-out snapshot_before.raw.txt
+EOF
+}
+
+# Manual arg parsing (getopts breaks on Termux for long options like --raw-out).
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -l) LABEL="${2:-}"; shift 2 ;;
+    -o) OUTPUT_FILE="${2:-}"; shift 2 ;;
+    --raw-out) RAW_OUT_FILE="${2:-}"; shift 2 ;;
+    -h|--help) usage; exit 0 ;;
+    *)
+      echo "ERROR: unknown arg: $1" >&2
+      usage >&2
+      exit 1
       ;;
-    *) ;;
   esac
 done
+
+if [[ -z "$OUTPUT_FILE" ]]; then
+  # Backward compatible: if no -o given, print JSON to stdout.
+  OUTPUT_FILE=""
+fi
 
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 DATE_ISO=$(date -u +%Y-%m-%dT%H:%M:%SZ)
@@ -126,16 +146,8 @@ THERMAL_STATUS=$(getprop android.thermal.status 2>/dev/null || echo "unknown")
 LOAD_AVG=$(cat /proc/loadavg 2>/dev/null | awk '{print $1","$2","$3}' || echo "unknown")
 
 # ── Build output (JSON-safe; never interpolate into Python source) ─────────────
-SNAPSHOT_RAW_OUT=""
-while [[ $# -gt 0 ]]; do
-  case "$1" in
-    --raw-out) SNAPSHOT_RAW_OUT="${2:-}"; shift 2 ;;
-    *) shift 1 ;;
-  esac
-done
-
-if [ -n "$SNAPSHOT_RAW_OUT" ]; then
-  mkdir -p "$(dirname "$SNAPSHOT_RAW_OUT")"
+if [[ -n "$RAW_OUT_FILE" ]]; then
+  mkdir -p "$(dirname "$RAW_OUT_FILE")"
   {
     echo "timestamp=$DATE_ISO"
     echo "label=$LABEL"
@@ -161,7 +173,7 @@ if [ -n "$SNAPSHOT_RAW_OUT" ]; then
     echo "battery_temp=$BATTERY_TEMP"
     echo "thermal_status=$THERMAL_STATUS"
     echo "thermal_zones_json=$THERMAL_JSON"
-  } > "$SNAPSHOT_RAW_OUT"
+  } > "$RAW_OUT_FILE"
 fi
 
 export PFA_SNAP_TIMESTAMP="$DATE_ISO"
@@ -269,6 +281,9 @@ if [ -n "$OUTPUT_FILE" ]; then
   mkdir -p "$(dirname "$OUTPUT_FILE")"
   echo "$OUTPUT" > "$OUTPUT_FILE"
   echo "Snapshot saved: $OUTPUT_FILE" >&2
+  # Post-write validation
+  [[ -s "$OUTPUT_FILE" ]] || { echo "ERROR: snapshot file empty: $OUTPUT_FILE" >&2; exit 1; }
+  python3 -m json.tool "$OUTPUT_FILE" >/dev/null
 else
   echo "$OUTPUT"
 fi

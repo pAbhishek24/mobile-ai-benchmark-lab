@@ -66,7 +66,9 @@ SNAP_TMP_DIR="$REPO_ROOT/ai-lab/logs/self_test"
 mkdir -p "$SNAP_TMP_DIR"
 SNAP_JSON="$SNAP_TMP_DIR/snapshot.json"
 SNAP_RAW="$SNAP_TMP_DIR/snapshot.raw.txt"
-"$REPO_ROOT/ai-lab/scripts/device_snapshot.sh" -l self_test -o "$SNAP_JSON" --raw-out "$SNAP_RAW" >/dev/null 2>&1 || fail "device_snapshot.sh failed"
+"$REPO_ROOT/ai-lab/scripts/device_snapshot.sh" -l self_test -o "$SNAP_JSON" --raw-out "$SNAP_RAW" >/dev/null 2>&1 || fail "device_snapshot.sh failed (see ai-lab/logs/self_test)"
+[[ -f "$SNAP_JSON" ]] || fail "snapshot.json was not created: $SNAP_JSON"
+[[ -s "$SNAP_JSON" ]] || fail "snapshot.json is empty: $SNAP_JSON"
 python3 -m json.tool "$SNAP_JSON" >/dev/null || fail "snapshot JSON invalid"
 jq -e '.device.model and .cpu.cores' "$SNAP_JSON" >/dev/null || fail "snapshot JSON missing expected fields"
 ok "device snapshot valid"
@@ -113,4 +115,3 @@ PY
 ok "report generation valid"
 
 ok "SELF TEST PASSED"
-
