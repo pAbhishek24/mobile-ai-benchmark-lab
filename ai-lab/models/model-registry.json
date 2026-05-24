@@ -45,6 +45,54 @@
       "sizeEstimateMb": 750,
       "targetDeviceTier": "mid",
       "notes": "If the URL changes upstream, update this registry entry. License acceptance may be required."
+    },
+    {
+      "id": "gemma-2b-q4km",
+      "displayName": "Gemma 2 2B IT (Q4_K_M)",
+      "provider": "Google",
+      "huggingfaceUrl": "https://huggingface.co/bartowski/gemma-2-2b-it-GGUF/resolve/main/gemma-2-2b-it-Q4_K_M.gguf",
+      "expectedFilename": "gemma-2-2b-it-Q4_K_M.gguf",
+      "sizeEstimateMb": 1600,
+      "targetDeviceTier": "high",
+      "family": "gemma",
+      "quant": "Q4_K_M",
+      "hf_url": "https://huggingface.co/bartowski/gemma-2-2b-it-GGUF/resolve/main/gemma-2-2b-it-Q4_K_M.gguf",
+      "filename": "gemma-2-2b-it-Q4_K_M.gguf",
+      "size_mb": 1600,
+      "runtime": "llama.cpp",
+      "notes": "Likely exceeds 800MB RAM hard constraint. Benchmark to confirm. May fail HC-2."
+    },
+    {
+      "id": "phi3-mini-q4km",
+      "displayName": "Phi-3 Mini 4K Instruct (Q4_K_M)",
+      "provider": "Microsoft",
+      "huggingfaceUrl": "https://huggingface.co/bartowski/Phi-3-mini-4k-instruct-GGUF/resolve/main/Phi-3-mini-4k-instruct-Q4_K_M.gguf",
+      "expectedFilename": "Phi-3-mini-4k-instruct-Q4_K_M.gguf",
+      "sizeEstimateMb": 2200,
+      "targetDeviceTier": "flagship",
+      "family": "phi3",
+      "quant": "Q4_K_M",
+      "hf_url": "https://huggingface.co/bartowski/Phi-3-mini-4k-instruct-GGUF/resolve/main/Phi-3-mini-4k-instruct-Q4_K_M.gguf",
+      "filename": "Phi-3-mini-4k-instruct-Q4_K_M.gguf",
+      "size_mb": 2200,
+      "runtime": "llama.cpp",
+      "notes": "Exceeds 1.5GB disk hard constraint (HC-1). Benchmark for quality reference only — not a production candidate."
+    },
+    {
+      "id": "llama3.2-3b-q4km",
+      "displayName": "Llama 3.2 3B Instruct (Q4_K_M)",
+      "provider": "Meta",
+      "huggingfaceUrl": "https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+      "expectedFilename": "Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+      "sizeEstimateMb": 2000,
+      "targetDeviceTier": "flagship",
+      "family": "llama3.2",
+      "quant": "Q4_K_M",
+      "hf_url": "https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+      "filename": "Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+      "size_mb": 2000,
+      "runtime": "llama.cpp",
+      "notes": "Larger Llama 3.2 variant. Exceeds disk hard constraint (HC-1). Benchmark on S24 Ultra only for quality reference."
     }
   ]
 }
