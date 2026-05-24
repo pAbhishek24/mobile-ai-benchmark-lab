@@ -559,8 +559,9 @@ while IFS=$'\t' read -r pid prompt; do
 done <"$PROMPTS_TSV"
 
 # ── Cleanup timeout temp files ────────────────────────────────────────────────
+# FIX: _OUT_FILE was split into _STDOUT_FILE + _STDERR_FILE; old name was unbound under set -u.
 
-rm -f "$_TO_FILE" "$_EC_FILE" "$_OUT_FILE"
+rm -f "$_TO_FILE" "$_EC_FILE" "$_STDOUT_FILE" "$_STDERR_FILE"
 
 # ── Snapshot after ────────────────────────────────────────────────────────────
 
