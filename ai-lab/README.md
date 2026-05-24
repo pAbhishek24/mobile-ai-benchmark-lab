@@ -22,6 +22,7 @@ ai-lab/
 │   └── run_llama_benchmark.sh           ← legacy runner (kept for reference)
 ├── results/                             ← committed benchmark reports (JSONL/CSV/MD/snapshots)
 │   └── .gitkeep
+├── reports/                             ← human-readable comparisons derived from results
 └── MODEL_EVALUATION_TEMPLATE.md        ← fill one per model tested
 ```
 
