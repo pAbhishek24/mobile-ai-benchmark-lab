@@ -1,0 +1,196 @@
+I have two credit cards. Card A: SBI with ₹22,000 outstanding at 3.2% monthly interest. Card B: ICICI with ₹9,500 outstanding at 3.8% monthly interest. I can pay ₹12,000 extra this month toward credit card debt. Which card should I prioritize and why? How much total interest will I save? To determine which card to prioritize, we need to compare the total interest savings for each card. Let's break down the calculations step by step.
+
+### Card A: SBI
+- Outstanding balance: ₹22,000
+- Monthly interest rate: 3.2%
+- Total interest for 12 months: 
+  \[
+  \text{Total interest for 12 months} = 22,000 \times \frac{3.2\%}{12} = 22,000 \times 0.002667 = 554.44
+  \]
+
+### Card B: ICICI
+- Outstanding balance: ₹9,500
+- Monthly interest rate: 3.8%
+- Total interest for 12 months: 
+  \[
+  \text{Total interest for 12 months} = 9,500 \times \frac{3.8\%}{12} = 9,500 \times 0.003333 = 311.65
+  \]
+
+### Total Interest Savings
+- Total interest savings for Card A: ₹554.44
+- Total interest savings for Card B: ₹311.65
+- Total interest savings for both cards: 
+  \[
+  \text{Total interest savings} = 554.44 + 311.65 = 866.09
+  \]
+
+### Comparison
+- Card A: ₹554.44
+- Card B: ₹311.65
+- Total interest savings for both cards: ₹866.09
+
+### Conclusion
+I should prioritize Card B, which has a total interest savings of ₹311.65. This is the higher amount, and it is the only card that offers a positive total interest savings.
+
+### Total Interest Savings
+\[
+\boxed{866.09}
+\]<|endoftext|>,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,

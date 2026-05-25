@@ -1,0 +1,35 @@
+I have three debts: Personal loan ₹1.2 lakhs at 16% annual interest, remaining 18 months. Credit card ₹35,000 at 42% annual interest. Gold loan ₹80,000 at 11% annual interest, remaining 24 months. I have ₹15,000 extra per month to put toward debt repayment. Using the avalanche method, which debt should I attack first and why? How long will it take to clear all debts? To determine which debt to attack first using the avalanche method, we need to calculate the total amount of debt and the time it will take to clear all debts. The avalanche method involves dividing the total debt into smaller and smaller amounts, with each step being a multiple of the previous step.
+
+Let's start by calculating the total amount of debt:
+
+1. **Personal loan**: ₹1.2 lakhs
+2. **Credit card**: ₹35,000
+3. **Gold loan**: ₹80,000
+
+Total debt = ₹1.2 lakhs + ₹35,000 + ₹80,000 = ₹122,200
+
+Next, we need to determine how many steps we need to make to clear all debts. The avalanche method involves dividing the total debt by the smallest debt amount and then multiplying by the number of steps:
+
+1. Divide ₹122,200 by ₹1.2 lakhs:
+   \[
+   \frac{122,200}{1.2} = 101,833.33 \text{ steps}
+   \]
+
+Since we can't have a fraction of a step, we round up to the next whole number:
+   \[
+   101,834 \text{ steps}
+   \]
+
+Now, we need to determine how long it will take to clear all debts using the avalanche method. The avalanche method involves dividing the total debt by the smallest debt amount and then multiplying by the number of steps:
+
+1. Divide ₹122,200 by ₹1.2 lakhs:
+   \[
+   \frac{122,200}{1.2} = 101,833.33 \text{ steps}
+   \]
+
+Since we can't have a fraction of a step, we round up to the next whole number:
+   \[
+   101,833.33 \text{ steps}
+   \]
+
+Therefore, the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of the number of steps of

@@ -1,0 +1,37 @@
+I want to save ₹25 lakhs for my child's education in 12 years. I can invest monthly in an equity mutual fund SIP. Assuming 12% annual return, how much do I need to invest per month to reach this goal? If I can only invest ₹6,000/month, what corpus will I have in 12 years? To determine how much you need to invest per month to reach your goal of ₹25 lakhs in 12 years, we need to follow these steps:
+
+1. Calculate the total amount you need to invest in 12 years.
+2. Determine the monthly investment amount required to achieve this total amount.
+
+### Step 1: Calculate the total amount needed to invest in 12 years
+
+First, we need to find the total number of monthly investments required to reach ₹25 lakhs in 12 years. Since there are 12 months in a year, the total number of monthly investments required is:
+
+\[
+\text{Total number of monthly investments} = \frac{25 \text{ lakhs}}{12 \text{ lakhs/month}} = \frac{25}{12} \approx 2.0833 \text{ months}
+\]
+
+Next, we need to find the total amount you need to invest in 12 years. Since there are 12 months in a year, the total amount you need to invest is:
+
+\[
+\text{Total amount needed} = 25 \text{ lakhs} \times 12 \text{ months} = 300 \text{ lakhs}
+\]
+
+### Step 2: Determine the monthly investment amount required to achieve this total amount
+
+We know that the annual return is 12%, so the monthly return is:
+
+\[
+\text{Monthly return} = \frac{12\%}{12} = 1\% \text{ per month}
+\]
+
+To find the monthly investment amount required to achieve a total amount of ₹300 lakhs in 12 years, we use the formula for the future value of an investment with monthly compounding:
+
+\[
+\text{Future value} = \text{Present value} \times (1 + \text{monthly return})^{\text{number of months}}
+\]
+
+Substituting the known values:
+
+\[
+300 \text{ lakhs} = 25 \text{ lakhs} \times (1 + 1\%)^{12} = 300 \text{ lakhs} = 300 \text{ lakhs} = 300 \text{ lakhs} = 300 \text{ lakhs} = 300 \text{ lakhs} = 30

@@ -1,0 +1,34 @@
+I received a Diwali bonus of ₹80,000. I have a home loan outstanding of ₹32 lakhs at 8.75% interest with 18 years remaining, and a personal loan outstanding of ₹1.5 lakhs at 15% interest with 2 years remaining. Should I use the bonus to prepay the home loan, fully close the personal loan, or invest in mutual funds? Justify your recommendation. To determine the best use of the Diwali bonus, we need to compare the cost of borrowing the money versus the potential returns from investing it. Here's a step-by-step analysis:
+
+1. **Calculate the interest on the home loan if the bonus is used to prepay it:**
+   - The home loan is ₹32 lakhs at 8.75% interest for 18 years.
+   - The interest on the home loan is calculated as:
+     \[
+     \text{Interest} = \text{Principal} \times \text{Interest Rate} \times \text{Time}
+     \]
+     \[
+     \text{Interest} = 32,00,000 \times 0.0875 \times 18 = 5,08,000
+     \]
+   - If the bonus is used to prepay the home loan, the interest saved is ₹5,08,000.
+
+2. **Calculate the interest on the personal loan if the bonus is used to prepay it:**
+   - The personal loan is ₹1.5 lakhs at 15% interest for 2 years.
+   - The interest on the personal loan is calculated as:
+     \[
+     \text{Interest} = \text{Principal} \times \text{Interest Rate} \times \text{Time}
+     \]
+     \[
+     \text{Interest} = 1,50,000 \times 0.15 \times 2 = 45,000
+     \]
+   - If the bonus is used to prepay the personal loan, the interest saved is ₹45,000.
+
+3. **Calculate the total interest saved if the bonus is used to prepay both loans:**
+   - Total interest saved = Interest on home loan + Interest on personal loan
+     \[
+     \text{Total Interest Saved} = 5,08,000 + 45,000 = 5,12,000
+     \]
+
+4. **Calculate the total interest saved if the bonus is used to prepay both loans:**
+   - Total interest saved = Interest on home loan + Interest on personal loan
+     \text{Total Interest Saved} = 5,08,000
+     \text{Total Interest Saved} = 5,08,0

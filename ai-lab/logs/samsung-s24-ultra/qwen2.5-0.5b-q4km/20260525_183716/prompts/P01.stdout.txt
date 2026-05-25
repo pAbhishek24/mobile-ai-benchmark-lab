@@ -1,0 +1,30 @@
+My expenses this month are: Food ₹8,200, Transport ₹3,500, Rent ₹12,000, Utilities ₹2,800, Entertainment ₹1,500, Shopping ₹4,200. My monthly salary is ₹55,000. What percentage of my income did I spend in each category? What is my total spend and savings this month? To determine the percentage of income spent in each category and the total spend and savings, we need to follow these steps:
+
+1. Calculate the total expenses.
+2. Calculate the total income.
+3. Calculate the percentage of income spent in each category.
+4. Calculate the total spend and savings.
+
+**Step 1: Calculate the total expenses.**
+
+The total expenses are the sum of all the expenses listed:
+\[ \text{Total expenses} = \text{Food} + \text{Transport} + \text{Rent} + \text{Utilities} + \text{Entertainment} + \text{Shopping} \]
+\[ \text{Total expenses} = 8200 + 3500 + 12000 + 2800 + 1500 + 4200 \]
+\[ \text{Total expenses} = 31120 \]
+
+**Step 2: Calculate the total income.**
+
+The total income is the sum of all the income listed:
+\[ \text{Total income} = \text{Monthly salary} + \text{Transport} + \text{Rent} + \text{Utilities} + \text{Entertainment} + \text{Shopping} \]
+\[ \text{Total income} = 55000 + 3500 + 12000 + 2800 + 1500 + 4200 \]
+\[ \text{Total income} = 77220 \]
+
+**Step 3: Calculate the percentage of income spent in each category.**
+
+The percentage of income spent in each category is calculated by dividing the total expenses by the total income and then multiplying by 100.
+
+For Food:
+\[ \text{Percentage of income spent on Food} = \left( \frac{8200}{77220} \right) \times 100 \]
+\[ \text{Percentage of income spent on Food} = \left( \frac{8200}{77220} \right) \times 100 \]
+\[ \text{Percentage of income spent on Food} = \left( \frac{8200}{77220} \right) \times 100 \]
+\[ \text{Percentage of income spent on Food} = \left( \frac{8200

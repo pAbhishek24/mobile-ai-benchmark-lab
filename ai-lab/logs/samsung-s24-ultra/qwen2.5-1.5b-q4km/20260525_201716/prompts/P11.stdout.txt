@@ -1,0 +1,21 @@
+My monthly budget is ₹50,000. This month my actual spend is: Food ₹9,800 (budget ₹7,000), Transport ₹4,200 (budget ₹3,000), Rent ₹15,000 (budget ₹15,000), Entertainment ₹3,500 (budget ₹2,000), Shopping ₹6,800 (budget ₹4,000), Utilities ₹2,900 (budget ₹2,500). Which categories am I over budget in? By how much total? What are practical ways to reduce the biggest overruns next month? To determine which categories you are over budget in and by how much, we need to compare your actual spend with your budget for each category. Here are the details:
+
+- Food: Actual spend = ₹9,800, Budget = ₹7,000
+- Transport: Actual spend = ₹4,200, Budget = ₹3,000
+- Rent: Actual spend = ₹15,000, Budget = ₹15,000
+- Entertainment: Actual spend = ₹3,500, Budget = ₹2,000
+- Shopping: Actual spend = ₹6,800, Budget = ₹4,000
+- Utilities: Actual spend = ₹2,900, Budget = ₹2,500
+
+Now, let's calculate the over budget amounts for each category:
+
+1. Food: Over budget = ₹9,800 - ₹7,000 = ₹2,800
+2. Transport: Over budget = ₹4,200 - ₹3,000 = ₹1,200
+3. Rent: Over budget = ₹15,000 - ₹15,000 = ₹0
+4. Entertainment: Over budget = ₹3,500 - ₹2,000 = ₹1,500
+5. Shopping: Over budget = ₹6,800 - ₹4,000 = ₹2,800
+6. Utilities: Over budget = ₹2,900 - ₹2,500 = ₹400
+
+The categories you are over budget in are Food, Transport, Entertainment, and Shopping. The total over budget amount is:
+
+Total over budget = ₹2,800 + ₹1,200 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 + ₹1,500 +

@@ -1,0 +1,40 @@
+I invest ₹5,000 per month in an equity SIP. Assume 12% annual returns. How much corpus will I have after 5 years, 10 years, and 15 years? How much of that will be my actual investment vs returns? Answer in rupees. To calculate the corpus you will have after 5, 10, and 15 years with an equity SIP, we need to consider the compounding effect of the returns. Here's the step-by-step process:
+
+1. **Monthly Investment**: ₹5,000
+2. **Annual Return**: 12%
+3. **Compounding Period**: 12 months (1 year)
+
+### Formula for Compound Interest:
+\[ A = P \left(1 + \frac{r}{n}\right)^{nt} \]
+Where:
+- \( A \) is the amount of money accumulated after n years, including interest.
+- \( P \) is the principal amount (initial investment).
+- \( r \) is the annual interest rate (decimal).
+- \( n \) is the number of times interest is compounded per year.
+- \( t \) is the time the money is invested for in years.
+
+### For 5 Years:
+- \( P = 5000 \)
+- \( r = 0.12 \)
+- \( n = 12 \)
+- \( t = 5 \)
+
+\[ A = 5000 \left(1 + \frac{0.12}{12}\right)^{12 \times 5} \]
+\[ A = 5000 \left(1 + 0.01\right)^{60} \]
+\[ A = 5000 \left(1.01\right)^{60} \]
+\[ A \approx 5000 \times 1.8194 \]
+\[ A \approx 9097 \]
+
+### For 10 Years:
+- \( P = 5000 \)
+- \( r = 0.12 \)
+- \( n = 12 \)
+- \( t = 10 \)
+
+\[ A = 5000 \left(1 + \frac{0.12}{12}\right)^{12 \times 10} \]
+\[ A = 5000 \left(1 + 0.01\right)^{60} \]
+\[ A \approx 5000 \times 1.8194 \]
+\[ A \approx 9097 \]
+
+### For 10 Years:
+- \( P = 5000 \

@@ -1,0 +1,19 @@
+I have three EMIs: Home loan ₹18,500/month, Personal loan ₹6,200/month, Car loan ₹4,800/month. My take-home salary is ₹72,000. What is my total EMI burden as a percentage of income? Is this financially healthy? What is the recommended maximum EMI-to-income ratio? To calculate the total EMI burden as a percentage of income, we need to add up all the monthly EMIs and then divide by the total monthly income. 
+
+Total monthly EMIs = ₹18,500 + ₹6,200 + ₹4,800 = ₹29,500
+
+Total monthly income = ₹72,000
+
+Total EMI burden = ₹29,500 / ₹72,000 = 0.40 or 40%
+
+This is a healthy EMI-to-income ratio as it is less than 50%. However, it is still a significant amount of debt, as it is more than 50% of the take-home salary. It is recommended to keep EMIs to income ratios below 50% as it can lead to financial strain and may not be sustainable in the long run. It is also important to consider other factors such as the interest rate, the length of the loan, and the borrower's credit history when making decisions about EMIs. 
+
+In summary, the total EMI burden is 40%, which is a healthy ratio. However, it is still a significant amount of debt and should be considered in the context of other factors when making decisions about EMIs. It is also recommended to keep EMIs to income ratios below 50% as it can lead to financial strain and may not be sustainable in the long run. It is also important to consider other factors such as the interest rate, the length of the loan, and the borrower's credit history when making decisions about EMIs. 
+
+To calculate the total EMI burden as a percentage of income, we need to add up all the monthly EMIs and then divide by the total monthly income. 
+
+Total monthly EMIs = ₹18,500 + ₹6,200 + ₹4,800 = ₹29,500
+
+Total monthly income = ₹72,000
+
+Total EMI burden = ₹29,500 / ₹72,000 = 0.00000000000000000000000000000000000000000000000000000000000000000000000000

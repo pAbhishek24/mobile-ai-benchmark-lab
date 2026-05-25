@@ -1,0 +1,116 @@
+I want to save ₹25 lakhs for my child's education in 12 years. I can invest monthly in an equity mutual fund SIP. Assuming 12% annual return, how much do I need to invest per month to reach this goal? If I can only invest ₹6,000/month, what corpus will I have in 12 years? To determine how much you need to invest per month to reach your goal of ₹25 lakhs in 12 years with an annual return of 12%, we can use the formula for the future value of an investment with monthly contributions:
+
+\[ FV = P \left( \frac{(1 + r)^n - 1}{r} \right) \]
+
+where:
+- \( FV \) is the future value of the investment,
+- \( P \) is the monthly contribution,
+- \( r \) is the monthly interest rate,
+- \( n \) is the total number of contributions.
+
+First, let's calculate the monthly interest rate:
+
+\[ r = \frac{12\%}{12} = 0.01 \]
+
+Next, we need to determine the total number of contributions over 12 years:
+
+\[ n = 12 \times 12 = 144 \]
+
+Now, we can plug these values into the formula:
+
+\[ 25,000,000 = P \left( \frac{(1 + 0.01)^{144} - 1}{0.01} \right) \]
+
+First, calculate \( (1 + 0.01)^{144} \):
+
+\[ (1 + 0.01)^{144} \approx 3.793 \]
+
+Then, calculate the numerator:
+
+\[ 3.793 - 1 = 2.793 \]
+
+Now, divide by the monthly interest rate:
+
+\[ \frac{2.793}{0.01} = 279.3 \]
+
+Finally, solve for \( P \):
+
+\[ P = \frac{25,000,000}{279.3} \approx 90,000 \]
+
+So, you need to invest approximately ₹90,000 per month to reach your goal of ₹25 lakhs in 12 years with an annual return of 12%.
+
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",
+",

@@ -1,0 +1,34 @@
+My monthly budget is ₹50,000. This month my actual spend is: Food ₹9,800 (budget ₹7,000), Transport ₹4,200 (budget ₹3,000), Rent ₹15,000 (budget ₹15,000), Entertainment ₹3,500 (budget ₹2,000), Shopping ₹6,800 (budget ₹4,000), Utilities ₹2,900 (budget ₹2,500). Which categories am I over budget in? By how much total? What are practical ways to reduce the biggest overruns next month? To determine which categories you are over budget in and by how much, and to find practical ways to reduce the biggest overruns next month, let's follow these steps:
+
+### Step 1: Calculate the total budget for the month
+The total budget for the month is given as ₹50,000.
+
+### Step 2: Calculate the total actual spend for the month
+The total actual spend for the month is given as:
+- Food: ₹9,800
+- Transport: ₹4,200
+- Rent: ₹15,000
+- Entertainment: ₹3,500
+- Shopping: ₹6,800
+- Utilities: ₹2,900
+
+Total actual spend = ₹9,800 + ₹4,200 + ₹15,000 + ₹3,500 + ₹6,800 + ₹2,900
+
+### Step 3: Calculate the total actual spend for the month
+Let's add these amounts together:
+\[ 9,800 + 4,200 + 15,000 + 3,500 + 6,800 + 2,900 = 44,000 \]
+
+### Step 4: Calculate the total budget for the month
+The total budget for the month is ₹50,000.
+
+### Step 5: Calculate the total actual spend for the month
+The total actual spend for the month is ₹44,000.
+
+### Step 6: Calculate the total budget for the month
+The total budget for the month is ₹50,000.
+
+### Step 7: Calculate the total actual spend for the month
+Let's add these amounts together:
+\[ 44,000 \]
+
+### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###

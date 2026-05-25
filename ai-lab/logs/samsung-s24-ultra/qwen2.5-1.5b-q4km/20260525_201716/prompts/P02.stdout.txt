@@ -1,0 +1,38 @@
+Here is my food spend over 3 months: January ₹6,800, February ₹7,200, March ₹9,400. My monthly salary is ₹60,000. How much has my food spend increased? What percentage of my income is food spend in March vs January? Is this a concerning trend? If so, what can I do to improve my food spend? To determine how much your food spend has increased and what percentage of your income it represents in March compared to January, you can follow these steps:
+
+### Step 1: Calculate the increase in food spend from January to March.
+- Food spend in January: ₹6,800
+- Food spend in March: ₹9,400
+
+Increase in food spend = Food spend in March - Food spend in January
+= ₹9,400 - ₹6,800
+= ₹2,600
+
+### Step 2: Calculate the percentage of your income that food spend represents in March.
+- Monthly salary: ₹60,000
+- Food spend in March: ₹9,400
+
+Percentage of income spent on food = (Food spend in March / Monthly salary) * 100
+= (₹9,400 / ₹60,000) * 100
+= 0.1567 * 100
+= 15.67%
+
+### Step 3: Determine if this is a concerning trend.
+- In January: ₹6,800 / ₹60,000 * 100 = 11.33%
+- In February: ₹7,200 / ₹60,000 * 100 = 12%
+- In March: ₹9,400 / ₹60,000 * 100 = 15.67%
+
+The percentage of income spent on food has increased from 11.33% in January to 15.67% in March. This is a concerning trend because it suggests that your food expenses have become a larger portion of your total income.
+
+### Step 4: Identify potential reasons for the increase and suggest improvements.
+- **Reasons for the increase:**
+  - Increased food prices.
+  - Higher consumption of food.
+  - Increased spending on non-food items.
+  - Changes in your budget or priorities.
+
+### Suggestions for improvements:
+- **Changes in your priorities:**
+  - Increased food prices.
+  - Changes in your budget or priorities.
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

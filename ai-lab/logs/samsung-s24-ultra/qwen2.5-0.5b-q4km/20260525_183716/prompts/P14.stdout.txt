@@ -1,0 +1,24 @@
+My monthly take-home is ₹58,000. I want to maintain a minimum ₹10,000 emergency buffer in my account at all times. It is the 22nd of the month. I have spent ₹41,000. My only remaining fixed payment is a ₹5,500 EMI on the 29th. How much can I spend between now and month-end while protecting my ₹10,000 buffer? What percentage of my income am I saving this month? To determine how much you can spend between now and the month-end while protecting your ₹10,000 buffer, we need to follow these steps:
+
+1. Calculate the remaining amount of your monthly take-home after the fixed payment and the EMI.
+2. Determine how much you can spend between now and the month-end while protecting your ₹10,000 buffer.
+
+Let's start with the first step:
+
+1. Calculate the remaining amount of your monthly take-home after the fixed payment and the EMI.
+   - Fixed payment: ₹5,500
+   - EMI: ₹5,500
+   - Total fixed payment and EMI: ₹5,500 + ₹5,500 = ₹11,000
+   - Remaining amount: ₹58,000 - ₹11,000 = ₹47,000
+
+2. Determine how much you can spend between now and the month-end while protecting your ₹10,000 buffer.
+   - Remaining amount: ₹47,000
+   - ₹10,000 buffer: ₹10,000
+   - Amount to spend: ₹47,000 - ₹10,000 = ₹37,000
+
+3. Calculate the percentage of your income you are saving this month.
+   - Total monthly take-home: ₹58,000
+   - Amount to spend: ₹37,000
+   - Percentage saved: (₹37,000 / ₹58,000) * 100 = 63.57%
+
+So, the amount you can spend between now and the month-end while protecting your ₹10,000 buffer is ₹37,000, and you are saving 63.57% of your income this month. The amount you can spend between now and the month is ₹37,000, the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the

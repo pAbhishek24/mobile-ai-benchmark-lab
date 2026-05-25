@@ -1,0 +1,37 @@
+I invest ₹5,000 per month in an equity SIP. Assume 12% annual returns. How much corpus will I have after 5 years, 10 years, and 15 years? How much of that will be my actual investment vs returns? Answer in rupees. To calculate the future value of your investment, you can use the formula for compound interest:
+
+\[ A = P \times (1 + r)^n \]
+
+Where:
+- \( A \) is the future value of the investment.
+- \( P \) is the principal amount (initial investment).
+- \( r \) is the annual interest rate (12% or 0.12).
+- \( n \) is the number of years the money is invested for (5 years, 10 years, and 15 years).
+
+Given:
+- \( P = 5000 \) rupees
+- \( r = 0.12 \)
+- \( n = 5 \) years
+
+Let's calculate the future value for each scenario:
+
+### 5 Years
+\[ A = 5000 \times (1 + 0.12)^5 \]
+\[ A = 5000 \times (1.12)^5 \]
+\[ A = 5000 \times 1.8106 \]
+\[ A = 9053 \] rupees
+
+### 10 Years
+\[ A = 5000 \times (1 + 0.12)^{10} \]
+\[ A = 5000 \times (1.12)^{10} \]
+\[ A = 5000 \times 3.1062 \]
+\[ A = 15531 \] rupees
+
+### 15 Years
+\[ A = 5000 \times (1 + 0.12)^{15} \]
+\[ A = 5000 \times (1.12)^{15} \]
+\[ A = 5000 \times 4.4969 \]
+\[ A = 22484.5 \] rupees
+
+### Actual Investment vs Returns
+The actual investment is the initial amount invested, which is ₹5,000. The returns are the future value of the investment, which is ₹9,053 rupees. The returns are the future value of the investment, which is the future value of the investment, which is the future value of the investment, which is the future value of the investment, which is the future value of the investment, which is the future value of the investment, which is

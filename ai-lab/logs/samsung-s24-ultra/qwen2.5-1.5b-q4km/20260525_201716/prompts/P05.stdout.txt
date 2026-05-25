@@ -1,0 +1,33 @@
+My HDFC credit card outstanding is ₹38,000. Due date is 5 days from now. I have ₹15,000 available in savings. The card charges 3.5% monthly interest on the unpaid balance. If I pay ₹15,000 now, how much interest will I pay next month on the remaining ₹23,000? What is the best strategy to clear this debt in 3 months? To determine the best strategy to clear the debt in 3 months, let's break down the problem step by step.
+
+### Current Situation:
+- Outstanding balance: ₹38,000
+- Due date: 5 days from now
+- Available in savings: ₹15,000
+- Card charges: 3.5% monthly interest on the unpaid balance
+
+### Strategy 1: Pay ₹15,000 Now
+- Remaining balance after payment: ₹23,000
+- Interest charged next month: 3.5% of ₹23,000 = ₹7,550
+
+### Strategy 2: Pay ₹15,000 After 5 Days
+- Remaining balance after payment: ₹23,000
+- Interest charged next month: 3.5% of ₹23,000 = ₹7,550
+
+### Strategy 3: Pay ₹15,000 After 10 Days
+- Remaining balance after payment: ₹23,000
+- Interest charged next month: 3.5% of ₹23,000 = ₹7,550
+
+### Strategy 4: Pay ₹15,000 After 15 Days
+- Remaining balance after payment: ₹23,000
+- Interest charged next month: 3.5% of ₹23,000 = ₹7,550
+
+### Strategy 5: Pay ₹15,000 After 20 Days
+- Remaining balance after payment: ₹23,000
+- Interest charged next month: 3.5% of ₹23,000 = ₹7,550
+
+### Strategy 6: Pay ₹15,000 After 25 Days
+- Remaining balance after payment: ₹23,000
+- Interest charged next month: 3.5% of ₹23,000 = ₹7,550
+
+### Pay ₹15,000 After 30 Days After 30 Days After 30 Days After 30 Days After 30 Days After 30 Days After 30 Days After 30 Days After 30 Days After 30 Days After 30 Days After 30 Days After 30 Days After 30

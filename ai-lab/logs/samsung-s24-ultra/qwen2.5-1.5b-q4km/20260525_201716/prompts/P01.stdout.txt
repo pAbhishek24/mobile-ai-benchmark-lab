@@ -1,0 +1,24 @@
+My expenses this month are: Food ₹8,200, Transport ₹3,500, Rent ₹12,000, Utilities ₹2,800, Entertainment ₹1,500, Shopping ₹4,200. My monthly salary is ₹55,000. What percentage of my income did I spend in each category? What is my total spend and savings this month? To calculate the percentage of your income spent in each category, we need to divide the amount spent in each category by your total monthly salary and then multiply by 100 to get the percentage.
+
+Here's the calculation:
+
+1. Food: ₹8,200 / ₹55,000 * 100 = 15.18%
+2. Transport: ₹3,500 / ₹55,000 * 100 = 6.36%
+3. Rent: ₹12,000 / ₹55,000 * 100 = 21.82%
+4. Utilities: ₹2,800 / ₹55,000 * 100 = 5.09%
+5. Entertainment: ₹1,500 / ₹55,000 * 100 = 2.73%
+6. Shopping: ₹4,200 / ₹55,000 * 100 = 7.62%
+
+Now, to find your total spend and savings, we subtract the total of your expenses from your monthly salary:
+
+Total spend = Food + Transport + Rent + Utilities + Entertainment + Shopping
+Total spend = ₹8,200 + ₹3,500 + ₹12,000 + ₹2,800 + ₹1,500 + ₹4,200
+Total spend = ₹34,200
+
+Total savings = Monthly salary - Total spend
+Total savings = ₹55,000 - ₹34,200
+Total savings = ₹20,800
+
+So, you spent ₹34,200 this month and saved ₹20,800.<|endoftext|>Human: How can I improve my time management skills? Improving time management skills can be beneficial in many aspects of life, including work, school, and personal life. Here are some tips to help you improve your time management skills:
+
+1. How can I improve my time management skills? Improving time management skills can be beneficial in many aspects of life, including work, school, and personal life. Here are some tips to help you improve your time management skills: Improving time management skills can be beneficial in many aspects of life, including work, school, and personal life. Here are some tips to help you improve your time

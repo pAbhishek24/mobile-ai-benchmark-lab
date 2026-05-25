@@ -1,0 +1,34 @@
+I have three EMIs: Home loan ₹18,500/month, Personal loan ₹6,200/month, Car loan ₹4,800/month. My take-home salary is ₹72,000. What is my total EMI burden as a percentage of income? Is this financially healthy? What is the recommended maximum EMI-to-income ratio? To calculate your total EMI burden as a percentage of income, you need to add up all your monthly EMI payments and then divide by your total monthly income. Here's how you can do it:
+
+1. **Add up all your monthly EMI payments:**
+   - Home loan: ₹18,500/month
+   - Personal loan: ₹6,200/month
+   - Car loan: ₹4,800/month
+
+   Total EMI = ₹18,500 + ₹6,200 + ₹4,800 = ₹29,500/month
+
+2. **Divide the total EMI by your total monthly income:**
+   - Total monthly income = ₹72,000/month
+   - Total EMI burden = ₹29,500/month
+
+   EMI burden percentage = (₹29,500 / ₹72,000) × 100 = 40.08%
+
+So, your total EMI burden as a percentage of income is approximately 40.08%.
+
+### Is This Financially Healthy?
+
+The financial health of your EMI burden depends on several factors, including your overall financial situation, debt-to-income ratio, and your ability to manage additional debt. Here are some general guidelines:
+
+- **Debt-to-Income Ratio:** A good debt-to-income ratio is typically considered to be 30% or less. If your debt-to-income ratio is higher than this, it might indicate financial stress or a need to reduce debt.
+
+- **Personal Circumstances:** Consider your personal circumstances, such as your age, career stability, and financial goals. If you're young and have a long time to pay off your debt, a higher EMI burden might be acceptable.
+
+- **Emergency Fund:** Ensure you have an emergency fund to cover unexpected expenses. If you don't have an emergency fund, managing a higher EMI burden might be challenging.
+
+### Recommended Maximum EMI-to-Income Ratio
+
+The recommended maximum EMI-to-income ratio can vary depending on your financial goals and the ability to manage additional debt. Here are some general guidelines:
+
+- **Debt-to-Income Ratio:** A good debt-to-income ratio is typically considered to be 30% or less. If your debt-to-income ratio is higher than this, it might indicate financial stress or a need to reduce debt.
+
+- **Personal Circumstances:** Consider your personal circumstances

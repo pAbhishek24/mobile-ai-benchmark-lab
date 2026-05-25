@@ -1,0 +1,38 @@
+I received a Diwali bonus of ₹80,000. I have a home loan outstanding of ₹32 lakhs at 8.75% interest with 18 years remaining, and a personal loan outstanding of ₹1.5 lakhs at 15% interest with 2 years remaining. Should I use the bonus to prepay the home loan, fully close the personal loan, or invest in mutual funds? Justify your recommendation. To determine the best course of action, let's break down the financial situation and analyze the options step by step.
+
+### Initial Financial Situation:
+- **Home Loan:** ₹32 lakhs at 8.75% interest with 18 years remaining.
+- **Personal Loan:** ₹1.5 lakhs at 15% interest with 2 years remaining.
+
+### Analysis:
+
+1. **Home Loan:**
+   - **Interest Rate:** 8.75% per year for 18 years.
+   - **Total Interest Over 18 Years:** \( 8.75\% \times 18 \times 12 = 142.5 \) lakhs.
+   - **Remaining Balance:** ₹32 lakhs - ₹142.5 lakhs = ₹19.5 lakhs.
+
+2. **Personal Loan:**
+   - **Interest Rate:** 15% per year for 2 years.
+   - **Total Interest Over 2 Years:** \( 15\% \times 2 \times 12 = 36 \) lakhs.
+   - **Remaining Balance:** ₹1.5 lakhs - ₹36 lakhs = ₹1.1 lakhs.
+
+### Total Remaining Balance:
+- **Total Remaining Balance:** ₹19.5 lakhs + ₹1.1 lakhs = ₹20.6 lakhs.
+
+### Decision:
+
+1. **Home Loan:**
+   - **Remaining Balance:** ₹19.5 lakhs.
+   - **Interest Over 18 Years:** ₹142.5 lakhs.
+   - **Total Remaining Balance:** ₹19.5 lakhs + ₹142.5 lakhs = ₹162.0 lakhs.
+
+2. **Personal Loan:**
+   - **Remaining Balance:** ₹1.1 lakhs.
+   - **Interest Over 2 Years:** ₹36 lakhs.
+   - **Total Remaining Balance:** ₹1.1 lakhs + ₹36 lakhs = ₹36.0 lakhs.
+
+### Conclusion:
+
+1. **Home Loan:**
+   - **Remaining Balance:** ₹19.5 lakhs.
+   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

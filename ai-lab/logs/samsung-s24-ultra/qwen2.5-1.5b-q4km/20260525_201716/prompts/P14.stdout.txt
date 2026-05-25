@@ -1,0 +1,44 @@
+My monthly take-home is ₹58,000. I want to maintain a minimum ₹10,000 emergency buffer in my account at all times. It is the 22nd of the month. I have spent ₹41,000. My only remaining fixed payment is a ₹5,500 EMI on the 29th. How much can I spend between now and month-end while protecting my ₹10,000 buffer? What percentage of my income am I saving this month? To determine how much you can spend between now and the month-end while protecting your ₹10,000 buffer, we need to follow these steps:
+
+1. **Calculate the total amount you have available for spending:**
+   - Your monthly take-home is ₹58,000.
+   - You want to maintain a minimum ₹10,000 emergency buffer.
+   - You have spent ₹41,000.
+   - Your only remaining fixed payment is ₹5,500 on the 29th.
+
+   Therefore, the total amount available for spending is:
+   \[
+   \text{Total available} = \text{Monthly take-home} - \text{Spent} - \text{Fixed payment}
+   \]
+   \[
+   \text{Total available} = 58,000 - 41,000 - 5,500 = 11,500
+   \]
+
+2. **Determine how much you can spend between now and the month-end:**
+   - You have 11 days left in the month (from the 22nd to the 32nd).
+   - You want to protect your ₹10,000 buffer.
+
+   Therefore, the amount you can spend is:
+   \[
+   \text{Amount to spend} = \text{Total available} - \text{Emergency buffer}
+   \]
+   \[
+   \text{Amount to spend} = 11,500 - 10,000 = 1,500
+   \]
+
+3. **Calculate the percentage of your income you are saving this month:**
+   - Your total income is ₹58,000.
+   - The amount you are saving is ₹1,500.
+
+   Therefore, the percentage of your income you are saving is:
+   \[
+   \text{Percentage saving}} = \frac{\text{Amount saving}}}{\text{Total income}}
+   \]
+   \[
+   \text{Percentage saving}} = \frac{\text{Amount saving}}}{\text{Total income}}
+   \]
+   \[
+   \text{Percentage saving}} = \frac{\text{Amount saving}}}{\text{Total income}}
+   \]
+   \[
+   \text{Percentage saving}} = \frac{\text{Amount saving}}}{\text{

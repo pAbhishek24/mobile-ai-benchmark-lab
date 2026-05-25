@@ -1,0 +1,31 @@
+My HDFC credit card outstanding is ₹38,000. Due date is 5 days from now. I have ₹15,000 available in savings. The card charges 3.5% monthly interest on the unpaid balance. If I pay ₹15,000 now, how much interest will I pay next month on the remaining ₹23,000? What is the best strategy to clear this debt in 3 months? To determine the best strategy to clear the debt in 3 months, we need to follow these steps:
+
+1. Calculate the remaining balance after paying ₹15,000 now.
+2. Determine the interest for the next month on the remaining balance.
+3. Calculate the remaining balance after the next month's interest.
+4. Determine the best strategy to clear the debt in 3 months.
+
+Let's start with the first step:
+
+1. Calculate the remaining balance after paying ₹15,000 now:
+   \[
+   \text{Remaining balance} = \text{Initial balance} - \text{Amount paid} = 38,000 - 15,000 = 23,000
+   \]
+
+2. Determine the interest for the next month on the remaining balance:
+   \[
+   \text{Interest for next month} = \text{Remaining balance} \times \text{Monthly interest rate} = 23,000 \times 0.035 = 7,550
+   \]
+
+3. Calculate the remaining balance after the next month's interest:
+   \[
+   \text{Remaining balance after next month} = \text{Remaining balance} - \text{Interest for next month} = 23,000 - 7,550 = 15,450
+   \]
+
+4. Determine the best strategy to clear the debt in 3 months:
+   Since the remaining balance after the next month's interest is ₹15,450, which is less than the ₹23,000 available in savings, the best strategy is to pay ₹15,450 next month to clear the debt in 3 months.
+
+The final answer is:
+\[
+\boxed{15450}
+\]<|endoftext|>Human: Given the function $f(x) = \frac{1}{2}x^2 - 2x + 3$, and the function $g(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x) = f(x)

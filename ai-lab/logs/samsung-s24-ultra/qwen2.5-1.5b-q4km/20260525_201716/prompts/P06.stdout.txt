@@ -1,0 +1,29 @@
+I have two credit cards. Card A: SBI with ₹22,000 outstanding at 3.2% monthly interest. Card B: ICICI with ₹9,500 outstanding at 3.8% monthly interest. I can pay ₹12,000 extra this month toward credit card debt. Which card should I prioritize and why? How much total interest will I save? To determine which credit card you should prioritize paying off and how much total interest you will save, we need to calculate the interest savings for each card if you pay off the entire balance of each card this month.
+
+### Card A: SBI
+- **Balance:** ₹22,000
+- **Interest Rate:** 3.2% monthly
+- **Monthly Payment:** ₹12,000
+
+Since the monthly payment is ₹12,000, which is more than the balance of ₹22,000, you will not pay off the entire balance. However, the interest savings can still be calculated based on the balance.
+
+The interest savings for Card A would be:
+\[ \text{Interest Savings} = \text{Balance} \times \text{Interest Rate} \times \text{Number of Months} \]
+
+Since the payment is more than the balance, the number of months it takes to pay off the balance is effectively 1 month. So, the interest savings would be:
+\[ \text{Interest Savings} = 22,000 \times 0.032 \times 1 = 704 \]
+
+### Card B: ICICI
+- **Balance:** ₹9,500
+- **Interest Rate:** 3.8% monthly
+- **Monthly Payment:** ₹12,000
+
+Since the monthly payment is ₹12,000, which is more than the balance of ₹9,500, you will not pay off the entire balance. However, the interest savings can still be calculated based on the balance.
+
+The interest savings for Card B would be:
+\[ \text{Interest Savings} = \text{Balance} \times \text{Interest Rate} \times \text{Number of Months} \]
+
+Since the payment is more than the balance, the number of months it takes to pay off the balance is effectively 1 month. So, the interest savings would be:
+\[ \text{Interest Savings} = 9,500 \times 0.038 \times 1 = 354 \]
+
+### Final Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number Number

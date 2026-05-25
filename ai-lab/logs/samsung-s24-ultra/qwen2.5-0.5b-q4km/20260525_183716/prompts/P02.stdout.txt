@@ -1,0 +1,35 @@
+Here is my food spend over 3 months: January ₹6,800, February ₹7,200, March ₹9,400. My monthly salary is ₹60,000. How much has my food spend increased? What percentage of my income is food spend in March vs January? Is this a concerning trend? To determine how much the food spend has increased and what percentage of the income is spent on food in March compared to January, we need to follow these steps:
+
+1. Calculate the total food spend over the 3 months.
+2. Calculate the percentage of the income spent on food in March compared to January.
+3. Determine if this trend is concerning.
+
+**Step 1: Calculate the total food spend over the 3 months.**
+
+The food spend for each month is given as follows:
+- January: ₹6,800
+- February: ₹7,200
+- March: ₹9,400
+
+Total food spend = ₹6,800 + ₹7,200 + ₹9,400 = ₹23,400
+
+**Step 2: Calculate the percentage of the income spent on food in March compared to January.**
+
+First, we need to find the total income over the 3 months:
+Total income = ₹60,000
+
+Now, we calculate the percentage of the income spent on food in March:
+Percentage of income spent on food = (₹9,400 / ₹60,000) * 100 = 15.67%
+
+**Step 3: Determine if this trend is concerning.**
+
+The trend of increasing food spend from ₹6,800 in January to ₹9,400 in March is significant. The percentage of the income spent on food in March is 15.67%, which is a relatively high percentage compared to the monthly salary of ₹60,000. This suggests that the food expenditure is increasing significantly, which could be a concern if the income is not increasing at the same rate.
+
+Therefore, the answer is:
+
+- The total food spend increased by ₹23,400.
+- The percentage of the income spent on food in March compared to January is 15.67%.
+- This trend is concerning.
+
+The final answer is:
+\boxed{23400, 15.67, \text{concern}}. The food expenditure is increasing significantly, which could be a concern if the income is not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not
