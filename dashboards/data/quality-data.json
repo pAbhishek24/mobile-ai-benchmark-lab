@@ -1,0 +1,1179 @@
+{
+  "generated_at": "2026-05-25T09:19:30+00:00",
+  "generated_by": "aggregate_quality.py",
+  "model_quality": [
+    {
+      "device": "samsung-s24-ultra",
+      "model": "gemma-2b-q4km",
+      "runs_evaluated": 2,
+      "latest_timestamp": "20260524_202052",
+      "quality_score": 0.0,
+      "consistency_score": 1.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "prompts_scored": 20,
+      "prompts_empty": 20,
+      "category_quality": {
+        "budget_overspend": 0.0,
+        "cashflow_warning": 0.0,
+        "category_spike": 0.0,
+        "credit_card_planning": 0.0,
+        "debt_payoff": 0.0,
+        "emi_pressure": 0.0,
+        "expense_summary": 0.0,
+        "lic_outflow": 0.0,
+        "safe_spend_remaining": 0.0,
+        "sip_planning": 0.0
+      },
+      "difficulty_quality": {
+        "easy": 0.0,
+        "hard": 0.0,
+        "medium": 0.0
+      },
+      "prompt_quality_summary": [
+        {
+          "prompt_id": "P01",
+          "avg_quality": 0.0,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P02",
+          "avg_quality": 0.0,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P03",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P04",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P05",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P06",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P07",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P08",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P09",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P10",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P11",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P12",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P13",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P14",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P15",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P16",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P17",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P18",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P19",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P20",
+          "avg_quality": 0.0,
+          "runs": 1
+        }
+      ]
+    },
+    {
+      "device": "samsung-s24-ultra",
+      "model": "llama3.2-1b-q4km",
+      "runs_evaluated": 2,
+      "latest_timestamp": "20260524_212426",
+      "quality_score": 0.0,
+      "consistency_score": 1.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "prompts_scored": 20,
+      "prompts_empty": 20,
+      "category_quality": {
+        "budget_overspend": 0.0,
+        "cashflow_warning": 0.0,
+        "category_spike": 0.0,
+        "credit_card_planning": 0.0,
+        "debt_payoff": 0.0,
+        "emi_pressure": 0.0,
+        "expense_summary": 0.0,
+        "lic_outflow": 0.0,
+        "safe_spend_remaining": 0.0,
+        "sip_planning": 0.0
+      },
+      "difficulty_quality": {
+        "easy": 0.0,
+        "hard": 0.0,
+        "medium": 0.0
+      },
+      "prompt_quality_summary": [
+        {
+          "prompt_id": "P01",
+          "avg_quality": 0.0,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P02",
+          "avg_quality": 0.0,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P03",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P04",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P05",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P06",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P07",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P08",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P09",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P10",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P11",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P12",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P13",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P14",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P15",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P16",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P17",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P18",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P19",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P20",
+          "avg_quality": 0.0,
+          "runs": 1
+        }
+      ]
+    },
+    {
+      "device": "samsung-s24-ultra",
+      "model": "llama3.2-3b-q4km",
+      "runs_evaluated": 2,
+      "latest_timestamp": "20260524_215606",
+      "quality_score": 0.0,
+      "consistency_score": 1.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "prompts_scored": 20,
+      "prompts_empty": 20,
+      "category_quality": {
+        "budget_overspend": 0.0,
+        "cashflow_warning": 0.0,
+        "category_spike": 0.0,
+        "credit_card_planning": 0.0,
+        "debt_payoff": 0.0,
+        "emi_pressure": 0.0,
+        "expense_summary": 0.0,
+        "lic_outflow": 0.0,
+        "safe_spend_remaining": 0.0,
+        "sip_planning": 0.0
+      },
+      "difficulty_quality": {
+        "easy": 0.0,
+        "hard": 0.0,
+        "medium": 0.0
+      },
+      "prompt_quality_summary": [
+        {
+          "prompt_id": "P01",
+          "avg_quality": 0.0,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P02",
+          "avg_quality": 0.0,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P03",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P04",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P05",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P06",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P07",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P08",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P09",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P10",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P11",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P12",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P13",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P14",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P15",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P16",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P17",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P18",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P19",
+          "avg_quality": 0.0,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P20",
+          "avg_quality": 0.0,
+          "runs": 1
+        }
+      ]
+    },
+    {
+      "device": "samsung-s24-ultra",
+      "model": "phi3-mini-q4km",
+      "runs_evaluated": 2,
+      "latest_timestamp": "20260524_221813",
+      "quality_score": 0.6352,
+      "consistency_score": 0.8098,
+      "hallucination_rate": 0.075,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.5792,
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "category_quality": {
+        "budget_overspend": 0.7354,
+        "cashflow_warning": 0.6054,
+        "category_spike": 0.5667,
+        "credit_card_planning": 0.7354,
+        "debt_payoff": 0.8229,
+        "emi_pressure": 0.575,
+        "expense_summary": 0.6754,
+        "lic_outflow": 0.7958,
+        "safe_spend_remaining": 0.5375,
+        "sip_planning": 0.5188
+      },
+      "difficulty_quality": {
+        "easy": 0.6919,
+        "hard": 0.6213,
+        "medium": 0.6572
+      },
+      "prompt_quality_summary": [
+        {
+          "prompt_id": "P17",
+          "avg_quality": 0.3917,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P14",
+          "avg_quality": 0.425,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P08",
+          "avg_quality": 0.4542,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P20",
+          "avg_quality": 0.5025,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P03",
+          "avg_quality": 0.5167,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P07",
+          "avg_quality": 0.5833,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P06",
+          "avg_quality": 0.5875,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P01",
+          "avg_quality": 0.6008,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P04",
+          "avg_quality": 0.6333,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P13",
+          "avg_quality": 0.65,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P19",
+          "avg_quality": 0.7083,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P11",
+          "avg_quality": 0.7125,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P18",
+          "avg_quality": 0.7417,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P10",
+          "avg_quality": 0.7458,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P02",
+          "avg_quality": 0.75,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P12",
+          "avg_quality": 0.7583,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P16",
+          "avg_quality": 0.8083,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P15",
+          "avg_quality": 0.8375,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P09",
+          "avg_quality": 0.8458,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P05",
+          "avg_quality": 0.8833,
+          "runs": 1
+        }
+      ]
+    },
+    {
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-0.5b-q4km",
+      "runs_evaluated": 3,
+      "latest_timestamp": "20260524_203804",
+      "quality_score": 0.3982,
+      "consistency_score": 0.0,
+      "hallucination_rate": 0.0667,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.3806,
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "category_quality": {
+        "budget_overspend": 0.3035,
+        "cashflow_warning": 0.3319,
+        "category_spike": 0.2833,
+        "credit_card_planning": 0.351,
+        "debt_payoff": 0.3958,
+        "emi_pressure": 0.3312,
+        "expense_summary": 0.3694,
+        "lic_outflow": 0.3979,
+        "safe_spend_remaining": 0.2753,
+        "sip_planning": 0.2594
+      },
+      "difficulty_quality": {
+        "easy": 0.3327,
+        "hard": 0.3348,
+        "medium": 0.3298
+      },
+      "prompt_quality_summary": [
+        {
+          "prompt_id": "P17",
+          "avg_quality": 0.1958,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P08",
+          "avg_quality": 0.2271,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P11",
+          "avg_quality": 0.2279,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P20",
+          "avg_quality": 0.2512,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P06",
+          "avg_quality": 0.2604,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P13",
+          "avg_quality": 0.275,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P14",
+          "avg_quality": 0.2757,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P07",
+          "avg_quality": 0.2917,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P03",
+          "avg_quality": 0.3166,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P04",
+          "avg_quality": 0.3458,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P15",
+          "avg_quality": 0.3542,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P01",
+          "avg_quality": 0.3555,
+          "runs": 3
+        },
+        {
+          "prompt_id": "P18",
+          "avg_quality": 0.3709,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P10",
+          "avg_quality": 0.3729,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P12",
+          "avg_quality": 0.3791,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P02",
+          "avg_quality": 0.3833,
+          "runs": 3
+        },
+        {
+          "prompt_id": "P19",
+          "avg_quality": 0.4125,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P09",
+          "avg_quality": 0.4229,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P16",
+          "avg_quality": 0.4375,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P05",
+          "avg_quality": 0.4416,
+          "runs": 2
+        }
+      ]
+    },
+    {
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-1.5b-q4km",
+      "runs_evaluated": 6,
+      "latest_timestamp": "20260524_181530",
+      "quality_score": 0.2988,
+      "consistency_score": 0.0,
+      "hallucination_rate": 0.0333,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.2875,
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "category_quality": {
+        "budget_overspend": 0.3698,
+        "cashflow_warning": 0.3027,
+        "category_spike": 0.3156,
+        "credit_card_planning": 0.3354,
+        "debt_payoff": 0.4281,
+        "emi_pressure": 0.375,
+        "expense_summary": 0.3138,
+        "lic_outflow": 0.4313,
+        "safe_spend_remaining": 0.3378,
+        "sip_planning": 0.2594
+      },
+      "difficulty_quality": {
+        "easy": 0.3706,
+        "hard": 0.3232,
+        "medium": 0.3327
+      },
+      "prompt_quality_summary": [
+        {
+          "prompt_id": "P17",
+          "avg_quality": 0.1958,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P14",
+          "avg_quality": 0.2256,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P08",
+          "avg_quality": 0.2271,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P20",
+          "avg_quality": 0.2512,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P06",
+          "avg_quality": 0.2604,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P07",
+          "avg_quality": 0.2917,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P01",
+          "avg_quality": 0.2975,
+          "runs": 6
+        },
+        {
+          "prompt_id": "P02",
+          "avg_quality": 0.3333,
+          "runs": 5
+        },
+        {
+          "prompt_id": "P04",
+          "avg_quality": 0.3458,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P19",
+          "avg_quality": 0.3542,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P11",
+          "avg_quality": 0.3604,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P12",
+          "avg_quality": 0.3791,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P03",
+          "avg_quality": 0.4042,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P10",
+          "avg_quality": 0.4062,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P05",
+          "avg_quality": 0.4104,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P15",
+          "avg_quality": 0.4188,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P18",
+          "avg_quality": 0.4354,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P16",
+          "avg_quality": 0.4375,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P13",
+          "avg_quality": 0.45,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P09",
+          "avg_quality": 0.4562,
+          "runs": 2
+        }
+      ]
+    },
+    {
+      "device": "samsung-s24-ultra",
+      "model": "tinyllama-1.1b-q4km",
+      "runs_evaluated": 2,
+      "latest_timestamp": "20260524_192319",
+      "quality_score": 0.5865,
+      "consistency_score": 0.7419,
+      "hallucination_rate": 0.05,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.5709,
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "category_quality": {
+        "budget_overspend": 0.607,
+        "cashflow_warning": 0.6054,
+        "category_spike": 0.5667,
+        "credit_card_planning": 0.6125,
+        "debt_payoff": 0.7583,
+        "emi_pressure": 0.6105,
+        "expense_summary": 0.55,
+        "lic_outflow": 0.7958,
+        "safe_spend_remaining": 0.6007,
+        "sip_planning": 0.5188
+      },
+      "difficulty_quality": {
+        "easy": 0.6477,
+        "hard": 0.6355,
+        "medium": 0.5898
+      },
+      "prompt_quality_summary": [
+        {
+          "prompt_id": "P17",
+          "avg_quality": 0.3917,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P08",
+          "avg_quality": 0.4542,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P11",
+          "avg_quality": 0.4558,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P20",
+          "avg_quality": 0.5025,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P02",
+          "avg_quality": 0.5167,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P03",
+          "avg_quality": 0.5167,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P06",
+          "avg_quality": 0.5208,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P14",
+          "avg_quality": 0.525,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P01",
+          "avg_quality": 0.5833,
+          "runs": 2
+        },
+        {
+          "prompt_id": "P07",
+          "avg_quality": 0.5833,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P13",
+          "avg_quality": 0.6763,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P04",
+          "avg_quality": 0.7042,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P05",
+          "avg_quality": 0.7042,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P15",
+          "avg_quality": 0.7083,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P19",
+          "avg_quality": 0.7083,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P18",
+          "avg_quality": 0.7417,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P10",
+          "avg_quality": 0.7458,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P12",
+          "avg_quality": 0.7583,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P16",
+          "avg_quality": 0.8083,
+          "runs": 1
+        },
+        {
+          "prompt_id": "P09",
+          "avg_quality": 0.8458,
+          "runs": 1
+        }
+      ]
+    }
+  ],
+  "run_summaries": [
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/gemma-2b-q4km/20260524_201229",
+      "device": "samsung-s24-ultra",
+      "model": "gemma-2b-q4km",
+      "timestamp": "20260524_201229",
+      "prompts_scored": 2,
+      "prompts_empty": 2,
+      "quality_score": 0.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "consistency_score": 1.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/gemma-2b-q4km/20260524_202052",
+      "device": "samsung-s24-ultra",
+      "model": "gemma-2b-q4km",
+      "timestamp": "20260524_202052",
+      "prompts_scored": 20,
+      "prompts_empty": 20,
+      "quality_score": 0.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "consistency_score": 1.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-1b-q4km/20260524_212259",
+      "device": "samsung-s24-ultra",
+      "model": "llama3.2-1b-q4km",
+      "timestamp": "20260524_212259",
+      "prompts_scored": 2,
+      "prompts_empty": 2,
+      "quality_score": 0.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "consistency_score": 1.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-1b-q4km/20260524_212426",
+      "device": "samsung-s24-ultra",
+      "model": "llama3.2-1b-q4km",
+      "timestamp": "20260524_212426",
+      "prompts_scored": 20,
+      "prompts_empty": 20,
+      "quality_score": 0.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "consistency_score": 1.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-3b-q4km/20260524_215155",
+      "device": "samsung-s24-ultra",
+      "model": "llama3.2-3b-q4km",
+      "timestamp": "20260524_215155",
+      "prompts_scored": 2,
+      "prompts_empty": 2,
+      "quality_score": 0.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "consistency_score": 1.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-3b-q4km/20260524_215606",
+      "device": "samsung-s24-ultra",
+      "model": "llama3.2-3b-q4km",
+      "timestamp": "20260524_215606",
+      "prompts_scored": 20,
+      "prompts_empty": 20,
+      "quality_score": 0.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "consistency_score": 1.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/phi3-mini-q4km/20260524_221422",
+      "device": "samsung-s24-ultra",
+      "model": "phi3-mini-q4km",
+      "timestamp": "20260524_221422",
+      "prompts_scored": 2,
+      "prompts_empty": 0,
+      "quality_score": 0.6083,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.5,
+      "consistency_score": 0.8098
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/phi3-mini-q4km/20260524_221813",
+      "device": "samsung-s24-ultra",
+      "model": "phi3-mini-q4km",
+      "timestamp": "20260524_221813",
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "quality_score": 0.6621,
+      "hallucination_rate": 0.15,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.6583,
+      "consistency_score": 0.8098
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260524_105517",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-0.5b-q4km",
+      "timestamp": "20260524_105517",
+      "prompts_scored": 20,
+      "prompts_empty": 20,
+      "quality_score": 0.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "consistency_score": 0.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260524_203641",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-0.5b-q4km",
+      "timestamp": "20260524_203641",
+      "prompts_scored": 2,
+      "prompts_empty": 0,
+      "quality_score": 0.55,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.5,
+      "consistency_score": 0.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260524_203804",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-0.5b-q4km",
+      "timestamp": "20260524_203804",
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "quality_score": 0.6445,
+      "hallucination_rate": 0.2,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.6417,
+      "consistency_score": 0.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_101347",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-1.5b-q4km",
+      "timestamp": "20260524_101347",
+      "prompts_scored": 1,
+      "prompts_empty": 1,
+      "quality_score": 0.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "consistency_score": 0.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_105125",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-1.5b-q4km",
+      "timestamp": "20260524_105125",
+      "prompts_scored": 20,
+      "prompts_empty": 20,
+      "quality_score": 0.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "consistency_score": 0.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_132317",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-1.5b-q4km",
+      "timestamp": "20260524_132317",
+      "prompts_scored": 2,
+      "prompts_empty": 2,
+      "quality_score": 0.0,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.0,
+      "consistency_score": 0.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_171814",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-1.5b-q4km",
+      "timestamp": "20260524_171814",
+      "prompts_scored": 2,
+      "prompts_empty": 0,
+      "quality_score": 0.55,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.5,
+      "consistency_score": 0.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_180553",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-1.5b-q4km",
+      "timestamp": "20260524_180553",
+      "prompts_scored": 2,
+      "prompts_empty": 0,
+      "quality_score": 0.55,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.5,
+      "consistency_score": 0.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_181530",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-1.5b-q4km",
+      "timestamp": "20260524_181530",
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "quality_score": 0.693,
+      "hallucination_rate": 0.2,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.725,
+      "consistency_score": 0.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260524_191734",
+      "device": "samsung-s24-ultra",
+      "model": "tinyllama-1.1b-q4km",
+      "timestamp": "20260524_191734",
+      "prompts_scored": 2,
+      "prompts_empty": 0,
+      "quality_score": 0.55,
+      "hallucination_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.5,
+      "consistency_score": 0.7419
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260524_192319",
+      "device": "samsung-s24-ultra",
+      "model": "tinyllama-1.1b-q4km",
+      "timestamp": "20260524_192319",
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "quality_score": 0.623,
+      "hallucination_rate": 0.1,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.6417,
+      "consistency_score": 0.7419
+    }
+  ]
+}

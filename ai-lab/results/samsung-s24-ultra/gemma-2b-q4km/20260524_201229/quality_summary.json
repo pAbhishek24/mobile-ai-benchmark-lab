@@ -1,0 +1,13 @@
+{
+  "run_dir": "ai-lab/results/samsung-s24-ultra/gemma-2b-q4km/20260524_201229",
+  "device": "samsung-s24-ultra",
+  "model": "gemma-2b-q4km",
+  "timestamp": "20260524_201229",
+  "prompts_scored": 2,
+  "prompts_empty": 2,
+  "quality_score": 0.0,
+  "hallucination_rate": 0.0,
+  "structured_output_success_rate": 0.0,
+  "recommendation_quality_score": 0.0,
+  "consistency_score": 1.0
+}

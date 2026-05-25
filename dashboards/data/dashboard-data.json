@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T07:09:15+00:00",
+  "generated_at": "2026-05-25T09:19:30+00:00",
   "generated_by": "generate_dashboard_data.py",
   "benchmark_context": {
     "background_apps_estimate": true,
@@ -5633,6 +5633,30 @@
         },
         "weighted_score": 1.0,
         "rank": 1
+      },
+      "quality_scores": {
+        "quality_score": 0.3982,
+        "consistency_score": 0.0,
+        "hallucination_rate": 0.0667,
+        "structured_output_success_rate": 0.0,
+        "recommendation_quality_score": 0.3806,
+        "category_quality": {
+          "budget_overspend": 0.3035,
+          "cashflow_warning": 0.3319,
+          "category_spike": 0.2833,
+          "credit_card_planning": 0.351,
+          "debt_payoff": 0.3958,
+          "emi_pressure": 0.3312,
+          "expense_summary": 0.3694,
+          "lic_outflow": 0.3979,
+          "safe_spend_remaining": 0.2753,
+          "sip_planning": 0.2594
+        },
+        "difficulty_quality": {
+          "easy": 0.3327,
+          "hard": 0.3348,
+          "medium": 0.3298
+        }
       }
     },
     {
@@ -6023,6 +6047,30 @@
         },
         "weighted_score": 0.8845,
         "rank": 2
+      },
+      "quality_scores": {
+        "quality_score": 0.5865,
+        "consistency_score": 0.7419,
+        "hallucination_rate": 0.05,
+        "structured_output_success_rate": 0.0,
+        "recommendation_quality_score": 0.5709,
+        "category_quality": {
+          "budget_overspend": 0.607,
+          "cashflow_warning": 0.6054,
+          "category_spike": 0.5667,
+          "credit_card_planning": 0.6125,
+          "debt_payoff": 0.7583,
+          "emi_pressure": 0.6105,
+          "expense_summary": 0.55,
+          "lic_outflow": 0.7958,
+          "safe_spend_remaining": 0.6007,
+          "sip_planning": 0.5188
+        },
+        "difficulty_quality": {
+          "easy": 0.6477,
+          "hard": 0.6355,
+          "medium": 0.5898
+        }
       }
     },
     {
@@ -6413,6 +6461,30 @@
         },
         "weighted_score": 0.6861,
         "rank": 3
+      },
+      "quality_scores": {
+        "quality_score": 0.6352,
+        "consistency_score": 0.8098,
+        "hallucination_rate": 0.075,
+        "structured_output_success_rate": 0.0,
+        "recommendation_quality_score": 0.5792,
+        "category_quality": {
+          "budget_overspend": 0.7354,
+          "cashflow_warning": 0.6054,
+          "category_spike": 0.5667,
+          "credit_card_planning": 0.7354,
+          "debt_payoff": 0.8229,
+          "emi_pressure": 0.575,
+          "expense_summary": 0.6754,
+          "lic_outflow": 0.7958,
+          "safe_spend_remaining": 0.5375,
+          "sip_planning": 0.5188
+        },
+        "difficulty_quality": {
+          "easy": 0.6919,
+          "hard": 0.6213,
+          "medium": 0.6572
+        }
       }
     },
     {
@@ -6803,6 +6875,30 @@
         },
         "weighted_score": 0.6505,
         "rank": 4
+      },
+      "quality_scores": {
+        "quality_score": 0.2988,
+        "consistency_score": 0.0,
+        "hallucination_rate": 0.0333,
+        "structured_output_success_rate": 0.0,
+        "recommendation_quality_score": 0.2875,
+        "category_quality": {
+          "budget_overspend": 0.3698,
+          "cashflow_warning": 0.3027,
+          "category_spike": 0.3156,
+          "credit_card_planning": 0.3354,
+          "debt_payoff": 0.4281,
+          "emi_pressure": 0.375,
+          "expense_summary": 0.3138,
+          "lic_outflow": 0.4313,
+          "safe_spend_remaining": 0.3378,
+          "sip_planning": 0.2594
+        },
+        "difficulty_quality": {
+          "easy": 0.3706,
+          "hard": 0.3232,
+          "medium": 0.3327
+        }
       }
     },
     {
@@ -7193,6 +7289,30 @@
         },
         "weighted_score": 0.3284,
         "rank": 5
+      },
+      "quality_scores": {
+        "quality_score": 0.0,
+        "consistency_score": 1.0,
+        "hallucination_rate": 0.0,
+        "structured_output_success_rate": 0.0,
+        "recommendation_quality_score": 0.0,
+        "category_quality": {
+          "budget_overspend": 0.0,
+          "cashflow_warning": 0.0,
+          "category_spike": 0.0,
+          "credit_card_planning": 0.0,
+          "debt_payoff": 0.0,
+          "emi_pressure": 0.0,
+          "expense_summary": 0.0,
+          "lic_outflow": 0.0,
+          "safe_spend_remaining": 0.0,
+          "sip_planning": 0.0
+        },
+        "difficulty_quality": {
+          "easy": 0.0,
+          "hard": 0.0,
+          "medium": 0.0
+        }
       }
     },
     {
@@ -7583,6 +7703,30 @@
         },
         "weighted_score": 0.2608,
         "rank": 6
+      },
+      "quality_scores": {
+        "quality_score": 0.0,
+        "consistency_score": 1.0,
+        "hallucination_rate": 0.0,
+        "structured_output_success_rate": 0.0,
+        "recommendation_quality_score": 0.0,
+        "category_quality": {
+          "budget_overspend": 0.0,
+          "cashflow_warning": 0.0,
+          "category_spike": 0.0,
+          "credit_card_planning": 0.0,
+          "debt_payoff": 0.0,
+          "emi_pressure": 0.0,
+          "expense_summary": 0.0,
+          "lic_outflow": 0.0,
+          "safe_spend_remaining": 0.0,
+          "sip_planning": 0.0
+        },
+        "difficulty_quality": {
+          "easy": 0.0,
+          "hard": 0.0,
+          "medium": 0.0
+        }
       }
     },
     {
@@ -7973,6 +8117,30 @@
         },
         "weighted_score": 0.2308,
         "rank": 7
+      },
+      "quality_scores": {
+        "quality_score": 0.0,
+        "consistency_score": 1.0,
+        "hallucination_rate": 0.0,
+        "structured_output_success_rate": 0.0,
+        "recommendation_quality_score": 0.0,
+        "category_quality": {
+          "budget_overspend": 0.0,
+          "cashflow_warning": 0.0,
+          "category_spike": 0.0,
+          "credit_card_planning": 0.0,
+          "debt_payoff": 0.0,
+          "emi_pressure": 0.0,
+          "expense_summary": 0.0,
+          "lic_outflow": 0.0,
+          "safe_spend_remaining": 0.0,
+          "sip_planning": 0.0
+        },
+        "difficulty_quality": {
+          "easy": 0.0,
+          "hard": 0.0,
+          "medium": 0.0
+        }
       }
     }
   ],

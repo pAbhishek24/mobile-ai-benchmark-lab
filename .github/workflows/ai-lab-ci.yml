@@ -70,7 +70,10 @@ jobs:
           print(f"Schema validation passed.")
           EOF
 
-      - name: Run dashboard generator
+      - name: Run quality evaluation
+        run: python3 ai-lab/quality/evaluate_quality.py
+
+      - name: Run dashboard generator (includes quality aggregation)
         run: python3 ai-lab/analytics/generate_dashboard_data.py
 
       - name: Upload generated dashboard as artifact

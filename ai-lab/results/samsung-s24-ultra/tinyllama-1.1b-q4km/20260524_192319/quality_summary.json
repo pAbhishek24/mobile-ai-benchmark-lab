@@ -1,0 +1,13 @@
+{
+  "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260524_192319",
+  "device": "samsung-s24-ultra",
+  "model": "tinyllama-1.1b-q4km",
+  "timestamp": "20260524_192319",
+  "prompts_scored": 20,
+  "prompts_empty": 0,
+  "quality_score": 0.623,
+  "hallucination_rate": 0.1,
+  "structured_output_success_rate": 0.0,
+  "recommendation_quality_score": 0.6417,
+  "consistency_score": 0.7419
+}

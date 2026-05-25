@@ -476,6 +476,61 @@ def compute_scores_for_summaries(
 # Main pipeline
 # ---------------------------------------------------------------------------
 
+def _run_quality_pipeline(dry_run: bool) -> None:
+    """Run evaluate_quality then aggregate_quality as a subprocess-free inline call."""
+    import importlib.util, sys as _sys
+
+    def _load(rel: str):
+        p = REPO_ROOT / rel
+        spec = importlib.util.spec_from_file_location(p.stem, p)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+
+    try:
+        eq = _load("ai-lab/quality/evaluate_quality.py")
+        dataset = eq.load_dataset()
+        run_dirs = eq.find_runs()
+        summaries = []
+        for rd in run_dirs:
+            s = eq.evaluate_run(rd, dataset, dry_run=dry_run)
+            if s:
+                summaries.append(s)
+        cmap = eq.compute_consistency(summaries)
+        for s in summaries:
+            s["consistency_score"] = cmap.get((s["device"], s["model"]), 1.0)
+        if not dry_run:
+            for s in summaries:
+                sp = REPO_ROOT / s["run_dir"] / "quality_summary.json"
+                if sp.exists():
+                    d = json.loads(sp.read_text(encoding="utf-8"))
+                    d["consistency_score"] = s["consistency_score"]
+                    sp.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"  Quality evaluated: {len(summaries)} run(s)")
+    except Exception as e:
+        print(f"  WARNING: quality evaluation failed: {e}")
+
+    try:
+        aq = _load("ai-lab/quality/aggregate_quality.py")
+        aq.main.__globals__["__name__"] = "__not_main__"
+        qsums = aq.load_quality_summaries()
+        mq = aq.build_model_quality(qsums)
+        payload_q = {
+            "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "generated_by": "aggregate_quality.py",
+            "model_quality": mq,
+            "run_summaries": [{k: v for k, v in s.items() if k != "per_prompt"} for s in qsums],
+        }
+        if not dry_run:
+            QUALITY_JSON = REPO_ROOT / "dashboards" / "data" / "quality-data.json"
+            QUALITY_JSON.parent.mkdir(parents=True, exist_ok=True)
+            QUALITY_JSON.write_text(json.dumps(payload_q, ensure_ascii=False, indent=2), encoding="utf-8")
+            print(f"  Wrote quality-data.json ({len(mq)} model entries)")
+            aq.annotate_dashboard(mq, dry_run=False)
+    except Exception as e:
+        print(f"  WARNING: quality aggregation failed: {e}")
+
+
 def generate(dry_run: bool = False) -> Dict[str, Any]:
     print("Step 1: Aggregating benchmark runs...")
     runs = find_and_aggregate_runs()
@@ -512,7 +567,6 @@ def generate(dry_run: bool = False) -> Dict[str, Any]:
     if dry_run:
         print("\n[dry-run] Would write to:", DASHBOARD_JSON)
         preview = json.dumps(payload, ensure_ascii=False, indent=2)
-        # Print just the first 40 lines as a preview
         lines = preview.splitlines()
         print("\n".join(lines[:40]))
         if len(lines) > 40:
@@ -524,6 +578,13 @@ def generate(dry_run: bool = False) -> Dict[str, Any]:
         )
         print(f"\nWrote {DASHBOARD_JSON}")
         print(f"  {len(runs)} runs, {len(annotated_summaries)} model summaries")
+
+    print("\nStep 4: Running quality evaluation pipeline...")
+    _run_quality_pipeline(dry_run=dry_run)
+
+    # Reload dashboard-data.json to pick up quality annotations
+    if not dry_run and DASHBOARD_JSON.exists():
+        payload = json.loads(DASHBOARD_JSON.read_text(encoding="utf-8"))
 
     return payload
 
