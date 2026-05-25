@@ -1,0 +1,6 @@
+device_label,model_id,model_mb,prompts,success,timeout,error,p50_duration_ms,p50_tokens_per_sec,max_tokens,threads,prompt_timeout_s,output_present,thermal_warning_count,max_temp_before_c,max_temp_after_c,llama_bin
+samsung-s24-ultra,phi3-mini-q4km,2282,2,2,0,0,19326,8.24,48,4,90,2,2,44.7,42.0,/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli
+
+prompt_id,status,duration_ms,tokens_per_sec,timed_out,start_ts,end_ts
+P01,ok,19326,8.17,False,2026-05-24T16:44:23Z,2026-05-24T16:44:42Z
+P02,ok,15307,8.24,False,2026-05-24T16:46:13Z,2026-05-24T16:46:28Z

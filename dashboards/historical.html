@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab — Historical</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="thermals.html">Thermals</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="devices.html">Devices</a>
+      <a href="historical.html" class="active">Historical</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Historical Analysis</h1>
+      <p class="subtitle">Run-over-run regression tracking · Phase 3 AI Lab · S24 Ultra</p>
+    </div>
+
+    <div class="card callout-info">
+      <strong>Analytics foundation:</strong> This view tracks benchmark runs over time.
+      Multiple runs per model are available for qwen2.5-1.5b (7 runs) and qwen2.5-0.5b (3 runs).
+      Historical regressions and cross-device comparisons will be tracked here as new data arrives.
+    </div>
+
+    <div class="card">
+      <div class="filters">
+        <div class="filter-group">
+          <label>Model</label>
+          <select id="modelFilter"></select>
+        </div>
+        <div class="filter-group">
+          <label>Metric</label>
+          <select id="metricFilter">
+            <option value="avg_tok">Avg tok/s</option>
+            <option value="p50_dur">p50 Duration (ms)</option>
+            <option value="temp_after">Max Temp After (°C)</option>
+            <option value="success">Success Count</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Metric Over Time — All Runs</div>
+      <canvas id="chartTrend" style="max-height:360px"></canvas>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Avg tok/s — Run History</div>
+        <canvas id="chartTokHistory"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Thermal After — Run History</div>
+        <canvas id="chartThermalHistory"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">All Runs Log</div>
+      <div class="table-wrap">
+        <table id="historyTable">
+          <thead>
+            <tr>
+              <th data-col="timestamp">Timestamp</th>
+              <th data-col="device">Device</th>
+              <th data-col="model">Model</th>
+              <th data-col="avg_tok">Avg tok/s</th>
+              <th data-col="p50_dur">p50 dur (ms)</th>
+              <th data-col="success">OK</th>
+              <th data-col="errors">Err</th>
+              <th data-col="temp_after">Temp After (°C)</th>
+              <th data-col="score">Score</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Regression Detection</div>
+      <p class="muted" style="font-size:13px;margin:0 0 12px">
+        Regressions are flagged when the latest run shows a degradation greater than 10% vs the
+        previous run for the same model+device pair. No regressions detected in current dataset.
+      </p>
+      <div id="regressionList"></div>
+    </div>
+  </main>
+
+  <script src="assets/dash.js"></script>
+  <script>
+    loadDashboardData("data/dashboard-data.json").then(data => {
+      initHistoricalPage(data);
+    });
+  </script>
+</body>
+</html>

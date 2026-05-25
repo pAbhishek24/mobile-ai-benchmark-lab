@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab — Prompt Latency</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="thermals.html">Thermals</a>
+      <a href="prompts.html" class="active">Prompts</a>
+      <a href="devices.html">Devices</a>
+      <a href="historical.html">Historical</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Prompt-Level Latency</h1>
+      <p class="subtitle">Per-prompt duration breakdown · 20 Indian finance benchmark prompts · P01–P20</p>
+    </div>
+
+    <div class="card">
+      <div class="filters">
+        <div class="filter-group">
+          <label>Model</label>
+          <select id="modelFilter"></select>
+        </div>
+        <span class="badge" id="promptChip"></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Duration per Prompt (ms) — Selected Model</div>
+      <canvas id="chartPromptDuration" style="max-height:360px"></canvas>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Tokens/sec per Prompt</div>
+        <canvas id="chartPromptTokSec"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Output Length (words) per Prompt</div>
+        <canvas id="chartPromptOutLen"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Latency Variance — All Models Side-by-Side</div>
+      <canvas id="chartVariance" style="max-height:380px"></canvas>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Prompt Results Table</div>
+      <div class="table-wrap">
+        <table id="promptTable">
+          <thead>
+            <tr>
+              <th data-col="prompt_id">Prompt ID</th>
+              <th data-col="status">Status</th>
+              <th data-col="duration_ms">Duration (ms)</th>
+              <th data-col="tokens_per_sec">Tok/s</th>
+              <th data-col="out_words">Output words</th>
+              <th data-col="thermal_warning">Thermal warn</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/dash.js"></script>
+  <script>
+    loadDashboardData("data/dashboard-data.json").then(data => {
+      initPromptsPage(data);
+    });
+  </script>
+</body>
+</html>

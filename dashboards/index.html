@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab Benchmarks — Overview</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="thermals.html">Thermals</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="devices.html">Devices</a>
+      <a href="historical.html">Historical</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Samsung S24 Ultra — 7-Model Benchmark</h1>
+      <p class="subtitle">Real-world on-device LLM benchmark · Termux + llama.cpp · 20 finance prompts per model</p>
+    </div>
+
+    <!-- KPI row -->
+    <div class="kpi-row" id="kpiRow"></div>
+
+    <!-- Filters -->
+    <div class="card">
+      <div class="card-title">Filters</div>
+      <div class="filters">
+        <div class="filter-group">
+          <label>Device</label>
+          <select id="deviceFilter"></select>
+        </div>
+        <div class="filter-group">
+          <label>Model</label>
+          <select id="modelFilter"></select>
+        </div>
+        <span class="badge" id="filterChip">All runs</span>
+      </div>
+    </div>
+
+    <!-- Charts row 1 -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Tokens / sec by Model</div>
+        <canvas id="chartTokPerSec"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Weighted Score by Model</div>
+        <canvas id="chartScore"></canvas>
+      </div>
+    </div>
+
+    <!-- Charts row 2 -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Thermal Rise (°C) — Inference Impact</div>
+        <canvas id="chartThermal"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Model Size vs Speed</div>
+        <canvas id="chartSizeVsSpeed"></canvas>
+      </div>
+    </div>
+
+    <!-- Radar -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Radar — Multi-dimensional Score (passing models)</div>
+        <canvas id="chartRadar"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Stability Overview</div>
+        <canvas id="chartStability"></canvas>
+      </div>
+    </div>
+
+    <!-- Summary table -->
+    <div class="card">
+      <div class="card-title">Model Summary <span class="muted" style="font-weight:400;font-size:12px;">— click column headers to sort</span></div>
+      <div class="table-wrap">
+        <table id="summaryTable">
+          <thead>
+            <tr>
+              <th data-col="rank">Rank</th>
+              <th data-col="model">Model</th>
+              <th data-col="size_mb">Size (MB)</th>
+              <th data-col="avg_tok">Avg tok/s</th>
+              <th data-col="p50_dur">p50 dur (ms)</th>
+              <th data-col="p95_dur">p95 dur (ms)</th>
+              <th data-col="success">Success</th>
+              <th data-col="temp_rise">Temp rise (°C)</th>
+              <th data-col="score">Score</th>
+              <th data-col="status">Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/dash.js"></script>
+  <script>
+    loadDashboardData("data/dashboard-data.json").then(data => {
+      initOverviewPage(data);
+    });
+  </script>
+</body>
+</html>

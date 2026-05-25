@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab — Model Deep Dive</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="models.html" class="active">Models</a>
+      <a href="thermals.html">Thermals</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="devices.html">Devices</a>
+      <a href="historical.html">Historical</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Model Deep Dive</h1>
+      <p class="subtitle">Per-model breakdown across all benchmark runs</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Filters</div>
+      <div class="filters">
+        <div class="filter-group">
+          <label>Device</label>
+          <select id="deviceFilter"></select>
+        </div>
+        <div class="filter-group">
+          <label>Model</label>
+          <select id="modelFilter"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Average Tokens / sec</div>
+        <canvas id="chartTokSec"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">p50 vs p95 Latency (ms)</div>
+        <canvas id="chartLatency"></canvas>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Model Size (MB)</div>
+        <canvas id="chartSize"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">RAM Delta (MB)</div>
+        <canvas id="chartRamDelta"></canvas>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Output Length — Avg Words</div>
+        <canvas id="chartOutputLen"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Score Components Breakdown</div>
+        <canvas id="chartScoreComponents"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Full Model Comparison Table</div>
+      <div class="table-wrap">
+        <table id="modelTable">
+          <thead>
+            <tr>
+              <th data-col="model">Model</th>
+              <th data-col="provider">Provider</th>
+              <th data-col="size_mb">Size (MB)</th>
+              <th data-col="avg_tok">Avg tok/s</th>
+              <th data-col="p50_dur">p50 (ms)</th>
+              <th data-col="p95_dur">p95 (ms)</th>
+              <th data-col="success">OK</th>
+              <th data-col="errors">Errors</th>
+              <th data-col="out_words">Avg words</th>
+              <th data-col="temp_rise">Temp Δ°C</th>
+              <th data-col="ram_delta">RAM Δ MB</th>
+              <th data-col="score">Score</th>
+              <th data-col="hc1">HC-1</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/dash.js"></script>
+  <script>
+    loadDashboardData("data/dashboard-data.json").then(data => {
+      initModelsPage(data);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab — Devices</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="thermals.html">Thermals</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="devices.html" class="active">Devices</a>
+      <a href="historical.html">Historical</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Device Profiles</h1>
+      <p class="subtitle">Benchmark device hardware profiles and run history</p>
+    </div>
+
+    <div id="deviceCards"></div>
+
+    <div class="card">
+      <div class="card-title">Top Model per Device</div>
+      <div class="table-wrap">
+        <table id="deviceTopTable">
+          <thead>
+            <tr>
+              <th>Device</th>
+              <th>Top Model</th>
+              <th>Score</th>
+              <th>Avg tok/s</th>
+              <th>Temp Rise (°C)</th>
+              <th>Runs</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Run Count by Device + Model</div>
+      <canvas id="chartRunMatrix" style="max-height:300px"></canvas>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Future Device Roadmap</div>
+      <p class="muted" style="font-size:13px;margin:0 0 12px">
+        Current benchmark covers only the Samsung Galaxy S24 Ultra (flagship tier).
+        The low-end device strategy targets Redmi-class and Pixel-a-class devices.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Device Tier</th>
+              <th>Target Device</th>
+              <th>RAM</th>
+              <th>SoC</th>
+              <th>Primary Model Candidate</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="badge badge-green">Flagship</span></td><td>Samsung Galaxy S24 Ultra</td><td>12 GB</td><td>Snapdragon 8 Gen 3</td><td>qwen2.5-1.5b-q4km</td><td class="text-good">✅ Benchmarked</td></tr>
+            <tr><td><span class="badge badge-yellow">Mid-range</span></td><td>Samsung Galaxy A55 / Pixel 8a</td><td>8 GB</td><td>Exynos 1480 / Tensor G3</td><td>qwen2.5-0.5b-q4km</td><td class="muted">Planned</td></tr>
+            <tr><td><span class="badge badge-red">Low-end</span></td><td>Redmi Note 13 / Realme 12x</td><td>4–6 GB</td><td>Helio G99 / SD 4 Gen 2</td><td>qwen2.5-0.5b-q4km</td><td class="muted">Planned</td></tr>
+            <tr><td><span class="badge">Budget</span></td><td>Redmi 12C / Galaxy A15</td><td>3–4 GB</td><td>Helio G85 / Helio G99</td><td>tinyllama-1.1b (if quality passes)</td><td class="muted">Future</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/dash.js"></script>
+  <script>
+    loadDashboardData("data/dashboard-data.json").then(data => {
+      initDevicesPage(data);
+    });
+  </script>
+</body>
+</html>
