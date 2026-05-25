@@ -54,9 +54,13 @@ jobs:
                       except json.JSONDecodeError as e:
                           errors.append(f"{jsonl_file}:{i}: invalid JSON: {e}")
                           continue
-                      for field in ("prompt_id", "status"):
-                          if field not in row:
-                              errors.append(f"{jsonl_file}:{i}: missing field '{field}'")
+                      # Accept both schema versions:
+                      # - new: has "status" field ("ok"/"error"/"timeout")
+                      # - old: has "success" boolean field (early runs)
+                      if "prompt_id" not in row:
+                          errors.append(f"{jsonl_file}:{i}: missing field 'prompt_id'")
+                      if "status" not in row and "success" not in row:
+                          errors.append(f"{jsonl_file}:{i}: missing both 'status' and 'success' fields")
 
           if errors:
               print("Schema validation errors:")

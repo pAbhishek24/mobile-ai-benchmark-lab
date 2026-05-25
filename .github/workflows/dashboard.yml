@@ -21,9 +21,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  generate:
-    name: Generate dashboard data
+  deploy:
+    name: Generate & deploy dashboard
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -41,25 +44,10 @@ jobs:
           path: dashboards/
           retention-days: 30
 
-  deploy-pages:
-    name: Deploy to GitHub Pages
-    needs: generate
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Generate dashboard-data.json
-        run: python3 ai-lab/analytics/generate_dashboard_data.py
-
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
