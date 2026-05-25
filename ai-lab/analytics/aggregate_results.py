@@ -70,8 +70,15 @@ def _read_summary_csv(path: Path) -> Optional[Dict[str, Any]]:
 def _p50(values: List[float]) -> Optional[float]:
     if not values:
         return None
-    values = sorted(values)
-    return values[len(values) // 2]
+    s = sorted(values)
+    return s[len(s) // 2]
+
+
+def _p95(values: List[float]) -> Optional[float]:
+    if not values:
+        return None
+    s = sorted(values)
+    return s[min(int(len(s) * 0.95), len(s) - 1)]
 
 
 def _max_temp(snapshot: Optional[Dict[str, Any]]) -> Optional[float]:
@@ -140,6 +147,8 @@ def aggregate_run(run_dir: Path) -> Dict[str, Any]:
     statuses: Dict[str, int] = {"ok": 0, "timeout": 0, "error": 0}
     thermal_warn_count = 0
     output_present = 0
+    output_word_counts: List[int] = []
+    prompt_results: List[Dict[str, Any]] = []
 
     for r in bench_rows:
         status = r.get("status")
@@ -150,25 +159,45 @@ def aggregate_run(run_dir: Path) -> Dict[str, Any]:
 
         try:
             if status == "ok":
-                durations.append(float(r.get("duration_ms", 0)))
+                dur = float(r.get("duration_ms", 0))
+                durations.append(dur)
                 v = r.get("tokens_per_sec")
-                if v is not None:
+                if v is not None and float(v) > 0:
                     tokps.append(float(v))
         except Exception:
             pass
 
+        out = (r.get("output") or "").strip()
+        if out:
+            output_present += 1
+            output_word_counts.append(len(out.split()))
         if bool(r.get("thermal_warning")):
             thermal_warn_count += 1
-        if (r.get("output") or "").strip():
-            output_present += 1
+
+        tok_val = r.get("tokens_per_sec")
+        prompt_results.append({
+            "prompt_id": r.get("prompt_id"),
+            "status": r.get("status"),
+            "duration_ms": r.get("duration_ms"),
+            "tokens_per_sec": float(tok_val) if tok_val is not None and float(tok_val) > 0 else None,
+            "out_words": len(out.split()) if out else 0,
+            "thermal_warning": bool(r.get("thermal_warning")),
+        })
 
     p50_dur = _p50(durations)
+    p95_dur = _p95(durations)
     p50_tok = _p50(tokps)
     avg_tok = (statistics.mean(tokps) if tokps else None)
+    avg_output_words = round(statistics.mean(output_word_counts), 1) if output_word_counts else None
     total_time_ms = int(sum(float(r.get("duration_ms", 0) or 0) for r in bench_rows)) if bench_rows else None
 
     max_before = _max_temp(snap_before)
     max_after = _max_temp(snap_after)
+
+    # RAM delta
+    ram_before = snap_before.get("memory", {}).get("used_mb") if snap_before else None
+    ram_after = snap_after.get("memory", {}).get("used_mb") if snap_after else None
+    ram_delta_mb = int(ram_after - ram_before) if (ram_before is not None and ram_after is not None) else None
 
     return {
         "device": device,
@@ -193,14 +222,18 @@ def aggregate_run(run_dir: Path) -> Dict[str, Any]:
             "error": statuses["error"],
             "total_time_ms": total_time_ms,
             "p50_duration_ms": p50_dur,
+            "p95_duration_ms": p95_dur,
             "p50_tokens_per_sec": p50_tok,
             "avg_tokens_per_sec": avg_tok,
+            "avg_output_words": avg_output_words,
             "output_present": output_present,
             "thermal_warning_count": thermal_warn_count,
             "max_temp_before_c": max_before,
             "max_temp_after_c": max_after,
             "thermal_before_bucket": _thermal_bucket(max_before),
             "thermal_after_bucket": _thermal_bucket(max_after),
+            "ram_delta_mb": ram_delta_mb,
+            "prompt_results": prompt_results,
         },
         "snapshot_before": _min_snapshot(snap_before),
         "snapshot_after": _min_snapshot(snap_after),

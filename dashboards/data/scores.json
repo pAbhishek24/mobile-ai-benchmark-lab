@@ -1,0 +1,1590 @@
+{
+  "generated_by": "compute_scores.py",
+  "weights": {
+    "speed": 0.25,
+    "thermal_efficiency": 0.25,
+    "stability": 0.2,
+    "output_success": 0.2,
+    "memory_efficiency": 0.1
+  },
+  "thermal_cap_c": 15.0,
+  "scores_by_device": {
+    "samsung-s24-ultra": [
+      {
+        "device": "samsung-s24-ultra",
+        "model": "qwen2.5-0.5b-q4km",
+        "timestamp": "20260524_203804",
+        "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260524_203804",
+        "files": {
+          "benchmark_jsonl": true,
+          "summary_csv": true,
+          "summary_md": true,
+          "snapshot_before": true,
+          "snapshot_after": true
+        },
+        "quality_score": null,
+        "summary": {
+          "device_label": "samsung-s24-ultra",
+          "model_id": "qwen2.5-0.5b-q4km",
+          "model_mb": "468",
+          "prompts": "20",
+          "success": "20",
+          "timeout": "0",
+          "error": "0",
+          "p50_duration_ms": "7869",
+          "p50_tokens_per_sec": "47.33",
+          "max_tokens": "256",
+          "threads": "4",
+          "prompt_timeout_s": "90",
+          "output_present": "20",
+          "thermal_warning_count": "18",
+          "max_temp_before_c": "42.8",
+          "max_temp_after_c": "42.8",
+          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
+        },
+        "derived": {
+          "prompts": 20,
+          "success": 20,
+          "timeout": 0,
+          "error": 0,
+          "total_time_ms": 158444,
+          "p50_duration_ms": 7869.0,
+          "p50_tokens_per_sec": 47.33,
+          "avg_tokens_per_sec": 46.579,
+          "output_present": 20,
+          "thermal_warning_count": 18,
+          "max_temp_before_c": 42.8,
+          "max_temp_after_c": 42.8,
+          "thermal_before_bucket": "green",
+          "thermal_after_bucket": "green"
+        },
+        "snapshot_before": {
+          "timestamp": "2026-05-24T15:08:04Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "787200kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 2610,
+            "used_mb": 8475
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 42.8
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 42.8
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 41.2
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 41.2
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 41.2
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 42.0
+              }
+            ]
+          }
+        },
+        "snapshot_after": {
+          "timestamp": "2026-05-24T15:38:52Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "787200kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 4032,
+            "used_mb": 7053
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 42.8
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 42.8
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 41.2
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 42.4
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 41.6
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 42.4
+              }
+            ]
+          }
+        },
+        "size_mb": 350,
+        "display_name": "Qwen2.5 0.5B Instruct (Q4_K_M)",
+        "provider": "Qwen",
+        "target_device_tier": "mid",
+        "registry_notes": "Smaller model for mid-range devices. Expect quality drop vs 1.5B.",
+        "scoring": {
+          "raw": {
+            "avg_tok_s": 46.579,
+            "temp_delta_c": 0.0,
+            "stability": 1.0,
+            "output_rate": 1.0,
+            "size_mb": 350.0
+          },
+          "components": {
+            "speed": 1.0,
+            "thermal_efficiency": 1.0,
+            "stability": 1.0,
+            "output_success": 1.0,
+            "memory_efficiency": 1.0
+          },
+          "weights": {
+            "speed": 0.25,
+            "thermal_efficiency": 0.25,
+            "stability": 0.2,
+            "output_success": 0.2,
+            "memory_efficiency": 0.1
+          },
+          "weighted_score": 1.0,
+          "rank": 1
+        }
+      },
+      {
+        "device": "samsung-s24-ultra",
+        "model": "tinyllama-1.1b-q4km",
+        "timestamp": "20260524_192319",
+        "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260524_192319",
+        "files": {
+          "benchmark_jsonl": true,
+          "summary_csv": true,
+          "summary_md": true,
+          "snapshot_before": true,
+          "snapshot_after": true
+        },
+        "quality_score": null,
+        "summary": {
+          "device_label": "samsung-s24-ultra",
+          "model_id": "tinyllama-1.1b-q4km",
+          "model_mb": "637",
+          "prompts": "20",
+          "success": "20",
+          "timeout": "0",
+          "error": "0",
+          "p50_duration_ms": "3304",
+          "p50_tokens_per_sec": "28.89",
+          "max_tokens": "256",
+          "threads": "4",
+          "prompt_timeout_s": "90",
+          "output_present": "20",
+          "thermal_warning_count": "6",
+          "max_temp_before_c": "53.8",
+          "max_temp_after_c": "41.2",
+          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
+        },
+        "derived": {
+          "prompts": 20,
+          "success": 20,
+          "timeout": 0,
+          "error": 0,
+          "total_time_ms": 88780,
+          "p50_duration_ms": 3304.0,
+          "p50_tokens_per_sec": 0.0,
+          "avg_tokens_per_sec": 4.289,
+          "output_present": 20,
+          "thermal_warning_count": 6,
+          "max_temp_before_c": 53.8,
+          "max_temp_after_c": 41.2,
+          "thermal_before_bucket": "green",
+          "thermal_after_bucket": "green"
+        },
+        "snapshot_before": {
+          "timestamp": "2026-05-24T13:53:19Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "1017600kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 2839,
+            "used_mb": 8246
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 43.6
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 47.9
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 48.3
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 50.6
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 51.8
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 51.8
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 53.8
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 45.1
+              }
+            ]
+          }
+        },
+        "snapshot_after": {
+          "timestamp": "2026-05-24T14:10:56Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "787200kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 3015,
+            "used_mb": 8070
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 38.5
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 39.6
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 41.2
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 38.5
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 38.9
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 38.1
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 38.1
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 39.3
+              }
+            ]
+          }
+        },
+        "size_mb": 700,
+        "display_name": "TinyLlama 1.1B Chat (Q4_K_M)",
+        "provider": "TinyLlama",
+        "target_device_tier": "mid",
+        "registry_notes": "Common baseline. Fast, but finance reasoning may be weaker than Qwen2.5.",
+        "scoring": {
+          "raw": {
+            "avg_tok_s": 4.289,
+            "temp_delta_c": -12.599999999999994,
+            "stability": 1.0,
+            "output_rate": 1.0,
+            "size_mb": 700.0
+          },
+          "components": {
+            "speed": 0.0921,
+            "thermal_efficiency": 1.0,
+            "stability": 1.0,
+            "output_success": 1.0,
+            "memory_efficiency": 0.8108
+          },
+          "weights": {
+            "speed": 0.25,
+            "thermal_efficiency": 0.25,
+            "stability": 0.2,
+            "output_success": 0.2,
+            "memory_efficiency": 0.1
+          },
+          "weighted_score": 0.7541,
+          "rank": 2
+        }
+      },
+      {
+        "device": "samsung-s24-ultra",
+        "model": "phi3-mini-q4km",
+        "timestamp": "20260524_221813",
+        "run_dir": "ai-lab/results/samsung-s24-ultra/phi3-mini-q4km/20260524_221813",
+        "files": {
+          "benchmark_jsonl": true,
+          "summary_csv": true,
+          "summary_md": true,
+          "snapshot_before": true,
+          "snapshot_after": true
+        },
+        "quality_score": null,
+        "summary": {
+          "device_label": "samsung-s24-ultra",
+          "model_id": "phi3-mini-q4km",
+          "model_mb": "2282",
+          "prompts": "20",
+          "success": "20",
+          "timeout": "0",
+          "error": "0",
+          "p50_duration_ms": "53165",
+          "p50_tokens_per_sec": "6.57",
+          "max_tokens": "256",
+          "threads": "4",
+          "prompt_timeout_s": "90",
+          "output_present": "20",
+          "thermal_warning_count": "13",
+          "max_temp_before_c": "49.1",
+          "max_temp_after_c": "29.8",
+          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
+        },
+        "derived": {
+          "prompts": 20,
+          "success": 20,
+          "timeout": 0,
+          "error": 0,
+          "total_time_ms": 2350999,
+          "p50_duration_ms": 53165.0,
+          "p50_tokens_per_sec": 6.01,
+          "avg_tokens_per_sec": 3.699,
+          "output_present": 20,
+          "thermal_warning_count": 13,
+          "max_temp_before_c": 49.1,
+          "max_temp_after_c": 29.8,
+          "thermal_before_bucket": "green",
+          "thermal_after_bucket": "green"
+        },
+        "snapshot_before": {
+          "timestamp": "2026-05-24T16:48:13Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "787200kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 4266,
+            "used_mb": 6819
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 40.0
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 42.4
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 49.1
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 40.4
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 40.4
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 40.4
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 41.3
+              }
+            ]
+          }
+        },
+        "snapshot_after": {
+          "timestamp": "2026-05-24T18:03:58Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 4,
+            "max_freq": "2265600kHz",
+            "current_freq": "1689600kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 4437,
+            "used_mb": 6648
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 28.2
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 29.4
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 29.4
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 29.0
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 29.4
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 29.0
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 29.8
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 29.7
+              }
+            ]
+          }
+        },
+        "size_mb": 2200,
+        "display_name": "Phi-3 Mini 4K Instruct (Q4_K_M)",
+        "provider": "Microsoft",
+        "target_device_tier": "flagship",
+        "registry_notes": "Exceeds 1.5GB disk hard constraint (HC-1). Benchmark for quality reference only — not a production candidate.",
+        "scoring": {
+          "raw": {
+            "avg_tok_s": 3.699,
+            "temp_delta_c": -19.3,
+            "stability": 1.0,
+            "output_rate": 1.0,
+            "size_mb": 2200.0
+          },
+          "components": {
+            "speed": 0.0794,
+            "thermal_efficiency": 1.0,
+            "stability": 1.0,
+            "output_success": 1.0,
+            "memory_efficiency": 0.0
+          },
+          "weights": {
+            "speed": 0.25,
+            "thermal_efficiency": 0.25,
+            "stability": 0.2,
+            "output_success": 0.2,
+            "memory_efficiency": 0.1
+          },
+          "weighted_score": 0.6699,
+          "rank": 3
+        }
+      },
+      {
+        "device": "samsung-s24-ultra",
+        "model": "qwen2.5-1.5b-q4km",
+        "timestamp": "20260524_181530",
+        "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_181530",
+        "files": {
+          "benchmark_jsonl": true,
+          "summary_csv": true,
+          "summary_md": true,
+          "snapshot_before": true,
+          "snapshot_after": true
+        },
+        "quality_score": null,
+        "summary": {
+          "device_label": "samsung-s24-ultra",
+          "model_id": "qwen2.5-1.5b-q4km",
+          "model_mb": "1065",
+          "prompts": "20",
+          "success": "20",
+          "timeout": "0",
+          "error": "0",
+          "p50_duration_ms": "18481",
+          "p50_tokens_per_sec": "18.83",
+          "max_tokens": "256",
+          "threads": "4",
+          "prompt_timeout_s": "90",
+          "output_present": "20",
+          "thermal_warning_count": "20",
+          "max_temp_before_c": "45.9",
+          "max_temp_after_c": "55.8",
+          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
+        },
+        "derived": {
+          "prompts": 20,
+          "success": 20,
+          "timeout": 0,
+          "error": 0,
+          "total_time_ms": 371155,
+          "p50_duration_ms": 18481.0,
+          "p50_tokens_per_sec": 18.83,
+          "avg_tokens_per_sec": 18.5425,
+          "output_present": 20,
+          "thermal_warning_count": 20,
+          "max_temp_before_c": 45.9,
+          "max_temp_after_c": 55.8,
+          "thermal_before_bucket": "green",
+          "thermal_after_bucket": "yellow"
+        },
+        "snapshot_before": {
+          "timestamp": "2026-05-24T12:45:30Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "787200kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 3380,
+            "used_mb": 7705
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 42.0
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 44.4
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 45.9
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 42.4
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 42.8
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 42.0
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 42.8
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 43.6
+              }
+            ]
+          }
+        },
+        "snapshot_after": {
+          "timestamp": "2026-05-24T13:21:49Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "1689600kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 3670,
+            "used_mb": 7415
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 45.9
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 49.5
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 51.0
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 51.8
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 53.0
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 53.8
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 55.8
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 47.5
+              }
+            ]
+          }
+        },
+        "size_mb": 980,
+        "display_name": "Qwen2.5 1.5B Instruct (Q4_K_M)",
+        "provider": "Qwen",
+        "target_device_tier": "high",
+        "registry_notes": "Best quality/size balance for S24 Ultra class devices. Good baseline for finance prompts.",
+        "scoring": {
+          "raw": {
+            "avg_tok_s": 18.5425,
+            "temp_delta_c": 9.899999999999999,
+            "stability": 1.0,
+            "output_rate": 1.0,
+            "size_mb": 980.0
+          },
+          "components": {
+            "speed": 0.3981,
+            "thermal_efficiency": 0.34,
+            "stability": 1.0,
+            "output_success": 1.0,
+            "memory_efficiency": 0.6595
+          },
+          "weights": {
+            "speed": 0.25,
+            "thermal_efficiency": 0.25,
+            "stability": 0.2,
+            "output_success": 0.2,
+            "memory_efficiency": 0.1
+          },
+          "weighted_score": 0.6505,
+          "rank": 4
+        }
+      },
+      {
+        "device": "samsung-s24-ultra",
+        "model": "llama3.2-1b-q4km",
+        "timestamp": "20260524_212426",
+        "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-1b-q4km/20260524_212426",
+        "files": {
+          "benchmark_jsonl": true,
+          "summary_csv": true,
+          "summary_md": true,
+          "snapshot_before": true,
+          "snapshot_after": true
+        },
+        "quality_score": null,
+        "summary": {
+          "device_label": "samsung-s24-ultra",
+          "model_id": "llama3.2-1b-q4km",
+          "model_mb": "770",
+          "prompts": "20",
+          "success": "0",
+          "timeout": "0",
+          "error": "20",
+          "p50_duration_ms": "",
+          "p50_tokens_per_sec": "",
+          "max_tokens": "256",
+          "threads": "4",
+          "prompt_timeout_s": "90",
+          "output_present": "0",
+          "thermal_warning_count": "0",
+          "max_temp_before_c": "42.8",
+          "max_temp_after_c": "42.4",
+          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
+        },
+        "derived": {
+          "prompts": 20,
+          "success": 0,
+          "timeout": 0,
+          "error": 20,
+          "total_time_ms": 20781,
+          "p50_duration_ms": null,
+          "p50_tokens_per_sec": null,
+          "avg_tokens_per_sec": null,
+          "output_present": 0,
+          "thermal_warning_count": 0,
+          "max_temp_before_c": 42.8,
+          "max_temp_after_c": 42.4,
+          "thermal_before_bucket": "green",
+          "thermal_after_bucket": "green"
+        },
+        "snapshot_before": {
+          "timestamp": "2026-05-24T15:54:26Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "787200kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 3514,
+            "used_mb": 7571
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 42.8
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 42.4
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 41.2
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 41.2
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 42.0
+              }
+            ]
+          }
+        },
+        "snapshot_after": {
+          "timestamp": "2026-05-24T16:04:56Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "556800kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 3420,
+            "used_mb": 7665
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 39.2
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 42.4
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 38.9
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 39.6
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 39.2
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 39.6
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 40.5
+              }
+            ]
+          }
+        },
+        "size_mb": 750,
+        "display_name": "Llama 3.2 1B Instruct (Q4_K_M)",
+        "provider": "Meta",
+        "target_device_tier": "mid",
+        "registry_notes": "If the URL changes upstream, update this registry entry. License acceptance may be required.",
+        "scoring": {
+          "raw": {
+            "avg_tok_s": 0.0,
+            "temp_delta_c": -0.3999999999999986,
+            "stability": 0.0,
+            "output_rate": 0.0,
+            "size_mb": 750.0
+          },
+          "components": {
+            "speed": 0.0,
+            "thermal_efficiency": 1.0,
+            "stability": 0.0,
+            "output_success": 0.0,
+            "memory_efficiency": 0.7838
+          },
+          "weights": {
+            "speed": 0.25,
+            "thermal_efficiency": 0.25,
+            "stability": 0.2,
+            "output_success": 0.2,
+            "memory_efficiency": 0.1
+          },
+          "weighted_score": 0.3284,
+          "rank": 5
+        }
+      },
+      {
+        "device": "samsung-s24-ultra",
+        "model": "llama3.2-3b-q4km",
+        "timestamp": "20260524_215606",
+        "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-3b-q4km/20260524_215606",
+        "files": {
+          "benchmark_jsonl": true,
+          "summary_csv": true,
+          "summary_md": true,
+          "snapshot_before": true,
+          "snapshot_after": true
+        },
+        "quality_score": null,
+        "summary": {
+          "device_label": "samsung-s24-ultra",
+          "model_id": "llama3.2-3b-q4km",
+          "model_mb": "1925",
+          "prompts": "20",
+          "success": "0",
+          "timeout": "0",
+          "error": "20",
+          "p50_duration_ms": "",
+          "p50_tokens_per_sec": "",
+          "max_tokens": "256",
+          "threads": "4",
+          "prompt_timeout_s": "90",
+          "output_present": "0",
+          "thermal_warning_count": "0",
+          "max_temp_before_c": "41.7",
+          "max_temp_after_c": "40.8",
+          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
+        },
+        "derived": {
+          "prompts": 20,
+          "success": 0,
+          "timeout": 0,
+          "error": 20,
+          "total_time_ms": 21059,
+          "p50_duration_ms": null,
+          "p50_tokens_per_sec": null,
+          "avg_tokens_per_sec": null,
+          "output_present": 0,
+          "thermal_warning_count": 0,
+          "max_temp_before_c": 41.7,
+          "max_temp_after_c": 40.8,
+          "thermal_before_bucket": "green",
+          "thermal_after_bucket": "green"
+        },
+        "snapshot_before": {
+          "timestamp": "2026-05-24T16:26:06Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "787200kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 3351,
+            "used_mb": 7734
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 40.0
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 41.6
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 41.6
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 40.4
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 40.0
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 40.0
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 41.7
+              }
+            ]
+          }
+        },
+        "snapshot_after": {
+          "timestamp": "2026-05-24T16:36:36Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "787200kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 3193,
+            "used_mb": 7892
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 38.5
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 40.4
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 38.5
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 38.9
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 38.1
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 38.5
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 39.7
+              }
+            ]
+          }
+        },
+        "size_mb": 2000,
+        "display_name": "Llama 3.2 3B Instruct (Q4_K_M)",
+        "provider": "Meta",
+        "target_device_tier": "flagship",
+        "registry_notes": "Larger Llama 3.2 variant. Exceeds disk hard constraint (HC-1). Benchmark on S24 Ultra only for quality reference.",
+        "scoring": {
+          "raw": {
+            "avg_tok_s": 0.0,
+            "temp_delta_c": -0.9000000000000057,
+            "stability": 0.0,
+            "output_rate": 0.0,
+            "size_mb": 2000.0
+          },
+          "components": {
+            "speed": 0.0,
+            "thermal_efficiency": 1.0,
+            "stability": 0.0,
+            "output_success": 0.0,
+            "memory_efficiency": 0.1081
+          },
+          "weights": {
+            "speed": 0.25,
+            "thermal_efficiency": 0.25,
+            "stability": 0.2,
+            "output_success": 0.2,
+            "memory_efficiency": 0.1
+          },
+          "weighted_score": 0.2608,
+          "rank": 6
+        }
+      },
+      {
+        "device": "samsung-s24-ultra",
+        "model": "gemma-2b-q4km",
+        "timestamp": "20260524_202052",
+        "run_dir": "ai-lab/results/samsung-s24-ultra/gemma-2b-q4km/20260524_202052",
+        "files": {
+          "benchmark_jsonl": true,
+          "summary_csv": true,
+          "summary_md": true,
+          "snapshot_before": true,
+          "snapshot_after": true
+        },
+        "quality_score": null,
+        "summary": {
+          "device_label": "samsung-s24-ultra",
+          "model_id": "gemma-2b-q4km",
+          "model_mb": "1629",
+          "prompts": "20",
+          "success": "0",
+          "timeout": "0",
+          "error": "20",
+          "p50_duration_ms": "",
+          "p50_tokens_per_sec": "",
+          "max_tokens": "256",
+          "threads": "4",
+          "prompt_timeout_s": "90",
+          "output_present": "0",
+          "thermal_warning_count": "0",
+          "max_temp_before_c": "44.4",
+          "max_temp_after_c": "47.5",
+          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
+        },
+        "derived": {
+          "prompts": 20,
+          "success": 0,
+          "timeout": 0,
+          "error": 20,
+          "total_time_ms": 8404,
+          "p50_duration_ms": null,
+          "p50_tokens_per_sec": null,
+          "avg_tokens_per_sec": null,
+          "output_present": 0,
+          "thermal_warning_count": 0,
+          "max_temp_before_c": 44.4,
+          "max_temp_after_c": 47.5,
+          "thermal_before_bucket": "green",
+          "thermal_after_bucket": "green"
+        },
+        "snapshot_before": {
+          "timestamp": "2026-05-24T14:50:52Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "1689600kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 2704,
+            "used_mb": 8381
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 43.2
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 44.4
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 41.2
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 41.6
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 40.4
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 41.6
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 42.4
+              }
+            ]
+          }
+        },
+        "snapshot_after": {
+          "timestamp": "2026-05-24T15:01:09Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "556800kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 2637,
+            "used_mb": 8448
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 39.6
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 40.4
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 47.5
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 39.2
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 39.6
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 38.9
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 39.6
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 40.5
+              }
+            ]
+          }
+        },
+        "size_mb": 1600,
+        "display_name": "Gemma 2 2B IT (Q4_K_M)",
+        "provider": "Google",
+        "target_device_tier": "high",
+        "registry_notes": "Likely exceeds 800MB RAM hard constraint. Benchmark to confirm. May fail HC-2.",
+        "scoring": {
+          "raw": {
+            "avg_tok_s": 0.0,
+            "temp_delta_c": 3.1000000000000014,
+            "stability": 0.0,
+            "output_rate": 0.0,
+            "size_mb": 1600.0
+          },
+          "components": {
+            "speed": 0.0,
+            "thermal_efficiency": 0.7933,
+            "stability": 0.0,
+            "output_success": 0.0,
+            "memory_efficiency": 0.3243
+          },
+          "weights": {
+            "speed": 0.25,
+            "thermal_efficiency": 0.25,
+            "stability": 0.2,
+            "output_success": 0.2,
+            "memory_efficiency": 0.1
+          },
+          "weighted_score": 0.2308,
+          "rank": 7
+        }
+      }
+    ]
+  }
+}

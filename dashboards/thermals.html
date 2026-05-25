@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab — Thermal Analysis</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="thermals.html" class="active">Thermals</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="devices.html">Devices</a>
+      <a href="historical.html">Historical</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Thermal Analysis</h1>
+      <p class="subtitle">Device temperature before/after inference · Snapdragon 8 Gen 3 · Samsung One UI thermal throttling active</p>
+    </div>
+
+    <div class="card callout-warn">
+      <strong>Real-world conditions:</strong> One UI thermal governor was active during all runs.
+      Temp warnings do not necessarily indicate danger — the 60°C hard ceiling (HC-6) was respected by all passing models.
+      qwen2.5-1.5b reached 55.8°C after-inference — closest to the limit.
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Before vs After Max Temp (°C)</div>
+        <canvas id="chartBeforeAfter"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Thermal Rise (°C) — Inference Delta</div>
+        <canvas id="chartThermalRise"></canvas>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Thermal Warning Count (out of 20 prompts)</div>
+        <canvas id="chartWarnCount"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Thermal vs Speed Tradeoff</div>
+        <canvas id="chartThermalVsSpeed"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Thermal Summary Table</div>
+      <div class="table-wrap">
+        <table id="thermalTable">
+          <thead>
+            <tr>
+              <th data-col="model">Model</th>
+              <th data-col="before">Max Temp Before (°C)</th>
+              <th data-col="after">Max Temp After (°C)</th>
+              <th data-col="rise">Rise (°C)</th>
+              <th data-col="warnings">Thermal Warnings</th>
+              <th data-col="bucket">Bucket</th>
+              <th data-col="hc6">HC-6 (≤60°C)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Thermal Zone Details — S24 Ultra Snapdragon 8 Gen 3</div>
+      <p class="muted" style="font-size:13px;margin:0 0 12px">
+        8 thermal zones measured per snapshot: aoss-0, aoss-1, cpuss-0, cpu-1-0-0, cpu-1-0-1, cpu-1-1-0, cpu-1-1-1, cpu-2-2-1.
+        Values represent maximum across all zones at snapshot time.
+      </p>
+      <div id="thermalZoneTable"></div>
+    </div>
+  </main>
+
+  <script src="assets/dash.js"></script>
+  <script>
+    loadDashboardData("data/dashboard-data.json").then(data => {
+      initThermalsPage(data);
+    });
+  </script>
+</body>
+</html>
