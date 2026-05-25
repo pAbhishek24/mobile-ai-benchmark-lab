@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab — Hallucination Analysis</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="thermals.html">Thermals</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="devices.html">Devices</a>
+      <a href="historical.html">Historical</a>
+      <a href="quality.html">Quality</a>
+      <a href="hallucinations.html" class="active">Hallucinations</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Hallucination &amp; Safety Analysis</h1>
+      <p class="subtitle">Hallucination rate, harmful advice detection, and truncation analysis across models and prompts</p>
+    </div>
+
+    <div id="kpiRow" class="kpi-row"></div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Hallucination Rate by Model</div>
+        <canvas id="chartHallucRate"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Truncation Rate by Model</div>
+        <canvas id="chartTruncRate"></canvas>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Quality Score vs Hallucination Rate</div>
+        <canvas id="chartQualVsHalluc"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Harmful Advice Rate by Model</div>
+        <canvas id="chartHarmfulRate"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Hallucination + Safety Summary Table</div>
+      <div class="table-wrap">
+        <table id="hallucTable">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th title="Fraction of prompts that triggered a hallucination pattern">Hallucination Rate</th>
+              <th title="Fraction of outputs detected as truncated/incomplete">Truncation Rate</th>
+              <th title="Fraction of prompts containing harmful financial advice patterns">Harmful Advice Rate</th>
+              <th title="Overall quality score for context">Quality Score</th>
+              <th>Prompts</th>
+              <th>Runs</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Per-Prompt Hallucination Detail</div>
+      <div class="filters" style="margin-bottom:12px">
+        <div class="filter-group">
+          <label>Model</label>
+          <select id="promptModelFilter"></select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="promptHallucTable">
+          <thead>
+            <tr>
+              <th>Prompt</th>
+              <th>Category</th>
+              <th>Quality</th>
+              <th>Hallucinated</th>
+              <th>Truncated</th>
+              <th>Harmful</th>
+              <th>Triggers</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/chart.min.js"></script>
+  <script src="assets/dash.js"></script>
+  <script>
+  "use strict";
+
+  const PALETTE = ["#4f8ef7","#2ecc71","#f1c40f","#e74c3c","#9b59b6","#1abc9c","#e67e22"];
+
+  function pct(v) { return (v == null) ? "—" : (v * 100).toFixed(1) + "%"; }
+  function fmt3(v) { return (v == null) ? "—" : v.toFixed(3); }
+
+  function ratePill(rate) {
+    if (rate == null) return "—";
+    const p = (rate * 100).toFixed(0);
+    const cls = rate < 0.1 ? "pill-pass" : rate < 0.3 ? "pill-warn" : "pill-fail";
+    return `<span class="pill ${cls}">${p}%</span>`;
+  }
+
+  function scoreBar(v) {
+    if (v == null) return "—";
+    const p = Math.round(v * 100);
+    const col = v >= 0.7 ? "#2ecc71" : v >= 0.45 ? "#f1c40f" : "#e74c3c";
+    return `<div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:${p}%;background:${col}"></div></div><span class="score-num">${v.toFixed(3)}</span></div>`;
+  }
+
+  function boolPill(v, trueLabel, falseLabel, trueClass, falseClass) {
+    if (v == null) return "—";
+    return v
+      ? `<span class="pill ${trueClass}">${trueLabel}</span>`
+      : `<span class="pill ${falseClass}">${falseLabel}</span>`;
+  }
+
+  loadDashboardData("data/quality-data.json").then(data => {
+    const models = data.model_quality || [];
+    renderKpis(models);
+    renderHallucRateChart(models);
+    renderTruncRateChart(models);
+    renderScatterChart(models);
+    renderHarmfulChart(models);
+    renderSummaryTable(models);
+    initPromptTable(models);
+  }).catch(err => {
+    document.querySelector("main").innerHTML +=
+      `<div class="card" style="color:#e74c3c"><div class="card-title">Quality data not yet generated</div>
+       <p>Run <code>python3 ai-lab/quality/evaluate_quality.py</code> then <code>python3 ai-lab/analytics/generate_dashboard_data.py</code></p>
+       <p style="color:#8892a4;font-size:12px">${err}</p></div>`;
+  });
+
+  function shortName(n) { return (n || "").replace(/-q4km$/, ""); }
+
+  function renderKpis(models) {
+    const el = document.getElementById("kpiRow");
+    if (!models.length) return;
+    const avgH = models.reduce((a,b)=>a+(b.hallucination_rate||0),0)/models.length;
+    const avgT = models.reduce((a,b)=>a+(b.truncation_rate||0),0)/models.length;
+    const avgHarm = models.reduce((a,b)=>a+(b.harmful_advice_rate||0),0)/models.length;
+    const cleanModels = models.filter(m => (m.hallucination_rate||0) < 0.1).length;
+    el.innerHTML = [
+      ["Models Evaluated", models.length],
+      ["Avg Hallucination Rate", pct(avgH)],
+      ["Avg Truncation Rate", pct(avgT)],
+      ["Avg Harmful Advice Rate", pct(avgHarm)],
+      ["Models < 10% Halluc", cleanModels + "/" + models.length],
+    ].map(([label,val]) =>
+      `<div class="kpi-box"><div class="kpi-label">${label}</div><div class="kpi-value">${val}</div></div>`
+    ).join("");
+  }
+
+  function renderHallucRateChart(models) {
+    const sorted = [...models].sort((a,b)=>(b.hallucination_rate||0)-(a.hallucination_rate||0));
+    new Chart(document.getElementById("chartHallucRate"), {
+      type: "bar",
+      data: {
+        labels: sorted.map(m => shortName(m.model)),
+        datasets: [{
+          label: "Hallucination Rate",
+          data: sorted.map(m => m.hallucination_rate||0),
+          backgroundColor: sorted.map(m => (m.hallucination_rate||0) < 0.1 ? "#2ecc7199" : (m.hallucination_rate||0) < 0.3 ? "#f1c40f99" : "#e74c3c99"),
+          borderColor: sorted.map(m => (m.hallucination_rate||0) < 0.1 ? "#2ecc71" : (m.hallucination_rate||0) < 0.3 ? "#f1c40f" : "#e74c3c"),
+          borderWidth: 1,
+        }]
+      },
+      options: { responsive: true, scales: { y: { beginAtZero: true, max: 1, ticks: { callback: v => (v*100).toFixed(0)+"%" } } } }
+    });
+  }
+
+  function renderTruncRateChart(models) {
+    const sorted = [...models].sort((a,b)=>(b.truncation_rate||0)-(a.truncation_rate||0));
+    new Chart(document.getElementById("chartTruncRate"), {
+      type: "bar",
+      data: {
+        labels: sorted.map(m => shortName(m.model)),
+        datasets: [{
+          label: "Truncation Rate",
+          data: sorted.map(m => m.truncation_rate||0),
+          backgroundColor: "#9b59b699", borderColor: "#9b59b6", borderWidth: 1,
+        }]
+      },
+      options: { responsive: true, scales: { y: { beginAtZero: true, max: 1, ticks: { callback: v => (v*100).toFixed(0)+"%" } } } }
+    });
+  }
+
+  function renderScatterChart(models) {
+    new Chart(document.getElementById("chartQualVsHalluc"), {
+      type: "scatter",
+      data: {
+        datasets: models.map((m,i) => ({
+          label: shortName(m.model),
+          data: [{ x: m.hallucination_rate||0, y: m.quality_score||0 }],
+          backgroundColor: PALETTE[i%PALETTE.length],
+          pointRadius: 10, pointHoverRadius: 13,
+        }))
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true, position: "bottom" } },
+        scales: {
+          x: { title: { display: true, text: "Hallucination Rate →" }, min: 0, max: 1 },
+          y: { title: { display: true, text: "Quality Score →" }, min: 0, max: 1 },
+        }
+      }
+    });
+  }
+
+  function renderHarmfulChart(models) {
+    const sorted = [...models].sort((a,b)=>(b.harmful_advice_rate||0)-(a.harmful_advice_rate||0));
+    new Chart(document.getElementById("chartHarmfulRate"), {
+      type: "bar",
+      data: {
+        labels: sorted.map(m => shortName(m.model)),
+        datasets: [{
+          label: "Harmful Advice Rate",
+          data: sorted.map(m => m.harmful_advice_rate||0),
+          backgroundColor: "#e74c3c99", borderColor: "#e74c3c", borderWidth: 1,
+        }]
+      },
+      options: { responsive: true, scales: { y: { beginAtZero: true, max: 1, ticks: { callback: v => (v*100).toFixed(0)+"%" } } } }
+    });
+  }
+
+  function renderSummaryTable(models) {
+    const tbody = document.querySelector("#hallucTable tbody");
+    const sorted = [...models].sort((a,b)=>(b.hallucination_rate||0)-(a.hallucination_rate||0));
+    tbody.innerHTML = sorted.map(m => `
+      <tr>
+        <td><b>${shortName(m.model)}</b></td>
+        <td>${ratePill(m.hallucination_rate)}</td>
+        <td>${ratePill(m.truncation_rate)}</td>
+        <td>${ratePill(m.harmful_advice_rate)}</td>
+        <td>${scoreBar(m.quality_score)}</td>
+        <td class="mono">${m.prompts_scored||"—"}</td>
+        <td class="mono">${m.runs_evaluated||"—"}</td>
+      </tr>
+    `).join("");
+  }
+
+  function initPromptTable(models) {
+    const sel = document.getElementById("promptModelFilter");
+    models.forEach(m => {
+      const o = document.createElement("option");
+      o.value = m.model; o.textContent = shortName(m.model);
+      sel.appendChild(o);
+    });
+    if (models.length) sel.value = models[0].model;
+    sel.addEventListener("change", () => renderPromptTable(models, sel.value));
+    renderPromptTable(models, sel.value);
+  }
+
+  function renderPromptTable(models, modelName) {
+    const m = models.find(x => x.model === modelName);
+    const tbody = document.querySelector("#promptHallucTable tbody");
+    if (!m || !m.prompt_quality_summary) { tbody.innerHTML = ""; return; }
+    tbody.innerHTML = (m.prompt_quality_summary || []).map(p => `
+      <tr>
+        <td class="mono">${p.prompt_id}</td>
+        <td>—</td>
+        <td>${scoreBar(p.avg_quality)}</td>
+        <td>${boolPill(p.avg_hallucination > 0, "yes", "no", "pill-fail", "pill-pass")}</td>
+        <td>${boolPill(p.avg_truncation > 0, "yes", "no", "pill-warn", "pill-pass")}</td>
+        <td>${boolPill(p.avg_harmful > 0, "yes", "no", "pill-fail", "pill-pass")}</td>
+        <td class="mono" style="font-size:11px">${(p.triggers||[]).join(", ")||"—"}</td>
+      </tr>
+    `).join("");
+  }
+  </script>
+</body>
+</html>

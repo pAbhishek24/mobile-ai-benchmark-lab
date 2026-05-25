@@ -5,8 +5,10 @@
   "timestamp": "20260524_181530",
   "prompts_scored": 20,
   "prompts_empty": 0,
-  "quality_score": 0.693,
+  "quality_score": 0.602,
   "hallucination_rate": 0.2,
+  "truncation_rate": 0.9,
+  "harmful_advice_rate": 0.0,
   "structured_output_success_rate": 0.0,
   "recommendation_quality_score": 0.725,
   "consistency_score": 0.0

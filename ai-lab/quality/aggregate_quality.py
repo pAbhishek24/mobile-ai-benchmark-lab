@@ -121,14 +121,31 @@ def build_model_quality(summaries: List[Dict[str, Any]]) -> List[Dict[str, Any]]
 
         # Worst prompts (lowest quality scores)
         prompt_avgs: Dict[str, List[float]] = defaultdict(list)
+        prompt_halluc: Dict[str, List[float]] = defaultdict(list)
+        prompt_trunc: Dict[str, List[float]] = defaultdict(list)
+        prompt_harmful: Dict[str, List[float]] = defaultdict(list)
+        prompt_triggers: Dict[str, set] = defaultdict(set)
         for pr in per_prompt_all:
             pid = pr.get("prompt_id","?")
-            q = pr.get("scores", {}).get("quality_score")
+            sc = pr.get("scores", {})
+            q = sc.get("quality_score")
             if q is not None:
                 prompt_avgs[pid].append(q)
+            prompt_halluc[pid].append(1.0 if sc.get("hallucination_detected") else 0.0)
+            prompt_trunc[pid].append(1.0 if sc.get("truncated") else 0.0)
+            prompt_harmful[pid].append(1.0 if sc.get("has_harmful_advice") else 0.0)
+            for t in sc.get("hallucination_triggers", []):
+                prompt_triggers[pid].add(t)
         prompt_summary = sorted(
-            [{"prompt_id": pid, "avg_quality": round(statistics.mean(vals), 4),
-              "runs": len(vals)} for pid, vals in prompt_avgs.items()],
+            [{
+                "prompt_id": pid,
+                "avg_quality": round(statistics.mean(vals), 4),
+                "runs": len(vals),
+                "avg_hallucination": round(statistics.mean(prompt_halluc.get(pid, [0])), 4),
+                "avg_truncation": round(statistics.mean(prompt_trunc.get(pid, [0])), 4),
+                "avg_harmful": round(statistics.mean(prompt_harmful.get(pid, [0])), 4),
+                "triggers": sorted(prompt_triggers.get(pid, [])),
+            } for pid, vals in prompt_avgs.items()],
             key=lambda x: x["avg_quality"]
         )
 
@@ -140,6 +157,8 @@ def build_model_quality(summaries: List[Dict[str, Any]]) -> List[Dict[str, Any]]
             "quality_score": avg("quality_score"),
             "consistency_score": avg("consistency_score"),
             "hallucination_rate": avg("hallucination_rate"),
+            "truncation_rate": avg("truncation_rate"),
+            "harmful_advice_rate": avg("harmful_advice_rate"),
             "structured_output_success_rate": avg("structured_output_success_rate"),
             "recommendation_quality_score": avg("recommendation_quality_score"),
             "prompts_scored": latest.get("prompts_scored", 0),
@@ -172,6 +191,8 @@ def annotate_dashboard(model_quality: List[Dict[str, Any]], dry_run: bool = Fals
                 "quality_score": q["quality_score"],
                 "consistency_score": q["consistency_score"],
                 "hallucination_rate": q["hallucination_rate"],
+                "truncation_rate": q.get("truncation_rate"),
+                "harmful_advice_rate": q.get("harmful_advice_rate"),
                 "structured_output_success_rate": q["structured_output_success_rate"],
                 "recommendation_quality_score": q["recommendation_quality_score"],
                 "category_quality": q["category_quality"],
@@ -230,14 +251,15 @@ def main() -> None:
     annotate_dashboard(model_quality, dry_run=args.dry_run)
 
     print("\n── Quality Leaderboard ───────────────────────────────────────────────")
-    print(f"{'Model':<30} {'Quality':>8} {'Consist':>8} {'Halluc':>8} {'JSON':>6} {'Rec':>6}")
-    print("-" * 70)
+    print(f"{'Model':<30} {'Quality':>8} {'Consist':>8} {'Halluc':>8} {'Trunc':>6} {'JSON':>6} {'Rec':>6}")
+    print("-" * 78)
     for e in sorted(model_quality, key=lambda x: x["quality_score"] or 0, reverse=True):
         print(
             f"{e['model']:<30}"
             f" {(e['quality_score'] or 0):>8.3f}"
             f" {(e['consistency_score'] or 0):>8.3f}"
             f" {(e['hallucination_rate'] or 0):>8.3f}"
+            f" {(e.get('truncation_rate') or 0):>6.3f}"
             f" {(e['structured_output_success_rate'] or 0):>6.3f}"
             f" {(e['recommendation_quality_score'] or 0):>6.3f}"
         )

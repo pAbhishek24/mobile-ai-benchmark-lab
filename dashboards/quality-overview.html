@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab — Quality Overview</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="thermals.html">Thermals</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="devices.html">Devices</a>
+      <a href="historical.html">Historical</a>
+      <a href="quality.html">Quality</a>
+      <a href="quality-overview.html" class="active">Quality Overview</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Quality Overview</h1>
+      <p class="subtitle">High-level quality summary: scores, consistency, latency trade-offs, and production-readiness assessment</p>
+    </div>
+
+    <div id="kpiRow" class="kpi-row"></div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Quality Score vs Latency (p50)</div>
+        <canvas id="chartQualVsLatency"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Consistency vs Latency</div>
+        <canvas id="chartConsVsLatency"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Quality + Consistency Heatmap (per model)</div>
+      <canvas id="chartHeatmap"></canvas>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Production Readiness Assessment</div>
+      <p class="muted" style="font-size:13px;margin-bottom:12px">
+        A model passes production readiness if: quality ≥ 0.45, hallucination rate &lt; 0.30,
+        harmful advice rate &lt; 0.10, and model size ≤ 1500 MB (HC-1 constraint).
+      </p>
+      <div class="table-wrap">
+        <table id="prodTable">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Quality ≥ 0.45</th>
+              <th>Halluc &lt; 30%</th>
+              <th>Harmful &lt; 10%</th>
+              <th>HC-1 (≤ 1500 MB)</th>
+              <th>Production Ready</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Quality Methodology</div>
+      <div style="font-size:13px;line-height:1.7;color:#c4cde0">
+        <p><strong>Scoring formula:</strong> quality_score = 0.35×numeric_accuracy + 0.25×concept_coverage + 0.20×(1−hallucination_penalty) + 0.20×recommendation_quality − 0.10×truncation_penalty</p>
+        <p><strong>Numeric accuracy:</strong> checks whether model correctly computes required financial values within 2% tolerance. Partial credit (0.5) for values within 10% tolerance.</p>
+        <p><strong>Concept coverage:</strong> fraction of required financial concepts mentioned (EMI, SIP, cashflow, etc.).</p>
+        <p><strong>Hallucination detection:</strong> regex pattern matching against fabricated interest rates, impossible returns, guaranteed returns language, and fabricated institution names.</p>
+        <p><strong>Recommendation quality:</strong> fraction of required advice keywords present, penalised if harmful advice patterns detected (unsafe debt, unrealistic savings, crypto/forex suggestions).</p>
+        <p><strong>Truncation penalty:</strong> 0.10 deducted if output shows signs of being cut off (unclosed JSON, trailing conjunctions, abrupt endings).</p>
+        <p><strong>Consistency:</strong> 1 − (std_dev of quality_score / 0.2), measured across 3 repeated runs per model.</p>
+        <p><strong>Why quality profile matters:</strong> Systems benchmark uses max_tokens=128 (fast, measures throughput). Quality benchmark uses max_tokens=512 to allow models to produce complete structured responses.</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/chart.min.js"></script>
+  <script src="assets/dash.js"></script>
+  <script>
+  "use strict";
+
+  const PALETTE = ["#4f8ef7","#2ecc71","#f1c40f","#e74c3c","#9b59b6","#1abc9c","#e67e22"];
+
+  function shortName(n) { return (n||"").replace(/-q4km$/,""); }
+  function pct(v) { return v != null ? (v*100).toFixed(1)+"%" : "—"; }
+
+  function checkPill(pass) {
+    return pass
+      ? `<span class="pill pill-pass">✓</span>`
+      : `<span class="pill pill-fail">✗</span>`;
+  }
+
+  function scoreBar(v) {
+    if (v == null) return "—";
+    const p = Math.round(v * 100);
+    const col = v >= 0.7 ? "#2ecc71" : v >= 0.45 ? "#f1c40f" : "#e74c3c";
+    return `<div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:${p}%;background:${col}"></div></div><span class="score-num">${v.toFixed(3)}</span></div>`;
+  }
+
+  Promise.all([
+    loadDashboardData("data/dashboard-data.json").catch(() => null),
+    loadDashboardData("data/quality-data.json").catch(() => null),
+  ]).then(([perfData, qualData]) => {
+    const perfModels = perfData?.model_summaries || [];
+    const qualModels = qualData?.model_quality || [];
+
+    renderKpis(qualModels);
+    renderQualVsLatency(perfModels, qualModels);
+    renderConsVsLatency(perfModels, qualModels);
+    renderHeatmap(qualModels);
+    renderProdTable(perfModels, qualModels);
+  }).catch(err => {
+    document.querySelector("main").innerHTML +=
+      `<div class="card" style="color:#e74c3c"><div class="card-title">Data not yet generated</div>
+       <p>Run <code>python3 ai-lab/analytics/generate_dashboard_data.py</code></p>
+       <p style="color:#8892a4;font-size:12px">${err}</p></div>`;
+  });
+
+  function renderKpis(models) {
+    const el = document.getElementById("kpiRow");
+    if (!models.length) return;
+    const avgQ = models.reduce((a,b)=>a+(b.quality_score||0),0)/models.length;
+    const avgC = models.reduce((a,b)=>a+(b.consistency_score||0),0)/models.length;
+    const prodReady = models.filter(m => (m.quality_score||0) >= 0.45 && (m.hallucination_rate||1) < 0.3 && (m.harmful_advice_rate||0) < 0.1).length;
+    const best = [...models].sort((a,b)=>(b.quality_score||0)-(a.quality_score||0))[0];
+    el.innerHTML = [
+      ["Models Evaluated", models.length],
+      ["Avg Quality", avgQ.toFixed(3)],
+      ["Avg Consistency", avgC.toFixed(3)],
+      ["Production Ready", prodReady + "/" + models.length],
+      ["Best Model", best ? shortName(best.model) : "—"],
+    ].map(([label,val]) =>
+      `<div class="kpi-box"><div class="kpi-label">${label}</div><div class="kpi-value">${val}</div></div>`
+    ).join("");
+  }
+
+  function renderQualVsLatency(perfModels, qualModels) {
+    const pts = qualModels.map((q,i) => {
+      const p = perfModels.find(m => m.model === q.model);
+      return { name: q.model, x: p?.derived?.p50_duration_ms || null, y: q.quality_score || 0, i };
+    }).filter(m => m.x != null);
+
+    new Chart(document.getElementById("chartQualVsLatency"), {
+      type: "scatter",
+      data: {
+        datasets: pts.map(m => ({
+          label: shortName(m.name),
+          data: [{ x: m.x, y: m.y }],
+          backgroundColor: PALETTE[m.i % PALETTE.length],
+          pointRadius: 10, pointHoverRadius: 13,
+        }))
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true, position: "bottom" } },
+        scales: {
+          x: { title: { display: true, text: "p50 Latency (ms) →" } },
+          y: { title: { display: true, text: "Quality Score →" }, min: 0, max: 1 },
+        }
+      }
+    });
+  }
+
+  function renderConsVsLatency(perfModels, qualModels) {
+    const pts = qualModels.map((q,i) => {
+      const p = perfModels.find(m => m.model === q.model);
+      return { name: q.model, x: p?.derived?.p50_duration_ms || null, y: q.consistency_score || 0, i };
+    }).filter(m => m.x != null);
+
+    new Chart(document.getElementById("chartConsVsLatency"), {
+      type: "scatter",
+      data: {
+        datasets: pts.map(m => ({
+          label: shortName(m.name),
+          data: [{ x: m.x, y: m.y }],
+          backgroundColor: PALETTE[m.i % PALETTE.length],
+          pointRadius: 10, pointHoverRadius: 13,
+        }))
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true, position: "bottom" } },
+        scales: {
+          x: { title: { display: true, text: "p50 Latency (ms) →" } },
+          y: { title: { display: true, text: "Consistency Score →" }, min: 0, max: 1 },
+        }
+      }
+    });
+  }
+
+  function renderHeatmap(models) {
+    const sorted = [...models].sort((a,b) => (b.quality_score||0) - (a.quality_score||0));
+    new Chart(document.getElementById("chartHeatmap"), {
+      type: "bar",
+      data: {
+        labels: sorted.map(m => shortName(m.model)),
+        datasets: [
+          { label: "Quality Score",    data: sorted.map(m => m.quality_score||0),    backgroundColor: "#4f8ef799", borderColor: "#4f8ef7", borderWidth: 1 },
+          { label: "Consistency",      data: sorted.map(m => m.consistency_score||0),backgroundColor: "#2ecc7199", borderColor: "#2ecc71", borderWidth: 1 },
+          { label: "1−Halluc Rate",    data: sorted.map(m => 1-(m.hallucination_rate||0)), backgroundColor: "#f1c40f99", borderColor: "#f1c40f", borderWidth: 1 },
+          { label: "Rec Quality",      data: sorted.map(m => m.recommendation_quality_score||0), backgroundColor: "#9b59b699", borderColor: "#9b59b6", borderWidth: 1 },
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: "bottom", labels: { font: { size: 11 }, boxWidth: 10 } } },
+        scales: { y: { beginAtZero: true, max: 1 } }
+      }
+    });
+  }
+
+  function renderProdTable(perfModels, qualModels) {
+    const tbody = document.querySelector("#prodTable tbody");
+    const sorted = [...qualModels].sort((a,b) => (b.quality_score||0) - (a.quality_score||0));
+    tbody.innerHTML = sorted.map(m => {
+      const perf = perfModels.find(p => p.model === m.model);
+      const qPass = (m.quality_score||0) >= 0.45;
+      const hPass = (m.hallucination_rate||0) < 0.30;
+      const harmPass = (m.harmful_advice_rate == null) || (m.harmful_advice_rate < 0.10);
+      const hc1Pass = (perf?.size_mb || 0) <= 1500;
+      const prodReady = qPass && hPass && harmPass && hc1Pass;
+      const notes = [];
+      if (!qPass) notes.push(`quality ${(m.quality_score||0).toFixed(3)} < 0.45`);
+      if (!hPass) notes.push(`halluc ${pct(m.hallucination_rate)} ≥ 30%`);
+      if (!harmPass) notes.push(`harmful ${pct(m.harmful_advice_rate)} ≥ 10%`);
+      if (!hc1Pass) notes.push(`size ${perf?.size_mb}MB > HC-1`);
+      if (prodReady) notes.push("all checks passed");
+      return `
+        <tr>
+          <td><b>${shortName(m.model)}</b></td>
+          <td>${checkPill(qPass)} <small class="muted">${(m.quality_score||0).toFixed(3)}</small></td>
+          <td>${checkPill(hPass)} <small class="muted">${pct(m.hallucination_rate)}</small></td>
+          <td>${checkPill(harmPass)} <small class="muted">${pct(m.harmful_advice_rate)}</small></td>
+          <td>${checkPill(hc1Pass)} <small class="muted">${perf?.size_mb ? perf.size_mb+"MB" : "—"}</small></td>
+          <td>${prodReady
+            ? '<span class="badge badge-green">✓ Ready</span>'
+            : '<span class="badge badge-red">✗ Not Ready</span>'}</td>
+          <td style="font-size:12px;color:#8892a4">${notes.join("; ")}</td>
+        </tr>
+      `;
+    }).join("");
+  }
+  </script>
+</body>
+</html>

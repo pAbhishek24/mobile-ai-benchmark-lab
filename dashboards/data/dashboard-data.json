@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T09:19:30+00:00",
+  "generated_at": "2026-05-25T09:51:16+00:00",
   "generated_by": "generate_dashboard_data.py",
   "benchmark_context": {
     "background_apps_estimate": true,
@@ -5635,27 +5635,29 @@
         "rank": 1
       },
       "quality_scores": {
-        "quality_score": 0.3982,
+        "quality_score": 0.3351,
         "consistency_score": 0.0,
         "hallucination_rate": 0.0667,
+        "truncation_rate": 0.9667,
+        "harmful_advice_rate": 0.0,
         "structured_output_success_rate": 0.0,
         "recommendation_quality_score": 0.3806,
         "category_quality": {
-          "budget_overspend": 0.3035,
-          "cashflow_warning": 0.3319,
-          "category_spike": 0.2833,
-          "credit_card_planning": 0.351,
-          "debt_payoff": 0.3958,
-          "emi_pressure": 0.3312,
-          "expense_summary": 0.3694,
-          "lic_outflow": 0.3979,
-          "safe_spend_remaining": 0.2753,
-          "sip_planning": 0.2594
+          "budget_overspend": 0.2535,
+          "cashflow_warning": 0.2819,
+          "category_spike": 0.2334,
+          "credit_card_planning": 0.326,
+          "debt_payoff": 0.3708,
+          "emi_pressure": 0.2812,
+          "expense_summary": 0.3028,
+          "lic_outflow": 0.3479,
+          "safe_spend_remaining": 0.2253,
+          "sip_planning": 0.2094
         },
         "difficulty_quality": {
-          "easy": 0.3327,
-          "hard": 0.3348,
-          "medium": 0.3298
+          "easy": 0.2782,
+          "hard": 0.2848,
+          "medium": 0.287
         }
       }
     },
@@ -6049,9 +6051,11 @@
         "rank": 2
       },
       "quality_scores": {
-        "quality_score": 0.5865,
-        "consistency_score": 0.7419,
+        "quality_score": 0.5813,
+        "consistency_score": 0.7787,
         "hallucination_rate": 0.05,
+        "truncation_rate": 0.05,
+        "harmful_advice_rate": 0.0,
         "structured_output_success_rate": 0.0,
         "recommendation_quality_score": 0.5709,
         "category_quality": {
@@ -6060,15 +6064,15 @@
           "category_spike": 0.5667,
           "credit_card_planning": 0.6125,
           "debt_payoff": 0.7583,
-          "emi_pressure": 0.6105,
+          "emi_pressure": 0.5605,
           "expense_summary": 0.55,
           "lic_outflow": 0.7958,
-          "safe_spend_remaining": 0.6007,
+          "safe_spend_remaining": 0.5507,
           "sip_planning": 0.5188
         },
         "difficulty_quality": {
-          "easy": 0.6477,
-          "hard": 0.6355,
+          "easy": 0.631,
+          "hard": 0.6155,
           "medium": 0.5898
         }
       }
@@ -6463,27 +6467,29 @@
         "rank": 3
       },
       "quality_scores": {
-        "quality_score": 0.6352,
-        "consistency_score": 0.8098,
+        "quality_score": 0.565,
+        "consistency_score": 0.5994,
         "hallucination_rate": 0.075,
+        "truncation_rate": 0.7,
+        "harmful_advice_rate": 0.0,
         "structured_output_success_rate": 0.0,
         "recommendation_quality_score": 0.5792,
         "category_quality": {
           "budget_overspend": 0.7354,
           "cashflow_warning": 0.6054,
           "category_spike": 0.5667,
-          "credit_card_planning": 0.7354,
-          "debt_payoff": 0.8229,
-          "emi_pressure": 0.575,
-          "expense_summary": 0.6754,
+          "credit_card_planning": 0.6354,
+          "debt_payoff": 0.7729,
+          "emi_pressure": 0.525,
+          "expense_summary": 0.5754,
           "lic_outflow": 0.7958,
-          "safe_spend_remaining": 0.5375,
-          "sip_planning": 0.5188
+          "safe_spend_remaining": 0.4875,
+          "sip_planning": 0.4688
         },
         "difficulty_quality": {
-          "easy": 0.6919,
-          "hard": 0.6213,
-          "medium": 0.6572
+          "easy": 0.6586,
+          "hard": 0.6013,
+          "medium": 0.5936
         }
       }
     },
@@ -6877,27 +6883,29 @@
         "rank": 4
       },
       "quality_scores": {
-        "quality_score": 0.2988,
+        "quality_score": 0.2503,
         "consistency_score": 0.0,
         "hallucination_rate": 0.0333,
+        "truncation_rate": 0.9833,
+        "harmful_advice_rate": 0.0,
         "structured_output_success_rate": 0.0,
         "recommendation_quality_score": 0.2875,
         "category_quality": {
-          "budget_overspend": 0.3698,
-          "cashflow_warning": 0.3027,
-          "category_spike": 0.3156,
-          "credit_card_planning": 0.3354,
-          "debt_payoff": 0.4281,
-          "emi_pressure": 0.375,
-          "expense_summary": 0.3138,
-          "lic_outflow": 0.4313,
-          "safe_spend_remaining": 0.3378,
-          "sip_planning": 0.2594
+          "budget_overspend": 0.3198,
+          "cashflow_warning": 0.2527,
+          "category_spike": 0.2906,
+          "credit_card_planning": 0.2854,
+          "debt_payoff": 0.3781,
+          "emi_pressure": 0.325,
+          "expense_summary": 0.2592,
+          "lic_outflow": 0.4062,
+          "safe_spend_remaining": 0.2878,
+          "sip_planning": 0.2094
         },
         "difficulty_quality": {
-          "easy": 0.3706,
-          "hard": 0.3232,
-          "medium": 0.3327
+          "easy": 0.3349,
+          "hard": 0.2732,
+          "medium": 0.2805
         }
       }
     },
@@ -7294,6 +7302,8 @@
         "quality_score": 0.0,
         "consistency_score": 1.0,
         "hallucination_rate": 0.0,
+        "truncation_rate": 1.0,
+        "harmful_advice_rate": 0.0,
         "structured_output_success_rate": 0.0,
         "recommendation_quality_score": 0.0,
         "category_quality": {
@@ -7708,6 +7718,8 @@
         "quality_score": 0.0,
         "consistency_score": 1.0,
         "hallucination_rate": 0.0,
+        "truncation_rate": 1.0,
+        "harmful_advice_rate": 0.0,
         "structured_output_success_rate": 0.0,
         "recommendation_quality_score": 0.0,
         "category_quality": {
@@ -8122,6 +8134,8 @@
         "quality_score": 0.0,
         "consistency_score": 1.0,
         "hallucination_rate": 0.0,
+        "truncation_rate": 1.0,
+        "harmful_advice_rate": 0.0,
         "structured_output_success_rate": 0.0,
         "recommendation_quality_score": 0.0,
         "category_quality": {

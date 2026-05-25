@@ -39,6 +39,29 @@ REPO_ROOT   = Path(__file__).resolve().parents[2]
 RESULTS_ROOT = REPO_ROOT / "ai-lab" / "results"
 DATASET_PATH = REPO_ROOT / "ai-lab" / "quality" / "quality_benchmark_dataset.json"
 
+FOCUS_MODELS = {"qwen2.5-0.5b-q4km", "qwen2.5-1.5b-q4km", "tinyllama-1.1b-q4km"}
+
+# Truncation indicators: unfinished JSON, cut-off sentences, abrupt endings
+TRUNCATION_PATTERNS = [
+    r"\{[^}]*\Z",                             # unclosed JSON object
+    r"\[[^\]]*\Z",                            # unclosed JSON array
+    r"\b(?:and|but|the|to|of|in|a|an)\s*\Z", # trailing stop-word at sentence boundary
+    r"[,;]\s*\Z",                             # trailing comma or semicolon
+]
+
+HARMFUL_ADVICE_PATTERNS = [
+    r"\binvest\s+(?:everything|all\s+(?:your|the)\s+savings)\b",
+    r"\bguaranteed?\s+returns?\b",
+    r"\b(?:100|300|500|1000)\s*%\s+returns?\b",
+    r"\buse\s+credit\s+card\s+to\s+(?:invest|pay\s+(?:off\s+)?(?:loan|emi|debt))\b",
+    r"\btake\s+(?:a\s+)?(?:personal\s+)?loan\s+to\s+invest\b",
+    r"\bwithdraw\s+(?:your\s+)?(?:pf|epf|ppf|provident\s+fund)\b",
+    r"\bstop\s+paying\s+(?:emi|loan)\b",
+    r"\bdefault\s+(?:on\s+)?(?:loan|emi)\b",
+    r"\bcrypto\b",
+    r"\bforex\b",
+]
+
 CATEGORY_WEIGHTS: Dict[str, float] = {
     "expense_summary":      1.0,
     "emi_pressure":         1.2,
@@ -205,6 +228,48 @@ def check_recommendation_quality(output: str, prompt_spec: Dict[str, Any]) -> Tu
     return final_score, has_harmful
 
 
+# ── Truncation detection ─────────────────────────────────────────────────────
+
+def check_truncation(output: str) -> Tuple[bool, List[str]]:
+    """Returns (is_truncated, list_of_triggered_reasons)."""
+    reasons: List[str] = []
+    stripped = output.rstrip()
+    if not stripped:
+        return True, ["empty"]
+
+    # Pattern-based checks
+    for pat in TRUNCATION_PATTERNS:
+        if re.search(pat, stripped, re.IGNORECASE | re.MULTILINE):
+            reasons.append(pat[:40])
+
+    # Abrupt-ending check: output does not end with sentence-closing punctuation
+    last_char = stripped[-1]
+    if last_char not in ".!?)>\"'" and len(stripped) > 30:
+        reasons.append("no_sentence_end")
+
+    return len(reasons) > 0, reasons
+
+
+# ── Confidence extraction ─────────────────────────────────────────────────────
+
+def extract_confidence(output: str) -> Optional[float]:
+    """Extract confidence score if model emits {"confidence": 0.xx} or 'confidence: 0.xx'."""
+    obj = _extract_json(output)
+    if isinstance(obj, dict) and "confidence" in obj:
+        try:
+            return float(obj["confidence"])
+        except (TypeError, ValueError):
+            pass
+    m = re.search(r'(?:confidence|certainty)\s*[=:]\s*([0-9]*\.?[0-9]+)', output, re.IGNORECASE)
+    if m:
+        try:
+            v = float(m.group(1))
+            return v if v <= 1.0 else v / 100.0
+        except ValueError:
+            pass
+    return None
+
+
 # ── Per-prompt scorer ────────────────────────────────────────────────────────
 
 def score_prompt(output: str, prompt_spec: Dict[str, Any]) -> Dict[str, Any]:
@@ -223,6 +288,9 @@ def score_prompt(output: str, prompt_spec: Dict[str, Any]) -> Dict[str, Any]:
             "recommendation_quality": 0.0,
             "has_harmful_advice": False,
             "empty_output": True,
+            "truncated": True,
+            "truncation_reasons": ["empty"],
+            "confidence": None,
             "quality_score": 0.0,
         }
 
@@ -267,18 +335,32 @@ def score_prompt(output: str, prompt_spec: Dict[str, Any]) -> Dict[str, Any]:
     # Structured output
     json_valid, json_completeness = check_structured_output(output, prompt_spec)
 
-    # Recommendation quality
+    # Recommendation quality — also check global harmful patterns
     rec_quality, has_harmful = check_recommendation_quality(output, prompt_spec)
+    if not has_harmful:
+        has_harmful = any(
+            re.search(p, output, re.IGNORECASE)
+            for p in HARMFUL_ADVICE_PATTERNS
+            if p
+        )
+
+    # Truncation detection
+    truncated, trunc_reasons = check_truncation(output)
+
+    # Confidence extraction
+    confidence = extract_confidence(output)
 
     # Composite quality score (weights)
     # numeric: 35%, concept: 25%, hallucination_penalty: 20%, rec_quality: 20%
     hallucination_penalty = 0.5 if hallucination_detected else 0.0
-    quality_score = (
+    truncation_penalty = 0.1 if truncated else 0.0
+    quality_score = max(0.0, (
         0.35 * numeric_score
         + 0.25 * concept_score
         + 0.20 * (1.0 - hallucination_penalty)
         + 0.20 * rec_quality
-    )
+        - truncation_penalty
+    ))
 
     return {
         "numeric_score": round(numeric_score, 4),
@@ -291,6 +373,9 @@ def score_prompt(output: str, prompt_spec: Dict[str, Any]) -> Dict[str, Any]:
         "recommendation_quality": round(rec_quality, 4),
         "has_harmful_advice": has_harmful,
         "empty_output": False,
+        "truncated": truncated,
+        "truncation_reasons": trunc_reasons,
+        "confidence": round(confidence, 3) if confidence is not None else None,
         "quality_score": round(quality_score, 4),
     }
 
@@ -342,6 +427,8 @@ def evaluate_run(run_dir: Path, dataset: Dict[str, Any], dry_run: bool = False) 
     json_valid_count = 0
     rec_quality_sum = 0.0
     empty_count = 0
+    truncation_count = 0
+    harmful_count = 0
     scored_count = len(results)
 
     per_prompt_quality: List[float] = []
@@ -360,12 +447,18 @@ def evaluate_run(run_dir: Path, dataset: Dict[str, Any], dry_run: bool = False) 
             json_valid_count += 1
         if sc["empty_output"]:
             empty_count += 1
+        if sc.get("truncated"):
+            truncation_count += 1
+        if sc.get("has_harmful_advice"):
+            harmful_count += 1
         rec_quality_sum += sc["recommendation_quality"]
 
     quality_score = weighted_quality / total_weight if total_weight > 0 else 0.0
     hallucination_rate = hallucination_count / scored_count if scored_count > 0 else 0.0
     structured_output_success_rate = json_valid_count / scored_count if scored_count > 0 else 0.0
     recommendation_quality_score = rec_quality_sum / scored_count if scored_count > 0 else 0.0
+    truncation_rate = truncation_count / scored_count if scored_count > 0 else 0.0
+    harmful_advice_rate = harmful_count / scored_count if scored_count > 0 else 0.0
 
     summary = {
         "run_dir": str(run_dir.relative_to(REPO_ROOT)).replace("\\", "/"),
@@ -376,6 +469,8 @@ def evaluate_run(run_dir: Path, dataset: Dict[str, Any], dry_run: bool = False) 
         "prompts_empty": empty_count,
         "quality_score": round(quality_score, 4),
         "hallucination_rate": round(hallucination_rate, 4),
+        "truncation_rate": round(truncation_rate, 4),
+        "harmful_advice_rate": round(harmful_advice_rate, 4),
         "structured_output_success_rate": round(structured_output_success_rate, 4),
         "recommendation_quality_score": round(recommendation_quality_score, 4),
         "consistency_score": None,  # filled by aggregate step
@@ -499,8 +594,8 @@ def main() -> None:
                 )
 
     print("\n── Summary ──────────────────────────────────────────")
-    print(f"{'Model':<30} {'Runs':>4} {'Quality':>8} {'Consist':>8} {'Halluc':>7} {'JSON':>6} {'Rec':>6}")
-    print("-" * 75)
+    print(f"{'Model':<30} {'Runs':>4} {'Quality':>8} {'Consist':>8} {'Halluc':>7} {'Trunc':>6} {'JSON':>6} {'Rec':>6}")
+    print("-" * 83)
     from collections import defaultdict
     model_groups: Dict[str, List[Dict]] = defaultdict(list)
     for s in summaries:
@@ -508,10 +603,12 @@ def main() -> None:
     for model, runs in sorted(model_groups.items()):
         avg_q = statistics.mean(r["quality_score"] for r in runs)
         avg_h = statistics.mean(r["hallucination_rate"] for r in runs)
+        avg_t = statistics.mean(r.get("truncation_rate", 0.0) for r in runs)
         avg_j = statistics.mean(r["structured_output_success_rate"] for r in runs)
         avg_r = statistics.mean(r["recommendation_quality_score"] for r in runs)
         cons  = runs[-1]["consistency_score"]
-        print(f"{model:<30} {len(runs):>4} {avg_q:>8.3f} {cons:>8.3f} {avg_h:>7.2f} {avg_j:>6.2f} {avg_r:>6.2f}")
+        flag = " ★" if model in FOCUS_MODELS else ""
+        print(f"{model:<30}{flag} {len(runs):>4} {avg_q:>8.3f} {cons:>8.3f} {avg_h:>7.2f} {avg_t:>6.2f} {avg_j:>6.2f} {avg_r:>6.2f}")
 
 
 if __name__ == "__main__":

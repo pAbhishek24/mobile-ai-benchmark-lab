@@ -5,9 +5,11 @@
   "timestamp": "20260524_221813",
   "prompts_scored": 20,
   "prompts_empty": 0,
-  "quality_score": 0.6621,
+  "quality_score": 0.6216,
   "hallucination_rate": 0.15,
+  "truncation_rate": 0.4,
+  "harmful_advice_rate": 0.0,
   "structured_output_success_rate": 0.0,
   "recommendation_quality_score": 0.6583,
-  "consistency_score": 0.8098
+  "consistency_score": 0.5994
 }

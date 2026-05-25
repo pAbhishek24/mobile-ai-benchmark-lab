@@ -29,11 +29,13 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 MODEL_ID=""
 DEVICE_LABEL=""
-MAX_TOKENS=256
+PROFILE=""
+BENCHMARK_MODE="real_world"
+MAX_TOKENS=""
 THREADS="${THREADS:-}"
 PROMPTS_FILE="$REPO_ROOT/ai-lab/prompts/finance-benchmark-prompts.json"
-PROMPT_TIMEOUT=90
-COOLDOWN_SECONDS=30
+PROMPT_TIMEOUT=""
+COOLDOWN_SECONDS=""
 THERMAL_WARN_C=60.0
 EXTRA_COOLDOWN_ON_WARN_SECONDS=60
 SMOKE=0
@@ -49,10 +51,13 @@ Required:
   --device-label <label>   Device label for result path (e.g. samsung-s24-ultra)
 
 Options:
-  --max-tokens N           Max tokens per prompt (default: 256; --smoke overrides to 64)
+  --profile systems        Systems profile: max-tokens=128, cooldown=15s, prompt-timeout=90
+  --profile quality        Quality profile: max-tokens=512, cooldown=30s, prompt-timeout=180
+  --max-tokens N           Max tokens per prompt (default: 256; overrides profile)
   --threads N              CPU threads (default: 4; use 8 only for stress testing)
-  --prompt-timeout N       Kill prompt after N seconds (default: 90)
-  --cooldown-seconds N     Sleep N seconds between prompts (default: 30)
+  --prompt-timeout N       Kill prompt after N seconds (overrides profile)
+  --cooldown-seconds N     Sleep N seconds between prompts (overrides profile)
+  --benchmark-mode MODE    real_world (default) or controlled
   --smoke                  Run first 2 prompts only, max-tokens=48 (thermal-safe sanity check)
   --prompts <path>         Override prompts JSON file
   --resume                 Skip prompt IDs already in benchmark.jsonl
@@ -62,14 +67,20 @@ EOF
   exit 1
 }
 
+_OVERRIDE_MAX_TOKENS=""
+_OVERRIDE_PROMPT_TIMEOUT=""
+_OVERRIDE_COOLDOWN=""
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --model)          MODEL_ID="${2:-}";        shift 2 ;;
     --device-label)   DEVICE_LABEL="${2:-}";    shift 2 ;;
-    --max-tokens)     MAX_TOKENS="${2:-}";       shift 2 ;;
+    --profile)        PROFILE="${2:-}";         shift 2 ;;
+    --benchmark-mode) BENCHMARK_MODE="${2:-}";  shift 2 ;;
+    --max-tokens)     _OVERRIDE_MAX_TOKENS="${2:-}";       shift 2 ;;
     --threads)        THREADS="${2:-}";          shift 2 ;;
-    --prompt-timeout) PROMPT_TIMEOUT="${2:-}";  shift 2 ;;
-    --cooldown-seconds) COOLDOWN_SECONDS="${2:-}"; shift 2 ;;
+    --prompt-timeout) _OVERRIDE_PROMPT_TIMEOUT="${2:-}";  shift 2 ;;
+    --cooldown-seconds) _OVERRIDE_COOLDOWN="${2:-}"; shift 2 ;;
     --prompts)        PROMPTS_FILE="${2:-}";     shift 2 ;;
     --smoke)          SMOKE=1;                  shift 1 ;;
     --debug)          DEBUG=1;                  shift 1 ;;
@@ -78,6 +89,30 @@ while [[ $# -gt 0 ]]; do
     *) echo "Unknown arg: $1"; usage ;;
   esac
 done
+
+# ── Apply profile defaults (explicit flags always win) ────────────────────────
+
+case "$PROFILE" in
+  systems)
+    MAX_TOKENS="${_OVERRIDE_MAX_TOKENS:-128}"
+    PROMPT_TIMEOUT="${_OVERRIDE_PROMPT_TIMEOUT:-90}"
+    COOLDOWN_SECONDS="${_OVERRIDE_COOLDOWN:-15}"
+    ;;
+  quality)
+    MAX_TOKENS="${_OVERRIDE_MAX_TOKENS:-512}"
+    PROMPT_TIMEOUT="${_OVERRIDE_PROMPT_TIMEOUT:-180}"
+    COOLDOWN_SECONDS="${_OVERRIDE_COOLDOWN:-30}"
+    ;;
+  "")
+    MAX_TOKENS="${_OVERRIDE_MAX_TOKENS:-256}"
+    PROMPT_TIMEOUT="${_OVERRIDE_PROMPT_TIMEOUT:-90}"
+    COOLDOWN_SECONDS="${_OVERRIDE_COOLDOWN:-30}"
+    ;;
+  *)
+    echo "ERROR: Unknown profile: $PROFILE (valid: systems, quality)"
+    usage
+    ;;
+esac
 
 [[ -n "$MODEL_ID" ]]     || { echo "ERROR: --model is required";        usage; }
 [[ -n "$DEVICE_LABEL" ]] || { echo "ERROR: --device-label is required"; usage; }
@@ -89,6 +124,12 @@ if [[ "$SMOKE" -eq 1 ]]; then
   COOLDOWN_SECONDS="${COOLDOWN_SECONDS:-30}"
   echo "[smoke] Smoke mode: 2 prompts, max-tokens=48, threads=${THREADS}, cooldown=${COOLDOWN_SECONDS}s"
 fi
+
+[[ -z "$BENCHMARK_MODE" ]] && BENCHMARK_MODE="real_world"
+[[ "$BENCHMARK_MODE" != "real_world" && "$BENCHMARK_MODE" != "controlled" ]] && {
+  echo "ERROR: --benchmark-mode must be real_world or controlled"; usage
+
+}
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -266,6 +307,8 @@ printf "debug=%s resume=%s smoke=%s\nprompt_timeout=%s\ndevice_label=%s\nmodel_i
   "$LLAMA_BIN" "$MODEL_PATH" "$PROMPTS_FILE" "$MAX_TOKENS" "$THREADS" >"$LOG_DIR/run_flags.txt"
 printf "cooldown_seconds=%s\nthermal_warn_c=%s\nextra_cooldown_on_warn_seconds=%s\n" \
   "$COOLDOWN_SECONDS" "$THERMAL_WARN_C" "$EXTRA_COOLDOWN_ON_WARN_SECONDS" >>"$LOG_DIR/run_flags.txt"
+printf "profile=%s\nbenchmark_mode=%s\n" \
+  "${PROFILE:-default}" "$BENCHMARK_MODE" >>"$LOG_DIR/run_flags.txt"
 
 echo "0 0 0" >"$COUNT_FILE"   # success fail timeout
 
@@ -275,6 +318,8 @@ echo "Device label   : $DEVICE_LABEL"
 echo "Model          : $MODEL_ID (${MODEL_MB}MB)"
 echo "Model path     : $MODEL_PATH"
 echo "llama.cpp      : $LLAMA_BIN"
+echo "Profile        : ${PROFILE:-default}"
+echo "Benchmark mode : $BENCHMARK_MODE"
 echo "Threads        : $THREADS"
 echo "Max tokens     : $MAX_TOKENS"
 echo "Prompt timeout : ${PROMPT_TIMEOUT}s"
@@ -364,6 +409,8 @@ run_one_prompt() {
   run_with_timeout "$PROMPT_TIMEOUT" \
     "$LLAMA_BIN" -m "$MODEL_PATH" -p "$prompt_text" \
     -n "$MAX_TOKENS" -t "$THREADS" --temp 0.1
+  local profile_snap="$PROFILE"
+  local bmode_snap="$BENCHMARK_MODE"
 
   local timed_out exit_code_val
   timed_out="$(cat "$_TO_FILE")"
@@ -445,6 +492,7 @@ PY
     "$timed_out" "$PROMPT_TIMEOUT" \
     "$stdout_path" "$stderr_path" \
     "${t_before:-}" "${t_after:-}" "$thermal_warning" \
+    "${profile_snap:-}" "$bmode_snap" \
     <<'PY'
 import json, sys, time, re
 
@@ -453,7 +501,8 @@ import json, sys, time, re
  tokps, model_id, model_path, device_label,
  start_ts, end_ts, cmd_executed, timed_out, prompt_timeout,
  stdout_path, stderr_path,
- temp_before_c, temp_after_c, thermal_warning) = sys.argv[1:20]
+ temp_before_c, temp_after_c, thermal_warning,
+ profile, benchmark_mode) = sys.argv[1:22]
 
 def read_text(path: str) -> str:
     try:
@@ -508,6 +557,8 @@ rec = {
   "temp_before_c": float(temp_before_c) if temp_before_c else None,
   "temp_after_c": float(temp_after_c) if temp_after_c else None,
   "thermal_warning": (thermal_warning == "true"),
+  "profile": profile or "default",
+  "benchmark_mode": benchmark_mode or "real_world",
 }
 
 with open(jsonl_out, "a", encoding="utf-8") as f:
@@ -571,10 +622,11 @@ rm -f "$_TO_FILE" "$_EC_FILE" "$_STDOUT_FILE" "$_STDERR_FILE"
 
 python3 - "$JSONL_OUT" "$CSV_OUT" "$MD_OUT" \
   "$DEVICE_LABEL" "$MODEL_ID" "$MODEL_MB" "$MAX_TOKENS" "$THREADS" "$LLAMA_BIN" "$PROMPT_TIMEOUT" \
+  "${PROFILE:-default}" "$BENCHMARK_MODE" \
   <<'PY'
 import csv, json, sys
 
-jsonl, csv_out, md_out, device, model, model_mb, max_tokens, threads, llama_bin, prompt_timeout = sys.argv[1:11]
+jsonl, csv_out, md_out, device, model, model_mb, max_tokens, threads, llama_bin, prompt_timeout, profile, benchmark_mode = sys.argv[1:13]
 
 rows = []
 with open(jsonl, "r", encoding="utf-8") as f:
@@ -622,10 +674,12 @@ with open(csv_out, "w", newline="", encoding="utf-8") as f:
     w = csv.writer(f)
     w.writerow(["device_label","model_id","model_mb","prompts","success","timeout","error",
                 "p50_duration_ms","p50_tokens_per_sec","max_tokens","threads","prompt_timeout_s",
-                "output_present","thermal_warning_count","max_temp_before_c","max_temp_after_c","llama_bin"])
+                "output_present","thermal_warning_count","max_temp_before_c","max_temp_after_c",
+                "llama_bin","profile","benchmark_mode"])
     w.writerow([device, model, model_mb, len(rows), success_n, timeout_n, error_n,
                 p50(durations), p50(tokps_vals), max_tokens, threads, prompt_timeout,
-                output_present_n, thermal_warn_n, snap_before, snap_after, llama_bin])
+                output_present_n, thermal_warn_n, snap_before, snap_after, llama_bin,
+                profile, benchmark_mode])
     w.writerow([])
     w.writerow(["prompt_id","status","duration_ms","tokens_per_sec","timed_out","start_ts","end_ts"])
     for r in rows:
@@ -640,6 +694,8 @@ lines = [
     f"| Device | `{device}` |",
     f"| Model | `{model}` ({model_mb} MB) |",
     f"| llama.cpp | `{llama_bin}` |",
+    f"| Profile | {profile} |",
+    f"| Benchmark Mode | {benchmark_mode} |",
     f"| Max tokens | {max_tokens} |",
     f"| Threads | {threads} |",
     f"| Prompt timeout | {prompt_timeout}s |",

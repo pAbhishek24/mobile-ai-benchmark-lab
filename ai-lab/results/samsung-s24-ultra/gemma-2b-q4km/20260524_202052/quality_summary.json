@@ -7,6 +7,8 @@
   "prompts_empty": 20,
   "quality_score": 0.0,
   "hallucination_rate": 0.0,
+  "truncation_rate": 1.0,
+  "harmful_advice_rate": 0.0,
   "structured_output_success_rate": 0.0,
   "recommendation_quality_score": 0.0,
   "consistency_score": 1.0

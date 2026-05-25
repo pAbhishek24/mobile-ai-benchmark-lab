@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab — Prompt Analysis</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="thermals.html">Thermals</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="devices.html">Devices</a>
+      <a href="historical.html">Historical</a>
+      <a href="quality.html">Quality</a>
+      <a href="prompt-analysis.html" class="active">Prompt Analysis</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Prompt Analysis</h1>
+      <p class="subtitle">Quality by prompt difficulty, category breakdown, hardest prompts, and cross-model prompt comparison</p>
+    </div>
+
+    <div id="kpiRow" class="kpi-row"></div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Quality by Difficulty (avg across models)</div>
+        <canvas id="chartDifficulty"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Quality by Finance Category (avg across models)</div>
+        <canvas id="chartCategory"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Per-Prompt Quality: All Models Side-by-Side</div>
+      <div class="filters" style="margin-bottom:12px">
+        <div class="filter-group">
+          <label>Category</label>
+          <select id="catFilter"></select>
+        </div>
+      </div>
+      <canvas id="chartPromptComparison"></canvas>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Prompt Drilldown</div>
+      <div class="filters" style="margin-bottom:12px;display:flex;gap:16px;flex-wrap:wrap">
+        <div class="filter-group">
+          <label>Model</label>
+          <select id="drillModelFilter"></select>
+        </div>
+        <div class="filter-group">
+          <label>Sort by</label>
+          <select id="sortFilter">
+            <option value="quality_asc">Lowest Quality First</option>
+            <option value="quality_desc">Highest Quality First</option>
+            <option value="prompt_id">Prompt ID</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="drillTable">
+          <thead>
+            <tr>
+              <th>Prompt</th>
+              <th>Avg Quality</th>
+              <th>Runs</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/chart.min.js"></script>
+  <script src="assets/dash.js"></script>
+  <script>
+  "use strict";
+
+  const PALETTE = ["#4f8ef7","#2ecc71","#f1c40f","#e74c3c","#9b59b6","#1abc9c","#e67e22"];
+  let _allModels = [];
+  let _chartPromptComp = null;
+
+  function shortName(n) { return (n||"").replace(/-q4km$/,""); }
+
+  function scoreBar(v) {
+    if (v == null) return "—";
+    const p = Math.round(v * 100);
+    const col = v >= 0.7 ? "#2ecc71" : v >= 0.45 ? "#f1c40f" : "#e74c3c";
+    return `<div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:${p}%;background:${col}"></div></div><span class="score-num">${v.toFixed(3)}</span></div>`;
+  }
+
+  loadDashboardData("data/quality-data.json").then(data => {
+    _allModels = data.model_quality || [];
+    if (!_allModels.length) return;
+    renderKpis(_allModels);
+    renderDifficultyChart(_allModels);
+    renderCategoryChart(_allModels);
+    initPromptComparisonChart(_allModels);
+    initDrilldown(_allModels);
+  }).catch(err => {
+    document.querySelector("main").innerHTML +=
+      `<div class="card" style="color:#e74c3c"><div class="card-title">Quality data not yet generated</div>
+       <p>Run <code>python3 ai-lab/quality/evaluate_quality.py</code> then <code>python3 ai-lab/analytics/generate_dashboard_data.py</code></p>
+       <p style="color:#8892a4;font-size:12px">${err}</p></div>`;
+  });
+
+  function renderKpis(models) {
+    const el = document.getElementById("kpiRow");
+    const allCats = new Set();
+    models.forEach(m => Object.keys(m.category_quality||{}).forEach(c => allCats.add(c)));
+    const promptIds = new Set();
+    models.forEach(m => (m.prompt_quality_summary||[]).forEach(p => promptIds.add(p.prompt_id)));
+
+    const avgQ = models.reduce((a,b)=>a+(b.quality_score||0),0)/models.length;
+    const bestCat = (() => {
+      const catSums = {};
+      const catN = {};
+      models.forEach(m => Object.entries(m.category_quality||{}).forEach(([c,v]) => {
+        catSums[c] = (catSums[c]||0) + v;
+        catN[c] = (catN[c]||0) + 1;
+      }));
+      let best = null, bestV = -1;
+      Object.entries(catSums).forEach(([c,s]) => { const v = s/catN[c]; if (v > bestV) { bestV=v; best=c; }});
+      return best ? best.replace(/_/g," ") : "—";
+    })();
+
+    el.innerHTML = [
+      ["Models Analyzed", models.length],
+      ["Prompts Covered", promptIds.size],
+      ["Finance Categories", allCats.size],
+      ["Avg Quality Score", avgQ.toFixed(3)],
+      ["Best Category", bestCat],
+    ].map(([label,val]) =>
+      `<div class="kpi-box"><div class="kpi-label">${label}</div><div class="kpi-value">${val}</div></div>`
+    ).join("");
+  }
+
+  function renderDifficultyChart(models) {
+    const diffs = ["easy","medium","hard"];
+    const avgsByDiff = {};
+    diffs.forEach(d => {
+      const vals = models.map(m => (m.difficulty_quality||{})[d]).filter(v => v != null);
+      avgsByDiff[d] = vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null;
+    });
+
+    new Chart(document.getElementById("chartDifficulty"), {
+      type: "bar",
+      data: {
+        labels: diffs,
+        datasets: [{
+          label: "Avg Quality Score",
+          data: diffs.map(d => avgsByDiff[d]),
+          backgroundColor: ["#2ecc7199","#f1c40f99","#e74c3c99"],
+          borderColor: ["#2ecc71","#f1c40f","#e74c3c"],
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: { y: { beginAtZero: true, max: 1 } }
+      }
+    });
+  }
+
+  function renderCategoryChart(models) {
+    const allCats = new Set();
+    models.forEach(m => Object.keys(m.category_quality||{}).forEach(c => allCats.add(c)));
+    const cats = [...allCats].sort();
+
+    const avgByCat = {};
+    cats.forEach(c => {
+      const vals = models.map(m => (m.category_quality||{})[c]).filter(v => v != null);
+      avgByCat[c] = vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null;
+    });
+
+    new Chart(document.getElementById("chartCategory"), {
+      type: "bar",
+      data: {
+        labels: cats.map(c => c.replace(/_/g," ")),
+        datasets: [{
+          label: "Avg Quality Score",
+          data: cats.map(c => avgByCat[c]),
+          backgroundColor: "#4f8ef799", borderColor: "#4f8ef7", borderWidth: 1,
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: { y: { beginAtZero: true, max: 1 } }
+      }
+    });
+  }
+
+  function initPromptComparisonChart(models) {
+    const allCats = new Set();
+    models.forEach(m => Object.keys(m.category_quality||{}).forEach(c => allCats.add(c)));
+    const cats = ["All", ...[...allCats].sort()];
+
+    const catSel = document.getElementById("catFilter");
+    cats.forEach(c => {
+      const o = document.createElement("option");
+      o.value = c; o.textContent = c.replace(/_/g," ");
+      catSel.appendChild(o);
+    });
+
+    function renderComp() {
+      const catFilter = catSel.value;
+      const allPids = new Set();
+      models.forEach(m => (m.prompt_quality_summary||[]).forEach(p => allPids.add(p.prompt_id)));
+      let pids = [...allPids].sort();
+
+      const ctx = document.getElementById("chartPromptComparison");
+      if (_chartPromptComp) { _chartPromptComp.destroy(); _chartPromptComp = null; }
+      _chartPromptComp = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: pids,
+          datasets: models.map((m,i) => ({
+            label: shortName(m.model),
+            data: pids.map(pid => {
+              const p = (m.prompt_quality_summary||[]).find(x => x.prompt_id === pid);
+              return p ? p.avg_quality : null;
+            }),
+            backgroundColor: PALETTE[i%PALETTE.length] + "99",
+            borderColor: PALETTE[i%PALETTE.length],
+            borderWidth: 1,
+          }))
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { position: "bottom", labels: { font: { size: 11 }, boxWidth: 10 } } },
+          scales: { y: { beginAtZero: true, max: 1 } }
+        }
+      });
+    }
+
+    catSel.addEventListener("change", renderComp);
+    renderComp();
+  }
+
+  function initDrilldown(models) {
+    const sel = document.getElementById("drillModelFilter");
+    const sortSel = document.getElementById("sortFilter");
+    models.forEach(m => {
+      const o = document.createElement("option");
+      o.value = m.model; o.textContent = shortName(m.model);
+      sel.appendChild(o);
+    });
+    if (models.length) sel.value = models[0].model;
+
+    function render() {
+      const m = models.find(x => x.model === sel.value);
+      const tbody = document.querySelector("#drillTable tbody");
+      if (!m || !m.prompt_quality_summary) { tbody.innerHTML = ""; return; }
+      let rows = [...m.prompt_quality_summary];
+      const sort = sortSel.value;
+      if (sort === "quality_asc") rows.sort((a,b)=>a.avg_quality-b.avg_quality);
+      else if (sort === "quality_desc") rows.sort((a,b)=>b.avg_quality-a.avg_quality);
+      else rows.sort((a,b)=>a.prompt_id.localeCompare(b.prompt_id));
+      tbody.innerHTML = rows.map(p => `
+        <tr>
+          <td class="mono"><b>${p.prompt_id}</b></td>
+          <td>${scoreBar(p.avg_quality)}</td>
+          <td class="mono">${p.runs}</td>
+        </tr>
+      `).join("");
+    }
+
+    sel.addEventListener("change", render);
+    sortSel.addEventListener("change", render);
+    render();
+  }
+  </script>
+</body>
+</html>

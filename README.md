@@ -68,6 +68,11 @@ Pages:
 - `prompts.html` — per-prompt latency analysis
 - `thermals.html` — thermal throttling heatmaps
 - `historical.html` — benchmark history over time
+- `quality.html` — finance quality leaderboard (correctness, hallucination, JSON)
+- `quality-overview.html` — quality vs latency, consistency, production readiness
+- `hallucinations.html` — hallucination and safety analysis
+- `prompt-analysis.html` — per-prompt drilldown by difficulty/category
+- `recommendations.html` — automated model recommendation engine
 
 ---
 
@@ -89,12 +94,22 @@ ai-lab/
           snapshot_after.json    # device state after run
   reports/          # Human-readable analysis and comparisons
   analytics/        # Python scripts to aggregate and score results
+  quality/          # Finance quality benchmarking framework
+    quality_benchmark_dataset.json  # 20 prompts with ground truth + rubric
+    evaluate_quality.py             # Per-run quality scorer
+    aggregate_quality.py            # Cross-run aggregator → quality-data.json
+    manual_review.md                # Representative output analysis
 
 dashboards/
-  index.html        # Leaderboard overview
-  models.html       # Model comparison page
-  data/             # Pre-generated JSON for charts (Chart.js)
-  assets/           # chart.min.js, dash.js, style.css
+  index.html              # Leaderboard overview
+  models.html             # Model comparison
+  quality.html            # Finance quality leaderboard
+  quality-overview.html   # Quality vs latency, production readiness
+  hallucinations.html     # Hallucination & safety analysis
+  prompt-analysis.html    # Per-prompt drilldown
+  recommendations.html    # Model recommendation engine
+  data/                   # Pre-generated JSON for charts (Chart.js)
+  assets/                 # chart.min.js, dash.js, style.css
 
 docs/
   TERMUX_AI_LAB_SETUP.md          # Step-by-step Termux setup guide
@@ -121,15 +136,56 @@ docs/
 ```bash
 # On your Android device in Termux
 git clone https://github.com/pAbhishek24/mobile-ai-benchmark-lab
-cd mobile-ai-benchmark-lab/ai-lab/scripts
+cd mobile-ai-benchmark-lab
 
-# Run a full benchmark
-bash run_llama_benchmark.sh \
-  --model ~/models/qwen2.5-1.5b-q4_k_m.gguf \
-  --device "samsung-s24-ultra" \
-  --prompts ../prompts/finance-benchmark-prompts.json
+# Systems benchmark (fast — measures throughput, 128 max tokens)
+./ai-lab/scripts/run_model_evaluation.sh \
+  --model qwen2.5-0.5b-q4km \
+  --device-label samsung-s24-ultra \
+  --profile systems
+
+# Quality benchmark (thorough — measures finance accuracy, 512 max tokens)
+./ai-lab/scripts/run_model_evaluation.sh \
+  --model qwen2.5-0.5b-q4km \
+  --device-label samsung-s24-ultra \
+  --profile quality \
+  --debug
+
+# Smoke test (2 prompts, 48 tokens — runs in ~2 minutes)
+./ai-lab/scripts/run_model_evaluation.sh \
+  --model qwen2.5-0.5b-q4km \
+  --device-label samsung-s24-ultra \
+  --smoke
 
 # Results saved to ai-lab/results/<device>/<model>/<timestamp>/
+```
+
+### Benchmark profiles
+
+| Profile | Max tokens | Cooldown | Prompt timeout | Purpose |
+|---|---|---|---|---|
+| `systems` | 128 | 15s | 90s | Throughput, latency, thermal — fast runs |
+| `quality` | 512 | 30s | 180s | Finance accuracy — complete response analysis |
+| (default) | 256 | 30s | 90s | Balanced — backwards compatible |
+
+### Official quality rerun commands (focus models)
+
+Run these on your Android device to get production-quality accuracy scores:
+
+```bash
+for MODEL in qwen2.5-0.5b-q4km qwen2.5-1.5b-q4km tinyllama-1.1b-q4km; do
+  ./ai-lab/scripts/run_model_evaluation.sh \
+    --model $MODEL \
+    --device-label samsung-s24-ultra \
+    --profile quality \
+    --debug
+done
+```
+
+After running, regenerate the dashboard:
+
+```bash
+python3 ai-lab/analytics/generate_dashboard_data.py
 ```
 
 ---
