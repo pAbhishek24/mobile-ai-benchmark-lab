@@ -6,6 +6,17 @@ An open-source framework for benchmarking local large language models on Android
 
 ---
 
+## CI
+
+| Workflow | Runs on | Purpose |
+|---|---|---|
+| **AI Lab CI** | every push / PR | Validates JSON, benchmark schema, regenerates dashboard, uploads artifact |
+| **Dashboard & GitHub Pages** | push to `main` | Generates `dashboard-data.json`, deploys `dashboards/` to GitHub Pages |
+
+Download the latest dashboard: **Actions → Dashboard & GitHub Pages → Artifacts → dashboard**
+
+---
+
 ## What this is
 
 Most LLM benchmarks run on high-end GPUs or cloud VMs. This project benchmarks small, quantised models (0.5B–7B parameters) running **entirely on-device** via [llama.cpp](https://github.com/ggerganov/llama.cpp) in [Termux](https://termux.dev) — no network, no server, no cloud.
@@ -33,12 +44,19 @@ Interactive dashboard: [`dashboards/`](dashboards/)
 
 ## Dashboard
 
-The interactive benchmark dashboard runs as a static HTML site (no server needed):
+The interactive benchmark dashboard runs as a static HTML site (no server needed).
+
+**Regenerate dashboard data locally** (stdlib only, no pip required):
 
 ```bash
-# Clone and open locally
-git clone https://github.com/pAbhishek24/mobile-ai-benchmark-lab
-cd mobile-ai-benchmark-lab
+python3 ai-lab/analytics/generate_dashboard_data.py
+open dashboards/index.html          # macOS
+xdg-open dashboards/index.html      # Linux
+```
+
+**Serve locally** (needed for the multi-page fetch calls):
+
+```bash
 python3 -m http.server 8080 --directory dashboards
 # Open http://localhost:8080
 ```
@@ -86,7 +104,6 @@ docs/
   FUTURE_LOCAL_AI_ARCHITECTURE.md # Roadmap for on-device AI
   DASHBOARD_DEPLOYMENT.md         # Deploying the dashboard
   AI_STRATEGY.md                  # AI philosophy and principles
-  WHITEPAPER_IDEAS.md             # Future whitepaper topics
 ```
 
 ---

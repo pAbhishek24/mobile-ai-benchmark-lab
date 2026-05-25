@@ -1,0 +1,77 @@
+name: AI Lab CI
+
+on:
+  push:
+    branches: [main, phase-3-ai-lab]
+  pull_request:
+    branches: [main, phase-3-ai-lab]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate benchmark data & dashboard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate JSON files
+        run: |
+          set -e
+          echo "Validating JSON files..."
+          find . -name "*.json" \
+            ! -path "./.git/*" \
+            ! -path "./dashboards/assets/*" \
+            -print0 | while IFS= read -r -d '' f; do
+            python3 -c "import json,sys; json.load(open('$f'))" \
+              && echo "  OK: $f" \
+              || { echo "  FAIL: $f"; exit 1; }
+          done
+          echo "All JSON files valid."
+
+      - name: Validate benchmark result schema
+        run: |
+          python3 - <<'EOF'
+          import json, pathlib, sys
+
+          RESULTS_ROOT = pathlib.Path("ai-lab/results")
+          if not RESULTS_ROOT.exists():
+              print("No results directory found — skipping schema validation.")
+              sys.exit(0)
+
+          errors = []
+          for jsonl_file in RESULTS_ROOT.rglob("benchmark.jsonl"):
+              with open(jsonl_file, encoding="utf-8", errors="replace") as f:
+                  for i, line in enumerate(f, 1):
+                      line = line.strip()
+                      if not line:
+                          continue
+                      try:
+                          row = json.loads(line)
+                      except json.JSONDecodeError as e:
+                          errors.append(f"{jsonl_file}:{i}: invalid JSON: {e}")
+                          continue
+                      for field in ("prompt_id", "status"):
+                          if field not in row:
+                              errors.append(f"{jsonl_file}:{i}: missing field '{field}'")
+
+          if errors:
+              print("Schema validation errors:")
+              for e in errors:
+                  print(" ", e)
+              sys.exit(1)
+          print(f"Schema validation passed.")
+          EOF
+
+      - name: Run dashboard generator
+        run: python3 ai-lab/analytics/generate_dashboard_data.py
+
+      - name: Upload generated dashboard as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard-ci
+          path: dashboards/
+          retention-days: 7
