@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab — Model Recommendations</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="thermals.html">Thermals</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="devices.html">Devices</a>
+      <a href="historical.html">Historical</a>
+      <a href="quality.html">Quality</a>
+      <a href="recommendations.html" class="active">Recommendations</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Model Recommendations</h1>
+      <p class="subtitle">Automated model selection guidance based on combined performance, quality, and thermal data</p>
+    </div>
+
+    <div id="recCards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:24px"></div>
+
+    <div class="card">
+      <div class="card-title">Combined Score Matrix</div>
+      <p class="muted" style="font-size:13px;margin-bottom:12px">
+        Combined score = 40% quality + 30% speed (normalised tok/s) + 20% thermal efficiency (1−rise/max_rise) + 10% stability (success rate)
+      </p>
+      <div class="table-wrap">
+        <table id="recTable">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Model</th>
+              <th>Combined Score</th>
+              <th>Quality Score</th>
+              <th>Speed (tok/s)</th>
+              <th>Thermal Rise</th>
+              <th>Stability</th>
+              <th>Hallucination</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Quality vs Speed Trade-off</div>
+        <canvas id="chartQualVsSpeed"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Quality vs Thermal Rise</div>
+        <canvas id="chartQualVsThermal"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Combined Score Breakdown</div>
+      <canvas id="chartCombined"></canvas>
+    </div>
+  </main>
+
+  <script src="assets/chart.min.js"></script>
+  <script src="assets/dash.js"></script>
+  <script>
+  "use strict";
+
+  const PALETTE = ["#4f8ef7","#2ecc71","#f1c40f","#e74c3c","#9b59b6","#1abc9c","#e67e22"];
+
+  function shortName(n) { return (n||"").replace(/-q4km$/,""); }
+  function fmt1(v) { return v != null ? v.toFixed(1) : "—"; }
+  function fmt3(v) { return v != null ? v.toFixed(3) : "—"; }
+  function pct(v) { return v != null ? (v*100).toFixed(1)+"%" : "—"; }
+
+  function scoreBar(v) {
+    if (v == null) return "—";
+    const p = Math.round(v * 100);
+    const col = v >= 0.7 ? "#2ecc71" : v >= 0.45 ? "#f1c40f" : "#e74c3c";
+    return `<div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:${p}%;background:${col}"></div></div><span class="score-num">${v.toFixed(3)}</span></div>`;
+  }
+
+  function computeCombined(perf, qual) {
+    const qualScore = qual ? (qual.quality_score || 0) : 0;
+    const hallucPenalty = qual ? (qual.hallucination_rate || 0) * 0.2 : 0;
+    return { qualScore, hallucPenalty };
+  }
+
+  Promise.all([
+    loadDashboardData("data/dashboard-data.json").catch(() => null),
+    loadDashboardData("data/quality-data.json").catch(() => null),
+  ]).then(([perfData, qualData]) => {
+    const perfModels = (perfData?.model_summaries || []);
+    const qualModels = (qualData?.model_quality || []);
+
+    // Build combined model list
+    const allModelNames = new Set([
+      ...perfModels.map(m => m.model),
+      ...qualModels.map(m => m.model),
+    ]);
+
+    const combined = [...allModelNames].map(name => {
+      const perf = perfModels.find(m => m.model === name);
+      const qual = qualModels.find(m => m.model === name);
+      return { name, perf, qual };
+    });
+
+    // Compute normalised scores
+    const maxTokS = Math.max(1, ...combined.map(m => m.perf?.derived?.avg_tokens_per_sec || 0));
+    const maxRise = Math.max(1, ...combined.map(m => {
+      const d = m.perf?.derived || {};
+      return d.max_temp_after_c != null && d.max_temp_before_c != null
+        ? d.max_temp_after_c - d.max_temp_before_c : 0;
+    }));
+
+    const scored = combined.map(m => {
+      const d = m.perf?.derived || {};
+      const qualScore = m.qual?.quality_score || 0;
+      const speed = (d.avg_tokens_per_sec || 0) / maxTokS;
+      const rise = (d.max_temp_after_c != null && d.max_temp_before_c != null)
+        ? d.max_temp_after_c - d.max_temp_before_c : null;
+      const thermal = rise != null ? Math.max(0, 1 - rise / maxRise) : 0.5;
+      const total = (d.success || 0) + (d.error || 0) + (d.timeout || 0);
+      const stability = total > 0 ? (d.success || 0) / total : 0;
+      const hallucPenalty = (m.qual?.hallucination_rate || 0) * 0.15;
+      const combined_score = Math.max(0, 0.40*qualScore + 0.30*speed + 0.20*thermal + 0.10*stability - hallucPenalty);
+      return { ...m, qualScore, speed, rise, thermal, stability, combined_score };
+    }).sort((a,b) => b.combined_score - a.combined_score);
+
+    renderRecCards(scored);
+    renderRecTable(scored);
+    renderScatterQualSpeed(scored);
+    renderScatterQualThermal(scored);
+    renderCombinedBreakdown(scored);
+  }).catch(err => {
+    document.querySelector("main").innerHTML +=
+      `<div class="card" style="color:#e74c3c"><div class="card-title">Data not yet generated</div>
+       <p>Run <code>python3 ai-lab/analytics/generate_dashboard_data.py</code></p>
+       <p style="color:#8892a4;font-size:12px">${err}</p></div>`;
+  });
+
+  function bestFor(m, rank) {
+    const tags = [];
+    if (rank === 0) tags.push("🏆 Best Overall");
+    if (m.qualScore >= 0.5) tags.push("✅ Best Quality");
+    if (m.speed >= 0.9) tags.push("⚡ Fastest");
+    if (m.rise != null && m.rise < 3) tags.push("❄️ Coolest");
+    if ((m.qual?.hallucination_rate||1) < 0.05) tags.push("🎯 Low Hallucination");
+    if ((m.perf?.size_mb||9999) < 600) tags.push("📦 Smallest");
+    if (!tags.length) tags.push("—");
+    return tags.join(" · ");
+  }
+
+  function renderRecCards(scored) {
+    const container = document.getElementById("recCards");
+    const top = scored.slice(0, 4);
+    const titles = ["🏆 Best Overall", "⚡ Fastest", "❄️ Best Thermal", "✅ Best Quality"];
+    const picks = [
+      scored[0],
+      [...scored].sort((a,b)=>b.speed-a.speed)[0],
+      [...scored].filter(m=>m.rise!=null).sort((a,b)=>(a.rise||99)-(b.rise||99))[0],
+      [...scored].sort((a,b)=>b.qualScore-a.qualScore)[0],
+    ];
+    picks.forEach((m, i) => {
+      if (!m) return;
+      const col = ["#2ecc71","#4f8ef7","#1abc9c","#9b59b6"][i];
+      container.insertAdjacentHTML("beforeend", `
+        <div class="card" style="border-left: 4px solid ${col}">
+          <div class="card-title" style="color:${col}">${titles[i]}</div>
+          <div style="font-size:18px;font-weight:700;margin-bottom:8px">${shortName(m.name)}</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:13px">
+            <span class="muted">Quality</span><span>${m.qualScore.toFixed(3)}</span>
+            <span class="muted">Speed</span><span>${fmt1(m.perf?.derived?.avg_tokens_per_sec)} tok/s</span>
+            <span class="muted">Temp Rise</span><span>${m.rise != null ? "+" + m.rise.toFixed(1) + "°C" : "—"}</span>
+            <span class="muted">Combined</span><span>${m.combined_score.toFixed(3)}</span>
+          </div>
+        </div>
+      `);
+    });
+  }
+
+  function renderRecTable(scored) {
+    const tbody = document.querySelector("#recTable tbody");
+    tbody.innerHTML = scored.map((m, i) => `
+      <tr>
+        <td class="mono"><b>${i+1}</b></td>
+        <td><b>${shortName(m.name)}</b></td>
+        <td>${scoreBar(m.combined_score)}</td>
+        <td>${scoreBar(m.qualScore||null)}</td>
+        <td class="mono">${fmt1(m.perf?.derived?.avg_tokens_per_sec)}</td>
+        <td class="mono">${m.rise != null ? (m.rise > 0 ? "+" : "") + m.rise.toFixed(1) + "°C" : "—"}</td>
+        <td class="mono">${pct(m.stability)}</td>
+        <td class="mono">${pct(m.qual?.hallucination_rate)}</td>
+        <td style="font-size:12px">${bestFor(m, i)}</td>
+      </tr>
+    `).join("");
+  }
+
+  function renderScatterQualSpeed(scored) {
+    new Chart(document.getElementById("chartQualVsSpeed"), {
+      type: "scatter",
+      data: {
+        datasets: scored.map((m,i) => ({
+          label: shortName(m.name),
+          data: [{ x: m.perf?.derived?.avg_tokens_per_sec || 0, y: m.qualScore }],
+          backgroundColor: PALETTE[i%PALETTE.length],
+          pointRadius: 10, pointHoverRadius: 13,
+        }))
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true, position: "bottom" } },
+        scales: {
+          x: { title: { display: true, text: "Speed (tok/s) →" }, beginAtZero: true },
+          y: { title: { display: true, text: "Quality Score →" }, min: 0, max: 1 },
+        }
+      }
+    });
+  }
+
+  function renderScatterQualThermal(scored) {
+    const withThermal = scored.filter(m => m.rise != null);
+    new Chart(document.getElementById("chartQualVsThermal"), {
+      type: "scatter",
+      data: {
+        datasets: withThermal.map((m,i) => ({
+          label: shortName(m.name),
+          data: [{ x: m.rise, y: m.qualScore }],
+          backgroundColor: PALETTE[i%PALETTE.length],
+          pointRadius: 10, pointHoverRadius: 13,
+        }))
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true, position: "bottom" } },
+        scales: {
+          x: { title: { display: true, text: "Thermal Rise (°C) →" } },
+          y: { title: { display: true, text: "Quality Score →" }, min: 0, max: 1 },
+        }
+      }
+    });
+  }
+
+  function renderCombinedBreakdown(scored) {
+    const labels = scored.map(m => shortName(m.name));
+    new Chart(document.getElementById("chartCombined"), {
+      type: "bar",
+      data: {
+        labels,
+        datasets: [
+          { label: "Quality (40%)",   data: scored.map(m => m.qualScore * 0.40),  backgroundColor: "#4f8ef799", borderColor: "#4f8ef7", borderWidth: 1 },
+          { label: "Speed (30%)",     data: scored.map(m => m.speed * 0.30),      backgroundColor: "#2ecc7199", borderColor: "#2ecc71", borderWidth: 1 },
+          { label: "Thermal (20%)",   data: scored.map(m => m.thermal * 0.20),    backgroundColor: "#1abc9c99", borderColor: "#1abc9c", borderWidth: 1 },
+          { label: "Stability (10%)", data: scored.map(m => m.stability * 0.10),  backgroundColor: "#f1c40f99", borderColor: "#f1c40f", borderWidth: 1 },
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: "bottom", labels: { font: { size: 11 }, boxWidth: 10 } } },
+        scales: {
+          x: { stacked: true },
+          y: { stacked: true, beginAtZero: true, max: 1.0 },
+        }
+      }
+    });
+  }
+  </script>
+</body>
+</html>

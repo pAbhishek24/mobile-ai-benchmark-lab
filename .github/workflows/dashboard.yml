@@ -6,6 +6,7 @@ on:
     paths:
       - "ai-lab/results/**"
       - "ai-lab/analytics/**"
+      - "ai-lab/quality/**"
       - "ai-lab/models/**"
       - "dashboards/**"
       - ".github/workflows/dashboard.yml"

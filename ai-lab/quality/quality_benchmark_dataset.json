@@ -1,0 +1,761 @@
+{
+  "version": "1.0",
+  "description": "Finance quality benchmark dataset for offline personal finance assistant evaluation. Each entry maps to a prompt_id in finance-benchmark-prompts.json and provides deterministic ground truth for automated scoring.",
+  "scoring_rubric": {
+    "numeric_tolerance_pct": 1.0,
+    "partial_credit": true,
+    "hallucination_penalty": 0.5
+  },
+  "categories": {
+    "expense_summary":       { "weight": 1.0, "description": "Arithmetic correctness + percentage calculations" },
+    "emi_pressure":          { "weight": 1.2, "description": "EMI ratio, sustainability assessment" },
+    "credit_card_planning":  { "weight": 1.2, "description": "Interest calculation, payoff strategy" },
+    "sip_planning":          { "weight": 1.1, "description": "Compound growth, goal-based calculation" },
+    "lic_outflow":           { "weight": 1.0, "description": "Return analysis, opportunity cost" },
+    "budget_overspend":      { "weight": 1.0, "description": "Overspend identification, actionable advice" },
+    "safe_spend_remaining":  { "weight": 1.1, "description": "Cash position arithmetic, buffer awareness" },
+    "debt_payoff":           { "weight": 1.2, "description": "Debt strategy, prioritization logic" },
+    "category_spike":        { "weight": 1.0, "description": "Diagnostic framing, no hallucination" },
+    "cashflow_warning":      { "weight": 1.3, "description": "Cash crunch identification, practical advice" }
+  },
+  "prompts": [
+    {
+      "prompt_id": "P01",
+      "category": "expense_summary",
+      "difficulty": "easy",
+      "ground_truth": {
+        "total_spend_inr": 32200,
+        "savings_inr": 22800,
+        "savings_pct": 41.45,
+        "category_pcts": {
+          "Food": 14.91,
+          "Transport": 6.36,
+          "Rent": 21.82,
+          "Utilities": 5.09,
+          "Entertainment": 2.73,
+          "Shopping": 7.64
+        }
+      },
+      "numeric_checks": [
+        { "id": "total_spend", "value": 32200, "tolerance_pct": 1.0, "required": true },
+        { "id": "savings",     "value": 22800, "tolerance_pct": 1.0, "required": true },
+        { "id": "rent_pct",    "value": 21.82, "tolerance_pct": 2.0, "required": false }
+      ],
+      "required_concepts": ["total", "percentage", "savings"],
+      "hallucination_traps": [
+        { "id": "wrong_total",   "pattern": "3[3-9][0-9][0-9][0-9]|4[0-9][0-9][0-9][0-9]", "description": "Total spend significantly higher than 32200" },
+        { "id": "invented_category", "pattern": "insurance|investment|loan", "description": "Mentions expense categories not in the prompt" }
+      ],
+      "json_output_prompt": "Return a JSON object with keys: total_spend, savings, category_percentages (object). Do not include any other text.",
+      "json_schema": {
+        "type": "object",
+        "required": ["total_spend", "savings", "category_percentages"],
+        "properties": {
+          "total_spend": { "type": "number" },
+          "savings": { "type": "number" },
+          "category_percentages": { "type": "object" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["savings", "spend", "budget"],
+        "harmful_advice_patterns": ["borrow", "take a loan", "credit card"]
+      },
+      "consistency_group": "CG_EXPENSE_ARITHMETIC"
+    },
+    {
+      "prompt_id": "P02",
+      "category": "expense_summary",
+      "difficulty": "medium",
+      "ground_truth": {
+        "food_increase_inr": 2600,
+        "food_increase_pct": 38.24,
+        "food_pct_of_income_jan": 11.33,
+        "food_pct_of_income_mar": 15.67,
+        "trend": "increasing"
+      },
+      "numeric_checks": [
+        { "id": "food_increase",    "value": 2600,  "tolerance_pct": 1.0, "required": true },
+        { "id": "mar_food_pct",     "value": 15.67, "tolerance_pct": 2.0, "required": true },
+        { "id": "jan_food_pct",     "value": 11.33, "tolerance_pct": 2.0, "required": false }
+      ],
+      "required_concepts": ["increase", "percentage", "trend"],
+      "hallucination_traps": [
+        { "id": "invented_cause", "pattern": "inflation|price hike|restaurant", "description": "States specific cause of increase not present in prompt" }
+      ],
+      "json_output_prompt": "Return JSON with keys: food_increase_inr, march_pct_of_income, january_pct_of_income, trend_assessment.",
+      "json_schema": {
+        "type": "object",
+        "required": ["food_increase_inr", "march_pct_of_income", "january_pct_of_income", "trend_assessment"],
+        "properties": {
+          "food_increase_inr": { "type": "number" },
+          "march_pct_of_income": { "type": "number" },
+          "january_pct_of_income": { "type": "number" },
+          "trend_assessment": { "type": "string" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["trend", "review", "budget"],
+        "harmful_advice_patterns": []
+      },
+      "consistency_group": "CG_EXPENSE_ARITHMETIC"
+    },
+    {
+      "prompt_id": "P03",
+      "category": "emi_pressure",
+      "difficulty": "medium",
+      "ground_truth": {
+        "total_emi_inr": 29500,
+        "emi_to_income_pct": 40.97,
+        "is_healthy": false,
+        "recommended_max_pct": 40.0,
+        "assessment": "above_recommended"
+      },
+      "numeric_checks": [
+        { "id": "total_emi",       "value": 29500, "tolerance_pct": 1.0, "required": true },
+        { "id": "emi_income_pct",  "value": 40.97, "tolerance_pct": 2.0, "required": true },
+        { "id": "recommended_max", "value": 40.0,  "tolerance_pct": 5.0, "required": false }
+      ],
+      "required_concepts": ["EMI", "percentage", "income", "recommended"],
+      "hallucination_traps": [
+        { "id": "wrong_emi_total", "pattern": "3[0-4][0-9][0-9][0-9]|2[0-8][0-9][0-9][0-9]", "description": "EMI total far from 29500" },
+        { "id": "invented_emi",    "pattern": "credit card EMI|insurance EMI", "description": "Invents additional EMIs not in prompt" }
+      ],
+      "json_output_prompt": "Return JSON with keys: total_emi_inr, emi_income_pct, is_financially_healthy (bool), recommended_max_pct.",
+      "json_schema": {
+        "type": "object",
+        "required": ["total_emi_inr", "emi_income_pct", "is_financially_healthy", "recommended_max_pct"],
+        "properties": {
+          "total_emi_inr": { "type": "number" },
+          "emi_income_pct": { "type": "number" },
+          "is_financially_healthy": { "type": "boolean" },
+          "recommended_max_pct": { "type": "number" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["reduce", "high", "ratio"],
+        "harmful_advice_patterns": ["take another loan", "increase income by borrowing"]
+      },
+      "consistency_group": "CG_EMI_ANALYSIS"
+    },
+    {
+      "prompt_id": "P04",
+      "category": "emi_pressure",
+      "difficulty": "hard",
+      "ground_truth": {
+        "fixed_outflows_inr": 24700,
+        "variable_budget_inr": 20300,
+        "fixed_pct_of_income": 54.89,
+        "is_sustainable": false,
+        "risk_level": "high"
+      },
+      "numeric_checks": [
+        { "id": "fixed_outflows",  "value": 24700, "tolerance_pct": 1.0, "required": true },
+        { "id": "variable_budget", "value": 20300, "tolerance_pct": 1.0, "required": true },
+        { "id": "fixed_pct",       "value": 54.89, "tolerance_pct": 2.0, "required": false }
+      ],
+      "required_concepts": ["sustainable", "fixed", "variable", "reduce"],
+      "hallucination_traps": [
+        { "id": "invented_expense", "pattern": "electricity|internet|medical", "description": "Invents expenses not stated in prompt" }
+      ],
+      "json_output_prompt": "Return JSON with keys: total_fixed_inr, variable_remaining_inr, fixed_pct_of_income, sustainability_assessment, risk_level.",
+      "json_schema": {
+        "type": "object",
+        "required": ["total_fixed_inr", "variable_remaining_inr", "fixed_pct_of_income", "sustainability_assessment"],
+        "properties": {
+          "total_fixed_inr": { "type": "number" },
+          "variable_remaining_inr": { "type": "number" },
+          "fixed_pct_of_income": { "type": "number" },
+          "sustainability_assessment": { "type": "string" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["reduce", "expense", "consider"],
+        "harmful_advice_patterns": ["take a loan", "borrow money"]
+      },
+      "consistency_group": "CG_EMI_ANALYSIS"
+    },
+    {
+      "prompt_id": "P05",
+      "category": "credit_card_planning",
+      "difficulty": "medium",
+      "ground_truth": {
+        "remaining_balance_inr": 23000,
+        "next_month_interest_inr": 805.0,
+        "interest_rate_monthly_pct": 3.5,
+        "3month_monthly_payment_inr": 7933.33
+      },
+      "numeric_checks": [
+        { "id": "remaining_balance",    "value": 23000,   "tolerance_pct": 1.0, "required": true },
+        { "id": "next_month_interest",  "value": 805.0,   "tolerance_pct": 2.0, "required": true },
+        { "id": "3month_payment",       "value": 7933.33, "tolerance_pct": 5.0, "required": false }
+      ],
+      "required_concepts": ["interest", "balance", "payment", "strategy"],
+      "hallucination_traps": [
+        { "id": "wrong_interest",  "pattern": "\\b[2-9][0-9]{3}\\b", "description": "Interest amount far above correct 805" },
+        { "id": "invented_fees",   "pattern": "late fee|processing fee|annual fee", "description": "Invents fees not mentioned" }
+      ],
+      "json_output_prompt": "Return JSON with keys: remaining_balance_inr, interest_next_month_inr, recommended_monthly_payment_for_3months.",
+      "json_schema": {
+        "type": "object",
+        "required": ["remaining_balance_inr", "interest_next_month_inr"],
+        "properties": {
+          "remaining_balance_inr": { "type": "number" },
+          "interest_next_month_inr": { "type": "number" },
+          "recommended_monthly_payment_for_3months": { "type": "number" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["pay", "balance", "interest"],
+        "harmful_advice_patterns": ["ignore", "minimum payment only", "skip payment"]
+      },
+      "consistency_group": "CG_CREDIT_CARD"
+    },
+    {
+      "prompt_id": "P06",
+      "category": "credit_card_planning",
+      "difficulty": "medium",
+      "ground_truth": {
+        "card_a_monthly_interest_inr": 704.0,
+        "card_b_monthly_interest_inr": 361.0,
+        "prioritize_card": "B",
+        "reason": "higher_interest_rate",
+        "avalanche_method": true
+      },
+      "numeric_checks": [
+        { "id": "card_a_interest", "value": 704.0,  "tolerance_pct": 2.0, "required": false },
+        { "id": "card_b_interest", "value": 361.0,  "tolerance_pct": 2.0, "required": false }
+      ],
+      "required_concepts": ["interest rate", "prioritize", "ICICI", "higher rate"],
+      "hallucination_traps": [
+        { "id": "wrong_priority", "pattern": "prioritize.*SBI|pay.*Card A first", "description": "Recommends wrong card (SBI has lower rate)" },
+        { "id": "invented_fee",   "pattern": "annual fee|late fee",               "description": "Invents fees" }
+      ],
+      "json_output_prompt": "Return JSON with keys: prioritize_card (A or B), reason, card_a_monthly_interest_inr, card_b_monthly_interest_inr.",
+      "json_schema": {
+        "type": "object",
+        "required": ["prioritize_card", "reason"],
+        "properties": {
+          "prioritize_card": { "type": "string", "enum": ["A", "B"] },
+          "reason": { "type": "string" },
+          "card_a_monthly_interest_inr": { "type": "number" },
+          "card_b_monthly_interest_inr": { "type": "number" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["higher", "interest", "ICICI"],
+        "harmful_advice_patterns": ["pay minimum", "ignore debt"]
+      },
+      "consistency_group": "CG_CREDIT_CARD"
+    },
+    {
+      "prompt_id": "P07",
+      "category": "sip_planning",
+      "difficulty": "medium",
+      "ground_truth": {
+        "corpus_5yr_inr": 408511,
+        "corpus_10yr_inr": 1162048,
+        "corpus_15yr_inr": 2502296,
+        "investment_5yr_inr": 300000,
+        "investment_10yr_inr": 600000,
+        "investment_15yr_inr": 900000,
+        "returns_5yr_inr": 108511,
+        "returns_10yr_inr": 562048,
+        "returns_15yr_inr": 1602296
+      },
+      "numeric_checks": [
+        { "id": "corpus_5yr",  "value": 408511,  "tolerance_pct": 3.0, "required": true },
+        { "id": "corpus_10yr", "value": 1162048, "tolerance_pct": 3.0, "required": true },
+        { "id": "corpus_15yr", "value": 2502296, "tolerance_pct": 3.0, "required": false }
+      ],
+      "required_concepts": ["SIP", "corpus", "returns", "investment"],
+      "hallucination_traps": [
+        { "id": "wrong_5yr",   "pattern": "5.*lakh|5,00,000|500000", "description": "Seriously underestimates 5yr corpus (should be ~4.1L)" },
+        { "id": "impossible_return", "pattern": "crore", "description": "Claims crore-level returns for 15yr 5k SIP" }
+      ],
+      "json_output_prompt": "Return JSON with keys: corpus_5yr_inr, corpus_10yr_inr, corpus_15yr_inr, total_invested_15yr_inr, total_returns_15yr_inr.",
+      "json_schema": {
+        "type": "object",
+        "required": ["corpus_5yr_inr", "corpus_10yr_inr", "corpus_15yr_inr"],
+        "properties": {
+          "corpus_5yr_inr":        { "type": "number" },
+          "corpus_10yr_inr":       { "type": "number" },
+          "corpus_15yr_inr":       { "type": "number" },
+          "total_invested_15yr_inr": { "type": "number" },
+          "total_returns_15yr_inr":  { "type": "number" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["invest", "return", "lakh"],
+        "harmful_advice_patterns": ["guaranteed returns", "no risk"]
+      },
+      "consistency_group": "CG_SIP_CALCULATION"
+    },
+    {
+      "prompt_id": "P08",
+      "category": "sip_planning",
+      "difficulty": "hard",
+      "ground_truth": {
+        "required_monthly_sip_inr": 8692,
+        "corpus_at_6000_per_month_inr": 1728756,
+        "goal_inr": 2500000,
+        "shortfall_at_6000_inr": 771244
+      },
+      "numeric_checks": [
+        { "id": "required_sip",   "value": 8692,    "tolerance_pct": 5.0, "required": true },
+        { "id": "corpus_at_6k",   "value": 1728756, "tolerance_pct": 5.0, "required": true }
+      ],
+      "required_concepts": ["SIP", "goal", "shortfall", "invest"],
+      "hallucination_traps": [
+        { "id": "impossible_low_sip", "pattern": "\\b[1-4][0-9]{3}\\b.*month", "description": "Claims very low SIP (<5000) can achieve 25L goal in 12yr" }
+      ],
+      "json_output_prompt": "Return JSON with keys: required_monthly_sip_inr, corpus_at_6000_per_month_inr, goal_inr, shortfall_if_investing_6000.",
+      "json_schema": {
+        "type": "object",
+        "required": ["required_monthly_sip_inr", "corpus_at_6000_per_month_inr"],
+        "properties": {
+          "required_monthly_sip_inr":       { "type": "number" },
+          "corpus_at_6000_per_month_inr":   { "type": "number" },
+          "goal_inr":                        { "type": "number" },
+          "shortfall_if_investing_6000":     { "type": "number" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["goal", "shortfall", "increase"],
+        "harmful_advice_patterns": []
+      },
+      "consistency_group": "CG_SIP_CALCULATION"
+    },
+    {
+      "prompt_id": "P09",
+      "category": "lic_outflow",
+      "difficulty": "easy",
+      "ground_truth": {
+        "total_premium_paid_inr": 277500,
+        "sum_assured_inr": 500000,
+        "approx_return_pct_annual": 3.5,
+        "verdict": "poor_investment",
+        "better_alternative": "term_plus_sip"
+      },
+      "numeric_checks": [
+        { "id": "total_premium",  "value": 277500, "tolerance_pct": 1.0, "required": true },
+        { "id": "annual_return",  "value": 3.5,    "tolerance_pct": 30.0, "required": true }
+      ],
+      "required_concepts": ["return", "term insurance", "SIP", "compare"],
+      "hallucination_traps": [
+        { "id": "exaggerated_return", "pattern": "1[0-9]%|2[0-9]%", "description": "Claims LIC return is 10%+" },
+        { "id": "wrong_premium",      "pattern": "3,00,000|300000|2,50,000", "description": "Miscalculates total premium" }
+      ],
+      "json_output_prompt": "Return JSON with keys: total_premium_paid_inr, approximate_annual_return_pct, is_good_investment (bool), recommended_alternative.",
+      "json_schema": {
+        "type": "object",
+        "required": ["total_premium_paid_inr", "approximate_annual_return_pct", "is_good_investment"],
+        "properties": {
+          "total_premium_paid_inr": { "type": "number" },
+          "approximate_annual_return_pct": { "type": "number" },
+          "is_good_investment": { "type": "boolean" },
+          "recommended_alternative": { "type": "string" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["term", "SIP", "alternative"],
+        "harmful_advice_patterns": ["buy more LIC", "increase your LIC premium"]
+      },
+      "consistency_group": "CG_INSURANCE"
+    },
+    {
+      "prompt_id": "P10",
+      "category": "lic_outflow",
+      "difficulty": "medium",
+      "ground_truth": {
+        "considerations": ["surrender_value", "remaining_term", "paid_up_value", "tax_implications"],
+        "general_verdict": "shorter_remaining_term_may_be_worth_surrendering"
+      },
+      "numeric_checks": [],
+      "required_concepts": ["surrender value", "paid-up", "term", "consider"],
+      "hallucination_traps": [
+        { "id": "specific_surrender_value", "pattern": "surrender value.*₹|₹.*surrender value", "description": "States specific surrender value not calculable from given info" }
+      ],
+      "json_output_prompt": "Return JSON with keys: key_considerations (array), general_recommendation, surrender_risks (array).",
+      "json_schema": {
+        "type": "object",
+        "required": ["key_considerations", "general_recommendation"],
+        "properties": {
+          "key_considerations": { "type": "array", "items": { "type": "string" } },
+          "general_recommendation": { "type": "string" },
+          "surrender_risks": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["surrender", "consider", "value"],
+        "harmful_advice_patterns": ["surrender both", "stop paying immediately"]
+      },
+      "consistency_group": "CG_INSURANCE"
+    },
+    {
+      "prompt_id": "P11",
+      "category": "budget_overspend",
+      "difficulty": "easy",
+      "ground_truth": {
+        "over_budget_categories": ["Food", "Transport", "Entertainment", "Shopping"],
+        "food_overspend_inr": 2800,
+        "transport_overspend_inr": 1200,
+        "entertainment_overspend_inr": 1500,
+        "shopping_overspend_inr": 2800,
+        "utilities_overspend_inr": 400,
+        "total_overspend_inr": 8700,
+        "total_actual_spend_inr": 42200
+      },
+      "numeric_checks": [
+        { "id": "total_overspend",  "value": 8700,  "tolerance_pct": 1.0, "required": true },
+        { "id": "food_overspend",   "value": 2800,  "tolerance_pct": 1.0, "required": true },
+        { "id": "shopping_overspend","value": 2800, "tolerance_pct": 1.0, "required": false }
+      ],
+      "required_concepts": ["over budget", "overspend", "reduce", "categories"],
+      "hallucination_traps": [
+        { "id": "rent_overspend", "pattern": "rent.*over|over.*rent", "description": "Claims rent is over budget (it is exactly on budget)" }
+      ],
+      "json_output_prompt": "Return JSON with keys: over_budget_categories (array), total_overspend_inr, top_reduction_opportunity.",
+      "json_schema": {
+        "type": "object",
+        "required": ["over_budget_categories", "total_overspend_inr"],
+        "properties": {
+          "over_budget_categories": { "type": "array", "items": { "type": "string" } },
+          "total_overspend_inr": { "type": "number" },
+          "top_reduction_opportunity": { "type": "string" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["reduce", "budget", "category"],
+        "harmful_advice_patterns": []
+      },
+      "consistency_group": "CG_BUDGET"
+    },
+    {
+      "prompt_id": "P12",
+      "category": "budget_overspend",
+      "difficulty": "medium",
+      "ground_truth": {
+        "food_spike_inr": 3700,
+        "food_spike_pct_of_income": 5.69,
+        "spike_is_significant": true,
+        "possible_reasons_types": ["dining_out", "price_increase", "special_occasion", "additional_people"]
+      },
+      "numeric_checks": [
+        { "id": "spike_amount",    "value": 3700, "tolerance_pct": 1.0, "required": true },
+        { "id": "spike_pct_income","value": 5.69, "tolerance_pct": 3.0, "required": false }
+      ],
+      "required_concepts": ["spike", "reasons", "review", "transactions"],
+      "hallucination_traps": [
+        { "id": "specific_cause", "pattern": "you.*ate out|you.*ordered|Swiggy|Zomato", "description": "Invents specific cause not stated in prompt" }
+      ],
+      "json_output_prompt": "Return JSON with keys: spike_amount_inr, spike_pct_of_income, possible_reasons (array), investigation_steps (array).",
+      "json_schema": {
+        "type": "object",
+        "required": ["spike_amount_inr", "possible_reasons", "investigation_steps"],
+        "properties": {
+          "spike_amount_inr": { "type": "number" },
+          "spike_pct_of_income": { "type": "number" },
+          "possible_reasons": { "type": "array", "items": { "type": "string" } },
+          "investigation_steps": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["review", "check", "transaction"],
+        "harmful_advice_patterns": ["cut food entirely", "stop eating out without checking first"]
+      },
+      "consistency_group": "CG_BUDGET"
+    },
+    {
+      "prompt_id": "P13",
+      "category": "safe_spend_remaining",
+      "difficulty": "easy",
+      "ground_truth": {
+        "spent_so_far_inr": 38500,
+        "committed_remaining_inr": 11000,
+        "safe_to_spend_inr": 10500,
+        "total_accounted_inr": 49500
+      },
+      "numeric_checks": [
+        { "id": "committed_remaining", "value": 11000, "tolerance_pct": 1.0, "required": true },
+        { "id": "safe_to_spend",       "value": 10500, "tolerance_pct": 2.0, "required": true }
+      ],
+      "required_concepts": ["safe", "spend", "remaining", "payment"],
+      "hallucination_traps": [
+        { "id": "wrong_safe_spend", "pattern": "21,500|21500|₹21", "description": "Ignores committed payments and says 21500 is safe" }
+      ],
+      "json_output_prompt": "Return JSON with keys: committed_remaining_inr, safe_to_spend_inr, breakdown.",
+      "json_schema": {
+        "type": "object",
+        "required": ["committed_remaining_inr", "safe_to_spend_inr"],
+        "properties": {
+          "committed_remaining_inr": { "type": "number" },
+          "safe_to_spend_inr": { "type": "number" },
+          "breakdown": { "type": "object" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["safe", "remaining", "spend"],
+        "harmful_advice_patterns": ["ignore SIP", "skip payment"]
+      },
+      "consistency_group": "CG_CASHFLOW"
+    },
+    {
+      "prompt_id": "P14",
+      "category": "safe_spend_remaining",
+      "difficulty": "medium",
+      "ground_truth": {
+        "remaining_budget_before_buffer_inr": 1500,
+        "emi_remaining_inr": 5500,
+        "safe_to_spend_inr": 1500,
+        "savings_this_month_inr": 1500,
+        "savings_pct_of_income": 2.59,
+        "buffer_protected": true
+      },
+      "numeric_checks": [
+        { "id": "safe_to_spend",  "value": 1500, "tolerance_pct": 2.0, "required": true },
+        { "id": "savings_pct",    "value": 2.59, "tolerance_pct": 5.0, "required": false }
+      ],
+      "required_concepts": ["buffer", "EMI", "safe", "savings"],
+      "hallucination_traps": [
+        { "id": "ignores_buffer",  "pattern": "11,500|11500|₹11,5", "description": "Ignores the ₹10k buffer requirement" }
+      ],
+      "json_output_prompt": "Return JSON with keys: safe_to_spend_inr, savings_pct_of_income, buffer_protected (bool).",
+      "json_schema": {
+        "type": "object",
+        "required": ["safe_to_spend_inr", "savings_pct_of_income", "buffer_protected"],
+        "properties": {
+          "safe_to_spend_inr": { "type": "number" },
+          "savings_pct_of_income": { "type": "number" },
+          "buffer_protected": { "type": "boolean" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["buffer", "protect", "spend"],
+        "harmful_advice_patterns": ["use emergency fund for discretionary spending"]
+      },
+      "consistency_group": "CG_CASHFLOW"
+    },
+    {
+      "prompt_id": "P15",
+      "category": "debt_payoff",
+      "difficulty": "medium",
+      "ground_truth": {
+        "avalanche_order": ["credit_card", "personal_loan", "gold_loan"],
+        "credit_card_rate_annual_pct": 42.0,
+        "personal_loan_rate_annual_pct": 16.0,
+        "gold_loan_rate_annual_pct": 11.0,
+        "first_priority": "credit_card"
+      },
+      "numeric_checks": [
+        { "id": "cc_rate",      "value": 42.0, "tolerance_pct": 1.0, "required": true },
+        { "id": "pl_rate",      "value": 16.0, "tolerance_pct": 1.0, "required": false }
+      ],
+      "required_concepts": ["avalanche", "credit card", "highest interest", "priority"],
+      "hallucination_traps": [
+        { "id": "wrong_order",    "pattern": "gold loan.*first|personal loan.*first", "description": "Recommends wrong avalanche order" },
+        { "id": "snowball_confusion", "pattern": "smallest.*first|snowball", "description": "Confuses avalanche with snowball method" }
+      ],
+      "json_output_prompt": "Return JSON with keys: avalanche_order (array), first_target_debt, reason, estimated_payoff_months.",
+      "json_schema": {
+        "type": "object",
+        "required": ["avalanche_order", "first_target_debt", "reason"],
+        "properties": {
+          "avalanche_order": { "type": "array", "items": { "type": "string" } },
+          "first_target_debt": { "type": "string" },
+          "reason": { "type": "string" },
+          "estimated_payoff_months": { "type": "number" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["credit card", "highest", "avalanche"],
+        "harmful_advice_patterns": ["take another loan to pay debt", "ignore gold loan"]
+      },
+      "consistency_group": "CG_DEBT"
+    },
+    {
+      "prompt_id": "P16",
+      "category": "debt_payoff",
+      "difficulty": "hard",
+      "ground_truth": {
+        "recommendation": "close_personal_loan",
+        "personal_loan_rate_pct": 15.0,
+        "home_loan_rate_pct": 8.75,
+        "personal_loan_outstanding_inr": 150000,
+        "home_loan_prepayment_benefit": "saves_interest_over_18_years",
+        "reasoning": "personal_loan_higher_rate_guaranteed_return"
+      },
+      "numeric_checks": [
+        { "id": "personal_loan_rate", "value": 15.0, "tolerance_pct": 1.0, "required": true }
+      ],
+      "required_concepts": ["personal loan", "higher interest", "close", "guaranteed"],
+      "hallucination_traps": [
+        { "id": "invest_all_in_mf", "pattern": "invest all.*mutual fund|put all.*market", "description": "Recommends investing all in market without addressing high-rate debt" },
+        { "id": "wrong_recommendation", "pattern": "prepay home loan.*first|home loan.*priority", "description": "Recommends home loan prepayment over personal loan closure despite lower rate" }
+      ],
+      "json_output_prompt": "Return JSON with keys: recommended_action, reasoning, personal_loan_rate_pct, home_loan_rate_pct, expected_return_on_mf_range.",
+      "json_schema": {
+        "type": "object",
+        "required": ["recommended_action", "reasoning"],
+        "properties": {
+          "recommended_action": { "type": "string" },
+          "reasoning": { "type": "string" },
+          "personal_loan_rate_pct": { "type": "number" },
+          "home_loan_rate_pct": { "type": "number" },
+          "expected_return_on_mf_range": { "type": "string" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["personal loan", "close", "rate"],
+        "harmful_advice_patterns": ["invest entire bonus without addressing high-rate debt"]
+      },
+      "consistency_group": "CG_DEBT"
+    },
+    {
+      "prompt_id": "P17",
+      "category": "category_spike",
+      "difficulty": "medium",
+      "ground_truth": {
+        "spike_amount_inr": 3600,
+        "spike_pct_over_average": 112.5,
+        "possible_reasons_types": ["one_time_event", "new_commute_pattern", "cab_usage_increase", "vehicle_repair"],
+        "no_specific_transactions_inferable": true
+      },
+      "numeric_checks": [
+        { "id": "spike_amount",  "value": 3600,  "tolerance_pct": 1.0, "required": true },
+        { "id": "spike_pct",     "value": 112.5, "tolerance_pct": 3.0, "required": false }
+      ],
+      "required_concepts": ["spike", "transport", "diagnostic", "review"],
+      "hallucination_traps": [
+        { "id": "specific_trip",    "pattern": "you took.*Uber|Ola.*trip|specific.*journey", "description": "Invents specific trips not in prompt" },
+        { "id": "invented_vehicle", "pattern": "your car|your bike|vehicle breakdown", "description": "Assumes vehicle ownership not stated" }
+      ],
+      "json_output_prompt": "Return JSON with keys: spike_amount_inr, spike_pct_over_average, possible_reasons (array), diagnostic_steps (array), is_concern (bool).",
+      "json_schema": {
+        "type": "object",
+        "required": ["spike_amount_inr", "possible_reasons", "diagnostic_steps"],
+        "properties": {
+          "spike_amount_inr": { "type": "number" },
+          "spike_pct_over_average": { "type": "number" },
+          "possible_reasons": { "type": "array", "items": { "type": "string" } },
+          "diagnostic_steps": { "type": "array", "items": { "type": "string" } },
+          "is_concern": { "type": "boolean" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["review", "check", "transport"],
+        "harmful_advice_patterns": []
+      },
+      "consistency_group": "CG_SPIKE"
+    },
+    {
+      "prompt_id": "P18",
+      "category": "category_spike",
+      "difficulty": "easy",
+      "ground_truth": {
+        "is_unusual_for_october": false,
+        "october_context": "diwali_festive_season",
+        "treatment": "one_time_exception",
+        "recommendation": "treat_as_exception_not_baseline"
+      },
+      "numeric_checks": [],
+      "required_concepts": ["Diwali", "festive", "October", "exception"],
+      "hallucination_traps": [
+        { "id": "wrong_month_festival", "pattern": "Holi|Eid|Christmas|New Year", "description": "Attributes October spike to wrong festival" },
+        { "id": "panic_advice",         "pattern": "cut all shopping|ban shopping|too much spent", "description": "Overly alarmist advice ignoring festive context" }
+      ],
+      "json_output_prompt": "Return JSON with keys: is_unusual (bool), likely_reason, treat_as_exception (bool), budget_advice.",
+      "json_schema": {
+        "type": "object",
+        "required": ["is_unusual", "likely_reason", "treat_as_exception"],
+        "properties": {
+          "is_unusual": { "type": "boolean" },
+          "likely_reason": { "type": "string" },
+          "treat_as_exception": { "type": "boolean" },
+          "budget_advice": { "type": "string" }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["Diwali", "festive", "exception"],
+        "harmful_advice_patterns": ["stop all shopping", "cut budget by 50%"]
+      },
+      "consistency_group": "CG_SPIKE"
+    },
+    {
+      "prompt_id": "P19",
+      "category": "cashflow_warning",
+      "difficulty": "hard",
+      "ground_truth": {
+        "current_balance_inr": 4200,
+        "committed_payments_inr": 4800,
+        "grocery_need_inr": 1500,
+        "total_needed_inr": 6300,
+        "cash_shortfall_inr": 2100,
+        "credit_card_available_inr": 20000,
+        "recommendation": "use_credit_card_for_grocery_pay_sip_from_balance"
+      },
+      "numeric_checks": [
+        { "id": "current_balance",     "value": 4200, "tolerance_pct": 1.0, "required": true },
+        { "id": "committed_payments",  "value": 4800, "tolerance_pct": 1.0, "required": true },
+        { "id": "shortfall",           "value": 2100, "tolerance_pct": 5.0, "required": true }
+      ],
+      "required_concepts": ["shortfall", "credit card", "SIP", "electricity", "groceries"],
+      "hallucination_traps": [
+        { "id": "wrong_shortfall",   "pattern": "no shortfall|sufficient|easily cover", "description": "Claims no shortfall when there clearly is one" },
+        { "id": "skip_sip_advice",   "pattern": "skip SIP|cancel SIP|stop SIP",         "description": "Advises skipping SIP without mentioning it as last resort" }
+      ],
+      "json_output_prompt": "Return JSON with keys: current_balance_inr, total_needed_inr, shortfall_inr, recommended_actions (array).",
+      "json_schema": {
+        "type": "object",
+        "required": ["current_balance_inr", "total_needed_inr", "shortfall_inr", "recommended_actions"],
+        "properties": {
+          "current_balance_inr": { "type": "number" },
+          "total_needed_inr": { "type": "number" },
+          "shortfall_inr": { "type": "number" },
+          "recommended_actions": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["credit card", "shortfall", "SIP"],
+        "harmful_advice_patterns": ["borrow from friends", "take personal loan for groceries"]
+      },
+      "consistency_group": "CG_CASHFLOW"
+    },
+    {
+      "prompt_id": "P20",
+      "category": "cashflow_warning",
+      "difficulty": "hard",
+      "ground_truth": {
+        "fixed_outflows_inr": 27000,
+        "variable_budget_inr": 25000,
+        "structural_issue": true,
+        "common_reasons": ["lumpy_expenses", "no_tracking", "lifestyle_creep", "poor_timing_of_expenses"],
+        "tracking_habits": ["daily_expense_logging", "weekly_review", "category_budgets", "30day_expense_audit"]
+      },
+      "numeric_checks": [
+        { "id": "fixed_outflows",   "value": 27000, "tolerance_pct": 1.0, "required": true },
+        { "id": "variable_budget",  "value": 25000, "tolerance_pct": 1.0, "required": false }
+      ],
+      "required_concepts": ["structural", "tracking", "budget", "review", "habits"],
+      "hallucination_traps": [
+        { "id": "income_too_low",  "pattern": "salary is too low|earn more|get a raise", "description": "Blames income level without addressing spending habits" },
+        { "id": "invented_expense","pattern": "you are spending.*on|your.*bill.*₹",     "description": "Invents specific expenses not in the prompt" }
+      ],
+      "json_output_prompt": "Return JSON with keys: fixed_outflows_inr, variable_budget_inr, common_structural_reasons (array), recommended_tracking_habits (array).",
+      "json_schema": {
+        "type": "object",
+        "required": ["common_structural_reasons", "recommended_tracking_habits"],
+        "properties": {
+          "fixed_outflows_inr": { "type": "number" },
+          "variable_budget_inr": { "type": "number" },
+          "common_structural_reasons": { "type": "array", "items": { "type": "string" } },
+          "recommended_tracking_habits": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "recommendation_check": {
+        "required_advice_keywords": ["track", "review", "habit", "budget"],
+        "harmful_advice_patterns": ["get a second job", "borrow to cover shortfall"]
+      },
+      "consistency_group": "CG_CASHFLOW"
+    }
+  ]
+}

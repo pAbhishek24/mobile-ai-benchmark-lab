@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab — Finance Quality</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="thermals.html">Thermals</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="devices.html">Devices</a>
+      <a href="historical.html">Historical</a>
+      <a href="quality.html" class="active">Quality</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Finance Quality Benchmark</h1>
+      <p class="subtitle">Correctness, hallucination, structured output, and recommendation quality across 20 Indian personal finance prompts</p>
+    </div>
+
+    <!-- Score cards -->
+    <div id="scoreCards" class="kpi-row"></div>
+
+    <!-- Leaderboard -->
+    <div class="card">
+      <div class="card-title">Quality Leaderboard</div>
+      <div class="table-wrap">
+        <table id="leaderboardTable">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th title="Weighted average of numeric correctness, concept coverage, hallucination penalty, recommendation quality">Quality Score</th>
+              <th title="1 − normalised std-dev of quality_score across repeated runs">Consistency</th>
+              <th title="Fraction of prompts that triggered a hallucination pattern">Hallucination Rate</th>
+              <th title="Fraction of prompts where model produced valid JSON matching expected schema">JSON Valid</th>
+              <th title="Fraction of prompts containing required advice keywords, minus harmful advice penalty">Rec Quality</th>
+              <th>Prompts Scored</th>
+              <th>Runs</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Charts row -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Quality Score by Model</div>
+        <canvas id="chartQuality"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Hallucination Rate vs Quality Score</div>
+        <canvas id="chartHallucVsQuality"></canvas>
+      </div>
+    </div>
+
+    <!-- Radar: score components per model -->
+    <div class="card">
+      <div class="card-title">Score Components (per model)</div>
+      <div class="grid-2">
+        <canvas id="chartRadar"></canvas>
+        <div id="radarLegend" style="padding: 14px; display: flex; flex-direction: column; gap: 8px; justify-content: center;"></div>
+      </div>
+    </div>
+
+    <!-- Category breakdown -->
+    <div class="card">
+      <div class="card-title">Quality by Finance Category</div>
+      <canvas id="chartCategory"></canvas>
+    </div>
+
+    <!-- Per-prompt breakdown table -->
+    <div class="card">
+      <div class="card-title">Per-Prompt Quality Detail</div>
+      <div class="filters" style="margin-bottom: 12px;">
+        <div class="filter-group">
+          <label>Model</label>
+          <select id="promptModelFilter"></select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="promptTable">
+          <thead>
+            <tr>
+              <th>Prompt</th>
+              <th>Category</th>
+              <th>Difficulty</th>
+              <th>Avg Quality</th>
+              <th>Runs</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/chart.min.js"></script>
+  <script src="assets/dash.js"></script>
+  <script>
+  "use strict";
+
+  const PALETTE = ["#4f8ef7","#2ecc71","#f1c40f","#e74c3c","#9b59b6","#1abc9c","#e67e22"];
+
+  function fmt(v, d=3) {
+    if (v === null || v === undefined) return "—";
+    return typeof v === "number" ? v.toFixed(d) : String(v);
+  }
+
+  function pct(v) {
+    if (v === null || v === undefined) return "—";
+    return (v * 100).toFixed(1) + "%";
+  }
+
+  function scoreBar(v) {
+    if (v === null || v === undefined) return "—";
+    const p = Math.round(v * 100);
+    const col = v >= 0.7 ? "#2ecc71" : v >= 0.45 ? "#f1c40f" : "#e74c3c";
+    return `<div class="score-bar-wrap">
+      <div class="score-bar"><div class="score-bar-fill" style="width:${p}%;background:${col}"></div></div>
+      <span class="score-num">${v.toFixed(3)}</span>
+    </div>`;
+  }
+
+  function hallucPill(rate) {
+    if (rate === null || rate === undefined) return "—";
+    const pctVal = (rate * 100).toFixed(0);
+    const cls = rate < 0.1 ? "pill-pass" : rate < 0.3 ? "pill-warn" : "pill-fail";
+    return `<span class="pill ${cls}">${pctVal}%</span>`;
+  }
+
+  function diffClass(d) {
+    return d === "easy" ? "pill-pass" : d === "medium" ? "pill-warn" : "pill-fail";
+  }
+
+  loadDashboardData("data/quality-data.json").then(data => {
+    const models = data.model_quality || [];
+    renderScoreCards(models);
+    renderLeaderboard(models);
+    renderQualityChart(models);
+    renderScatterChart(models);
+    renderRadarChart(models);
+    renderCategoryChart(models);
+    initPromptTable(models);
+  }).catch(err => {
+    document.querySelector("main").innerHTML +=
+      `<div class="card" style="color:#e74c3c">
+        <div class="card-title">Quality data not yet generated</div>
+        <p>Run <code>python3 ai-lab/quality/evaluate_quality.py</code> then <code>python3 ai-lab/analytics/generate_dashboard_data.py</code> to generate quality scores.</p>
+        <p style="color:#8892a4;font-size:12px">${err}</p>
+      </div>`;
+  });
+
+  function renderScoreCards(models) {
+    const el = document.getElementById("scoreCards");
+    if (!models.length) return;
+    const passing = models.filter(m => (m.quality_score || 0) >= 0.45);
+    const avgQ = models.reduce((a,b) => a + (b.quality_score||0), 0) / models.length;
+    const avgH = models.reduce((a,b) => a + (b.hallucination_rate||0), 0) / models.length;
+    const avgJ = models.reduce((a,b) => a + (b.structured_output_success_rate||0), 0) / models.length;
+    const best = [...models].sort((a,b) => (b.quality_score||0) - (a.quality_score||0))[0];
+    const cards = [
+      ["Models Evaluated", models.length],
+      ["Avg Quality Score", avgQ.toFixed(3)],
+      ["Avg Hallucination Rate", pct(avgH)],
+      ["Avg JSON Valid Rate", pct(avgJ)],
+      ["Best Model", best ? shortName(best.model) : "—"],
+      ["Best Quality", best ? best.quality_score.toFixed(3) : "—"],
+    ];
+    el.innerHTML = cards.map(([label, val]) =>
+      `<div class="kpi-box"><div class="kpi-label">${label}</div><div class="kpi-value">${val}</div></div>`
+    ).join("");
+  }
+
+  function shortName(n) { return (n||"").replace(/-q4km$/,""); }
+
+  function renderLeaderboard(models) {
+    const tbody = document.querySelector("#leaderboardTable tbody");
+    const sorted = [...models].sort((a,b) => (b.quality_score||0) - (a.quality_score||0));
+    tbody.innerHTML = sorted.map((m,i) => `
+      <tr>
+        <td><b>${i+1}.</b> ${shortName(m.model)}</td>
+        <td>${scoreBar(m.quality_score)}</td>
+        <td>${scoreBar(m.consistency_score)}</td>
+        <td>${hallucPill(m.hallucination_rate)}</td>
+        <td>${scoreBar(m.structured_output_success_rate)}</td>
+        <td>${scoreBar(m.recommendation_quality_score)}</td>
+        <td class="mono">${m.prompts_scored || "—"}</td>
+        <td class="mono">${m.runs_evaluated || "—"}</td>
+      </tr>
+    `).join("");
+  }
+
+  function renderQualityChart(models) {
+    const ctx = document.getElementById("chartQuality");
+    const sorted = [...models].sort((a,b) => (b.quality_score||0) - (a.quality_score||0));
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: sorted.map(m => shortName(m.model)),
+        datasets: [
+          { label: "Quality Score",    data: sorted.map(m => m.quality_score||0),                   backgroundColor: "#4f8ef799", borderColor: "#4f8ef7", borderWidth: 1 },
+          { label: "Rec Quality",      data: sorted.map(m => m.recommendation_quality_score||0),    backgroundColor: "#2ecc7199", borderColor: "#2ecc71", borderWidth: 1 },
+          { label: "JSON Valid Rate",  data: sorted.map(m => m.structured_output_success_rate||0),  backgroundColor: "#f1c40f99", borderColor: "#f1c40f", borderWidth: 1 },
+        ]
+      },
+      options: { responsive: true, scales: { y: { beginAtZero: true, max: 1 } } }
+    });
+  }
+
+  function renderScatterChart(models) {
+    const ctx = document.getElementById("chartHallucVsQuality");
+    new Chart(ctx, {
+      type: "scatter",
+      data: {
+        datasets: models.map((m, i) => ({
+          label: shortName(m.model),
+          data: [{ x: (m.hallucination_rate||0), y: (m.quality_score||0) }],
+          backgroundColor: PALETTE[i % PALETTE.length],
+          pointRadius: 8,
+          pointHoverRadius: 10,
+        }))
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true, position: "bottom" } },
+        scales: {
+          x: { title: { display: true, text: "Hallucination Rate →" }, min: 0, max: 1 },
+          y: { title: { display: true, text: "Quality Score →" }, min: 0, max: 1 }
+        }
+      }
+    });
+  }
+
+  function renderRadarChart(models) {
+    const ctx = document.getElementById("chartRadar");
+    const labels = ["Quality", "Consistency", "1−Hallucination", "JSON Valid", "Rec Quality"];
+    new Chart(ctx, {
+      type: "radar",
+      data: {
+        labels,
+        datasets: models.map((m, i) => ({
+          label: shortName(m.model),
+          data: [
+            m.quality_score || 0,
+            m.consistency_score || 0,
+            1 - (m.hallucination_rate || 0),
+            m.structured_output_success_rate || 0,
+            m.recommendation_quality_score || 0,
+          ],
+          borderColor: PALETTE[i % PALETTE.length],
+          backgroundColor: PALETTE[i % PALETTE.length] + "22",
+          borderWidth: 2,
+          pointRadius: 3,
+        }))
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { r: { beginAtZero: true, max: 1, ticks: { stepSize: 0.2 } } }
+      }
+    });
+    const legend = document.getElementById("radarLegend");
+    legend.innerHTML = models.map((m, i) =>
+      `<div style="display:flex;align-items:center;gap:8px">
+        <div style="width:14px;height:14px;border-radius:3px;background:${PALETTE[i%PALETTE.length]}"></div>
+        <span style="font-size:13px">${shortName(m.model)}</span>
+      </div>`
+    ).join("");
+  }
+
+  function renderCategoryChart(models) {
+    const ctx = document.getElementById("chartCategory");
+    // Collect all category keys
+    const allCats = new Set();
+    models.forEach(m => Object.keys(m.category_quality || {}).forEach(c => allCats.add(c)));
+    const cats = [...allCats].sort();
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: cats.map(c => c.replace(/_/g," ")),
+        datasets: models.map((m, i) => ({
+          label: shortName(m.model),
+          data: cats.map(c => (m.category_quality || {})[c] ?? null),
+          backgroundColor: PALETTE[i % PALETTE.length] + "99",
+          borderColor: PALETTE[i % PALETTE.length],
+          borderWidth: 1,
+        }))
+      },
+      options: {
+        responsive: true,
+        scales: { y: { beginAtZero: true, max: 1, title: { display: true, text: "Quality Score" } } }
+      }
+    });
+  }
+
+  function initPromptTable(models) {
+    const sel = document.getElementById("promptModelFilter");
+    models.forEach(m => {
+      const o = document.createElement("option");
+      o.value = m.model;
+      o.textContent = shortName(m.model);
+      sel.appendChild(o);
+    });
+    if (models.length) sel.value = models[0].model;
+    sel.addEventListener("change", () => renderPromptTable(models, sel.value));
+    renderPromptTable(models, sel.value);
+  }
+
+  function renderPromptTable(models, modelName) {
+    const m = models.find(x => x.model === modelName);
+    const tbody = document.querySelector("#promptTable tbody");
+    if (!m || !m.prompt_quality_summary) { tbody.innerHTML = ""; return; }
+    tbody.innerHTML = m.prompt_quality_summary.map(p => `
+      <tr>
+        <td class="mono">${p.prompt_id}</td>
+        <td>—</td>
+        <td>—</td>
+        <td>${scoreBar(p.avg_quality)}</td>
+        <td class="mono">${p.runs}</td>
+      </tr>
+    `).join("");
+  }
+  </script>
+</body>
+</html>
