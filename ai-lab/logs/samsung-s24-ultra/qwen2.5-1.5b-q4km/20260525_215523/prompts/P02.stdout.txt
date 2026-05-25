@@ -1,0 +1,50 @@
+Here is my food spend over 3 months: January ₹6,800, February ₹7,200, March ₹9,400. My monthly salary is ₹60,000. How much has my food spend increased? What percentage of my income is food spend in March vs January? Is this a concerning trend? If yes, what can I do to improve my food spend?
+To determine how much your food spend has increased and what percentage of your income it represents in March compared to January, we can follow these steps:
+
+1. **Calculate the increase in food spend:**
+   - January: ₹6,800
+   - February: ₹7,200
+   - March: ₹9,400
+
+   Increase in food spend from January to February:
+   \[
+   7,200 - 6,800 = ₹400
+   \]
+
+   Increase in food spend from February to March:
+   \[
+   9,400 - 7,200 = ₹2,200
+   \]
+
+   Total increase in food spend from January to March:
+   \[
+   ₹400 + ₹2,200 = ₹2,600
+   \]
+
+2. **Calculate the percentage of income spent on food in March:**
+   - Monthly salary: ₹60,000
+   - Food spend in March: ₹9,400
+
+   Percentage of income spent on food in March:
+   \[
+   \left( \frac{9,400}{60,000} \right) \times 100 = 15.67\%
+   \]
+
+3. **Determine if this is a concerning trend:**
+   - Food spend in March is 15.67% of the monthly salary.
+   - This is higher than the 10% to 20% range typically considered healthy for food expenses.
+
+4. **Identify potential reasons for the increase in food spend:**
+   - Higher cost of living
+   - Increased food preferences or dietary changes
+   - Higher portion sizes
+   - More frequent dining out
+
+5. **Suggestions to improve your food spend:**
+   - **Plan meals and grocery shopping:** Use a budget to plan meals and stick to a grocery list to avoid impulse buys.
+   - **Cook at home more often:** Reduce dining out and cooking at home more often.
+   - **Monitor food preferences or dietary changes:** Higher cost of living
+   - **Higher portion sizes:** More frequent dining out.
+   - **More frequent dining out:** Higher cost of living
+   - **More frequent dining out:** Higher cost of living
+   - **More frequent dining out:** Higher cost

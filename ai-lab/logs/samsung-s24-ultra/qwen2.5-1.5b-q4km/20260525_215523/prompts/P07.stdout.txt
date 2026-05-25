@@ -1,0 +1,30 @@
+I invest ₹5,000 per month in an equity SIP. Assume 12% annual returns. How much corpus will I have after 5 years, 10 years, and 15 years? How much of that will be my actual investment vs returns? Answer in rupees. To calculate the corpus you will have after 5, 10, and 15 years with an equity SIP, we need to use the formula for the future value of an annuity. The formula is:
+
+\[ FV = P \times \frac{(1 + r)^n - 1}{r} \]
+
+where:
+- \( FV \) is the future value of the investment,
+- \( P \) is the monthly investment,
+- \( r \) is the monthly interest rate,
+- \( n \) is the total number of months.
+
+Given:
+- Monthly investment \( P = 5000 \) rupees,
+- Annual return rate = 12%, so the monthly return rate \( r = \frac{12\%}{12} = 1\% = 0.01 \),
+- Number of months \( n \) = 5 years = 60 months for 5 years, 10 years, and 15 years respectively.
+
+Let's calculate the future value for each period:
+
+### 5 years (60 months)
+\[ FV = 5000 \times \frac{(1 + 0.01)^{60} - 1}{0.01} \]
+\[ FV = 5000 \times \frac{(1.01)^{60} - 1}{0.01} \]
+\[ FV = 5000 \times \frac{1.8194 - 1}{0.01} \]
+\[ FV = 5000 \times \frac{0.8194}{0.01} \]
+\[ FV = 5000 \times 81.94 \]
+\[ FV = 409700 \]
+
+### 10 years (120 months)
+\[ FV = 5000 \times \frac{(1 + 0.01)^{120} - 1}{0.01} \]
+\[ FV = 5000 \times \frac{(1.01)^{120} - 1}{0.01} \]
+\[ FV = 5000 \times \frac{(1.01)^{120} - 1}{0.01} \]
+\[ FV

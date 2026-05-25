@@ -1,0 +1,44 @@
+My HDFC credit card outstanding is ₹38,000. Due date is 5 days from now. I have ₹15,000 available in savings. The card charges 3.5% monthly interest on the unpaid balance. If I pay ₹15,000 now, how much interest will I pay next month on the remaining ₹23,000? What is the best strategy to clear this debt in 3 months? To determine the best strategy to clear the debt in 3 months, let's break down the problem step by step.
+
+### Step 1: Calculate the interest on the remaining balance if you pay ₹15,000 now.
+
+The remaining balance after paying ₹15,000 is:
+\[ 38,000 - 15,000 = 23,000 \]
+
+The monthly interest rate is 3.5%, so the interest on the remaining balance of ₹23,000 for one month is:
+\[ 23,000 \times 0.035 = 805 \]
+
+So, if you pay ₹15,000 now, you will pay ₹805 in interest next month.
+
+### Step 2: Determine the remaining balance after one month.
+
+The remaining balance after one month will be:
+\[ 23,000 + 805 = 23,805 \]
+
+### Step 3: Calculate the interest on the remaining balance of ₹23,805 for the next two months.
+
+The interest on the remaining balance of ₹23,805 for the next two months is:
+\[ 23,805 \times 0.035 \times 2 = 18,711 \]
+
+So, the total interest for the next two months will be:
+\[ 805 + 18,711 = 19,516 \]
+
+### Step 4: Determine the total amount to be paid in three months.
+
+The total amount to be paid in three months is:
+\[ 15,000 + 19,516 = 34,516 \]
+
+### Step 5: Determine the remaining balance after three months.
+
+The remaining balance after three months will be:
+\[ 38,000 - 34,516 = 3,451 \]
+
+### Step 6: Determine the remaining balance after three months.
+
+The remaining balance after three months will be:
+\[ 38,000 - 34,516 = 3,451 \]
+
+### Step 7: Determine the remaining balance after three months.
+
+The remaining balance after three months will be:
+\[ 38,000 - 34,516 = 

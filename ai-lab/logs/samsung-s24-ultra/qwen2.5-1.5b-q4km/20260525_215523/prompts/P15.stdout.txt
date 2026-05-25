@@ -1,0 +1,43 @@
+I have three debts: Personal loan ₹1.2 lakhs at 16% annual interest, remaining 18 months. Credit card ₹35,000 at 42% annual interest. Gold loan ₹80,000 at 11% annual interest, remaining 24 months. I have ₹15,000 extra per month to put toward debt repayment. Using the avalanche method, which debt should I attack first and why? How long will it take to clear all debts? To determine which debt to attack first using the avalanche method, we need to compare the interest rates and the remaining balance of each debt. The avalanche method involves attacking the debt with the highest interest rate first, as it will yield the highest return on the money you're putting towards repayment.
+
+Here are the details of each debt:
+
+1. **Personal loan: ₹1.2 lakhs at 16% annual interest**
+   - Remaining balance: ₹1.2 lakhs
+   - Monthly interest: ₹1.2 lakhs * 16% = ₹192,000
+
+2. **Credit card: ₹35,000 at 42% annual interest**
+   - Remaining balance: ₹35,000
+   - Monthly interest: ₹35,000 * 42% = ₹14,700
+
+3. **Gold loan: ₹80,000 at 11% annual interest**
+   - Remaining balance: ₹80,000
+   - Monthly interest: ₹80,000 * 11% = ₹8,800
+
+### Step-by-Step Analysis:
+
+1. **Personal loan:**
+   - Monthly interest: ₹192,000
+   - Remaining balance: ₹1.2 lakhs
+
+2. **Credit card:**
+   - Monthly interest: ₹14,700
+   - Remaining balance: ₹35,000
+
+3. **Gold loan:**
+   - Monthly interest: ₹8,800
+   - Remaining balance: ₹80,000
+
+### Attack Order:
+- **First attack: Personal loan**
+  - Monthly interest: ₹192,000
+  - Remaining balance: ₹1.2 lakhs
+
+### Remaining Balance After First Month:
+- Personal loan: ₹1.2 lakhs - ₹192,000 = ₹1.2 lakhs
+- Credit card: ₹35,000 - ₹14,700 = ₹35,000
+- Gold loan: ₹80,000 - ₹8,800 = ₹80,000
+
+### Second Month:
+- Personal loan: ₹1.2 lakhs - ₹192,000 = ₹1.2 lakhs
+- Credit card: ₹35

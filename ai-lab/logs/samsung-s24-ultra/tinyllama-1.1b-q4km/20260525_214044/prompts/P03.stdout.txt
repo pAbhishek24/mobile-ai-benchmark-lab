@@ -1,0 +1,1 @@
+<s> I have three EMIs: Home loan ₹18,500/month, Personal loan ₹6,200/month, Car loan ₹4,800/month. My take-home salary is ₹72,000. What is my total EMI burden as a percentage of income? Is this financially healthy? What is the recommended maximum EMI-to-income ratio?</s>

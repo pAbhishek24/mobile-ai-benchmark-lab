@@ -1,0 +1,1 @@
+<s> My expenses this month are: Food ₹8,200, Transport ₹3,500, Rent ₹12,000, Utilities ₹2,800, Entertainment ₹1,500, Shopping ₹4,200. My monthly salary is ₹55,000. What percentage of my income did I spend in each category? What is my total spend and savings this month?</s>

@@ -1,0 +1,42 @@
+My monthly salary is ₹45,000. My fixed monthly obligations are: Home loan EMI ₹14,000, Personal loan EMI ₹5,500, LIC premium ₹2,200, SIP ₹3,000. After these, I have ₹20,300 left for all living expenses including food, transport, and utilities. Is my financial position sustainable? What should I consider changing? To determine if your financial position is sustainable, we need to calculate your total monthly expenses and compare them to your monthly income. Here's a step-by-step breakdown:
+
+1. **Calculate your total monthly income:**
+   \[
+   \text{Monthly Income} = \text{Monthly Salary} = \text{₹45,000}
+   \]
+
+2. **Calculate your total monthly expenses:**
+   - **Fixed monthly obligations:**
+     - Home loan EMI: ₹14,000
+     - Personal loan EMI: ₹5,500
+     - LIC premium: ₹2,200
+     - SIP: ₹3,000
+   \[
+   \text{Total Fixed Monthly Obligations} = ₹14,000 + ₹5,500 + ₹2,200 + ₹3,000 = ₹24,700
+   \]
+
+   - **Living expenses:**
+     - ₹20,300
+   \[
+   \text{Total Living Expenses} = ₹20,300
+   \]
+
+3. **Calculate your total monthly expenses:**
+   \[
+   \text{Total Monthly Expenses} = \text{Total Fixed Monthly Obligations} + \text{Total Living Expenses} = ₹24,700 + ₹20,300 = ₹45,000
+   \]
+
+4. **Compare your total monthly expenses to your monthly income:**
+   \[
+   \text{Total Monthly Expenses} = ₹45,000
+   \]
+   \[
+   \text{Total Monthly Income} = ₹45,000
+   \]
+
+Since your total monthly expenses exactly match your total monthly income, your financial position is **sustainable**.
+
+**What should you consider changing:**
+
+- **Increase your income:** Consider ways to increase your monthly income, such as taking on a part-time job, taking on a new part-time job, or increasing your part-time job.
+- **Reduce your expenses:** Consider ways to reduce your expenses, such as taking on a new part-time job, taking on a new part-time job, taking on a new part-time job, taking on a new part-time job, taking on a new part-time job, taking on a new part-time job, taking on a new part-time job, taking on a new part-time

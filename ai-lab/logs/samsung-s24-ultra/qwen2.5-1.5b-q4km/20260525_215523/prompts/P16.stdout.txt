@@ -1,0 +1,40 @@
+I received a Diwali bonus of ₹80,000. I have a home loan outstanding of ₹32 lakhs at 8.75% interest with 18 years remaining, and a personal loan outstanding of ₹1.5 lakhs at 15% interest with 2 years remaining. Should I use the bonus to prepay the home loan, fully close the personal loan, or invest in mutual funds? Justify your recommendation. To determine the best use of the Diwali bonus, we need to compare the cost of borrowing the money versus the potential returns from investing it. We will calculate the interest savings from prepaying the home loan and the personal loan, and then compare it to the potential returns from investing the bonus in mutual funds.
+
+### Step 1: Calculate the interest savings from prepaying the home loan
+
+The home loan is outstanding at ₹32 lakhs with an interest rate of 8.75% for 18 years. The interest savings can be calculated as follows:
+
+1. **Calculate the total interest on the home loan:**
+   \[
+   \text{Total interest} = \text{Principal} \times \text{Interest Rate} \times \text{Time}
+   \]
+   \[
+   \text{Total interest} = 32,00,000 \times 0.0875 \times 18 = 5,04,000
+   \]
+
+2. **Calculate the interest savings from prepaying the home loan:**
+   \[
+   \text{Interest savings} = \text{Total interest} - \text{Prepayment amount}
+   \]
+   \[
+   \text{Interest savings} = 5,04,000 - 80,000 = 4,24,000
+   \]
+
+### Step 2: Calculate the interest savings from prepaying the personal loan
+
+The personal loan is outstanding at ₹1.5 lakhs with an interest rate of 15% for 2 years. The interest savings can be calculated as follows:
+
+1. **Calculate the total interest on the personal loan:**
+   \[
+   \text{Total interest} = \text{Principal} \times \text{Interest Rate} \times \text{Time}
+   \]
+   \[
+   \text{Total interest} = 1,50,000 \times 0.15 \times 2 = 4,50,000
+   \]
+
+2. **Calculate the interest savings from prepaying the personal loan:**
+   \[
+   \text{Interest savings} = \text{Total interest} - \text{Prepayment amount}
+   \]
+   \[
+   \text{Interest savings} = 4,50,000 - 80

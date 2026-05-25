@@ -1,0 +1,32 @@
+Here is my food spend over 3 months: January ₹6,800, February ₹7,200, March ₹9,400. My monthly salary is ₹60,000. How much has my food spend increased? What percentage of my income is food spend in March vs January? Is this a concerning trend? To determine how much the food spend has increased and what percentage of the income is spent on food in March compared to January, we can follow these steps:
+
+1. Calculate the total food spend over the 3 months.
+2. Calculate the percentage of the income spent on food in March.
+3. Compare this percentage to the percentage spent in January.
+
+**Step 1: Calculate the total food spend over the 3 months.**
+
+The food spend for each month is given as follows:
+- January: ₹6,800
+- February: ₹7,200
+- March: ₹9,400
+
+Total food spend = ₹6,800 + ₹7,200 + ₹9,400 = ₹23,400
+
+**Step 2: Calculate the percentage of the income spent on food in March.**
+
+The monthly salary is ₹60,000. The percentage of the income spent on food in March is calculated as follows:
+\[
+\text{Percentage of income spent on food in March} = \left( \frac{\text{Total food spend in March}}{\text{Monthly salary}} \right) \times 100 = \left( \frac{9,400}{60,000} \right) \times 100 = 15.67\%
+\]
+
+**Step 3: Compare this percentage to the percentage spent in January.**
+
+The percentage of the income spent on food in January is:
+\[
+\text{Percentage of income spent on food in January} = \left( \frac{\text{Total food spend in January}}{\text{Monthly salary}} \right) \times 100 = \left( \frac{6,800}{60,000} \right) \times 100 = 11.33\%
+\]
+
+**Conclusion:**
+
+The food spend has increased from ₹6,800 in January to ₹9,400 in March. The percentage of the income spent on food in March is 15.67\%. The percentage of the income spent on the food in January is 11.33\%. The percentage of the income spent on the food in January is 11.33\%. The percentage of the income spent on the food in January is 11.33\%. The percentage of

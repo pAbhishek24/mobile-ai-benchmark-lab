@@ -1,0 +1,1 @@
+<s> My transport spend this month is ₹6,800 vs my 3-month average of ₹3,200. That is more than double. My salary is ₹55,000. I commute by metro daily and occasionally take cabs. What categories of reasons could explain this spike? What specific transaction patterns should I look for to diagnose whether this is a one-time event or a new baseline? Should I be concerned?</s>

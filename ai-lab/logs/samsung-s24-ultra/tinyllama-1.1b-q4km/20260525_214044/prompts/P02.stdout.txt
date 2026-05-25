@@ -1,0 +1,1 @@
+<s> Here is my food spend over 3 months: January ₹6,800, February ₹7,200, March ₹9,400. My monthly salary is ₹60,000. How much has my food spend increased? What percentage of my income is food spend in March vs January? Is this a concerning trend?</s>

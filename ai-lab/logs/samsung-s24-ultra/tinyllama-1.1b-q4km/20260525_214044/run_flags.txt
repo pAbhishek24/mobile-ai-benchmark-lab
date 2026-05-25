@@ -1,0 +1,14 @@
+debug=1 resume=0 smoke=0
+prompt_timeout=180
+device_label=samsung-s24-ultra
+model_id=tinyllama-1.1b-q4km
+llama_bin=/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli
+model_path=/data/data/com.termux/files/home/llama.cpp/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf
+prompts_file=/data/data/com.termux/files/home/mobile-ai-benchmark-lab/ai-lab/prompts/finance-benchmark-prompts.json
+max_tokens=512
+threads=4
+cooldown_seconds=30
+thermal_warn_c=60.0
+extra_cooldown_on_warn_seconds=60
+profile=quality
+benchmark_mode=real_world
