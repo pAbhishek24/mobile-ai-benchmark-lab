@@ -224,6 +224,43 @@ Prompts: [`ai-lab/prompts/finance-benchmark-prompts.json`](ai-lab/prompts/financ
 
 ---
 
+## Benchmark Methodology
+
+### Methodology Versions
+
+| Version | Description |
+|---|---|
+| v1 | Legacy runs. No explicit mode tag. Real-world conditions assumed. |
+| v2 | Current standard. Explicit `benchmark_mode`, environment metadata, and `post_reboot`/`airplane_mode` flags. |
+
+### Benchmark Modes
+
+**real_world** (default): Background apps active, no reboot, screen on. Represents realistic consumer device performance.
+
+**controlled**: Airplane mode, fresh reboot, minimal background activity. For isolated model performance comparison.
+
+### Run Flags (v2)
+
+| Flag | Default | Description |
+|---|---|---|
+| `--benchmark-mode` | `real_world` | `real_world` or `controlled` |
+| `--post-reboot` | `false` | Device was freshly rebooted before this run |
+| `--airplane-mode` | `false` | Airplane mode enabled during run |
+| `--background-apps` | `true` | Background apps running |
+| `--notes` | `""` | Free-text notes for this run |
+
+### Official Rerun Procedure
+
+To generate a valid v2 dataset for a model:
+
+1. **real_world run**: Use device in normal state, run with `--benchmark-mode real_world`
+2. **controlled run**: Reboot → airplane mode → 5min cooldown → run with `--benchmark-mode controlled --post-reboot true --airplane-mode true --background-apps false`
+3. Push results and regenerate dashboard data: `python3 ai-lab/analytics/generate_dashboard_data.py`
+
+See [`ai-lab/reports/methodology-v2-notes.md`](ai-lab/reports/methodology-v2-notes.md) for the full methodology specification.
+
+---
+
 ## Contributing
 
 New device results, model variants, and prompt additions welcome.

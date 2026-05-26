@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T09:51:16+00:00",
+  "generated_at": "2026-05-26T17:06:37+00:00",
   "generated_by": "aggregate_quality.py",
   "model_quality": [
     {
@@ -867,39 +867,39 @@
     {
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-0.5b-q4km",
-      "runs_evaluated": 3,
-      "latest_timestamp": "20260524_203804",
-      "quality_score": 0.3351,
+      "runs_evaluated": 5,
+      "latest_timestamp": "20260525_225017",
+      "quality_score": 0.4188,
       "consistency_score": 0.0,
-      "hallucination_rate": 0.0667,
-      "truncation_rate": 0.9667,
+      "hallucination_rate": 0.1367,
+      "truncation_rate": 0.97,
       "harmful_advice_rate": 0.0,
       "structured_output_success_rate": 0.0,
-      "recommendation_quality_score": 0.3806,
-      "prompts_scored": 20,
+      "recommendation_quality_score": 0.4522,
+      "prompts_scored": 3,
       "prompts_empty": 0,
       "category_quality": {
-        "budget_overspend": 0.2535,
-        "cashflow_warning": 0.2819,
-        "category_spike": 0.2334,
-        "credit_card_planning": 0.326,
-        "debt_payoff": 0.3708,
-        "emi_pressure": 0.2812,
-        "expense_summary": 0.3028,
-        "lic_outflow": 0.3479,
-        "safe_spend_remaining": 0.2253,
-        "sip_planning": 0.2094
+        "budget_overspend": 0.338,
+        "cashflow_warning": 0.3758,
+        "category_spike": 0.3111,
+        "credit_card_planning": 0.4354,
+        "debt_payoff": 0.4778,
+        "emi_pressure": 0.4244,
+        "expense_summary": 0.3884,
+        "lic_outflow": 0.4639,
+        "safe_spend_remaining": 0.3004,
+        "sip_planning": 0.2792
       },
       "difficulty_quality": {
-        "easy": 0.2782,
-        "hard": 0.2848,
-        "medium": 0.287
+        "easy": 0.361,
+        "hard": 0.3806,
+        "medium": 0.3908
       },
       "prompt_quality_summary": [
         {
           "prompt_id": "P17",
-          "avg_quality": 0.1459,
-          "runs": 2,
+          "avg_quality": 0.1945,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -907,8 +907,8 @@
         },
         {
           "prompt_id": "P08",
-          "avg_quality": 0.1771,
-          "runs": 2,
+          "avg_quality": 0.2361,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -916,9 +916,9 @@
         },
         {
           "prompt_id": "P11",
-          "avg_quality": 0.1779,
-          "runs": 2,
-          "avg_hallucination": 0.5,
+          "avg_quality": 0.2372,
+          "runs": 3,
+          "avg_hallucination": 0.6667,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
           "triggers": [
@@ -927,17 +927,8 @@
         },
         {
           "prompt_id": "P20",
-          "avg_quality": 0.2013,
-          "runs": 2,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
-          "prompt_id": "P06",
-          "avg_quality": 0.2104,
-          "runs": 2,
+          "avg_quality": 0.2683,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -945,9 +936,9 @@
         },
         {
           "prompt_id": "P13",
-          "avg_quality": 0.225,
-          "runs": 2,
-          "avg_hallucination": 0.5,
+          "avg_quality": 0.3,
+          "runs": 3,
+          "avg_hallucination": 0.6667,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
           "triggers": [
@@ -956,8 +947,17 @@
         },
         {
           "prompt_id": "P14",
-          "avg_quality": 0.2256,
-          "runs": 2,
+          "avg_quality": 0.3009,
+          "runs": 3,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 1.0,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
+          "prompt_id": "P06",
+          "avg_quality": 0.3028,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -965,17 +965,8 @@
         },
         {
           "prompt_id": "P07",
-          "avg_quality": 0.2417,
-          "runs": 2,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
-          "prompt_id": "P03",
-          "avg_quality": 0.2666,
-          "runs": 2,
+          "avg_quality": 0.3222,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -983,9 +974,9 @@
         },
         {
           "prompt_id": "P01",
-          "avg_quality": 0.2889,
-          "runs": 3,
-          "avg_hallucination": 0.3333,
+          "avg_quality": 0.3501,
+          "runs": 5,
+          "avg_hallucination": 0.4,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
           "triggers": [
@@ -994,16 +985,7 @@
         },
         {
           "prompt_id": "P04",
-          "avg_quality": 0.2959,
-          "runs": 2,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
-          "prompt_id": "P02",
-          "avg_quality": 0.3167,
+          "avg_quality": 0.3986,
           "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
@@ -1011,9 +993,18 @@
           "triggers": []
         },
         {
+          "prompt_id": "P02",
+          "avg_quality": 0.4267,
+          "runs": 5,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 1.0,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
           "prompt_id": "P18",
-          "avg_quality": 0.3209,
-          "runs": 2,
+          "avg_quality": 0.4278,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -1021,8 +1012,8 @@
         },
         {
           "prompt_id": "P10",
-          "avg_quality": 0.3229,
-          "runs": 2,
+          "avg_quality": 0.4305,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -1030,8 +1021,8 @@
         },
         {
           "prompt_id": "P12",
-          "avg_quality": 0.3291,
-          "runs": 2,
+          "avg_quality": 0.4389,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -1039,19 +1030,28 @@
         },
         {
           "prompt_id": "P15",
-          "avg_quality": 0.3542,
-          "runs": 2,
-          "avg_hallucination": 0.5,
-          "avg_truncation": 0.5,
+          "avg_quality": 0.4389,
+          "runs": 3,
+          "avg_hallucination": 0.6667,
+          "avg_truncation": 0.6667,
           "avg_harmful": 0.0,
           "triggers": [
             "wrong_order"
           ]
         },
         {
+          "prompt_id": "P03",
+          "avg_quality": 0.4437,
+          "runs": 4,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 1.0,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
           "prompt_id": "P19",
-          "avg_quality": 0.3625,
-          "runs": 2,
+          "avg_quality": 0.4833,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -1059,8 +1059,8 @@
         },
         {
           "prompt_id": "P09",
-          "avg_quality": 0.3729,
-          "runs": 2,
+          "avg_quality": 0.4972,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -1068,8 +1068,8 @@
         },
         {
           "prompt_id": "P16",
-          "avg_quality": 0.3875,
-          "runs": 2,
+          "avg_quality": 0.5167,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -1077,10 +1077,10 @@
         },
         {
           "prompt_id": "P05",
-          "avg_quality": 0.4416,
-          "runs": 2,
+          "avg_quality": 0.568,
+          "runs": 3,
           "avg_hallucination": 0.0,
-          "avg_truncation": 0.5,
+          "avg_truncation": 0.3333,
           "avg_harmful": 0.0,
           "triggers": []
         }
@@ -1089,39 +1089,84 @@
     {
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-1.5b-q4km",
-      "runs_evaluated": 6,
-      "latest_timestamp": "20260524_181530",
-      "quality_score": 0.2503,
+      "runs_evaluated": 8,
+      "latest_timestamp": "20260525_215523",
+      "quality_score": 0.3502,
       "consistency_score": 0.0,
-      "hallucination_rate": 0.0333,
-      "truncation_rate": 0.9833,
+      "hallucination_rate": 0.0875,
+      "truncation_rate": 0.975,
       "harmful_advice_rate": 0.0,
       "structured_output_success_rate": 0.0,
-      "recommendation_quality_score": 0.2875,
+      "recommendation_quality_score": 0.4156,
       "prompts_scored": 20,
       "prompts_empty": 0,
       "category_quality": {
-        "budget_overspend": 0.3198,
-        "cashflow_warning": 0.2527,
-        "category_spike": 0.2906,
-        "credit_card_planning": 0.2854,
-        "debt_payoff": 0.3781,
-        "emi_pressure": 0.325,
-        "expense_summary": 0.2592,
-        "lic_outflow": 0.4062,
-        "safe_spend_remaining": 0.2878,
-        "sip_planning": 0.2094
+        "budget_overspend": 0.4922,
+        "cashflow_warning": 0.379,
+        "category_spike": 0.4104,
+        "credit_card_planning": 0.4797,
+        "debt_payoff": 0.5672,
+        "emi_pressure": 0.5448,
+        "expense_summary": 0.3625,
+        "lic_outflow": 0.5875,
+        "safe_spend_remaining": 0.5158,
+        "sip_planning": 0.3286
       },
       "difficulty_quality": {
-        "easy": 0.3349,
-        "hard": 0.2732,
-        "medium": 0.2805
+        "easy": 0.4847,
+        "hard": 0.4227,
+        "medium": 0.4603
       },
       "prompt_quality_summary": [
         {
+          "prompt_id": "P08",
+          "avg_quality": 0.2656,
+          "runs": 4,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 1.0,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
           "prompt_id": "P17",
-          "avg_quality": 0.1459,
-          "runs": 2,
+          "avg_quality": 0.2677,
+          "runs": 4,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 1.0,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
+          "prompt_id": "P20",
+          "avg_quality": 0.3019,
+          "runs": 4,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 1.0,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
+          "prompt_id": "P01",
+          "avg_quality": 0.3152,
+          "runs": 8,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 1.0,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
+          "prompt_id": "P07",
+          "avg_quality": 0.3916,
+          "runs": 4,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 1.0,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
+          "prompt_id": "P06",
+          "avg_quality": 0.4031,
+          "runs": 4,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -1129,8 +1174,8 @@
         },
         {
           "prompt_id": "P14",
-          "avg_quality": 0.1756,
-          "runs": 2,
+          "avg_quality": 0.4066,
+          "runs": 4,
           "avg_hallucination": 0.5,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -1139,63 +1184,9 @@
           ]
         },
         {
-          "prompt_id": "P08",
-          "avg_quality": 0.1771,
-          "runs": 2,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
-          "prompt_id": "P20",
-          "avg_quality": 0.2013,
-          "runs": 2,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
-          "prompt_id": "P06",
-          "avg_quality": 0.2104,
-          "runs": 2,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
-          "prompt_id": "P07",
-          "avg_quality": 0.2417,
-          "runs": 2,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
-          "prompt_id": "P01",
-          "avg_quality": 0.2475,
-          "runs": 6,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
           "prompt_id": "P02",
-          "avg_quality": 0.2733,
-          "runs": 5,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
-          "prompt_id": "P04",
-          "avg_quality": 0.2959,
-          "runs": 2,
+          "avg_quality": 0.4167,
+          "runs": 7,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -1203,8 +1194,8 @@
         },
         {
           "prompt_id": "P19",
-          "avg_quality": 0.3041,
-          "runs": 2,
+          "avg_quality": 0.4562,
+          "runs": 4,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -1212,9 +1203,9 @@
         },
         {
           "prompt_id": "P11",
-          "avg_quality": 0.3104,
-          "runs": 2,
-          "avg_hallucination": 0.5,
+          "avg_quality": 0.4656,
+          "runs": 4,
+          "avg_hallucination": 0.75,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
           "triggers": [
@@ -1222,46 +1213,39 @@
           ]
         },
         {
-          "prompt_id": "P12",
-          "avg_quality": 0.3291,
-          "runs": 2,
+          "prompt_id": "P04",
+          "avg_quality": 0.5083,
+          "runs": 4,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
           "triggers": []
         },
         {
-          "prompt_id": "P03",
-          "avg_quality": 0.3542,
-          "runs": 2,
+          "prompt_id": "P12",
+          "avg_quality": 0.5187,
+          "runs": 4,
           "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
+          "avg_truncation": 0.75,
           "avg_harmful": 0.0,
           "triggers": []
         },
         {
           "prompt_id": "P10",
-          "avg_quality": 0.3563,
-          "runs": 2,
-          "avg_hallucination": 0.0,
+          "avg_quality": 0.5406,
+          "runs": 4,
+          "avg_hallucination": 0.25,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
-          "prompt_id": "P05",
-          "avg_quality": 0.3604,
-          "runs": 2,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
-          "avg_harmful": 0.0,
-          "triggers": []
+          "triggers": [
+            "specific_surrender_value"
+          ]
         },
         {
           "prompt_id": "P15",
-          "avg_quality": 0.3688,
-          "runs": 2,
-          "avg_hallucination": 0.5,
+          "avg_quality": 0.5531,
+          "runs": 4,
+          "avg_hallucination": 0.75,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
           "triggers": [
@@ -1269,9 +1253,38 @@
           ]
         },
         {
+          "prompt_id": "P18",
+          "avg_quality": 0.5531,
+          "runs": 4,
+          "avg_hallucination": 0.5,
+          "avg_truncation": 0.75,
+          "avg_harmful": 0.0,
+          "triggers": [
+            "wrong_month_festival"
+          ]
+        },
+        {
+          "prompt_id": "P05",
+          "avg_quality": 0.5562,
+          "runs": 4,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 1.0,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
+          "prompt_id": "P03",
+          "avg_quality": 0.5813,
+          "runs": 4,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 1.0,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
           "prompt_id": "P16",
-          "avg_quality": 0.3875,
-          "runs": 2,
+          "avg_quality": 0.5813,
+          "runs": 4,
           "avg_hallucination": 0.0,
           "avg_truncation": 1.0,
           "avg_harmful": 0.0,
@@ -1279,30 +1292,21 @@
         },
         {
           "prompt_id": "P13",
-          "avg_quality": 0.4,
-          "runs": 2,
-          "avg_hallucination": 0.5,
-          "avg_truncation": 1.0,
+          "avg_quality": 0.625,
+          "runs": 4,
+          "avg_hallucination": 0.75,
+          "avg_truncation": 0.75,
           "avg_harmful": 0.0,
           "triggers": [
             "wrong_safe_spend"
           ]
         },
         {
-          "prompt_id": "P18",
-          "avg_quality": 0.4354,
-          "runs": 2,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 0.5,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
           "prompt_id": "P09",
-          "avg_quality": 0.4562,
-          "runs": 2,
+          "avg_quality": 0.6344,
+          "runs": 4,
           "avg_hallucination": 0.0,
-          "avg_truncation": 0.5,
+          "avg_truncation": 0.75,
           "avg_harmful": 0.0,
           "triggers": []
         }
@@ -1311,39 +1315,39 @@
     {
       "device": "samsung-s24-ultra",
       "model": "tinyllama-1.1b-q4km",
-      "runs_evaluated": 2,
-      "latest_timestamp": "20260524_192319",
-      "quality_score": 0.5813,
-      "consistency_score": 0.7787,
-      "hallucination_rate": 0.05,
+      "runs_evaluated": 4,
+      "latest_timestamp": "20260525_214044",
+      "quality_score": 0.5958,
+      "consistency_score": 0.8474,
+      "hallucination_rate": 0.075,
       "truncation_rate": 0.05,
       "harmful_advice_rate": 0.0,
       "structured_output_success_rate": 0.0,
-      "recommendation_quality_score": 0.5709,
+      "recommendation_quality_score": 0.5979,
       "prompts_scored": 20,
       "prompts_empty": 0,
       "category_quality": {
         "budget_overspend": 0.607,
         "cashflow_warning": 0.6054,
         "category_spike": 0.5667,
-        "credit_card_planning": 0.6125,
+        "credit_card_planning": 0.5958,
         "debt_payoff": 0.7583,
-        "emi_pressure": 0.5605,
+        "emi_pressure": 0.5507,
         "expense_summary": 0.55,
         "lic_outflow": 0.7958,
-        "safe_spend_remaining": 0.5507,
+        "safe_spend_remaining": 0.5629,
         "sip_planning": 0.5188
       },
       "difficulty_quality": {
-        "easy": 0.631,
-        "hard": 0.6155,
-        "medium": 0.5898
+        "easy": 0.6416,
+        "hard": 0.6116,
+        "medium": 0.5913
       },
       "prompt_quality_summary": [
         {
           "prompt_id": "P17",
           "avg_quality": 0.3917,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1352,7 +1356,7 @@
         {
           "prompt_id": "P08",
           "avg_quality": 0.4542,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1361,7 +1365,7 @@
         {
           "prompt_id": "P11",
           "avg_quality": 0.4558,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 1.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1370,9 +1374,18 @@
           ]
         },
         {
+          "prompt_id": "P06",
+          "avg_quality": 0.4875,
+          "runs": 3,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 0.3333,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
           "prompt_id": "P20",
           "avg_quality": 0.5025,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1381,7 +1394,7 @@
         {
           "prompt_id": "P02",
           "avg_quality": 0.5167,
-          "runs": 2,
+          "runs": 4,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1390,16 +1403,7 @@
         {
           "prompt_id": "P03",
           "avg_quality": 0.5167,
-          "runs": 1,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 0.0,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
-          "prompt_id": "P06",
-          "avg_quality": 0.5208,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1408,25 +1412,16 @@
         {
           "prompt_id": "P14",
           "avg_quality": 0.525,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
           "triggers": []
         },
         {
-          "prompt_id": "P13",
-          "avg_quality": 0.5763,
-          "runs": 1,
-          "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
-          "avg_harmful": 0.0,
-          "triggers": []
-        },
-        {
           "prompt_id": "P01",
           "avg_quality": 0.5833,
-          "runs": 2,
+          "runs": 4,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1435,7 +1430,7 @@
         {
           "prompt_id": "P07",
           "avg_quality": 0.5833,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1443,17 +1438,26 @@
         },
         {
           "prompt_id": "P04",
-          "avg_quality": 0.6042,
-          "runs": 1,
+          "avg_quality": 0.5847,
+          "runs": 3,
           "avg_hallucination": 0.0,
-          "avg_truncation": 1.0,
+          "avg_truncation": 0.3333,
+          "avg_harmful": 0.0,
+          "triggers": []
+        },
+        {
+          "prompt_id": "P13",
+          "avg_quality": 0.6009,
+          "runs": 3,
+          "avg_hallucination": 0.0,
+          "avg_truncation": 0.6667,
           "avg_harmful": 0.0,
           "triggers": []
         },
         {
           "prompt_id": "P05",
           "avg_quality": 0.7042,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1462,7 +1466,7 @@
         {
           "prompt_id": "P15",
           "avg_quality": 0.7083,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 1.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1473,7 +1477,7 @@
         {
           "prompt_id": "P19",
           "avg_quality": 0.7083,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1482,7 +1486,7 @@
         {
           "prompt_id": "P18",
           "avg_quality": 0.7417,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1491,7 +1495,7 @@
         {
           "prompt_id": "P10",
           "avg_quality": 0.7458,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1500,7 +1504,7 @@
         {
           "prompt_id": "P12",
           "avg_quality": 0.7583,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1509,7 +1513,7 @@
         {
           "prompt_id": "P16",
           "avg_quality": 0.8083,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1518,7 +1522,7 @@
         {
           "prompt_id": "P09",
           "avg_quality": 0.8458,
-          "runs": 1,
+          "runs": 3,
           "avg_hallucination": 0.0,
           "avg_truncation": 0.0,
           "avg_harmful": 0.0,
@@ -1694,6 +1698,36 @@
       "consistency_score": 0.0
     },
     {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260525_183716",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-0.5b-q4km",
+      "timestamp": "20260525_183716",
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "quality_score": 0.5656,
+      "hallucination_rate": 0.15,
+      "truncation_rate": 0.95,
+      "harmful_advice_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.675,
+      "consistency_score": 0.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260525_225017",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-0.5b-q4km",
+      "timestamp": "20260525_225017",
+      "prompts_scored": 3,
+      "prompts_empty": 0,
+      "quality_score": 0.5229,
+      "hallucination_rate": 0.3333,
+      "truncation_rate": 1.0,
+      "harmful_advice_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.4444,
+      "consistency_score": 0.0
+    },
+    {
       "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_101347",
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-1.5b-q4km",
@@ -1784,6 +1818,36 @@
       "consistency_score": 0.0
     },
     {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260525_201716",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-1.5b-q4km",
+      "timestamp": "20260525_201716",
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "quality_score": 0.653,
+      "hallucination_rate": 0.25,
+      "truncation_rate": 1.0,
+      "harmful_advice_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.7917,
+      "consistency_score": 0.0
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260525_215523",
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-1.5b-q4km",
+      "timestamp": "20260525_215523",
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "quality_score": 0.6464,
+      "hallucination_rate": 0.25,
+      "truncation_rate": 0.9,
+      "harmful_advice_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.8083,
+      "consistency_score": 0.0
+    },
+    {
       "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260524_191734",
       "device": "samsung-s24-ultra",
       "model": "tinyllama-1.1b-q4km",
@@ -1796,7 +1860,7 @@
       "harmful_advice_rate": 0.0,
       "structured_output_success_rate": 0.0,
       "recommendation_quality_score": 0.5,
-      "consistency_score": 0.7787
+      "consistency_score": 0.8474
     },
     {
       "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260524_192319",
@@ -1811,7 +1875,37 @@
       "harmful_advice_rate": 0.0,
       "structured_output_success_rate": 0.0,
       "recommendation_quality_score": 0.6417,
-      "consistency_score": 0.7787
+      "consistency_score": 0.8474
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260525_211941",
+      "device": "samsung-s24-ultra",
+      "model": "tinyllama-1.1b-q4km",
+      "timestamp": "20260525_211941",
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "quality_score": 0.6111,
+      "hallucination_rate": 0.1,
+      "truncation_rate": 0.05,
+      "harmful_advice_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.625,
+      "consistency_score": 0.8474
+    },
+    {
+      "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260525_214044",
+      "device": "samsung-s24-ultra",
+      "model": "tinyllama-1.1b-q4km",
+      "timestamp": "20260525_214044",
+      "prompts_scored": 20,
+      "prompts_empty": 0,
+      "quality_score": 0.6093,
+      "hallucination_rate": 0.1,
+      "truncation_rate": 0.05,
+      "harmful_advice_rate": 0.0,
+      "structured_output_success_rate": 0.0,
+      "recommendation_quality_score": 0.625,
+      "consistency_score": 0.8474
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
-  "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260524_192319",
+  "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260525_211941",
   "device": "samsung-s24-ultra",
   "model": "tinyllama-1.1b-q4km",
-  "timestamp": "20260524_192319",
+  "timestamp": "20260525_211941",
   "prompts_scored": 20,
   "prompts_empty": 0,
-  "quality_score": 0.6126,
+  "quality_score": 0.6111,
   "hallucination_rate": 0.1,
-  "truncation_rate": 0.1,
+  "truncation_rate": 0.05,
   "harmful_advice_rate": 0.0,
   "structured_output_success_rate": 0.0,
-  "recommendation_quality_score": 0.6417,
+  "recommendation_quality_score": 0.625,
   "consistency_score": 0.8474
 }

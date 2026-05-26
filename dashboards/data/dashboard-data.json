@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-05-25T09:51:16+00:00",
+  "generated_at": "2026-05-26T17:06:37+00:00",
   "generated_by": "generate_dashboard_data.py",
   "benchmark_context": {
+    "methodology_version": "v2",
     "background_apps_estimate": true,
     "charging": false,
     "screen_on": true,
@@ -14,6 +15,14 @@
       "device": "samsung-s24-ultra",
       "model": "gemma-2b-q4km",
       "timestamp": "20260524_201229",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/gemma-2b-q4km/20260524_201229",
       "files": {
         "benchmark_jsonl": true,
@@ -230,6 +239,14 @@
       "device": "samsung-s24-ultra",
       "model": "gemma-2b-q4km",
       "timestamp": "20260524_202052",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/gemma-2b-q4km/20260524_202052",
       "files": {
         "benchmark_jsonl": true,
@@ -590,6 +607,14 @@
       "device": "samsung-s24-ultra",
       "model": "llama3.2-1b-q4km",
       "timestamp": "20260524_212259",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-1b-q4km/20260524_212259",
       "files": {
         "benchmark_jsonl": true,
@@ -806,6 +831,14 @@
       "device": "samsung-s24-ultra",
       "model": "llama3.2-1b-q4km",
       "timestamp": "20260524_212426",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-1b-q4km/20260524_212426",
       "files": {
         "benchmark_jsonl": true,
@@ -1166,6 +1199,14 @@
       "device": "samsung-s24-ultra",
       "model": "llama3.2-3b-q4km",
       "timestamp": "20260524_215155",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-3b-q4km/20260524_215155",
       "files": {
         "benchmark_jsonl": true,
@@ -1382,6 +1423,14 @@
       "device": "samsung-s24-ultra",
       "model": "llama3.2-3b-q4km",
       "timestamp": "20260524_215606",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-3b-q4km/20260524_215606",
       "files": {
         "benchmark_jsonl": true,
@@ -1742,6 +1791,14 @@
       "device": "samsung-s24-ultra",
       "model": "phi3-mini-q4km",
       "timestamp": "20260524_221422",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/phi3-mini-q4km/20260524_221422",
       "files": {
         "benchmark_jsonl": true,
@@ -1958,6 +2015,14 @@
       "device": "samsung-s24-ultra",
       "model": "phi3-mini-q4km",
       "timestamp": "20260524_221813",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/phi3-mini-q4km/20260524_221813",
       "files": {
         "benchmark_jsonl": true,
@@ -2318,6 +2383,14 @@
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-0.5b-q4km",
       "timestamp": "20260524_105517",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260524_105517",
       "files": {
         "benchmark_jsonl": true,
@@ -2672,6 +2745,14 @@
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-0.5b-q4km",
       "timestamp": "20260524_203641",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260524_203641",
       "files": {
         "benchmark_jsonl": true,
@@ -2888,6 +2969,14 @@
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-0.5b-q4km",
       "timestamp": "20260524_203804",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260524_203804",
       "files": {
         "benchmark_jsonl": true,
@@ -3246,8 +3335,528 @@
     },
     {
       "device": "samsung-s24-ultra",
+      "model": "qwen2.5-0.5b-q4km",
+      "timestamp": "20260525_183716",
+      "methodology_version": "v1",
+      "benchmark_mode": "real_world",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260525_183716",
+      "files": {
+        "benchmark_jsonl": true,
+        "summary_csv": true,
+        "summary_md": true,
+        "snapshot_before": true,
+        "snapshot_after": true
+      },
+      "quality_score": null,
+      "summary": {
+        "device_label": "samsung-s24-ultra",
+        "model_id": "qwen2.5-0.5b-q4km",
+        "model_mb": "468",
+        "prompts": "20",
+        "success": "19",
+        "timeout": "1",
+        "error": "0",
+        "p50_duration_ms": "51501",
+        "p50_tokens_per_sec": "35.77",
+        "max_tokens": "512",
+        "threads": "4",
+        "prompt_timeout_s": "180",
+        "output_present": "20",
+        "thermal_warning_count": "14",
+        "max_temp_before_c": "60.1",
+        "max_temp_after_c": "49.9",
+        "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli",
+        "profile": "quality",
+        "benchmark_mode": "real_world"
+      },
+      "derived": {
+        "prompts": 20,
+        "success": 19,
+        "timeout": 1,
+        "error": 0,
+        "total_time_ms": 1837660,
+        "p50_duration_ms": 51501.0,
+        "p95_duration_ms": 349127.0,
+        "p50_tokens_per_sec": 35.77,
+        "avg_tokens_per_sec": 31.653684210526315,
+        "avg_output_words": 378.4,
+        "output_present": 20,
+        "thermal_warning_count": 14,
+        "max_temp_before_c": 60.1,
+        "max_temp_after_c": 49.9,
+        "thermal_before_bucket": "red",
+        "thermal_after_bucket": "green",
+        "ram_delta_mb": 98,
+        "prompt_results": [
+          {
+            "prompt_id": "P01",
+            "status": "ok",
+            "duration_ms": 181353,
+            "tokens_per_sec": 8.86,
+            "out_words": 291,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P02",
+            "status": "ok",
+            "duration_ms": 12792,
+            "tokens_per_sec": 48.44,
+            "out_words": 387,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P03",
+            "status": "ok",
+            "duration_ms": 62037,
+            "tokens_per_sec": 37.8,
+            "out_words": 327,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P04",
+            "status": "ok",
+            "duration_ms": 17905,
+            "tokens_per_sec": 34.02,
+            "out_words": 395,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P05",
+            "status": "ok",
+            "duration_ms": 109306,
+            "tokens_per_sec": 47.96,
+            "out_words": 326,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P06",
+            "status": "ok",
+            "duration_ms": 169704,
+            "tokens_per_sec": 15.44,
+            "out_words": 322,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P07",
+            "status": "ok",
+            "duration_ms": 349127,
+            "tokens_per_sec": 8.4,
+            "out_words": 326,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P08",
+            "status": "ok",
+            "duration_ms": 55359,
+            "tokens_per_sec": 10.14,
+            "out_words": 341,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P09",
+            "status": "ok",
+            "duration_ms": 51501,
+            "tokens_per_sec": 12.98,
+            "out_words": 527,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P10",
+            "status": "ok",
+            "duration_ms": 202119,
+            "tokens_per_sec": 35.77,
+            "out_words": 491,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P11",
+            "status": "ok",
+            "duration_ms": 14880,
+            "tokens_per_sec": 47.24,
+            "out_words": 390,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P12",
+            "status": "ok",
+            "duration_ms": 49099,
+            "tokens_per_sec": 42.33,
+            "out_words": 538,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P13",
+            "status": "ok",
+            "duration_ms": 13912,
+            "tokens_per_sec": 46.82,
+            "out_words": 432,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P14",
+            "status": "ok",
+            "duration_ms": 168126,
+            "tokens_per_sec": 19.52,
+            "out_words": 364,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P15",
+            "status": "ok",
+            "duration_ms": 31977,
+            "tokens_per_sec": 17.49,
+            "out_words": 382,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P16",
+            "status": "ok",
+            "duration_ms": 13191,
+            "tokens_per_sec": 47.88,
+            "out_words": 325,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P17",
+            "status": "ok",
+            "duration_ms": 25340,
+            "tokens_per_sec": 41.57,
+            "out_words": 542,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P18",
+            "status": "timeout",
+            "duration_ms": 242952,
+            "tokens_per_sec": null,
+            "out_words": 66,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P19",
+            "status": "ok",
+            "duration_ms": 52259,
+            "tokens_per_sec": 35.25,
+            "out_words": 252,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P20",
+            "status": "ok",
+            "duration_ms": 14721,
+            "tokens_per_sec": 43.51,
+            "out_words": 544,
+            "thermal_warning": true
+          }
+        ]
+      },
+      "snapshot_before": {
+        "timestamp": "2026-05-25T13:07:16Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "1689600kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3894,
+          "used_mb": 7190
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 46.3
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 50.6
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 51.0
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 58.9
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 60.1
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 56.1
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 58.9
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 47.5
+            }
+          ]
+        }
+      },
+      "snapshot_after": {
+        "timestamp": "2026-05-25T14:36:38Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 7,
+          "max_freq": "2265600kHz",
+          "current_freq": "1689600kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3797,
+          "used_mb": 7288
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 42.8
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 46.7
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 49.9
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 47.5
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 48.3
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 46.3
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 48.3
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 44.8
+            }
+          ]
+        }
+      }
+    },
+    {
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-0.5b-q4km",
+      "timestamp": "20260525_225017",
+      "methodology_version": "v1",
+      "benchmark_mode": "real_world",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260525_225017",
+      "files": {
+        "benchmark_jsonl": true,
+        "summary_csv": false,
+        "summary_md": false,
+        "snapshot_before": true,
+        "snapshot_after": false
+      },
+      "quality_score": null,
+      "summary": {},
+      "derived": {
+        "prompts": 3,
+        "success": 3,
+        "timeout": 0,
+        "error": 0,
+        "total_time_ms": 5507336,
+        "p50_duration_ms": 165182.0,
+        "p95_duration_ms": 5326613.0,
+        "p50_tokens_per_sec": 12.43,
+        "avg_tokens_per_sec": 20.03,
+        "avg_output_words": 326,
+        "output_present": 3,
+        "thermal_warning_count": 2,
+        "max_temp_before_c": 44.0,
+        "max_temp_after_c": null,
+        "thermal_before_bucket": "green",
+        "thermal_after_bucket": "unknown",
+        "ram_delta_mb": null,
+        "prompt_results": [
+          {
+            "prompt_id": "P01",
+            "status": "ok",
+            "duration_ms": 15541,
+            "tokens_per_sec": 42.59,
+            "out_words": 253,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P02",
+            "status": "ok",
+            "duration_ms": 165182,
+            "tokens_per_sec": 12.43,
+            "out_words": 325,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P03",
+            "status": "ok",
+            "duration_ms": 5326613,
+            "tokens_per_sec": 5.07,
+            "out_words": 400,
+            "thermal_warning": true
+          }
+        ]
+      },
+      "snapshot_before": {
+        "timestamp": "2026-05-25T17:20:17Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "556800kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3612,
+          "used_mb": 7473
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 42.0
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 44.0
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 44.0
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 42.4
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 42.8
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 42.0
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 42.4
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 43.6
+            }
+          ]
+        }
+      },
+      "snapshot_after": null
+    },
+    {
+      "device": "samsung-s24-ultra",
       "model": "qwen2.5-1.5b-q4km",
       "timestamp": "20260524_101347",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_101347",
       "files": {
         "benchmark_jsonl": true,
@@ -3294,6 +3903,14 @@
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-1.5b-q4km",
       "timestamp": "20260524_105125",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_105125",
       "files": {
         "benchmark_jsonl": true,
@@ -3648,6 +4265,14 @@
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-1.5b-q4km",
       "timestamp": "20260524_120550",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_120550",
       "files": {
         "benchmark_jsonl": true,
@@ -3757,6 +4382,14 @@
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-1.5b-q4km",
       "timestamp": "20260524_132317",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_132317",
       "files": {
         "benchmark_jsonl": true,
@@ -3969,6 +4602,14 @@
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-1.5b-q4km",
       "timestamp": "20260524_171814",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_171814",
       "files": {
         "benchmark_jsonl": true,
@@ -4095,6 +4736,14 @@
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-1.5b-q4km",
       "timestamp": "20260524_180553",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_180553",
       "files": {
         "benchmark_jsonl": true,
@@ -4311,6 +4960,14 @@
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-1.5b-q4km",
       "timestamp": "20260524_181530",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_181530",
       "files": {
         "benchmark_jsonl": true,
@@ -4669,8 +5326,756 @@
     },
     {
       "device": "samsung-s24-ultra",
+      "model": "qwen2.5-1.5b-q4km",
+      "timestamp": "20260525_201716",
+      "methodology_version": "v1",
+      "benchmark_mode": "real_world",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260525_201716",
+      "files": {
+        "benchmark_jsonl": true,
+        "summary_csv": true,
+        "summary_md": true,
+        "snapshot_before": true,
+        "snapshot_after": true
+      },
+      "quality_score": null,
+      "summary": {
+        "device_label": "samsung-s24-ultra",
+        "model_id": "qwen2.5-1.5b-q4km",
+        "model_mb": "1065",
+        "prompts": "20",
+        "success": "20",
+        "timeout": "0",
+        "error": "0",
+        "p50_duration_ms": "37060",
+        "p50_tokens_per_sec": "16.82",
+        "max_tokens": "512",
+        "threads": "4",
+        "prompt_timeout_s": "180",
+        "output_present": "20",
+        "thermal_warning_count": "17",
+        "max_temp_before_c": "38.1",
+        "max_temp_after_c": "44.0",
+        "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli",
+        "profile": "quality",
+        "benchmark_mode": "real_world"
+      },
+      "derived": {
+        "prompts": 20,
+        "success": 20,
+        "timeout": 0,
+        "error": 0,
+        "total_time_ms": 1078760,
+        "p50_duration_ms": 37060.0,
+        "p95_duration_ms": 215193.0,
+        "p50_tokens_per_sec": 16.82,
+        "avg_tokens_per_sec": 15.4575,
+        "avg_output_words": 371.9,
+        "output_present": 20,
+        "thermal_warning_count": 17,
+        "max_temp_before_c": 38.1,
+        "max_temp_after_c": 44.0,
+        "thermal_before_bucket": "green",
+        "thermal_after_bucket": "green",
+        "ram_delta_mb": -156,
+        "prompt_results": [
+          {
+            "prompt_id": "P01",
+            "status": "ok",
+            "duration_ms": 54288,
+            "tokens_per_sec": 11.58,
+            "out_words": 317,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P02",
+            "status": "ok",
+            "duration_ms": 42330,
+            "tokens_per_sec": 17.94,
+            "out_words": 357,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P03",
+            "status": "ok",
+            "duration_ms": 160910,
+            "tokens_per_sec": 17.33,
+            "out_words": 354,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P04",
+            "status": "ok",
+            "duration_ms": 215193,
+            "tokens_per_sec": 5.54,
+            "out_words": 338,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P05",
+            "status": "ok",
+            "duration_ms": 60317,
+            "tokens_per_sec": 9.3,
+            "out_words": 294,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P06",
+            "status": "ok",
+            "duration_ms": 35142,
+            "tokens_per_sec": 17.05,
+            "out_words": 379,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P07",
+            "status": "ok",
+            "duration_ms": 33014,
+            "tokens_per_sec": 17.47,
+            "out_words": 296,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P08",
+            "status": "ok",
+            "duration_ms": 34286,
+            "tokens_per_sec": 17.09,
+            "out_words": 354,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P09",
+            "status": "ok",
+            "duration_ms": 34349,
+            "tokens_per_sec": 17.21,
+            "out_words": 513,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P10",
+            "status": "ok",
+            "duration_ms": 34859,
+            "tokens_per_sec": 17.06,
+            "out_words": 472,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P11",
+            "status": "ok",
+            "duration_ms": 37586,
+            "tokens_per_sec": 16.67,
+            "out_words": 274,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P12",
+            "status": "ok",
+            "duration_ms": 35986,
+            "tokens_per_sec": 16.54,
+            "out_words": 536,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P13",
+            "status": "ok",
+            "duration_ms": 34823,
+            "tokens_per_sec": 17.21,
+            "out_words": 331,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P14",
+            "status": "ok",
+            "duration_ms": 36085,
+            "tokens_per_sec": 16.82,
+            "out_words": 294,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P15",
+            "status": "ok",
+            "duration_ms": 35921,
+            "tokens_per_sec": 16.85,
+            "out_words": 276,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P16",
+            "status": "ok",
+            "duration_ms": 35514,
+            "tokens_per_sec": 16.81,
+            "out_words": 322,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P17",
+            "status": "ok",
+            "duration_ms": 37060,
+            "tokens_per_sec": 15.92,
+            "out_words": 526,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P18",
+            "status": "ok",
+            "duration_ms": 42627,
+            "tokens_per_sec": 13.69,
+            "out_words": 474,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P19",
+            "status": "ok",
+            "duration_ms": 40066,
+            "tokens_per_sec": 15.13,
+            "out_words": 305,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P20",
+            "status": "ok",
+            "duration_ms": 38404,
+            "tokens_per_sec": 15.94,
+            "out_words": 426,
+            "thermal_warning": true
+          }
+        ]
+      },
+      "snapshot_before": {
+        "timestamp": "2026-05-25T14:47:16Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "787200kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3588,
+          "used_mb": 7497
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 36.1
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 38.1
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 37.7
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 36.1
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 36.9
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 36.1
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 36.1
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 37.0
+            }
+          ]
+        }
+      },
+      "snapshot_after": {
+        "timestamp": "2026-05-25T15:39:14Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "787200kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3744,
+          "used_mb": 7341
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 42.0
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 43.6
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 42.8
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 42.0
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 42.4
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 41.6
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 42.4
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 44.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-1.5b-q4km",
+      "timestamp": "20260525_215523",
+      "methodology_version": "v1",
+      "benchmark_mode": "real_world",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260525_215523",
+      "files": {
+        "benchmark_jsonl": true,
+        "summary_csv": true,
+        "summary_md": true,
+        "snapshot_before": true,
+        "snapshot_after": true
+      },
+      "quality_score": null,
+      "summary": {
+        "device_label": "samsung-s24-ultra",
+        "model_id": "qwen2.5-1.5b-q4km",
+        "model_mb": "1065",
+        "prompts": "20",
+        "success": "20",
+        "timeout": "0",
+        "error": "0",
+        "p50_duration_ms": "36127",
+        "p50_tokens_per_sec": "16.91",
+        "max_tokens": "512",
+        "threads": "4",
+        "prompt_timeout_s": "180",
+        "output_present": "20",
+        "thermal_warning_count": "15",
+        "max_temp_before_c": "42.4",
+        "max_temp_after_c": "52.2",
+        "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli",
+        "profile": "quality",
+        "benchmark_mode": "real_world"
+      },
+      "derived": {
+        "prompts": 20,
+        "success": 20,
+        "timeout": 0,
+        "error": 0,
+        "total_time_ms": 744368,
+        "p50_duration_ms": 36127.0,
+        "p95_duration_ms": 46603.0,
+        "p50_tokens_per_sec": 16.91,
+        "avg_tokens_per_sec": 16.3965,
+        "avg_output_words": 360.2,
+        "output_present": 20,
+        "thermal_warning_count": 15,
+        "max_temp_before_c": 42.4,
+        "max_temp_after_c": 52.2,
+        "thermal_before_bucket": "green",
+        "thermal_after_bucket": "green",
+        "ram_delta_mb": -205,
+        "prompt_results": [
+          {
+            "prompt_id": "P01",
+            "status": "ok",
+            "duration_ms": 36493,
+            "tokens_per_sec": 16.83,
+            "out_words": 283,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P02",
+            "status": "ok",
+            "duration_ms": 34857,
+            "tokens_per_sec": 17.04,
+            "out_words": 335,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P03",
+            "status": "ok",
+            "duration_ms": 37397,
+            "tokens_per_sec": 15.86,
+            "out_words": 367,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P04",
+            "status": "ok",
+            "duration_ms": 34955,
+            "tokens_per_sec": 17.44,
+            "out_words": 304,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P05",
+            "status": "ok",
+            "duration_ms": 36395,
+            "tokens_per_sec": 16.74,
+            "out_words": 334,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P06",
+            "status": "ok",
+            "duration_ms": 34959,
+            "tokens_per_sec": 17.23,
+            "out_words": 403,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P07",
+            "status": "ok",
+            "duration_ms": 34214,
+            "tokens_per_sec": 17.2,
+            "out_words": 273,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P08",
+            "status": "ok",
+            "duration_ms": 34662,
+            "tokens_per_sec": 17.24,
+            "out_words": 287,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P09",
+            "status": "ok",
+            "duration_ms": 35499,
+            "tokens_per_sec": 16.91,
+            "out_words": 362,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P10",
+            "status": "ok",
+            "duration_ms": 36127,
+            "tokens_per_sec": 16.77,
+            "out_words": 396,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P11",
+            "status": "ok",
+            "duration_ms": 46603,
+            "tokens_per_sec": 13.7,
+            "out_words": 274,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P12",
+            "status": "ok",
+            "duration_ms": 38753,
+            "tokens_per_sec": 15.5,
+            "out_words": 534,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P13",
+            "status": "ok",
+            "duration_ms": 42202,
+            "tokens_per_sec": 14.06,
+            "out_words": 321,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P14",
+            "status": "ok",
+            "duration_ms": 44436,
+            "tokens_per_sec": 13.55,
+            "out_words": 332,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P15",
+            "status": "ok",
+            "duration_ms": 35897,
+            "tokens_per_sec": 17.26,
+            "out_words": 289,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P16",
+            "status": "ok",
+            "duration_ms": 34521,
+            "tokens_per_sec": 17.7,
+            "out_words": 312,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P17",
+            "status": "ok",
+            "duration_ms": 35228,
+            "tokens_per_sec": 17.24,
+            "out_words": 474,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P18",
+            "status": "ok",
+            "duration_ms": 34493,
+            "tokens_per_sec": 17.14,
+            "out_words": 514,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P19",
+            "status": "ok",
+            "duration_ms": 37575,
+            "tokens_per_sec": 16.63,
+            "out_words": 283,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P20",
+            "status": "ok",
+            "duration_ms": 39102,
+            "tokens_per_sec": 15.89,
+            "out_words": 528,
+            "thermal_warning": true
+          }
+        ]
+      },
+      "snapshot_before": {
+        "timestamp": "2026-05-25T16:25:23Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "787200kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3417,
+          "used_mb": 7667
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 40.4
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 42.4
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 42.0
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 40.4
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 40.4
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 40.0
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 40.4
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 41.3
+            }
+          ]
+        }
+      },
+      "snapshot_after": {
+        "timestamp": "2026-05-25T17:03:11Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "556800kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3623,
+          "used_mb": 7462
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 44.0
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 45.5
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 52.2
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 44.7
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 44.4
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 44.0
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 44.4
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 45.1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "device": "samsung-s24-ultra",
       "model": "tinyllama-1.1b-q4km",
       "timestamp": "20260524_191734",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260524_191734",
       "files": {
         "benchmark_jsonl": true,
@@ -4887,6 +6292,14 @@
       "device": "samsung-s24-ultra",
       "model": "tinyllama-1.1b-q4km",
       "timestamp": "20260524_192319",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260524_192319",
       "files": {
         "benchmark_jsonl": true,
@@ -5238,6 +6651,746 @@
               "zone": "thermal_zone15",
               "type": "aoss-1",
               "temp_c": 39.3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "device": "samsung-s24-ultra",
+      "model": "tinyllama-1.1b-q4km",
+      "timestamp": "20260525_211941",
+      "methodology_version": "v1",
+      "benchmark_mode": "real_world",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
+      "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260525_211941",
+      "files": {
+        "benchmark_jsonl": true,
+        "summary_csv": true,
+        "summary_md": true,
+        "snapshot_before": true,
+        "snapshot_after": true
+      },
+      "quality_score": null,
+      "summary": {
+        "device_label": "samsung-s24-ultra",
+        "model_id": "tinyllama-1.1b-q4km",
+        "model_mb": "637",
+        "prompts": "20",
+        "success": "20",
+        "timeout": "0",
+        "error": "0",
+        "p50_duration_ms": "3428",
+        "p50_tokens_per_sec": "28.32",
+        "max_tokens": "512",
+        "threads": "4",
+        "prompt_timeout_s": "180",
+        "output_present": "20",
+        "thermal_warning_count": "2",
+        "max_temp_before_c": "56.9",
+        "max_temp_after_c": "44.4",
+        "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli",
+        "profile": "quality",
+        "benchmark_mode": "real_world"
+      },
+      "derived": {
+        "prompts": 20,
+        "success": 20,
+        "timeout": 0,
+        "error": 0,
+        "total_time_ms": 118138,
+        "p50_duration_ms": 3428.0,
+        "p95_duration_ms": 30949.0,
+        "p50_tokens_per_sec": 28.32,
+        "avg_tokens_per_sec": 27.645,
+        "avg_output_words": 67.6,
+        "output_present": 20,
+        "thermal_warning_count": 2,
+        "max_temp_before_c": 56.9,
+        "max_temp_after_c": 44.4,
+        "thermal_before_bucket": "yellow",
+        "thermal_after_bucket": "green",
+        "ram_delta_mb": -118,
+        "prompt_results": [
+          {
+            "prompt_id": "P01",
+            "status": "ok",
+            "duration_ms": 30949,
+            "tokens_per_sec": null,
+            "out_words": 43,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P02",
+            "status": "ok",
+            "duration_ms": 2959,
+            "tokens_per_sec": null,
+            "out_words": 44,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P03",
+            "status": "ok",
+            "duration_ms": 3021,
+            "tokens_per_sec": null,
+            "out_words": 41,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P04",
+            "status": "ok",
+            "duration_ms": 3554,
+            "tokens_per_sec": null,
+            "out_words": 49,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P05",
+            "status": "ok",
+            "duration_ms": 3428,
+            "tokens_per_sec": null,
+            "out_words": 60,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P06",
+            "status": "ok",
+            "duration_ms": 6032,
+            "tokens_per_sec": 28.32,
+            "out_words": 95,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P07",
+            "status": "ok",
+            "duration_ms": 2352,
+            "tokens_per_sec": null,
+            "out_words": 42,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P08",
+            "status": "ok",
+            "duration_ms": 2839,
+            "tokens_per_sec": null,
+            "out_words": 55,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P09",
+            "status": "ok",
+            "duration_ms": 3191,
+            "tokens_per_sec": null,
+            "out_words": 59,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P10",
+            "status": "ok",
+            "duration_ms": 3310,
+            "tokens_per_sec": null,
+            "out_words": 56,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P11",
+            "status": "ok",
+            "duration_ms": 5137,
+            "tokens_per_sec": null,
+            "out_words": 58,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P12",
+            "status": "ok",
+            "duration_ms": 3308,
+            "tokens_per_sec": null,
+            "out_words": 64,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P13",
+            "status": "ok",
+            "duration_ms": 22408,
+            "tokens_per_sec": 26.97,
+            "out_words": 235,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P14",
+            "status": "ok",
+            "duration_ms": 3836,
+            "tokens_per_sec": null,
+            "out_words": 68,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P15",
+            "status": "ok",
+            "duration_ms": 3868,
+            "tokens_per_sec": null,
+            "out_words": 65,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P16",
+            "status": "ok",
+            "duration_ms": 3285,
+            "tokens_per_sec": null,
+            "out_words": 62,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P17",
+            "status": "ok",
+            "duration_ms": 3250,
+            "tokens_per_sec": null,
+            "out_words": 64,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P18",
+            "status": "ok",
+            "duration_ms": 2497,
+            "tokens_per_sec": null,
+            "out_words": 46,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P19",
+            "status": "ok",
+            "duration_ms": 4474,
+            "tokens_per_sec": null,
+            "out_words": 70,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P20",
+            "status": "ok",
+            "duration_ms": 4440,
+            "tokens_per_sec": null,
+            "out_words": 76,
+            "thermal_warning": false
+          }
+        ]
+      },
+      "snapshot_before": {
+        "timestamp": "2026-05-25T15:49:41Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "787200kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3602,
+          "used_mb": 7483
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 44.7
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 51.4
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 56.9
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 54.2
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 56.1
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 52.2
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 54.6
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 46.7
+            }
+          ]
+        }
+      },
+      "snapshot_after": {
+        "timestamp": "2026-05-25T16:03:48Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "556800kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3719,
+          "used_mb": 7365
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 40.4
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 41.2
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 44.4
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 40.8
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 41.2
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 40.4
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 40.8
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 42.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "device": "samsung-s24-ultra",
+      "model": "tinyllama-1.1b-q4km",
+      "timestamp": "20260525_214044",
+      "methodology_version": "v1",
+      "benchmark_mode": "real_world",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
+      "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260525_214044",
+      "files": {
+        "benchmark_jsonl": true,
+        "summary_csv": true,
+        "summary_md": true,
+        "snapshot_before": true,
+        "snapshot_after": true
+      },
+      "quality_score": null,
+      "summary": {
+        "device_label": "samsung-s24-ultra",
+        "model_id": "tinyllama-1.1b-q4km",
+        "model_mb": "637",
+        "prompts": "20",
+        "success": "20",
+        "timeout": "0",
+        "error": "0",
+        "p50_duration_ms": "4235",
+        "p50_tokens_per_sec": "26.19",
+        "max_tokens": "512",
+        "threads": "4",
+        "prompt_timeout_s": "180",
+        "output_present": "20",
+        "thermal_warning_count": "1",
+        "max_temp_before_c": "45.5",
+        "max_temp_after_c": "48.3",
+        "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli",
+        "profile": "quality",
+        "benchmark_mode": "real_world"
+      },
+      "derived": {
+        "prompts": 20,
+        "success": 20,
+        "timeout": 0,
+        "error": 0,
+        "total_time_ms": 123538,
+        "p50_duration_ms": 4235.0,
+        "p95_duration_ms": 22768.0,
+        "p50_tokens_per_sec": 26.19,
+        "avg_tokens_per_sec": 26.19,
+        "avg_output_words": 67.3,
+        "output_present": 20,
+        "thermal_warning_count": 1,
+        "max_temp_before_c": 45.5,
+        "max_temp_after_c": 48.3,
+        "thermal_before_bucket": "green",
+        "thermal_after_bucket": "green",
+        "ram_delta_mb": 98,
+        "prompt_results": [
+          {
+            "prompt_id": "P01",
+            "status": "ok",
+            "duration_ms": 3897,
+            "tokens_per_sec": null,
+            "out_words": 43,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P02",
+            "status": "ok",
+            "duration_ms": 9541,
+            "tokens_per_sec": null,
+            "out_words": 44,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P03",
+            "status": "ok",
+            "duration_ms": 3595,
+            "tokens_per_sec": null,
+            "out_words": 41,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P04",
+            "status": "ok",
+            "duration_ms": 4142,
+            "tokens_per_sec": null,
+            "out_words": 49,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P05",
+            "status": "ok",
+            "duration_ms": 4122,
+            "tokens_per_sec": null,
+            "out_words": 60,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P06",
+            "status": "ok",
+            "duration_ms": 22768,
+            "tokens_per_sec": 26.19,
+            "out_words": 268,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P07",
+            "status": "ok",
+            "duration_ms": 10885,
+            "tokens_per_sec": null,
+            "out_words": 42,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P08",
+            "status": "ok",
+            "duration_ms": 11515,
+            "tokens_per_sec": null,
+            "out_words": 55,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P09",
+            "status": "ok",
+            "duration_ms": 3603,
+            "tokens_per_sec": null,
+            "out_words": 59,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P10",
+            "status": "ok",
+            "duration_ms": 4083,
+            "tokens_per_sec": null,
+            "out_words": 56,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P11",
+            "status": "ok",
+            "duration_ms": 6006,
+            "tokens_per_sec": null,
+            "out_words": 58,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P12",
+            "status": "ok",
+            "duration_ms": 4235,
+            "tokens_per_sec": null,
+            "out_words": 64,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P13",
+            "status": "ok",
+            "duration_ms": 4155,
+            "tokens_per_sec": null,
+            "out_words": 56,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P14",
+            "status": "ok",
+            "duration_ms": 4705,
+            "tokens_per_sec": null,
+            "out_words": 68,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P15",
+            "status": "ok",
+            "duration_ms": 4894,
+            "tokens_per_sec": null,
+            "out_words": 65,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P16",
+            "status": "ok",
+            "duration_ms": 4209,
+            "tokens_per_sec": null,
+            "out_words": 62,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P17",
+            "status": "ok",
+            "duration_ms": 4025,
+            "tokens_per_sec": null,
+            "out_words": 64,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P18",
+            "status": "ok",
+            "duration_ms": 3147,
+            "tokens_per_sec": null,
+            "out_words": 46,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P19",
+            "status": "ok",
+            "duration_ms": 5055,
+            "tokens_per_sec": null,
+            "out_words": 70,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P20",
+            "status": "ok",
+            "duration_ms": 4956,
+            "tokens_per_sec": null,
+            "out_words": 76,
+            "thermal_warning": false
+          }
+        ]
+      },
+      "snapshot_before": {
+        "timestamp": "2026-05-25T16:10:44Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "787200kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3508,
+          "used_mb": 7577
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 42.0
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 44.0
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 45.5
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 42.4
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 43.2
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 42.0
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 42.4
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 43.6
+            }
+          ]
+        }
+      },
+      "snapshot_after": {
+        "timestamp": "2026-05-25T16:24:09Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "1344000kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3410,
+          "used_mb": 7675
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 40.8
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 42.0
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 48.3
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 40.8
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 40.8
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 40.0
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 40.4
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 42.0
             }
           ]
         }
@@ -5247,425 +7400,17 @@
   "model_summaries": [
     {
       "device": "samsung-s24-ultra",
-      "model": "qwen2.5-0.5b-q4km",
-      "timestamp": "20260524_203804",
-      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260524_203804",
-      "files": {
-        "benchmark_jsonl": true,
-        "summary_csv": true,
-        "summary_md": true,
-        "snapshot_before": true,
-        "snapshot_after": true
-      },
-      "quality_score": null,
-      "summary": {
-        "device_label": "samsung-s24-ultra",
-        "model_id": "qwen2.5-0.5b-q4km",
-        "model_mb": "468",
-        "prompts": "20",
-        "success": "20",
-        "timeout": "0",
-        "error": "0",
-        "p50_duration_ms": "7869",
-        "p50_tokens_per_sec": "47.33",
-        "max_tokens": "256",
-        "threads": "4",
-        "prompt_timeout_s": "90",
-        "output_present": "20",
-        "thermal_warning_count": "18",
-        "max_temp_before_c": "42.8",
-        "max_temp_after_c": "42.8",
-        "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
-      },
-      "derived": {
-        "prompts": 20,
-        "success": 20,
-        "timeout": 0,
-        "error": 0,
-        "total_time_ms": 158444,
-        "p50_duration_ms": 7869.0,
-        "p95_duration_ms": 9222.0,
-        "p50_tokens_per_sec": 47.33,
-        "avg_tokens_per_sec": 46.579,
-        "avg_output_words": 222.8,
-        "output_present": 20,
-        "thermal_warning_count": 18,
-        "max_temp_before_c": 42.8,
-        "max_temp_after_c": 42.8,
-        "thermal_before_bucket": "green",
-        "thermal_after_bucket": "green",
-        "ram_delta_mb": -1422,
-        "prompt_results": [
-          {
-            "prompt_id": "P01",
-            "status": "ok",
-            "duration_ms": 7818,
-            "tokens_per_sec": 46.54,
-            "out_words": 184,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P02",
-            "status": "ok",
-            "duration_ms": 7419,
-            "tokens_per_sec": 47.79,
-            "out_words": 200,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P03",
-            "status": "ok",
-            "duration_ms": 7697,
-            "tokens_per_sec": 46.91,
-            "out_words": 175,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P04",
-            "status": "ok",
-            "duration_ms": 7710,
-            "tokens_per_sec": 47.95,
-            "out_words": 152,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P05",
-            "status": "ok",
-            "duration_ms": 7699,
-            "tokens_per_sec": 48.57,
-            "out_words": 216,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P06",
-            "status": "ok",
-            "duration_ms": 7620,
-            "tokens_per_sec": 47.33,
-            "out_words": 182,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P07",
-            "status": "ok",
-            "duration_ms": 8160,
-            "tokens_per_sec": 43.0,
-            "out_words": 190,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P08",
-            "status": "ok",
-            "duration_ms": 8187,
-            "tokens_per_sec": 44.55,
-            "out_words": 227,
-            "thermal_warning": false
-          },
-          {
-            "prompt_id": "P09",
-            "status": "ok",
-            "duration_ms": 8516,
-            "tokens_per_sec": 41.85,
-            "out_words": 286,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P10",
-            "status": "ok",
-            "duration_ms": 8257,
-            "tokens_per_sec": 44.59,
-            "out_words": 266,
-            "thermal_warning": false
-          },
-          {
-            "prompt_id": "P11",
-            "status": "ok",
-            "duration_ms": 9222,
-            "tokens_per_sec": 42.73,
-            "out_words": 186,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P12",
-            "status": "ok",
-            "duration_ms": 7970,
-            "tokens_per_sec": 45.87,
-            "out_words": 297,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P13",
-            "status": "ok",
-            "duration_ms": 7541,
-            "tokens_per_sec": 49.11,
-            "out_words": 208,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P14",
-            "status": "ok",
-            "duration_ms": 7869,
-            "tokens_per_sec": 48.15,
-            "out_words": 213,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P15",
-            "status": "ok",
-            "duration_ms": 7709,
-            "tokens_per_sec": 49.25,
-            "out_words": 224,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P16",
-            "status": "ok",
-            "duration_ms": 7607,
-            "tokens_per_sec": 48.78,
-            "out_words": 183,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P17",
-            "status": "ok",
-            "duration_ms": 7919,
-            "tokens_per_sec": 45.7,
-            "out_words": 299,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P18",
-            "status": "ok",
-            "duration_ms": 7225,
-            "tokens_per_sec": 48.96,
-            "out_words": 280,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P19",
-            "status": "ok",
-            "duration_ms": 8078,
-            "tokens_per_sec": 47.56,
-            "out_words": 184,
-            "thermal_warning": true
-          },
-          {
-            "prompt_id": "P20",
-            "status": "ok",
-            "duration_ms": 8221,
-            "tokens_per_sec": 46.39,
-            "out_words": 303,
-            "thermal_warning": true
-          }
-        ]
-      },
-      "snapshot_before": {
-        "timestamp": "2026-05-24T15:08:04Z",
-        "device": {
-          "model": "SM-S928B",
-          "brand": "samsung",
-          "board": "pineapple",
-          "android_version": "16",
-          "android_sdk": "36",
-          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
-        },
-        "cpu": {
-          "hardware": "\nunknown",
-          "cores": 8,
-          "max_freq": "2265600kHz",
-          "current_freq": "787200kHz",
-          "load_avg_1_5_15": "unknown"
-        },
-        "memory": {
-          "total_mb": 11085,
-          "available_mb": 2610,
-          "used_mb": 8475
-        },
-        "battery": {
-          "level_pct": "unknown",
-          "status": "unknown",
-          "temp_c": "unknown"
-        },
-        "thermal": {
-          "android_status": "unknown",
-          "zones": [
-            {
-              "zone": "thermal_zone0",
-              "type": "aoss-0",
-              "temp_c": 40.8
-            },
-            {
-              "zone": "thermal_zone1",
-              "type": "cpuss-0",
-              "temp_c": 42.8
-            },
-            {
-              "zone": "thermal_zone10",
-              "type": "cpu-2-2-1",
-              "temp_c": 42.8
-            },
-            {
-              "zone": "thermal_zone11",
-              "type": "cpu-1-0-0",
-              "temp_c": 41.2
-            },
-            {
-              "zone": "thermal_zone12",
-              "type": "cpu-1-0-1",
-              "temp_c": 41.2
-            },
-            {
-              "zone": "thermal_zone13",
-              "type": "cpu-1-1-0",
-              "temp_c": 40.8
-            },
-            {
-              "zone": "thermal_zone14",
-              "type": "cpu-1-1-1",
-              "temp_c": 41.2
-            },
-            {
-              "zone": "thermal_zone15",
-              "type": "aoss-1",
-              "temp_c": 42.0
-            }
-          ]
-        }
-      },
-      "snapshot_after": {
-        "timestamp": "2026-05-24T15:38:52Z",
-        "device": {
-          "model": "SM-S928B",
-          "brand": "samsung",
-          "board": "pineapple",
-          "android_version": "16",
-          "android_sdk": "36",
-          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
-        },
-        "cpu": {
-          "hardware": "\nunknown",
-          "cores": 8,
-          "max_freq": "2265600kHz",
-          "current_freq": "787200kHz",
-          "load_avg_1_5_15": "unknown"
-        },
-        "memory": {
-          "total_mb": 11085,
-          "available_mb": 4032,
-          "used_mb": 7053
-        },
-        "battery": {
-          "level_pct": "unknown",
-          "status": "unknown",
-          "temp_c": "unknown"
-        },
-        "thermal": {
-          "android_status": "unknown",
-          "zones": [
-            {
-              "zone": "thermal_zone0",
-              "type": "aoss-0",
-              "temp_c": 40.8
-            },
-            {
-              "zone": "thermal_zone1",
-              "type": "cpuss-0",
-              "temp_c": 42.8
-            },
-            {
-              "zone": "thermal_zone10",
-              "type": "cpu-2-2-1",
-              "temp_c": 42.8
-            },
-            {
-              "zone": "thermal_zone11",
-              "type": "cpu-1-0-0",
-              "temp_c": 41.2
-            },
-            {
-              "zone": "thermal_zone12",
-              "type": "cpu-1-0-1",
-              "temp_c": 42.4
-            },
-            {
-              "zone": "thermal_zone13",
-              "type": "cpu-1-1-0",
-              "temp_c": 40.8
-            },
-            {
-              "zone": "thermal_zone14",
-              "type": "cpu-1-1-1",
-              "temp_c": 41.6
-            },
-            {
-              "zone": "thermal_zone15",
-              "type": "aoss-1",
-              "temp_c": 42.4
-            }
-          ]
-        }
-      },
-      "size_mb": 350,
-      "display_name": "Qwen2.5 0.5B Instruct (Q4_K_M)",
-      "provider": "Qwen",
-      "target_device_tier": "mid",
-      "registry_notes": "Smaller model for mid-range devices. Expect quality drop vs 1.5B.",
-      "scoring": {
-        "raw": {
-          "avg_tok_s": 46.579,
-          "temp_delta_c": 0.0,
-          "stability": 1.0,
-          "output_rate": 1.0,
-          "size_mb": 350.0
-        },
-        "components": {
-          "speed": 1.0,
-          "thermal_efficiency": 1.0,
-          "stability": 1.0,
-          "output_success": 1.0,
-          "memory_efficiency": 1.0
-        },
-        "weights": {
-          "speed": 0.25,
-          "thermal_efficiency": 0.25,
-          "stability": 0.2,
-          "output_success": 0.2,
-          "memory_efficiency": 0.1
-        },
-        "weighted_score": 1.0,
-        "rank": 1
-      },
-      "quality_scores": {
-        "quality_score": 0.3351,
-        "consistency_score": 0.0,
-        "hallucination_rate": 0.0667,
-        "truncation_rate": 0.9667,
-        "harmful_advice_rate": 0.0,
-        "structured_output_success_rate": 0.0,
-        "recommendation_quality_score": 0.3806,
-        "category_quality": {
-          "budget_overspend": 0.2535,
-          "cashflow_warning": 0.2819,
-          "category_spike": 0.2334,
-          "credit_card_planning": 0.326,
-          "debt_payoff": 0.3708,
-          "emi_pressure": 0.2812,
-          "expense_summary": 0.3028,
-          "lic_outflow": 0.3479,
-          "safe_spend_remaining": 0.2253,
-          "sip_planning": 0.2094
-        },
-        "difficulty_quality": {
-          "easy": 0.2782,
-          "hard": 0.2848,
-          "medium": 0.287
-        }
-      }
-    },
-    {
-      "device": "samsung-s24-ultra",
       "model": "tinyllama-1.1b-q4km",
-      "timestamp": "20260524_192319",
-      "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260524_192319",
+      "timestamp": "20260525_214044",
+      "methodology_version": "v1",
+      "benchmark_mode": "real_world",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
+      "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260525_214044",
       "files": {
         "benchmark_jsonl": true,
         "summary_csv": true,
@@ -5682,48 +7427,50 @@
         "success": "20",
         "timeout": "0",
         "error": "0",
-        "p50_duration_ms": "3304",
-        "p50_tokens_per_sec": "28.89",
-        "max_tokens": "256",
+        "p50_duration_ms": "4235",
+        "p50_tokens_per_sec": "26.19",
+        "max_tokens": "512",
         "threads": "4",
-        "prompt_timeout_s": "90",
+        "prompt_timeout_s": "180",
         "output_present": "20",
-        "thermal_warning_count": "6",
-        "max_temp_before_c": "53.8",
-        "max_temp_after_c": "41.2",
-        "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
+        "thermal_warning_count": "1",
+        "max_temp_before_c": "45.5",
+        "max_temp_after_c": "48.3",
+        "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli",
+        "profile": "quality",
+        "benchmark_mode": "real_world"
       },
       "derived": {
         "prompts": 20,
         "success": 20,
         "timeout": 0,
         "error": 0,
-        "total_time_ms": 88780,
-        "p50_duration_ms": 3304.0,
-        "p95_duration_ms": 12574.0,
-        "p50_tokens_per_sec": 28.89,
-        "avg_tokens_per_sec": 28.593333333333334,
-        "avg_output_words": 74.5,
+        "total_time_ms": 123538,
+        "p50_duration_ms": 4235.0,
+        "p95_duration_ms": 22768.0,
+        "p50_tokens_per_sec": 26.19,
+        "avg_tokens_per_sec": 26.19,
+        "avg_output_words": 67.3,
         "output_present": 20,
-        "thermal_warning_count": 6,
-        "max_temp_before_c": 53.8,
-        "max_temp_after_c": 41.2,
+        "thermal_warning_count": 1,
+        "max_temp_before_c": 45.5,
+        "max_temp_after_c": 48.3,
         "thermal_before_bucket": "green",
         "thermal_after_bucket": "green",
-        "ram_delta_mb": -176,
+        "ram_delta_mb": 98,
         "prompt_results": [
           {
             "prompt_id": "P01",
             "status": "ok",
-            "duration_ms": 3292,
+            "duration_ms": 3897,
             "tokens_per_sec": null,
             "out_words": 43,
-            "thermal_warning": true
+            "thermal_warning": false
           },
           {
             "prompt_id": "P02",
             "status": "ok",
-            "duration_ms": 2572,
+            "duration_ms": 9541,
             "tokens_per_sec": null,
             "out_words": 44,
             "thermal_warning": false
@@ -5731,39 +7478,39 @@
           {
             "prompt_id": "P03",
             "status": "ok",
-            "duration_ms": 2943,
+            "duration_ms": 3595,
             "tokens_per_sec": null,
             "out_words": 41,
-            "thermal_warning": true
+            "thermal_warning": false
           },
           {
             "prompt_id": "P04",
             "status": "ok",
-            "duration_ms": 12267,
-            "tokens_per_sec": 29.02,
-            "out_words": 256,
-            "thermal_warning": true
+            "duration_ms": 4142,
+            "tokens_per_sec": null,
+            "out_words": 49,
+            "thermal_warning": false
           },
           {
             "prompt_id": "P05",
             "status": "ok",
-            "duration_ms": 3322,
+            "duration_ms": 4122,
             "tokens_per_sec": null,
             "out_words": 60,
-            "thermal_warning": true
+            "thermal_warning": false
           },
           {
             "prompt_id": "P06",
             "status": "ok",
-            "duration_ms": 6386,
-            "tokens_per_sec": 28.89,
-            "out_words": 107,
+            "duration_ms": 22768,
+            "tokens_per_sec": 26.19,
+            "out_words": 268,
             "thermal_warning": true
           },
           {
             "prompt_id": "P07",
             "status": "ok",
-            "duration_ms": 2219,
+            "duration_ms": 10885,
             "tokens_per_sec": null,
             "out_words": 42,
             "thermal_warning": false
@@ -5771,7 +7518,7 @@
           {
             "prompt_id": "P08",
             "status": "ok",
-            "duration_ms": 2826,
+            "duration_ms": 11515,
             "tokens_per_sec": null,
             "out_words": 55,
             "thermal_warning": false
@@ -5779,7 +7526,7 @@
           {
             "prompt_id": "P09",
             "status": "ok",
-            "duration_ms": 3158,
+            "duration_ms": 3603,
             "tokens_per_sec": null,
             "out_words": 59,
             "thermal_warning": false
@@ -5787,7 +7534,7 @@
           {
             "prompt_id": "P10",
             "status": "ok",
-            "duration_ms": 3296,
+            "duration_ms": 4083,
             "tokens_per_sec": null,
             "out_words": 56,
             "thermal_warning": false
@@ -5795,7 +7542,7 @@
           {
             "prompt_id": "P11",
             "status": "ok",
-            "duration_ms": 5100,
+            "duration_ms": 6006,
             "tokens_per_sec": null,
             "out_words": 58,
             "thermal_warning": false
@@ -5803,7 +7550,7 @@
           {
             "prompt_id": "P12",
             "status": "ok",
-            "duration_ms": 3304,
+            "duration_ms": 4235,
             "tokens_per_sec": null,
             "out_words": 64,
             "thermal_warning": false
@@ -5811,15 +7558,15 @@
           {
             "prompt_id": "P13",
             "status": "ok",
-            "duration_ms": 12574,
-            "tokens_per_sec": 27.87,
-            "out_words": 154,
-            "thermal_warning": true
+            "duration_ms": 4155,
+            "tokens_per_sec": null,
+            "out_words": 56,
+            "thermal_warning": false
           },
           {
             "prompt_id": "P14",
             "status": "ok",
-            "duration_ms": 3820,
+            "duration_ms": 4705,
             "tokens_per_sec": null,
             "out_words": 68,
             "thermal_warning": false
@@ -5827,7 +7574,7 @@
           {
             "prompt_id": "P15",
             "status": "ok",
-            "duration_ms": 3851,
+            "duration_ms": 4894,
             "tokens_per_sec": null,
             "out_words": 65,
             "thermal_warning": false
@@ -5835,7 +7582,7 @@
           {
             "prompt_id": "P16",
             "status": "ok",
-            "duration_ms": 3297,
+            "duration_ms": 4209,
             "tokens_per_sec": null,
             "out_words": 62,
             "thermal_warning": false
@@ -5843,7 +7590,7 @@
           {
             "prompt_id": "P17",
             "status": "ok",
-            "duration_ms": 3229,
+            "duration_ms": 4025,
             "tokens_per_sec": null,
             "out_words": 64,
             "thermal_warning": false
@@ -5851,7 +7598,7 @@
           {
             "prompt_id": "P18",
             "status": "ok",
-            "duration_ms": 2492,
+            "duration_ms": 3147,
             "tokens_per_sec": null,
             "out_words": 46,
             "thermal_warning": false
@@ -5859,7 +7606,7 @@
           {
             "prompt_id": "P19",
             "status": "ok",
-            "duration_ms": 4424,
+            "duration_ms": 5055,
             "tokens_per_sec": null,
             "out_words": 70,
             "thermal_warning": false
@@ -5867,7 +7614,7 @@
           {
             "prompt_id": "P20",
             "status": "ok",
-            "duration_ms": 4408,
+            "duration_ms": 4956,
             "tokens_per_sec": null,
             "out_words": 76,
             "thermal_warning": false
@@ -5875,80 +7622,7 @@
         ]
       },
       "snapshot_before": {
-        "timestamp": "2026-05-24T13:53:19Z",
-        "device": {
-          "model": "SM-S928B",
-          "brand": "samsung",
-          "board": "pineapple",
-          "android_version": "16",
-          "android_sdk": "36",
-          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
-        },
-        "cpu": {
-          "hardware": "\nunknown",
-          "cores": 8,
-          "max_freq": "2265600kHz",
-          "current_freq": "1017600kHz",
-          "load_avg_1_5_15": "unknown"
-        },
-        "memory": {
-          "total_mb": 11085,
-          "available_mb": 2839,
-          "used_mb": 8246
-        },
-        "battery": {
-          "level_pct": "unknown",
-          "status": "unknown",
-          "temp_c": "unknown"
-        },
-        "thermal": {
-          "android_status": "unknown",
-          "zones": [
-            {
-              "zone": "thermal_zone0",
-              "type": "aoss-0",
-              "temp_c": 43.6
-            },
-            {
-              "zone": "thermal_zone1",
-              "type": "cpuss-0",
-              "temp_c": 47.9
-            },
-            {
-              "zone": "thermal_zone10",
-              "type": "cpu-2-2-1",
-              "temp_c": 48.3
-            },
-            {
-              "zone": "thermal_zone11",
-              "type": "cpu-1-0-0",
-              "temp_c": 50.6
-            },
-            {
-              "zone": "thermal_zone12",
-              "type": "cpu-1-0-1",
-              "temp_c": 51.8
-            },
-            {
-              "zone": "thermal_zone13",
-              "type": "cpu-1-1-0",
-              "temp_c": 51.8
-            },
-            {
-              "zone": "thermal_zone14",
-              "type": "cpu-1-1-1",
-              "temp_c": 53.8
-            },
-            {
-              "zone": "thermal_zone15",
-              "type": "aoss-1",
-              "temp_c": 45.1
-            }
-          ]
-        }
-      },
-      "snapshot_after": {
-        "timestamp": "2026-05-24T14:10:56Z",
+        "timestamp": "2026-05-25T16:10:44Z",
         "device": {
           "model": "SM-S928B",
           "brand": "samsung",
@@ -5966,8 +7640,8 @@
         },
         "memory": {
           "total_mb": 11085,
-          "available_mb": 3015,
-          "used_mb": 8070
+          "available_mb": 3508,
+          "used_mb": 7577
         },
         "battery": {
           "level_pct": "unknown",
@@ -5980,42 +7654,115 @@
             {
               "zone": "thermal_zone0",
               "type": "aoss-0",
-              "temp_c": 38.5
+              "temp_c": 42.0
             },
             {
               "zone": "thermal_zone1",
               "type": "cpuss-0",
-              "temp_c": 39.6
+              "temp_c": 44.0
             },
             {
               "zone": "thermal_zone10",
               "type": "cpu-2-2-1",
-              "temp_c": 41.2
+              "temp_c": 45.5
             },
             {
               "zone": "thermal_zone11",
               "type": "cpu-1-0-0",
-              "temp_c": 38.5
+              "temp_c": 42.4
             },
             {
               "zone": "thermal_zone12",
               "type": "cpu-1-0-1",
-              "temp_c": 38.9
+              "temp_c": 43.2
             },
             {
               "zone": "thermal_zone13",
               "type": "cpu-1-1-0",
-              "temp_c": 38.1
+              "temp_c": 42.0
             },
             {
               "zone": "thermal_zone14",
               "type": "cpu-1-1-1",
-              "temp_c": 38.1
+              "temp_c": 42.4
             },
             {
               "zone": "thermal_zone15",
               "type": "aoss-1",
-              "temp_c": 39.3
+              "temp_c": 43.6
+            }
+          ]
+        }
+      },
+      "snapshot_after": {
+        "timestamp": "2026-05-25T16:24:09Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "1344000kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3410,
+          "used_mb": 7675
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 40.8
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 42.0
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 48.3
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 40.8
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 40.8
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 40.0
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 40.4
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 42.0
             }
           ]
         }
@@ -6027,15 +7774,15 @@
       "registry_notes": "Common baseline. Fast, but finance reasoning may be weaker than Qwen2.5.",
       "scoring": {
         "raw": {
-          "avg_tok_s": 28.593333333333334,
-          "temp_delta_c": -12.599999999999994,
+          "avg_tok_s": 26.19,
+          "temp_delta_c": 2.799999999999997,
           "stability": 1.0,
           "output_rate": 1.0,
           "size_mb": 700.0
         },
         "components": {
-          "speed": 0.6139,
-          "thermal_efficiency": 1.0,
+          "speed": 1.0,
+          "thermal_efficiency": 0.8133,
           "stability": 1.0,
           "output_success": 1.0,
           "memory_efficiency": 0.8108
@@ -6047,33 +7794,231 @@
           "output_success": 0.2,
           "memory_efficiency": 0.1
         },
-        "weighted_score": 0.8845,
-        "rank": 2
+        "weighted_score": 0.9344,
+        "rank": 1
       },
       "quality_scores": {
-        "quality_score": 0.5813,
-        "consistency_score": 0.7787,
-        "hallucination_rate": 0.05,
+        "quality_score": 0.5958,
+        "consistency_score": 0.8474,
+        "hallucination_rate": 0.075,
         "truncation_rate": 0.05,
         "harmful_advice_rate": 0.0,
         "structured_output_success_rate": 0.0,
-        "recommendation_quality_score": 0.5709,
+        "recommendation_quality_score": 0.5979,
         "category_quality": {
           "budget_overspend": 0.607,
           "cashflow_warning": 0.6054,
           "category_spike": 0.5667,
-          "credit_card_planning": 0.6125,
+          "credit_card_planning": 0.5958,
           "debt_payoff": 0.7583,
-          "emi_pressure": 0.5605,
+          "emi_pressure": 0.5507,
           "expense_summary": 0.55,
           "lic_outflow": 0.7958,
-          "safe_spend_remaining": 0.5507,
+          "safe_spend_remaining": 0.5629,
           "sip_planning": 0.5188
         },
         "difficulty_quality": {
-          "easy": 0.631,
-          "hard": 0.6155,
-          "medium": 0.5898
+          "easy": 0.6416,
+          "hard": 0.6116,
+          "medium": 0.5913
+        }
+      }
+    },
+    {
+      "device": "samsung-s24-ultra",
+      "model": "qwen2.5-0.5b-q4km",
+      "timestamp": "20260525_225017",
+      "methodology_version": "v1",
+      "benchmark_mode": "real_world",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260525_225017",
+      "files": {
+        "benchmark_jsonl": true,
+        "summary_csv": false,
+        "summary_md": false,
+        "snapshot_before": true,
+        "snapshot_after": false
+      },
+      "quality_score": null,
+      "summary": {},
+      "derived": {
+        "prompts": 3,
+        "success": 3,
+        "timeout": 0,
+        "error": 0,
+        "total_time_ms": 5507336,
+        "p50_duration_ms": 165182.0,
+        "p95_duration_ms": 5326613.0,
+        "p50_tokens_per_sec": 12.43,
+        "avg_tokens_per_sec": 20.03,
+        "avg_output_words": 326,
+        "output_present": 3,
+        "thermal_warning_count": 2,
+        "max_temp_before_c": 44.0,
+        "max_temp_after_c": null,
+        "thermal_before_bucket": "green",
+        "thermal_after_bucket": "unknown",
+        "ram_delta_mb": null,
+        "prompt_results": [
+          {
+            "prompt_id": "P01",
+            "status": "ok",
+            "duration_ms": 15541,
+            "tokens_per_sec": 42.59,
+            "out_words": 253,
+            "thermal_warning": true
+          },
+          {
+            "prompt_id": "P02",
+            "status": "ok",
+            "duration_ms": 165182,
+            "tokens_per_sec": 12.43,
+            "out_words": 325,
+            "thermal_warning": false
+          },
+          {
+            "prompt_id": "P03",
+            "status": "ok",
+            "duration_ms": 5326613,
+            "tokens_per_sec": 5.07,
+            "out_words": 400,
+            "thermal_warning": true
+          }
+        ]
+      },
+      "snapshot_before": {
+        "timestamp": "2026-05-25T17:20:17Z",
+        "device": {
+          "model": "SM-S928B",
+          "brand": "samsung",
+          "board": "pineapple",
+          "android_version": "16",
+          "android_sdk": "36",
+          "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+        },
+        "cpu": {
+          "hardware": "\nunknown",
+          "cores": 8,
+          "max_freq": "2265600kHz",
+          "current_freq": "556800kHz",
+          "load_avg_1_5_15": "unknown"
+        },
+        "memory": {
+          "total_mb": 11085,
+          "available_mb": 3612,
+          "used_mb": 7473
+        },
+        "battery": {
+          "level_pct": "unknown",
+          "status": "unknown",
+          "temp_c": "unknown"
+        },
+        "thermal": {
+          "android_status": "unknown",
+          "zones": [
+            {
+              "zone": "thermal_zone0",
+              "type": "aoss-0",
+              "temp_c": 42.0
+            },
+            {
+              "zone": "thermal_zone1",
+              "type": "cpuss-0",
+              "temp_c": 44.0
+            },
+            {
+              "zone": "thermal_zone10",
+              "type": "cpu-2-2-1",
+              "temp_c": 44.0
+            },
+            {
+              "zone": "thermal_zone11",
+              "type": "cpu-1-0-0",
+              "temp_c": 42.4
+            },
+            {
+              "zone": "thermal_zone12",
+              "type": "cpu-1-0-1",
+              "temp_c": 42.8
+            },
+            {
+              "zone": "thermal_zone13",
+              "type": "cpu-1-1-0",
+              "temp_c": 42.0
+            },
+            {
+              "zone": "thermal_zone14",
+              "type": "cpu-1-1-1",
+              "temp_c": 42.4
+            },
+            {
+              "zone": "thermal_zone15",
+              "type": "aoss-1",
+              "temp_c": 43.6
+            }
+          ]
+        }
+      },
+      "snapshot_after": null,
+      "size_mb": 350,
+      "display_name": "Qwen2.5 0.5B Instruct (Q4_K_M)",
+      "provider": "Qwen",
+      "target_device_tier": "mid",
+      "registry_notes": "Smaller model for mid-range devices. Expect quality drop vs 1.5B.",
+      "scoring": {
+        "raw": {
+          "avg_tok_s": 20.03,
+          "temp_delta_c": null,
+          "stability": 1.0,
+          "output_rate": 1.0,
+          "size_mb": 350.0
+        },
+        "components": {
+          "speed": 0.7648,
+          "thermal_efficiency": 0.5,
+          "stability": 1.0,
+          "output_success": 1.0,
+          "memory_efficiency": 1.0
+        },
+        "weights": {
+          "speed": 0.25,
+          "thermal_efficiency": 0.25,
+          "stability": 0.2,
+          "output_success": 0.2,
+          "memory_efficiency": 0.1
+        },
+        "weighted_score": 0.8162,
+        "rank": 2
+      },
+      "quality_scores": {
+        "quality_score": 0.4188,
+        "consistency_score": 0.0,
+        "hallucination_rate": 0.1367,
+        "truncation_rate": 0.97,
+        "harmful_advice_rate": 0.0,
+        "structured_output_success_rate": 0.0,
+        "recommendation_quality_score": 0.4522,
+        "category_quality": {
+          "budget_overspend": 0.338,
+          "cashflow_warning": 0.3758,
+          "category_spike": 0.3111,
+          "credit_card_planning": 0.4354,
+          "debt_payoff": 0.4778,
+          "emi_pressure": 0.4244,
+          "expense_summary": 0.3884,
+          "lic_outflow": 0.4639,
+          "safe_spend_remaining": 0.3004,
+          "sip_planning": 0.2792
+        },
+        "difficulty_quality": {
+          "easy": 0.361,
+          "hard": 0.3806,
+          "medium": 0.3908
         }
       }
     },
@@ -6081,6 +8026,14 @@
       "device": "samsung-s24-ultra",
       "model": "phi3-mini-q4km",
       "timestamp": "20260524_221813",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/phi3-mini-q4km/20260524_221813",
       "files": {
         "benchmark_jsonl": true,
@@ -6450,7 +8403,7 @@
           "size_mb": 2200.0
         },
         "components": {
-          "speed": 0.1444,
+          "speed": 0.2568,
           "thermal_efficiency": 1.0,
           "stability": 1.0,
           "output_success": 1.0,
@@ -6463,7 +8416,7 @@
           "output_success": 0.2,
           "memory_efficiency": 0.1
         },
-        "weighted_score": 0.6861,
+        "weighted_score": 0.7142,
         "rank": 3
       },
       "quality_scores": {
@@ -6496,8 +8449,16 @@
     {
       "device": "samsung-s24-ultra",
       "model": "qwen2.5-1.5b-q4km",
-      "timestamp": "20260524_181530",
-      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_181530",
+      "timestamp": "20260525_215523",
+      "methodology_version": "v1",
+      "benchmark_mode": "real_world",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
+      "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260525_215523",
       "files": {
         "benchmark_jsonl": true,
         "summary_csv": true,
@@ -6514,200 +8475,202 @@
         "success": "20",
         "timeout": "0",
         "error": "0",
-        "p50_duration_ms": "18481",
-        "p50_tokens_per_sec": "18.83",
-        "max_tokens": "256",
+        "p50_duration_ms": "36127",
+        "p50_tokens_per_sec": "16.91",
+        "max_tokens": "512",
         "threads": "4",
-        "prompt_timeout_s": "90",
+        "prompt_timeout_s": "180",
         "output_present": "20",
-        "thermal_warning_count": "20",
-        "max_temp_before_c": "45.9",
-        "max_temp_after_c": "55.8",
-        "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
+        "thermal_warning_count": "15",
+        "max_temp_before_c": "42.4",
+        "max_temp_after_c": "52.2",
+        "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli",
+        "profile": "quality",
+        "benchmark_mode": "real_world"
       },
       "derived": {
         "prompts": 20,
         "success": 20,
         "timeout": 0,
         "error": 0,
-        "total_time_ms": 371155,
-        "p50_duration_ms": 18481.0,
-        "p95_duration_ms": 20691.0,
-        "p50_tokens_per_sec": 18.83,
-        "avg_tokens_per_sec": 18.5425,
-        "avg_output_words": 213.9,
+        "total_time_ms": 744368,
+        "p50_duration_ms": 36127.0,
+        "p95_duration_ms": 46603.0,
+        "p50_tokens_per_sec": 16.91,
+        "avg_tokens_per_sec": 16.3965,
+        "avg_output_words": 360.2,
         "output_present": 20,
-        "thermal_warning_count": 20,
-        "max_temp_before_c": 45.9,
-        "max_temp_after_c": 55.8,
+        "thermal_warning_count": 15,
+        "max_temp_before_c": 42.4,
+        "max_temp_after_c": 52.2,
         "thermal_before_bucket": "green",
-        "thermal_after_bucket": "yellow",
-        "ram_delta_mb": -290,
+        "thermal_after_bucket": "green",
+        "ram_delta_mb": -205,
         "prompt_results": [
           {
             "prompt_id": "P01",
             "status": "ok",
-            "duration_ms": 18718,
-            "tokens_per_sec": 18.0,
-            "out_words": 158,
+            "duration_ms": 36493,
+            "tokens_per_sec": 16.83,
+            "out_words": 283,
             "thermal_warning": true
           },
           {
             "prompt_id": "P02",
             "status": "ok",
-            "duration_ms": 17961,
-            "tokens_per_sec": 18.23,
-            "out_words": 197,
-            "thermal_warning": true
+            "duration_ms": 34857,
+            "tokens_per_sec": 17.04,
+            "out_words": 335,
+            "thermal_warning": false
           },
           {
             "prompt_id": "P03",
             "status": "ok",
-            "duration_ms": 17960,
-            "tokens_per_sec": 18.53,
-            "out_words": 177,
+            "duration_ms": 37397,
+            "tokens_per_sec": 15.86,
+            "out_words": 367,
             "thermal_warning": true
           },
           {
             "prompt_id": "P04",
             "status": "ok",
-            "duration_ms": 20691,
-            "tokens_per_sec": 17.26,
-            "out_words": 160,
+            "duration_ms": 34955,
+            "tokens_per_sec": 17.44,
+            "out_words": 304,
             "thermal_warning": true
           },
           {
             "prompt_id": "P05",
             "status": "ok",
-            "duration_ms": 18512,
-            "tokens_per_sec": 18.62,
-            "out_words": 173,
+            "duration_ms": 36395,
+            "tokens_per_sec": 16.74,
+            "out_words": 334,
             "thermal_warning": true
           },
           {
             "prompt_id": "P06",
             "status": "ok",
-            "duration_ms": 18903,
-            "tokens_per_sec": 17.65,
-            "out_words": 204,
+            "duration_ms": 34959,
+            "tokens_per_sec": 17.23,
+            "out_words": 403,
             "thermal_warning": true
           },
           {
             "prompt_id": "P07",
             "status": "ok",
-            "duration_ms": 16786,
-            "tokens_per_sec": 19.14,
-            "out_words": 199,
+            "duration_ms": 34214,
+            "tokens_per_sec": 17.2,
+            "out_words": 273,
             "thermal_warning": true
           },
           {
             "prompt_id": "P08",
             "status": "ok",
-            "duration_ms": 17335,
-            "tokens_per_sec": 19.18,
-            "out_words": 215,
+            "duration_ms": 34662,
+            "tokens_per_sec": 17.24,
+            "out_words": 287,
             "thermal_warning": true
           },
           {
             "prompt_id": "P09",
             "status": "ok",
-            "duration_ms": 19288,
-            "tokens_per_sec": 17.37,
-            "out_words": 283,
+            "duration_ms": 35499,
+            "tokens_per_sec": 16.91,
+            "out_words": 362,
             "thermal_warning": true
           },
           {
             "prompt_id": "P10",
             "status": "ok",
-            "duration_ms": 18456,
-            "tokens_per_sec": 18.47,
-            "out_words": 257,
-            "thermal_warning": true
+            "duration_ms": 36127,
+            "tokens_per_sec": 16.77,
+            "out_words": 396,
+            "thermal_warning": false
           },
           {
             "prompt_id": "P11",
             "status": "ok",
-            "duration_ms": 19899,
-            "tokens_per_sec": 19.13,
-            "out_words": 175,
-            "thermal_warning": true
+            "duration_ms": 46603,
+            "tokens_per_sec": 13.7,
+            "out_words": 274,
+            "thermal_warning": false
           },
           {
             "prompt_id": "P12",
             "status": "ok",
-            "duration_ms": 17888,
-            "tokens_per_sec": 19.28,
-            "out_words": 299,
-            "thermal_warning": true
+            "duration_ms": 38753,
+            "tokens_per_sec": 15.5,
+            "out_words": 534,
+            "thermal_warning": false
           },
           {
             "prompt_id": "P13",
             "status": "ok",
-            "duration_ms": 18234,
-            "tokens_per_sec": 18.85,
-            "out_words": 182,
-            "thermal_warning": true
+            "duration_ms": 42202,
+            "tokens_per_sec": 14.06,
+            "out_words": 321,
+            "thermal_warning": false
           },
           {
             "prompt_id": "P14",
             "status": "ok",
-            "duration_ms": 19611,
-            "tokens_per_sec": 17.86,
-            "out_words": 177,
+            "duration_ms": 44436,
+            "tokens_per_sec": 13.55,
+            "out_words": 332,
             "thermal_warning": true
           },
           {
             "prompt_id": "P15",
             "status": "ok",
-            "duration_ms": 18481,
-            "tokens_per_sec": 19.24,
-            "out_words": 181,
+            "duration_ms": 35897,
+            "tokens_per_sec": 17.26,
+            "out_words": 289,
             "thermal_warning": true
           },
           {
             "prompt_id": "P16",
             "status": "ok",
-            "duration_ms": 18316,
-            "tokens_per_sec": 18.83,
-            "out_words": 226,
+            "duration_ms": 34521,
+            "tokens_per_sec": 17.7,
+            "out_words": 312,
             "thermal_warning": true
           },
           {
             "prompt_id": "P17",
             "status": "ok",
-            "duration_ms": 18358,
-            "tokens_per_sec": 18.45,
-            "out_words": 253,
+            "duration_ms": 35228,
+            "tokens_per_sec": 17.24,
+            "out_words": 474,
             "thermal_warning": true
           },
           {
             "prompt_id": "P18",
             "status": "ok",
-            "duration_ms": 17171,
-            "tokens_per_sec": 18.89,
-            "out_words": 277,
+            "duration_ms": 34493,
+            "tokens_per_sec": 17.14,
+            "out_words": 514,
             "thermal_warning": true
           },
           {
             "prompt_id": "P19",
             "status": "ok",
-            "duration_ms": 19299,
-            "tokens_per_sec": 18.88,
-            "out_words": 199,
+            "duration_ms": 37575,
+            "tokens_per_sec": 16.63,
+            "out_words": 283,
             "thermal_warning": true
           },
           {
             "prompt_id": "P20",
             "status": "ok",
-            "duration_ms": 19288,
-            "tokens_per_sec": 18.99,
-            "out_words": 286,
+            "duration_ms": 39102,
+            "tokens_per_sec": 15.89,
+            "out_words": 528,
             "thermal_warning": true
           }
         ]
       },
       "snapshot_before": {
-        "timestamp": "2026-05-24T12:45:30Z",
+        "timestamp": "2026-05-25T16:25:23Z",
         "device": {
           "model": "SM-S928B",
           "brand": "samsung",
@@ -6725,8 +8688,8 @@
         },
         "memory": {
           "total_mb": 11085,
-          "available_mb": 3380,
-          "used_mb": 7705
+          "available_mb": 3417,
+          "used_mb": 7667
         },
         "battery": {
           "level_pct": "unknown",
@@ -6739,48 +8702,48 @@
             {
               "zone": "thermal_zone0",
               "type": "aoss-0",
-              "temp_c": 42.0
+              "temp_c": 40.4
             },
             {
               "zone": "thermal_zone1",
               "type": "cpuss-0",
-              "temp_c": 44.4
+              "temp_c": 42.4
             },
             {
               "zone": "thermal_zone10",
               "type": "cpu-2-2-1",
-              "temp_c": 45.9
+              "temp_c": 42.0
             },
             {
               "zone": "thermal_zone11",
               "type": "cpu-1-0-0",
-              "temp_c": 42.4
+              "temp_c": 40.4
             },
             {
               "zone": "thermal_zone12",
               "type": "cpu-1-0-1",
-              "temp_c": 42.8
+              "temp_c": 40.4
             },
             {
               "zone": "thermal_zone13",
               "type": "cpu-1-1-0",
-              "temp_c": 42.0
+              "temp_c": 40.0
             },
             {
               "zone": "thermal_zone14",
               "type": "cpu-1-1-1",
-              "temp_c": 42.8
+              "temp_c": 40.4
             },
             {
               "zone": "thermal_zone15",
               "type": "aoss-1",
-              "temp_c": 43.6
+              "temp_c": 41.3
             }
           ]
         }
       },
       "snapshot_after": {
-        "timestamp": "2026-05-24T13:21:49Z",
+        "timestamp": "2026-05-25T17:03:11Z",
         "device": {
           "model": "SM-S928B",
           "brand": "samsung",
@@ -6793,13 +8756,13 @@
           "hardware": "\nunknown",
           "cores": 8,
           "max_freq": "2265600kHz",
-          "current_freq": "1689600kHz",
+          "current_freq": "556800kHz",
           "load_avg_1_5_15": "unknown"
         },
         "memory": {
           "total_mb": 11085,
-          "available_mb": 3670,
-          "used_mb": 7415
+          "available_mb": 3623,
+          "used_mb": 7462
         },
         "battery": {
           "level_pct": "unknown",
@@ -6812,42 +8775,42 @@
             {
               "zone": "thermal_zone0",
               "type": "aoss-0",
-              "temp_c": 45.9
+              "temp_c": 44.0
             },
             {
               "zone": "thermal_zone1",
               "type": "cpuss-0",
-              "temp_c": 49.5
+              "temp_c": 45.5
             },
             {
               "zone": "thermal_zone10",
               "type": "cpu-2-2-1",
-              "temp_c": 51.0
+              "temp_c": 52.2
             },
             {
               "zone": "thermal_zone11",
               "type": "cpu-1-0-0",
-              "temp_c": 51.8
+              "temp_c": 44.7
             },
             {
               "zone": "thermal_zone12",
               "type": "cpu-1-0-1",
-              "temp_c": 53.0
+              "temp_c": 44.4
             },
             {
               "zone": "thermal_zone13",
               "type": "cpu-1-1-0",
-              "temp_c": 53.8
+              "temp_c": 44.0
             },
             {
               "zone": "thermal_zone14",
               "type": "cpu-1-1-1",
-              "temp_c": 55.8
+              "temp_c": 44.4
             },
             {
               "zone": "thermal_zone15",
               "type": "aoss-1",
-              "temp_c": 47.5
+              "temp_c": 45.1
             }
           ]
         }
@@ -6859,15 +8822,15 @@
       "registry_notes": "Best quality/size balance for S24 Ultra class devices. Good baseline for finance prompts.",
       "scoring": {
         "raw": {
-          "avg_tok_s": 18.5425,
-          "temp_delta_c": 9.899999999999999,
+          "avg_tok_s": 16.3965,
+          "temp_delta_c": 9.800000000000004,
           "stability": 1.0,
           "output_rate": 1.0,
           "size_mb": 980.0
         },
         "components": {
-          "speed": 0.3981,
-          "thermal_efficiency": 0.34,
+          "speed": 0.6261,
+          "thermal_efficiency": 0.3467,
           "stability": 1.0,
           "output_success": 1.0,
           "memory_efficiency": 0.6595
@@ -6879,33 +8842,33 @@
           "output_success": 0.2,
           "memory_efficiency": 0.1
         },
-        "weighted_score": 0.6505,
+        "weighted_score": 0.7091,
         "rank": 4
       },
       "quality_scores": {
-        "quality_score": 0.2503,
+        "quality_score": 0.3502,
         "consistency_score": 0.0,
-        "hallucination_rate": 0.0333,
-        "truncation_rate": 0.9833,
+        "hallucination_rate": 0.0875,
+        "truncation_rate": 0.975,
         "harmful_advice_rate": 0.0,
         "structured_output_success_rate": 0.0,
-        "recommendation_quality_score": 0.2875,
+        "recommendation_quality_score": 0.4156,
         "category_quality": {
-          "budget_overspend": 0.3198,
-          "cashflow_warning": 0.2527,
-          "category_spike": 0.2906,
-          "credit_card_planning": 0.2854,
-          "debt_payoff": 0.3781,
-          "emi_pressure": 0.325,
-          "expense_summary": 0.2592,
-          "lic_outflow": 0.4062,
-          "safe_spend_remaining": 0.2878,
-          "sip_planning": 0.2094
+          "budget_overspend": 0.4922,
+          "cashflow_warning": 0.379,
+          "category_spike": 0.4104,
+          "credit_card_planning": 0.4797,
+          "debt_payoff": 0.5672,
+          "emi_pressure": 0.5448,
+          "expense_summary": 0.3625,
+          "lic_outflow": 0.5875,
+          "safe_spend_remaining": 0.5158,
+          "sip_planning": 0.3286
         },
         "difficulty_quality": {
-          "easy": 0.3349,
-          "hard": 0.2732,
-          "medium": 0.2805
+          "easy": 0.4847,
+          "hard": 0.4227,
+          "medium": 0.4603
         }
       }
     },
@@ -6913,6 +8876,14 @@
       "device": "samsung-s24-ultra",
       "model": "llama3.2-1b-q4km",
       "timestamp": "20260524_212426",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-1b-q4km/20260524_212426",
       "files": {
         "benchmark_jsonl": true,
@@ -7329,6 +9300,14 @@
       "device": "samsung-s24-ultra",
       "model": "llama3.2-3b-q4km",
       "timestamp": "20260524_215606",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-3b-q4km/20260524_215606",
       "files": {
         "benchmark_jsonl": true,
@@ -7745,6 +9724,14 @@
       "device": "samsung-s24-ultra",
       "model": "gemma-2b-q4km",
       "timestamp": "20260524_202052",
+      "methodology_version": "v1",
+      "benchmark_mode": "unknown",
+      "environment_metadata": {
+        "airplane_mode": null,
+        "post_reboot": null,
+        "background_apps_estimate": null,
+        "run_notes": ""
+      },
       "run_dir": "ai-lab/results/samsung-s24-ultra/gemma-2b-q4km/20260524_202052",
       "files": {
         "benchmark_jsonl": true,
@@ -8162,399 +10149,17 @@
     "samsung-s24-ultra": [
       {
         "device": "samsung-s24-ultra",
-        "model": "qwen2.5-0.5b-q4km",
-        "timestamp": "20260524_203804",
-        "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260524_203804",
-        "files": {
-          "benchmark_jsonl": true,
-          "summary_csv": true,
-          "summary_md": true,
-          "snapshot_before": true,
-          "snapshot_after": true
-        },
-        "quality_score": null,
-        "summary": {
-          "device_label": "samsung-s24-ultra",
-          "model_id": "qwen2.5-0.5b-q4km",
-          "model_mb": "468",
-          "prompts": "20",
-          "success": "20",
-          "timeout": "0",
-          "error": "0",
-          "p50_duration_ms": "7869",
-          "p50_tokens_per_sec": "47.33",
-          "max_tokens": "256",
-          "threads": "4",
-          "prompt_timeout_s": "90",
-          "output_present": "20",
-          "thermal_warning_count": "18",
-          "max_temp_before_c": "42.8",
-          "max_temp_after_c": "42.8",
-          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
-        },
-        "derived": {
-          "prompts": 20,
-          "success": 20,
-          "timeout": 0,
-          "error": 0,
-          "total_time_ms": 158444,
-          "p50_duration_ms": 7869.0,
-          "p95_duration_ms": 9222.0,
-          "p50_tokens_per_sec": 47.33,
-          "avg_tokens_per_sec": 46.579,
-          "avg_output_words": 222.8,
-          "output_present": 20,
-          "thermal_warning_count": 18,
-          "max_temp_before_c": 42.8,
-          "max_temp_after_c": 42.8,
-          "thermal_before_bucket": "green",
-          "thermal_after_bucket": "green",
-          "ram_delta_mb": -1422,
-          "prompt_results": [
-            {
-              "prompt_id": "P01",
-              "status": "ok",
-              "duration_ms": 7818,
-              "tokens_per_sec": 46.54,
-              "out_words": 184,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P02",
-              "status": "ok",
-              "duration_ms": 7419,
-              "tokens_per_sec": 47.79,
-              "out_words": 200,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P03",
-              "status": "ok",
-              "duration_ms": 7697,
-              "tokens_per_sec": 46.91,
-              "out_words": 175,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P04",
-              "status": "ok",
-              "duration_ms": 7710,
-              "tokens_per_sec": 47.95,
-              "out_words": 152,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P05",
-              "status": "ok",
-              "duration_ms": 7699,
-              "tokens_per_sec": 48.57,
-              "out_words": 216,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P06",
-              "status": "ok",
-              "duration_ms": 7620,
-              "tokens_per_sec": 47.33,
-              "out_words": 182,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P07",
-              "status": "ok",
-              "duration_ms": 8160,
-              "tokens_per_sec": 43.0,
-              "out_words": 190,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P08",
-              "status": "ok",
-              "duration_ms": 8187,
-              "tokens_per_sec": 44.55,
-              "out_words": 227,
-              "thermal_warning": false
-            },
-            {
-              "prompt_id": "P09",
-              "status": "ok",
-              "duration_ms": 8516,
-              "tokens_per_sec": 41.85,
-              "out_words": 286,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P10",
-              "status": "ok",
-              "duration_ms": 8257,
-              "tokens_per_sec": 44.59,
-              "out_words": 266,
-              "thermal_warning": false
-            },
-            {
-              "prompt_id": "P11",
-              "status": "ok",
-              "duration_ms": 9222,
-              "tokens_per_sec": 42.73,
-              "out_words": 186,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P12",
-              "status": "ok",
-              "duration_ms": 7970,
-              "tokens_per_sec": 45.87,
-              "out_words": 297,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P13",
-              "status": "ok",
-              "duration_ms": 7541,
-              "tokens_per_sec": 49.11,
-              "out_words": 208,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P14",
-              "status": "ok",
-              "duration_ms": 7869,
-              "tokens_per_sec": 48.15,
-              "out_words": 213,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P15",
-              "status": "ok",
-              "duration_ms": 7709,
-              "tokens_per_sec": 49.25,
-              "out_words": 224,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P16",
-              "status": "ok",
-              "duration_ms": 7607,
-              "tokens_per_sec": 48.78,
-              "out_words": 183,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P17",
-              "status": "ok",
-              "duration_ms": 7919,
-              "tokens_per_sec": 45.7,
-              "out_words": 299,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P18",
-              "status": "ok",
-              "duration_ms": 7225,
-              "tokens_per_sec": 48.96,
-              "out_words": 280,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P19",
-              "status": "ok",
-              "duration_ms": 8078,
-              "tokens_per_sec": 47.56,
-              "out_words": 184,
-              "thermal_warning": true
-            },
-            {
-              "prompt_id": "P20",
-              "status": "ok",
-              "duration_ms": 8221,
-              "tokens_per_sec": 46.39,
-              "out_words": 303,
-              "thermal_warning": true
-            }
-          ]
-        },
-        "snapshot_before": {
-          "timestamp": "2026-05-24T15:08:04Z",
-          "device": {
-            "model": "SM-S928B",
-            "brand": "samsung",
-            "board": "pineapple",
-            "android_version": "16",
-            "android_sdk": "36",
-            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
-          },
-          "cpu": {
-            "hardware": "\nunknown",
-            "cores": 8,
-            "max_freq": "2265600kHz",
-            "current_freq": "787200kHz",
-            "load_avg_1_5_15": "unknown"
-          },
-          "memory": {
-            "total_mb": 11085,
-            "available_mb": 2610,
-            "used_mb": 8475
-          },
-          "battery": {
-            "level_pct": "unknown",
-            "status": "unknown",
-            "temp_c": "unknown"
-          },
-          "thermal": {
-            "android_status": "unknown",
-            "zones": [
-              {
-                "zone": "thermal_zone0",
-                "type": "aoss-0",
-                "temp_c": 40.8
-              },
-              {
-                "zone": "thermal_zone1",
-                "type": "cpuss-0",
-                "temp_c": 42.8
-              },
-              {
-                "zone": "thermal_zone10",
-                "type": "cpu-2-2-1",
-                "temp_c": 42.8
-              },
-              {
-                "zone": "thermal_zone11",
-                "type": "cpu-1-0-0",
-                "temp_c": 41.2
-              },
-              {
-                "zone": "thermal_zone12",
-                "type": "cpu-1-0-1",
-                "temp_c": 41.2
-              },
-              {
-                "zone": "thermal_zone13",
-                "type": "cpu-1-1-0",
-                "temp_c": 40.8
-              },
-              {
-                "zone": "thermal_zone14",
-                "type": "cpu-1-1-1",
-                "temp_c": 41.2
-              },
-              {
-                "zone": "thermal_zone15",
-                "type": "aoss-1",
-                "temp_c": 42.0
-              }
-            ]
-          }
-        },
-        "snapshot_after": {
-          "timestamp": "2026-05-24T15:38:52Z",
-          "device": {
-            "model": "SM-S928B",
-            "brand": "samsung",
-            "board": "pineapple",
-            "android_version": "16",
-            "android_sdk": "36",
-            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
-          },
-          "cpu": {
-            "hardware": "\nunknown",
-            "cores": 8,
-            "max_freq": "2265600kHz",
-            "current_freq": "787200kHz",
-            "load_avg_1_5_15": "unknown"
-          },
-          "memory": {
-            "total_mb": 11085,
-            "available_mb": 4032,
-            "used_mb": 7053
-          },
-          "battery": {
-            "level_pct": "unknown",
-            "status": "unknown",
-            "temp_c": "unknown"
-          },
-          "thermal": {
-            "android_status": "unknown",
-            "zones": [
-              {
-                "zone": "thermal_zone0",
-                "type": "aoss-0",
-                "temp_c": 40.8
-              },
-              {
-                "zone": "thermal_zone1",
-                "type": "cpuss-0",
-                "temp_c": 42.8
-              },
-              {
-                "zone": "thermal_zone10",
-                "type": "cpu-2-2-1",
-                "temp_c": 42.8
-              },
-              {
-                "zone": "thermal_zone11",
-                "type": "cpu-1-0-0",
-                "temp_c": 41.2
-              },
-              {
-                "zone": "thermal_zone12",
-                "type": "cpu-1-0-1",
-                "temp_c": 42.4
-              },
-              {
-                "zone": "thermal_zone13",
-                "type": "cpu-1-1-0",
-                "temp_c": 40.8
-              },
-              {
-                "zone": "thermal_zone14",
-                "type": "cpu-1-1-1",
-                "temp_c": 41.6
-              },
-              {
-                "zone": "thermal_zone15",
-                "type": "aoss-1",
-                "temp_c": 42.4
-              }
-            ]
-          }
-        },
-        "size_mb": 350,
-        "display_name": "Qwen2.5 0.5B Instruct (Q4_K_M)",
-        "provider": "Qwen",
-        "target_device_tier": "mid",
-        "registry_notes": "Smaller model for mid-range devices. Expect quality drop vs 1.5B.",
-        "scoring": {
-          "raw": {
-            "avg_tok_s": 46.579,
-            "temp_delta_c": 0.0,
-            "stability": 1.0,
-            "output_rate": 1.0,
-            "size_mb": 350.0
-          },
-          "components": {
-            "speed": 1.0,
-            "thermal_efficiency": 1.0,
-            "stability": 1.0,
-            "output_success": 1.0,
-            "memory_efficiency": 1.0
-          },
-          "weights": {
-            "speed": 0.25,
-            "thermal_efficiency": 0.25,
-            "stability": 0.2,
-            "output_success": 0.2,
-            "memory_efficiency": 0.1
-          },
-          "weighted_score": 1.0,
-          "rank": 1
-        }
-      },
-      {
-        "device": "samsung-s24-ultra",
         "model": "tinyllama-1.1b-q4km",
-        "timestamp": "20260524_192319",
-        "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260524_192319",
+        "timestamp": "20260525_214044",
+        "methodology_version": "v1",
+        "benchmark_mode": "real_world",
+        "environment_metadata": {
+          "airplane_mode": null,
+          "post_reboot": null,
+          "background_apps_estimate": null,
+          "run_notes": ""
+        },
+        "run_dir": "ai-lab/results/samsung-s24-ultra/tinyllama-1.1b-q4km/20260525_214044",
         "files": {
           "benchmark_jsonl": true,
           "summary_csv": true,
@@ -8571,48 +10176,50 @@
           "success": "20",
           "timeout": "0",
           "error": "0",
-          "p50_duration_ms": "3304",
-          "p50_tokens_per_sec": "28.89",
-          "max_tokens": "256",
+          "p50_duration_ms": "4235",
+          "p50_tokens_per_sec": "26.19",
+          "max_tokens": "512",
           "threads": "4",
-          "prompt_timeout_s": "90",
+          "prompt_timeout_s": "180",
           "output_present": "20",
-          "thermal_warning_count": "6",
-          "max_temp_before_c": "53.8",
-          "max_temp_after_c": "41.2",
-          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
+          "thermal_warning_count": "1",
+          "max_temp_before_c": "45.5",
+          "max_temp_after_c": "48.3",
+          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli",
+          "profile": "quality",
+          "benchmark_mode": "real_world"
         },
         "derived": {
           "prompts": 20,
           "success": 20,
           "timeout": 0,
           "error": 0,
-          "total_time_ms": 88780,
-          "p50_duration_ms": 3304.0,
-          "p95_duration_ms": 12574.0,
-          "p50_tokens_per_sec": 28.89,
-          "avg_tokens_per_sec": 28.593333333333334,
-          "avg_output_words": 74.5,
+          "total_time_ms": 123538,
+          "p50_duration_ms": 4235.0,
+          "p95_duration_ms": 22768.0,
+          "p50_tokens_per_sec": 26.19,
+          "avg_tokens_per_sec": 26.19,
+          "avg_output_words": 67.3,
           "output_present": 20,
-          "thermal_warning_count": 6,
-          "max_temp_before_c": 53.8,
-          "max_temp_after_c": 41.2,
+          "thermal_warning_count": 1,
+          "max_temp_before_c": 45.5,
+          "max_temp_after_c": 48.3,
           "thermal_before_bucket": "green",
           "thermal_after_bucket": "green",
-          "ram_delta_mb": -176,
+          "ram_delta_mb": 98,
           "prompt_results": [
             {
               "prompt_id": "P01",
               "status": "ok",
-              "duration_ms": 3292,
+              "duration_ms": 3897,
               "tokens_per_sec": null,
               "out_words": 43,
-              "thermal_warning": true
+              "thermal_warning": false
             },
             {
               "prompt_id": "P02",
               "status": "ok",
-              "duration_ms": 2572,
+              "duration_ms": 9541,
               "tokens_per_sec": null,
               "out_words": 44,
               "thermal_warning": false
@@ -8620,39 +10227,39 @@
             {
               "prompt_id": "P03",
               "status": "ok",
-              "duration_ms": 2943,
+              "duration_ms": 3595,
               "tokens_per_sec": null,
               "out_words": 41,
-              "thermal_warning": true
+              "thermal_warning": false
             },
             {
               "prompt_id": "P04",
               "status": "ok",
-              "duration_ms": 12267,
-              "tokens_per_sec": 29.02,
-              "out_words": 256,
-              "thermal_warning": true
+              "duration_ms": 4142,
+              "tokens_per_sec": null,
+              "out_words": 49,
+              "thermal_warning": false
             },
             {
               "prompt_id": "P05",
               "status": "ok",
-              "duration_ms": 3322,
+              "duration_ms": 4122,
               "tokens_per_sec": null,
               "out_words": 60,
-              "thermal_warning": true
+              "thermal_warning": false
             },
             {
               "prompt_id": "P06",
               "status": "ok",
-              "duration_ms": 6386,
-              "tokens_per_sec": 28.89,
-              "out_words": 107,
+              "duration_ms": 22768,
+              "tokens_per_sec": 26.19,
+              "out_words": 268,
               "thermal_warning": true
             },
             {
               "prompt_id": "P07",
               "status": "ok",
-              "duration_ms": 2219,
+              "duration_ms": 10885,
               "tokens_per_sec": null,
               "out_words": 42,
               "thermal_warning": false
@@ -8660,7 +10267,7 @@
             {
               "prompt_id": "P08",
               "status": "ok",
-              "duration_ms": 2826,
+              "duration_ms": 11515,
               "tokens_per_sec": null,
               "out_words": 55,
               "thermal_warning": false
@@ -8668,7 +10275,7 @@
             {
               "prompt_id": "P09",
               "status": "ok",
-              "duration_ms": 3158,
+              "duration_ms": 3603,
               "tokens_per_sec": null,
               "out_words": 59,
               "thermal_warning": false
@@ -8676,7 +10283,7 @@
             {
               "prompt_id": "P10",
               "status": "ok",
-              "duration_ms": 3296,
+              "duration_ms": 4083,
               "tokens_per_sec": null,
               "out_words": 56,
               "thermal_warning": false
@@ -8684,7 +10291,7 @@
             {
               "prompt_id": "P11",
               "status": "ok",
-              "duration_ms": 5100,
+              "duration_ms": 6006,
               "tokens_per_sec": null,
               "out_words": 58,
               "thermal_warning": false
@@ -8692,7 +10299,7 @@
             {
               "prompt_id": "P12",
               "status": "ok",
-              "duration_ms": 3304,
+              "duration_ms": 4235,
               "tokens_per_sec": null,
               "out_words": 64,
               "thermal_warning": false
@@ -8700,15 +10307,15 @@
             {
               "prompt_id": "P13",
               "status": "ok",
-              "duration_ms": 12574,
-              "tokens_per_sec": 27.87,
-              "out_words": 154,
-              "thermal_warning": true
+              "duration_ms": 4155,
+              "tokens_per_sec": null,
+              "out_words": 56,
+              "thermal_warning": false
             },
             {
               "prompt_id": "P14",
               "status": "ok",
-              "duration_ms": 3820,
+              "duration_ms": 4705,
               "tokens_per_sec": null,
               "out_words": 68,
               "thermal_warning": false
@@ -8716,7 +10323,7 @@
             {
               "prompt_id": "P15",
               "status": "ok",
-              "duration_ms": 3851,
+              "duration_ms": 4894,
               "tokens_per_sec": null,
               "out_words": 65,
               "thermal_warning": false
@@ -8724,7 +10331,7 @@
             {
               "prompt_id": "P16",
               "status": "ok",
-              "duration_ms": 3297,
+              "duration_ms": 4209,
               "tokens_per_sec": null,
               "out_words": 62,
               "thermal_warning": false
@@ -8732,7 +10339,7 @@
             {
               "prompt_id": "P17",
               "status": "ok",
-              "duration_ms": 3229,
+              "duration_ms": 4025,
               "tokens_per_sec": null,
               "out_words": 64,
               "thermal_warning": false
@@ -8740,7 +10347,7 @@
             {
               "prompt_id": "P18",
               "status": "ok",
-              "duration_ms": 2492,
+              "duration_ms": 3147,
               "tokens_per_sec": null,
               "out_words": 46,
               "thermal_warning": false
@@ -8748,7 +10355,7 @@
             {
               "prompt_id": "P19",
               "status": "ok",
-              "duration_ms": 4424,
+              "duration_ms": 5055,
               "tokens_per_sec": null,
               "out_words": 70,
               "thermal_warning": false
@@ -8756,7 +10363,7 @@
             {
               "prompt_id": "P20",
               "status": "ok",
-              "duration_ms": 4408,
+              "duration_ms": 4956,
               "tokens_per_sec": null,
               "out_words": 76,
               "thermal_warning": false
@@ -8764,80 +10371,7 @@
           ]
         },
         "snapshot_before": {
-          "timestamp": "2026-05-24T13:53:19Z",
-          "device": {
-            "model": "SM-S928B",
-            "brand": "samsung",
-            "board": "pineapple",
-            "android_version": "16",
-            "android_sdk": "36",
-            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
-          },
-          "cpu": {
-            "hardware": "\nunknown",
-            "cores": 8,
-            "max_freq": "2265600kHz",
-            "current_freq": "1017600kHz",
-            "load_avg_1_5_15": "unknown"
-          },
-          "memory": {
-            "total_mb": 11085,
-            "available_mb": 2839,
-            "used_mb": 8246
-          },
-          "battery": {
-            "level_pct": "unknown",
-            "status": "unknown",
-            "temp_c": "unknown"
-          },
-          "thermal": {
-            "android_status": "unknown",
-            "zones": [
-              {
-                "zone": "thermal_zone0",
-                "type": "aoss-0",
-                "temp_c": 43.6
-              },
-              {
-                "zone": "thermal_zone1",
-                "type": "cpuss-0",
-                "temp_c": 47.9
-              },
-              {
-                "zone": "thermal_zone10",
-                "type": "cpu-2-2-1",
-                "temp_c": 48.3
-              },
-              {
-                "zone": "thermal_zone11",
-                "type": "cpu-1-0-0",
-                "temp_c": 50.6
-              },
-              {
-                "zone": "thermal_zone12",
-                "type": "cpu-1-0-1",
-                "temp_c": 51.8
-              },
-              {
-                "zone": "thermal_zone13",
-                "type": "cpu-1-1-0",
-                "temp_c": 51.8
-              },
-              {
-                "zone": "thermal_zone14",
-                "type": "cpu-1-1-1",
-                "temp_c": 53.8
-              },
-              {
-                "zone": "thermal_zone15",
-                "type": "aoss-1",
-                "temp_c": 45.1
-              }
-            ]
-          }
-        },
-        "snapshot_after": {
-          "timestamp": "2026-05-24T14:10:56Z",
+          "timestamp": "2026-05-25T16:10:44Z",
           "device": {
             "model": "SM-S928B",
             "brand": "samsung",
@@ -8855,8 +10389,8 @@
           },
           "memory": {
             "total_mb": 11085,
-            "available_mb": 3015,
-            "used_mb": 8070
+            "available_mb": 3508,
+            "used_mb": 7577
           },
           "battery": {
             "level_pct": "unknown",
@@ -8869,42 +10403,115 @@
               {
                 "zone": "thermal_zone0",
                 "type": "aoss-0",
-                "temp_c": 38.5
+                "temp_c": 42.0
               },
               {
                 "zone": "thermal_zone1",
                 "type": "cpuss-0",
-                "temp_c": 39.6
+                "temp_c": 44.0
               },
               {
                 "zone": "thermal_zone10",
                 "type": "cpu-2-2-1",
-                "temp_c": 41.2
+                "temp_c": 45.5
               },
               {
                 "zone": "thermal_zone11",
                 "type": "cpu-1-0-0",
-                "temp_c": 38.5
+                "temp_c": 42.4
               },
               {
                 "zone": "thermal_zone12",
                 "type": "cpu-1-0-1",
-                "temp_c": 38.9
+                "temp_c": 43.2
               },
               {
                 "zone": "thermal_zone13",
                 "type": "cpu-1-1-0",
-                "temp_c": 38.1
+                "temp_c": 42.0
               },
               {
                 "zone": "thermal_zone14",
                 "type": "cpu-1-1-1",
-                "temp_c": 38.1
+                "temp_c": 42.4
               },
               {
                 "zone": "thermal_zone15",
                 "type": "aoss-1",
-                "temp_c": 39.3
+                "temp_c": 43.6
+              }
+            ]
+          }
+        },
+        "snapshot_after": {
+          "timestamp": "2026-05-25T16:24:09Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "1344000kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 3410,
+            "used_mb": 7675
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 42.0
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 48.3
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 40.8
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 40.0
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 40.4
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 42.0
               }
             ]
           }
@@ -8916,15 +10523,15 @@
         "registry_notes": "Common baseline. Fast, but finance reasoning may be weaker than Qwen2.5.",
         "scoring": {
           "raw": {
-            "avg_tok_s": 28.593333333333334,
-            "temp_delta_c": -12.599999999999994,
+            "avg_tok_s": 26.19,
+            "temp_delta_c": 2.799999999999997,
             "stability": 1.0,
             "output_rate": 1.0,
             "size_mb": 700.0
           },
           "components": {
-            "speed": 0.6139,
-            "thermal_efficiency": 1.0,
+            "speed": 1.0,
+            "thermal_efficiency": 0.8133,
             "stability": 1.0,
             "output_success": 1.0,
             "memory_efficiency": 0.8108
@@ -8936,7 +10543,179 @@
             "output_success": 0.2,
             "memory_efficiency": 0.1
           },
-          "weighted_score": 0.8845,
+          "weighted_score": 0.9344,
+          "rank": 1
+        }
+      },
+      {
+        "device": "samsung-s24-ultra",
+        "model": "qwen2.5-0.5b-q4km",
+        "timestamp": "20260525_225017",
+        "methodology_version": "v1",
+        "benchmark_mode": "real_world",
+        "environment_metadata": {
+          "airplane_mode": null,
+          "post_reboot": null,
+          "background_apps_estimate": null,
+          "run_notes": ""
+        },
+        "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-0.5b-q4km/20260525_225017",
+        "files": {
+          "benchmark_jsonl": true,
+          "summary_csv": false,
+          "summary_md": false,
+          "snapshot_before": true,
+          "snapshot_after": false
+        },
+        "quality_score": null,
+        "summary": {},
+        "derived": {
+          "prompts": 3,
+          "success": 3,
+          "timeout": 0,
+          "error": 0,
+          "total_time_ms": 5507336,
+          "p50_duration_ms": 165182.0,
+          "p95_duration_ms": 5326613.0,
+          "p50_tokens_per_sec": 12.43,
+          "avg_tokens_per_sec": 20.03,
+          "avg_output_words": 326,
+          "output_present": 3,
+          "thermal_warning_count": 2,
+          "max_temp_before_c": 44.0,
+          "max_temp_after_c": null,
+          "thermal_before_bucket": "green",
+          "thermal_after_bucket": "unknown",
+          "ram_delta_mb": null,
+          "prompt_results": [
+            {
+              "prompt_id": "P01",
+              "status": "ok",
+              "duration_ms": 15541,
+              "tokens_per_sec": 42.59,
+              "out_words": 253,
+              "thermal_warning": true
+            },
+            {
+              "prompt_id": "P02",
+              "status": "ok",
+              "duration_ms": 165182,
+              "tokens_per_sec": 12.43,
+              "out_words": 325,
+              "thermal_warning": false
+            },
+            {
+              "prompt_id": "P03",
+              "status": "ok",
+              "duration_ms": 5326613,
+              "tokens_per_sec": 5.07,
+              "out_words": 400,
+              "thermal_warning": true
+            }
+          ]
+        },
+        "snapshot_before": {
+          "timestamp": "2026-05-25T17:20:17Z",
+          "device": {
+            "model": "SM-S928B",
+            "brand": "samsung",
+            "board": "pineapple",
+            "android_version": "16",
+            "android_sdk": "36",
+            "build_fingerprint": "samsung/e3qxins/e3q:16/BP2A.250605.031.A3/S928BXXS5CZD1:user/release-keys"
+          },
+          "cpu": {
+            "hardware": "\nunknown",
+            "cores": 8,
+            "max_freq": "2265600kHz",
+            "current_freq": "556800kHz",
+            "load_avg_1_5_15": "unknown"
+          },
+          "memory": {
+            "total_mb": 11085,
+            "available_mb": 3612,
+            "used_mb": 7473
+          },
+          "battery": {
+            "level_pct": "unknown",
+            "status": "unknown",
+            "temp_c": "unknown"
+          },
+          "thermal": {
+            "android_status": "unknown",
+            "zones": [
+              {
+                "zone": "thermal_zone0",
+                "type": "aoss-0",
+                "temp_c": 42.0
+              },
+              {
+                "zone": "thermal_zone1",
+                "type": "cpuss-0",
+                "temp_c": 44.0
+              },
+              {
+                "zone": "thermal_zone10",
+                "type": "cpu-2-2-1",
+                "temp_c": 44.0
+              },
+              {
+                "zone": "thermal_zone11",
+                "type": "cpu-1-0-0",
+                "temp_c": 42.4
+              },
+              {
+                "zone": "thermal_zone12",
+                "type": "cpu-1-0-1",
+                "temp_c": 42.8
+              },
+              {
+                "zone": "thermal_zone13",
+                "type": "cpu-1-1-0",
+                "temp_c": 42.0
+              },
+              {
+                "zone": "thermal_zone14",
+                "type": "cpu-1-1-1",
+                "temp_c": 42.4
+              },
+              {
+                "zone": "thermal_zone15",
+                "type": "aoss-1",
+                "temp_c": 43.6
+              }
+            ]
+          }
+        },
+        "snapshot_after": null,
+        "size_mb": 350,
+        "display_name": "Qwen2.5 0.5B Instruct (Q4_K_M)",
+        "provider": "Qwen",
+        "target_device_tier": "mid",
+        "registry_notes": "Smaller model for mid-range devices. Expect quality drop vs 1.5B.",
+        "scoring": {
+          "raw": {
+            "avg_tok_s": 20.03,
+            "temp_delta_c": null,
+            "stability": 1.0,
+            "output_rate": 1.0,
+            "size_mb": 350.0
+          },
+          "components": {
+            "speed": 0.7648,
+            "thermal_efficiency": 0.5,
+            "stability": 1.0,
+            "output_success": 1.0,
+            "memory_efficiency": 1.0
+          },
+          "weights": {
+            "speed": 0.25,
+            "thermal_efficiency": 0.25,
+            "stability": 0.2,
+            "output_success": 0.2,
+            "memory_efficiency": 0.1
+          },
+          "weighted_score": 0.8162,
           "rank": 2
         }
       },
@@ -8944,6 +10723,14 @@
         "device": "samsung-s24-ultra",
         "model": "phi3-mini-q4km",
         "timestamp": "20260524_221813",
+        "methodology_version": "v1",
+        "benchmark_mode": "unknown",
+        "environment_metadata": {
+          "airplane_mode": null,
+          "post_reboot": null,
+          "background_apps_estimate": null,
+          "run_notes": ""
+        },
         "run_dir": "ai-lab/results/samsung-s24-ultra/phi3-mini-q4km/20260524_221813",
         "files": {
           "benchmark_jsonl": true,
@@ -9313,7 +11100,7 @@
             "size_mb": 2200.0
           },
           "components": {
-            "speed": 0.1444,
+            "speed": 0.2568,
             "thermal_efficiency": 1.0,
             "stability": 1.0,
             "output_success": 1.0,
@@ -9326,15 +11113,23 @@
             "output_success": 0.2,
             "memory_efficiency": 0.1
           },
-          "weighted_score": 0.6861,
+          "weighted_score": 0.7142,
           "rank": 3
         }
       },
       {
         "device": "samsung-s24-ultra",
         "model": "qwen2.5-1.5b-q4km",
-        "timestamp": "20260524_181530",
-        "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260524_181530",
+        "timestamp": "20260525_215523",
+        "methodology_version": "v1",
+        "benchmark_mode": "real_world",
+        "environment_metadata": {
+          "airplane_mode": null,
+          "post_reboot": null,
+          "background_apps_estimate": null,
+          "run_notes": ""
+        },
+        "run_dir": "ai-lab/results/samsung-s24-ultra/qwen2.5-1.5b-q4km/20260525_215523",
         "files": {
           "benchmark_jsonl": true,
           "summary_csv": true,
@@ -9351,200 +11146,202 @@
           "success": "20",
           "timeout": "0",
           "error": "0",
-          "p50_duration_ms": "18481",
-          "p50_tokens_per_sec": "18.83",
-          "max_tokens": "256",
+          "p50_duration_ms": "36127",
+          "p50_tokens_per_sec": "16.91",
+          "max_tokens": "512",
           "threads": "4",
-          "prompt_timeout_s": "90",
+          "prompt_timeout_s": "180",
           "output_present": "20",
-          "thermal_warning_count": "20",
-          "max_temp_before_c": "45.9",
-          "max_temp_after_c": "55.8",
-          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli"
+          "thermal_warning_count": "15",
+          "max_temp_before_c": "42.4",
+          "max_temp_after_c": "52.2",
+          "llama_bin": "/data/data/com.termux/files/home/llama.cpp/build/bin/llama-cli",
+          "profile": "quality",
+          "benchmark_mode": "real_world"
         },
         "derived": {
           "prompts": 20,
           "success": 20,
           "timeout": 0,
           "error": 0,
-          "total_time_ms": 371155,
-          "p50_duration_ms": 18481.0,
-          "p95_duration_ms": 20691.0,
-          "p50_tokens_per_sec": 18.83,
-          "avg_tokens_per_sec": 18.5425,
-          "avg_output_words": 213.9,
+          "total_time_ms": 744368,
+          "p50_duration_ms": 36127.0,
+          "p95_duration_ms": 46603.0,
+          "p50_tokens_per_sec": 16.91,
+          "avg_tokens_per_sec": 16.3965,
+          "avg_output_words": 360.2,
           "output_present": 20,
-          "thermal_warning_count": 20,
-          "max_temp_before_c": 45.9,
-          "max_temp_after_c": 55.8,
+          "thermal_warning_count": 15,
+          "max_temp_before_c": 42.4,
+          "max_temp_after_c": 52.2,
           "thermal_before_bucket": "green",
-          "thermal_after_bucket": "yellow",
-          "ram_delta_mb": -290,
+          "thermal_after_bucket": "green",
+          "ram_delta_mb": -205,
           "prompt_results": [
             {
               "prompt_id": "P01",
               "status": "ok",
-              "duration_ms": 18718,
-              "tokens_per_sec": 18.0,
-              "out_words": 158,
+              "duration_ms": 36493,
+              "tokens_per_sec": 16.83,
+              "out_words": 283,
               "thermal_warning": true
             },
             {
               "prompt_id": "P02",
               "status": "ok",
-              "duration_ms": 17961,
-              "tokens_per_sec": 18.23,
-              "out_words": 197,
-              "thermal_warning": true
+              "duration_ms": 34857,
+              "tokens_per_sec": 17.04,
+              "out_words": 335,
+              "thermal_warning": false
             },
             {
               "prompt_id": "P03",
               "status": "ok",
-              "duration_ms": 17960,
-              "tokens_per_sec": 18.53,
-              "out_words": 177,
+              "duration_ms": 37397,
+              "tokens_per_sec": 15.86,
+              "out_words": 367,
               "thermal_warning": true
             },
             {
               "prompt_id": "P04",
               "status": "ok",
-              "duration_ms": 20691,
-              "tokens_per_sec": 17.26,
-              "out_words": 160,
+              "duration_ms": 34955,
+              "tokens_per_sec": 17.44,
+              "out_words": 304,
               "thermal_warning": true
             },
             {
               "prompt_id": "P05",
               "status": "ok",
-              "duration_ms": 18512,
-              "tokens_per_sec": 18.62,
-              "out_words": 173,
+              "duration_ms": 36395,
+              "tokens_per_sec": 16.74,
+              "out_words": 334,
               "thermal_warning": true
             },
             {
               "prompt_id": "P06",
               "status": "ok",
-              "duration_ms": 18903,
-              "tokens_per_sec": 17.65,
-              "out_words": 204,
+              "duration_ms": 34959,
+              "tokens_per_sec": 17.23,
+              "out_words": 403,
               "thermal_warning": true
             },
             {
               "prompt_id": "P07",
               "status": "ok",
-              "duration_ms": 16786,
-              "tokens_per_sec": 19.14,
-              "out_words": 199,
+              "duration_ms": 34214,
+              "tokens_per_sec": 17.2,
+              "out_words": 273,
               "thermal_warning": true
             },
             {
               "prompt_id": "P08",
               "status": "ok",
-              "duration_ms": 17335,
-              "tokens_per_sec": 19.18,
-              "out_words": 215,
+              "duration_ms": 34662,
+              "tokens_per_sec": 17.24,
+              "out_words": 287,
               "thermal_warning": true
             },
             {
               "prompt_id": "P09",
               "status": "ok",
-              "duration_ms": 19288,
-              "tokens_per_sec": 17.37,
-              "out_words": 283,
+              "duration_ms": 35499,
+              "tokens_per_sec": 16.91,
+              "out_words": 362,
               "thermal_warning": true
             },
             {
               "prompt_id": "P10",
               "status": "ok",
-              "duration_ms": 18456,
-              "tokens_per_sec": 18.47,
-              "out_words": 257,
-              "thermal_warning": true
+              "duration_ms": 36127,
+              "tokens_per_sec": 16.77,
+              "out_words": 396,
+              "thermal_warning": false
             },
             {
               "prompt_id": "P11",
               "status": "ok",
-              "duration_ms": 19899,
-              "tokens_per_sec": 19.13,
-              "out_words": 175,
-              "thermal_warning": true
+              "duration_ms": 46603,
+              "tokens_per_sec": 13.7,
+              "out_words": 274,
+              "thermal_warning": false
             },
             {
               "prompt_id": "P12",
               "status": "ok",
-              "duration_ms": 17888,
-              "tokens_per_sec": 19.28,
-              "out_words": 299,
-              "thermal_warning": true
+              "duration_ms": 38753,
+              "tokens_per_sec": 15.5,
+              "out_words": 534,
+              "thermal_warning": false
             },
             {
               "prompt_id": "P13",
               "status": "ok",
-              "duration_ms": 18234,
-              "tokens_per_sec": 18.85,
-              "out_words": 182,
-              "thermal_warning": true
+              "duration_ms": 42202,
+              "tokens_per_sec": 14.06,
+              "out_words": 321,
+              "thermal_warning": false
             },
             {
               "prompt_id": "P14",
               "status": "ok",
-              "duration_ms": 19611,
-              "tokens_per_sec": 17.86,
-              "out_words": 177,
+              "duration_ms": 44436,
+              "tokens_per_sec": 13.55,
+              "out_words": 332,
               "thermal_warning": true
             },
             {
               "prompt_id": "P15",
               "status": "ok",
-              "duration_ms": 18481,
-              "tokens_per_sec": 19.24,
-              "out_words": 181,
+              "duration_ms": 35897,
+              "tokens_per_sec": 17.26,
+              "out_words": 289,
               "thermal_warning": true
             },
             {
               "prompt_id": "P16",
               "status": "ok",
-              "duration_ms": 18316,
-              "tokens_per_sec": 18.83,
-              "out_words": 226,
+              "duration_ms": 34521,
+              "tokens_per_sec": 17.7,
+              "out_words": 312,
               "thermal_warning": true
             },
             {
               "prompt_id": "P17",
               "status": "ok",
-              "duration_ms": 18358,
-              "tokens_per_sec": 18.45,
-              "out_words": 253,
+              "duration_ms": 35228,
+              "tokens_per_sec": 17.24,
+              "out_words": 474,
               "thermal_warning": true
             },
             {
               "prompt_id": "P18",
               "status": "ok",
-              "duration_ms": 17171,
-              "tokens_per_sec": 18.89,
-              "out_words": 277,
+              "duration_ms": 34493,
+              "tokens_per_sec": 17.14,
+              "out_words": 514,
               "thermal_warning": true
             },
             {
               "prompt_id": "P19",
               "status": "ok",
-              "duration_ms": 19299,
-              "tokens_per_sec": 18.88,
-              "out_words": 199,
+              "duration_ms": 37575,
+              "tokens_per_sec": 16.63,
+              "out_words": 283,
               "thermal_warning": true
             },
             {
               "prompt_id": "P20",
               "status": "ok",
-              "duration_ms": 19288,
-              "tokens_per_sec": 18.99,
-              "out_words": 286,
+              "duration_ms": 39102,
+              "tokens_per_sec": 15.89,
+              "out_words": 528,
               "thermal_warning": true
             }
           ]
         },
         "snapshot_before": {
-          "timestamp": "2026-05-24T12:45:30Z",
+          "timestamp": "2026-05-25T16:25:23Z",
           "device": {
             "model": "SM-S928B",
             "brand": "samsung",
@@ -9562,8 +11359,8 @@
           },
           "memory": {
             "total_mb": 11085,
-            "available_mb": 3380,
-            "used_mb": 7705
+            "available_mb": 3417,
+            "used_mb": 7667
           },
           "battery": {
             "level_pct": "unknown",
@@ -9576,48 +11373,48 @@
               {
                 "zone": "thermal_zone0",
                 "type": "aoss-0",
-                "temp_c": 42.0
+                "temp_c": 40.4
               },
               {
                 "zone": "thermal_zone1",
                 "type": "cpuss-0",
-                "temp_c": 44.4
+                "temp_c": 42.4
               },
               {
                 "zone": "thermal_zone10",
                 "type": "cpu-2-2-1",
-                "temp_c": 45.9
+                "temp_c": 42.0
               },
               {
                 "zone": "thermal_zone11",
                 "type": "cpu-1-0-0",
-                "temp_c": 42.4
+                "temp_c": 40.4
               },
               {
                 "zone": "thermal_zone12",
                 "type": "cpu-1-0-1",
-                "temp_c": 42.8
+                "temp_c": 40.4
               },
               {
                 "zone": "thermal_zone13",
                 "type": "cpu-1-1-0",
-                "temp_c": 42.0
+                "temp_c": 40.0
               },
               {
                 "zone": "thermal_zone14",
                 "type": "cpu-1-1-1",
-                "temp_c": 42.8
+                "temp_c": 40.4
               },
               {
                 "zone": "thermal_zone15",
                 "type": "aoss-1",
-                "temp_c": 43.6
+                "temp_c": 41.3
               }
             ]
           }
         },
         "snapshot_after": {
-          "timestamp": "2026-05-24T13:21:49Z",
+          "timestamp": "2026-05-25T17:03:11Z",
           "device": {
             "model": "SM-S928B",
             "brand": "samsung",
@@ -9630,13 +11427,13 @@
             "hardware": "\nunknown",
             "cores": 8,
             "max_freq": "2265600kHz",
-            "current_freq": "1689600kHz",
+            "current_freq": "556800kHz",
             "load_avg_1_5_15": "unknown"
           },
           "memory": {
             "total_mb": 11085,
-            "available_mb": 3670,
-            "used_mb": 7415
+            "available_mb": 3623,
+            "used_mb": 7462
           },
           "battery": {
             "level_pct": "unknown",
@@ -9649,42 +11446,42 @@
               {
                 "zone": "thermal_zone0",
                 "type": "aoss-0",
-                "temp_c": 45.9
+                "temp_c": 44.0
               },
               {
                 "zone": "thermal_zone1",
                 "type": "cpuss-0",
-                "temp_c": 49.5
+                "temp_c": 45.5
               },
               {
                 "zone": "thermal_zone10",
                 "type": "cpu-2-2-1",
-                "temp_c": 51.0
+                "temp_c": 52.2
               },
               {
                 "zone": "thermal_zone11",
                 "type": "cpu-1-0-0",
-                "temp_c": 51.8
+                "temp_c": 44.7
               },
               {
                 "zone": "thermal_zone12",
                 "type": "cpu-1-0-1",
-                "temp_c": 53.0
+                "temp_c": 44.4
               },
               {
                 "zone": "thermal_zone13",
                 "type": "cpu-1-1-0",
-                "temp_c": 53.8
+                "temp_c": 44.0
               },
               {
                 "zone": "thermal_zone14",
                 "type": "cpu-1-1-1",
-                "temp_c": 55.8
+                "temp_c": 44.4
               },
               {
                 "zone": "thermal_zone15",
                 "type": "aoss-1",
-                "temp_c": 47.5
+                "temp_c": 45.1
               }
             ]
           }
@@ -9696,15 +11493,15 @@
         "registry_notes": "Best quality/size balance for S24 Ultra class devices. Good baseline for finance prompts.",
         "scoring": {
           "raw": {
-            "avg_tok_s": 18.5425,
-            "temp_delta_c": 9.899999999999999,
+            "avg_tok_s": 16.3965,
+            "temp_delta_c": 9.800000000000004,
             "stability": 1.0,
             "output_rate": 1.0,
             "size_mb": 980.0
           },
           "components": {
-            "speed": 0.3981,
-            "thermal_efficiency": 0.34,
+            "speed": 0.6261,
+            "thermal_efficiency": 0.3467,
             "stability": 1.0,
             "output_success": 1.0,
             "memory_efficiency": 0.6595
@@ -9716,7 +11513,7 @@
             "output_success": 0.2,
             "memory_efficiency": 0.1
           },
-          "weighted_score": 0.6505,
+          "weighted_score": 0.7091,
           "rank": 4
         }
       },
@@ -9724,6 +11521,14 @@
         "device": "samsung-s24-ultra",
         "model": "llama3.2-1b-q4km",
         "timestamp": "20260524_212426",
+        "methodology_version": "v1",
+        "benchmark_mode": "unknown",
+        "environment_metadata": {
+          "airplane_mode": null,
+          "post_reboot": null,
+          "background_apps_estimate": null,
+          "run_notes": ""
+        },
         "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-1b-q4km/20260524_212426",
         "files": {
           "benchmark_jsonl": true,
@@ -10114,6 +11919,14 @@
         "device": "samsung-s24-ultra",
         "model": "llama3.2-3b-q4km",
         "timestamp": "20260524_215606",
+        "methodology_version": "v1",
+        "benchmark_mode": "unknown",
+        "environment_metadata": {
+          "airplane_mode": null,
+          "post_reboot": null,
+          "background_apps_estimate": null,
+          "run_notes": ""
+        },
         "run_dir": "ai-lab/results/samsung-s24-ultra/llama3.2-3b-q4km/20260524_215606",
         "files": {
           "benchmark_jsonl": true,
@@ -10504,6 +12317,14 @@
         "device": "samsung-s24-ultra",
         "model": "gemma-2b-q4km",
         "timestamp": "20260524_202052",
+        "methodology_version": "v1",
+        "benchmark_mode": "unknown",
+        "environment_metadata": {
+          "airplane_mode": null,
+          "post_reboot": null,
+          "background_apps_estimate": null,
+          "run_notes": ""
+        },
         "run_dir": "ai-lab/results/samsung-s24-ultra/gemma-2b-q4km/20260524_202052",
         "files": {
           "benchmark_jsonl": true,

@@ -142,18 +142,23 @@ function populateSel(sel, values, allLabel = "All") {
 
 function uniq(arr) { return [...new Set(arr)].sort(); }
 
-function filterSummaries(summaries, deviceVal, modelVal) {
+function filterSummaries(summaries, deviceVal, modelVal, modeVal, methodologyVal, profileVal) {
   return summaries.filter(m => {
     if (deviceVal && deviceVal !== "All" && m.device !== deviceVal) return false;
     if (modelVal && modelVal !== "All" && m.model !== modelVal) return false;
+    if (modeVal && modeVal !== "All" && (m.benchmark_mode || "unknown") !== modeVal) return false;
+    if (methodologyVal && methodologyVal !== "All" && (m.methodology_version || "v1") !== methodologyVal) return false;
+    if (profileVal && profileVal !== "All" && (m.summary?.profile || "default") !== profileVal) return false;
     return true;
   });
 }
 
-function filterRuns(runs, deviceVal, modelVal) {
+function filterRuns(runs, deviceVal, modelVal, modeVal, methodologyVal) {
   return runs.filter(r => {
     if (deviceVal && deviceVal !== "All" && r.device !== deviceVal) return false;
     if (modelVal && modelVal !== "All" && r.model !== modelVal) return false;
+    if (modeVal && modeVal !== "All" && (r.benchmark_mode || "unknown") !== modeVal) return false;
+    if (methodologyVal && methodologyVal !== "All" && (r.methodology_version || "v1") !== methodologyVal) return false;
     return true;
   });
 }
@@ -178,23 +183,34 @@ function initOverviewPage(data) {
   const chip = document.getElementById("filterChip");
 
   // Populate filters from model_summaries
+  const modeSel = document.getElementById("modeFilter");
+  const methodologySel = document.getElementById("methodologyFilter");
+  const profileSel = document.getElementById("profileFilter");
+
   populateSel(deviceSel, uniq(allSummaries.map(m => m.device)));
   populateSel(modelSel, allSummaries.map(m => shortName(m.model)));
+  populateSel(modeSel, uniq(allSummaries.map(m => m.benchmark_mode || "unknown").filter(Boolean)));
+  populateSel(methodologySel, uniq(allSummaries.map(m => m.methodology_version || "v1").filter(Boolean)));
+  populateSel(profileSel, uniq(allSummaries.map(m => m.summary?.profile || "default").filter(Boolean)));
 
   function getFilters() {
-    // model filter compares shortName
     const dv = deviceSel ? deviceSel.value : "All";
     const mv = modelSel ? modelSel.value : "All";
-    return { dv, mv };
+    const mode = modeSel ? modeSel.value : "All";
+    const meth = methodologySel ? methodologySel.value : "All";
+    const prof = profileSel ? profileSel.value : "All";
+    return { dv, mv, mode, meth, prof };
   }
 
   function render() {
-    const { dv, mv } = getFilters();
+    const { dv, mv, mode, meth, prof } = getFilters();
 
-    // Filter summaries — model filter uses shortName comparison
     const sums = allSummaries.filter(m => {
       if (dv !== "All" && m.device !== dv) return false;
       if (mv !== "All" && shortName(m.model) !== mv) return false;
+      if (mode !== "All" && (m.benchmark_mode || "unknown") !== mode) return false;
+      if (meth !== "All" && (m.methodology_version || "v1") !== meth) return false;
+      if (prof !== "All" && (m.summary?.profile || "default") !== prof) return false;
       return true;
     });
 
@@ -207,6 +223,9 @@ function initOverviewPage(data) {
 
   if (deviceSel) deviceSel.addEventListener("change", render);
   if (modelSel) modelSel.addEventListener("change", render);
+  if (modeSel) modeSel.addEventListener("change", render);
+  if (methodologySel) methodologySel.addEventListener("change", render);
+  if (profileSel) profileSel.addEventListener("change", render);
 
   render();
 }
@@ -1063,4 +1082,145 @@ function initHistoricalPage(data) {
   if (modelSel) modelSel.addEventListener("change", renderTrend);
   if (metricSel) metricSel.addEventListener("change", renderTrend);
   renderTrend();
+}
+
+// ──────────────────────────────────────────────────────────
+// METHODOLOGY COMPARISON PAGE
+// ──────────────────────────────────────────────────────────
+function initMethodologyPage(data) {
+  const allRuns = data.runs || [];
+  const allSummaries = data.model_summaries || [];
+
+  // Split runs by mode and methodology
+  const rwRuns = allRuns.filter(r => (r.benchmark_mode || "unknown") === "real_world");
+  const ctrlRuns = allRuns.filter(r => (r.benchmark_mode || "unknown") === "controlled");
+  const v1Runs = allRuns.filter(r => (r.methodology_version || "v1") === "v1");
+  const v2Runs = allRuns.filter(r => (r.methodology_version || "v2") === "v2");
+
+  function groupByModel(runs) {
+    const map = {};
+    runs.forEach(r => {
+      const k = r.model;
+      if (!map[k]) map[k] = [];
+      map[k].push(r);
+    });
+    return map;
+  }
+
+  function avgDur(runs) {
+    const vals = runs.flatMap(r => (r.derived?.prompt_results || [])
+      .filter(p => p.status === "ok" && p.duration_ms)
+      .map(p => p.duration_ms));
+    return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : null;
+  }
+
+  function avgTok(runs) {
+    const vals = runs.map(r => r.derived?.avg_tokens_per_sec).filter(v => v != null);
+    return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : null;
+  }
+
+  function avgThermalRise(runs) {
+    const vals = runs.map(r => thermalRise(r)).filter(v => v != null);
+    return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : null;
+  }
+
+  // KPI summary
+  const kpiEl = document.getElementById("methodKpis");
+  if (kpiEl) {
+    kpiEl.innerHTML = [
+      ["Real-world runs", rwRuns.length, "benchmark_mode=real_world"],
+      ["Controlled runs", ctrlRuns.length, "benchmark_mode=controlled"],
+      ["v1 runs (legacy)", v1Runs.length, "methodology_version=v1"],
+      ["v2 runs", v2Runs.length, "methodology_version=v2"],
+    ].map(([label, val, sub]) =>
+      `<div class="kpi-box"><div class="kpi-label">${label}</div><div class="kpi-value">${val}</div><div class="kpi-sub">${sub}</div></div>`
+    ).join("");
+  }
+
+  // Mode comparison: real_world vs controlled latency
+  const rwByModel = groupByModel(rwRuns);
+  const ctrlByModel = groupByModel(ctrlRuns);
+  const modeModels = [...new Set([...Object.keys(rwByModel), ...Object.keys(ctrlByModel)])].sort();
+
+  if (modeModels.length) {
+    newChart("chartModeLatency", "bar", {
+      labels: modeModels.map(shortName),
+      datasets: [
+        {
+          label: "Real-world avg latency (ms)",
+          data: modeModels.map(m => avgDur(rwByModel[m] || [])),
+          backgroundColor: "#4f8ef799", borderColor: "#4f8ef7", borderWidth: 1,
+        },
+        {
+          label: "Controlled avg latency (ms)",
+          data: modeModels.map(m => avgDur(ctrlByModel[m] || [])),
+          backgroundColor: "#2ecc7199", borderColor: "#2ecc71", borderWidth: 1,
+        },
+      ]
+    }, {
+      plugins: { legend: { position: "bottom" } },
+      scales: { y: { beginAtZero: true, ...SCALE_OPTS.y }, x: SCALE_OPTS.x },
+    });
+
+    newChart("chartModeThermal", "bar", {
+      labels: modeModels.map(shortName),
+      datasets: [
+        {
+          label: "Real-world thermal rise (°C)",
+          data: modeModels.map(m => avgThermalRise(rwByModel[m] || [])),
+          backgroundColor: "#e74c3c99", borderColor: "#e74c3c", borderWidth: 1,
+        },
+        {
+          label: "Controlled thermal rise (°C)",
+          data: modeModels.map(m => avgThermalRise(ctrlByModel[m] || [])),
+          backgroundColor: "#f1c40f99", borderColor: "#f1c40f", borderWidth: 1,
+        },
+      ]
+    }, {
+      plugins: { legend: { position: "bottom" } },
+      scales: { y: { ...SCALE_OPTS.y }, x: SCALE_OPTS.x },
+    });
+
+    newChart("chartModeTokPerSec", "bar", {
+      labels: modeModels.map(shortName),
+      datasets: [
+        {
+          label: "Real-world tok/s",
+          data: modeModels.map(m => avgTok(rwByModel[m] || [])),
+          backgroundColor: "#9b59b699", borderColor: "#9b59b6", borderWidth: 1,
+        },
+        {
+          label: "Controlled tok/s",
+          data: modeModels.map(m => avgTok(ctrlByModel[m] || [])),
+          backgroundColor: "#1abc9c99", borderColor: "#1abc9c", borderWidth: 1,
+        },
+      ]
+    }, {
+      plugins: { legend: { position: "bottom" } },
+      scales: { y: { beginAtZero: true, ...SCALE_OPTS.y }, x: SCALE_OPTS.x },
+    });
+  }
+
+  // v1 vs v2 comparison table
+  const tbody = document.querySelector("#methodologyTable tbody");
+  if (tbody) {
+    tbody.innerHTML = "";
+    allRuns.forEach(r => {
+      const d = r.derived || {};
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${shortName(r.model)}</td>
+        <td>${r.device || "—"}</td>
+        <td>${r.timestamp || "—"}</td>
+        <td><span class="pill ${r.methodology_version === "v2" ? "pill-pass" : "pill-warn"}">${r.methodology_version || "v1"}</span></td>
+        <td><span class="pill ${r.benchmark_mode === "controlled" ? "pill-pass" : "pill-incompat"}">${r.benchmark_mode || "unknown"}</span></td>
+        <td>${fmt(d.avg_tokens_per_sec)}</td>
+        <td>${d.p50_duration_ms ? fmtMs(d.p50_duration_ms) : "—"}</td>
+        <td>${d.max_temp_after_c != null ? d.max_temp_after_c + "°C" : "—"}</td>
+        <td>${r.environment_metadata?.post_reboot ? "✓" : "—"}</td>
+        <td>${r.environment_metadata?.airplane_mode ? "✓" : "—"}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
 }

@@ -48,6 +48,7 @@ DASHBOARD_JSON = DATA_DIR / "dashboard-data.json"
 # ---------------------------------------------------------------------------
 
 BENCHMARK_CONTEXT: Dict[str, Any] = {
+    "methodology_version": "v2",
     "background_apps_estimate": True,
     "charging": False,
     "screen_on": True,
@@ -180,6 +181,25 @@ def _aggregate_run(run_dir: Path) -> Dict[str, Any]:
     snap_before = _read_json(run_dir / "snapshot_before.json")
     snap_after = _read_json(run_dir / "snapshot_after.json")
 
+    # Extract methodology metadata from first JSONL row; legacy runs default to v1/unknown
+    first_row = bench_rows[0] if bench_rows else {}
+    methodology_version = (
+        first_row.get("methodology_version")
+        or summary.get("methodology_version")
+        or "v1"
+    )
+    benchmark_mode_val = (
+        first_row.get("benchmark_mode")
+        or summary.get("benchmark_mode")
+        or "unknown"
+    )
+    environment_metadata: Dict[str, Any] = {
+        "airplane_mode": first_row.get("airplane_mode"),
+        "post_reboot": first_row.get("post_reboot"),
+        "background_apps_estimate": first_row.get("background_apps_estimate"),
+        "run_notes": first_row.get("run_notes") or "",
+    }
+
     durations: List[float] = []
     tokps: List[float] = []
     statuses: Dict[str, int] = {"ok": 0, "timeout": 0, "error": 0}
@@ -243,6 +263,9 @@ def _aggregate_run(run_dir: Path) -> Dict[str, Any]:
         "device": device,
         "model": model,
         "timestamp": ts,
+        "methodology_version": methodology_version,
+        "benchmark_mode": benchmark_mode_val,
+        "environment_metadata": environment_metadata,
         "run_dir": str(run_dir.relative_to(REPO_ROOT)).replace("\\", "/"),
         "files": {
             "benchmark_jsonl": (run_dir / "benchmark.jsonl").exists(),

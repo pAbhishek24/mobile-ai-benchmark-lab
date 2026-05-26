@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Lab — Methodology Comparison</title>
+  <script src="assets/chart.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">⚡ AI Lab</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="thermals.html">Thermals</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="devices.html">Devices</a>
+      <a href="historical.html">Historical</a>
+      <a href="quality.html">Quality</a>
+      <a href="quality-overview.html">Q-Overview</a>
+      <a href="hallucinations.html">Hallucinations</a>
+      <a href="prompt-analysis.html">Prompt Analysis</a>
+      <a href="recommendations.html">Recommendations</a>
+      <a href="methodology.html" class="active">Methodology</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="page-header">
+      <h1>Methodology Comparison</h1>
+      <p class="subtitle">v1 vs v2 · real_world vs controlled · environment metadata</p>
+    </div>
+
+    <!-- KPI row -->
+    <div class="kpi-row" id="methodKpis"></div>
+
+    <!-- Mode comparison charts -->
+    <div class="card">
+      <div class="card-title">real_world vs controlled — Latency (avg ms per prompt)</div>
+      <canvas id="chartModeLatency"></canvas>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Thermal Rise by Mode (°C)</div>
+        <canvas id="chartModeThermal"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Tokens/sec by Mode</div>
+        <canvas id="chartModeTokPerSec"></canvas>
+      </div>
+    </div>
+
+    <!-- All runs table -->
+    <div class="card">
+      <div class="card-title">All Runs — Methodology Metadata</div>
+      <div class="table-wrap">
+        <table id="methodologyTable" class="data-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Device</th>
+              <th>Timestamp</th>
+              <th>Methodology</th>
+              <th>Mode</th>
+              <th>Avg tok/s</th>
+              <th>P50 Latency</th>
+              <th>Max Temp After</th>
+              <th>Post-reboot</th>
+              <th>Airplane Mode</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Methodology notes -->
+    <div class="card">
+      <div class="card-title">Methodology Notes</div>
+      <div style="color:#8892a4; line-height:1.7; font-size:0.93em;">
+        <p><strong style="color:#e2e8f4;">v1 (legacy)</strong> — Runs collected before methodology versioning was introduced. No explicit benchmark_mode tag. Conditions: background apps active, no post-reboot, screen on, One UI thermal management. These runs represent real-world consumer conditions but lack controlled baselines for comparison.</p>
+        <p><strong style="color:#e2e8f4;">v2</strong> — Runs using the upgraded framework. Each run explicitly declares <code>benchmark_mode</code>, <code>post_reboot</code>, <code>airplane_mode</code>, and other environment metadata. Both real_world and controlled runs are captured per model for direct comparison.</p>
+        <p><strong style="color:#e2e8f4;">real_world</strong> — Background apps active, no forced reboot, One UI thermal throttling engaged. Represents typical consumer device conditions. Latency will be higher and more variable due to OS interference.</p>
+        <p><strong style="color:#e2e8f4;">controlled</strong> — Airplane mode on, fresh reboot, no background apps (to the extent possible), stable thermal baseline. Represents clean-room conditions for benchmarking model performance without OS noise.</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/dash.js"></script>
+  <script>
+    fetch("data/dashboard-data.json")
+      .then(r => r.json())
+      .then(data => initMethodologyPage(data))
+      .catch(e => { document.body.insertAdjacentHTML("beforeend", `<p style="color:red;padding:2rem">Error loading data: ${e.message}</p>`); });
+  </script>
+</body>
+</html>

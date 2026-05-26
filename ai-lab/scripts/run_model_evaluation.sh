@@ -41,6 +41,11 @@ EXTRA_COOLDOWN_ON_WARN_SECONDS=60
 SMOKE=0
 DEBUG=0
 RESUME=0
+METHODOLOGY_VERSION="v2"
+POST_REBOOT="false"
+AIRPLANE_MODE="false"
+BACKGROUND_APPS="true"
+RUN_NOTES=""
 
 usage() {
   cat <<EOF
@@ -58,6 +63,10 @@ Options:
   --prompt-timeout N       Kill prompt after N seconds (overrides profile)
   --cooldown-seconds N     Sleep N seconds between prompts (overrides profile)
   --benchmark-mode MODE    real_world (default) or controlled
+  --post-reboot true|false  Fresh reboot before this run (default: false)
+  --airplane-mode true|false  Airplane mode enabled (default: false)
+  --background-apps true|false  Background apps running (default: true)
+  --notes "text"           Free-text notes for this run
   --smoke                  Run first 2 prompts only, max-tokens=48 (thermal-safe sanity check)
   --prompts <path>         Override prompts JSON file
   --resume                 Skip prompt IDs already in benchmark.jsonl
@@ -77,6 +86,10 @@ while [[ $# -gt 0 ]]; do
     --device-label)   DEVICE_LABEL="${2:-}";    shift 2 ;;
     --profile)        PROFILE="${2:-}";         shift 2 ;;
     --benchmark-mode) BENCHMARK_MODE="${2:-}";  shift 2 ;;
+    --post-reboot)    POST_REBOOT="${2:-}";      shift 2 ;;
+    --airplane-mode)  AIRPLANE_MODE="${2:-}";    shift 2 ;;
+    --background-apps) BACKGROUND_APPS="${2:-}"; shift 2 ;;
+    --notes)          RUN_NOTES="${2:-}";         shift 2 ;;
     --max-tokens)     _OVERRIDE_MAX_TOKENS="${2:-}";       shift 2 ;;
     --threads)        THREADS="${2:-}";          shift 2 ;;
     --prompt-timeout) _OVERRIDE_PROMPT_TIMEOUT="${2:-}";  shift 2 ;;
@@ -307,8 +320,10 @@ printf "debug=%s resume=%s smoke=%s\nprompt_timeout=%s\ndevice_label=%s\nmodel_i
   "$LLAMA_BIN" "$MODEL_PATH" "$PROMPTS_FILE" "$MAX_TOKENS" "$THREADS" >"$LOG_DIR/run_flags.txt"
 printf "cooldown_seconds=%s\nthermal_warn_c=%s\nextra_cooldown_on_warn_seconds=%s\n" \
   "$COOLDOWN_SECONDS" "$THERMAL_WARN_C" "$EXTRA_COOLDOWN_ON_WARN_SECONDS" >>"$LOG_DIR/run_flags.txt"
-printf "profile=%s\nbenchmark_mode=%s\n" \
-  "${PROFILE:-default}" "$BENCHMARK_MODE" >>"$LOG_DIR/run_flags.txt"
+printf "profile=%s\nbenchmark_mode=%s\nmethodology_version=%s\n" \
+  "${PROFILE:-default}" "$BENCHMARK_MODE" "$METHODOLOGY_VERSION" >>"$LOG_DIR/run_flags.txt"
+printf "post_reboot=%s\nairplane_mode=%s\nbackground_apps=%s\nnotes=%s\n" \
+  "$POST_REBOOT" "$AIRPLANE_MODE" "$BACKGROUND_APPS" "$RUN_NOTES" >>"$LOG_DIR/run_flags.txt"
 
 echo "0 0 0" >"$COUNT_FILE"   # success fail timeout
 
@@ -320,6 +335,11 @@ echo "Model path     : $MODEL_PATH"
 echo "llama.cpp      : $LLAMA_BIN"
 echo "Profile        : ${PROFILE:-default}"
 echo "Benchmark mode : $BENCHMARK_MODE"
+echo "Methodology    : $METHODOLOGY_VERSION"
+echo "Post-reboot    : $POST_REBOOT"
+echo "Airplane mode  : $AIRPLANE_MODE"
+echo "Background apps: $BACKGROUND_APPS"
+[[ -n "$RUN_NOTES" ]] && echo "Notes          : $RUN_NOTES"
 echo "Threads        : $THREADS"
 echo "Max tokens     : $MAX_TOKENS"
 echo "Prompt timeout : ${PROMPT_TIMEOUT}s"
@@ -338,6 +358,23 @@ echo ""
 # ── Snapshot before ───────────────────────────────────────────────────────────
 
 "$SCRIPT_DIR/device_snapshot.sh" -l before -o "$SNAP_BEFORE" --raw-out "$RAW_SNAP_BEFORE"
+
+# Inject run environment metadata into snapshot_before
+python3 - "$SNAP_BEFORE" "$METHODOLOGY_VERSION" "$BENCHMARK_MODE" \
+  "$POST_REBOOT" "$AIRPLANE_MODE" "$BACKGROUND_APPS" "$RUN_NOTES" <<'PY'
+import json, sys
+path, mv, bm, pr, am, ba, notes = sys.argv[1:]
+data = json.load(open(path, "r", encoding="utf-8"))
+data["environment"] = {
+    "methodology_version": mv,
+    "benchmark_mode": bm,
+    "post_reboot": pr.lower() == "true",
+    "airplane_mode": am.lower() == "true",
+    "background_apps_estimate": ba.lower() == "true",
+    "notes": notes,
+}
+open(path, "w", encoding="utf-8").write(json.dumps(data, ensure_ascii=False, indent=2))
+PY
 
 # ── Load prompts → TSV ────────────────────────────────────────────────────────
 
@@ -493,6 +530,7 @@ PY
     "$stdout_path" "$stderr_path" \
     "${t_before:-}" "${t_after:-}" "$thermal_warning" \
     "${profile_snap:-}" "$bmode_snap" \
+    "$METHODOLOGY_VERSION" "$AIRPLANE_MODE" "$POST_REBOOT" "$BACKGROUND_APPS" "${RUN_NOTES:-}" \
     <<'PY'
 import json, sys, time, re
 
@@ -502,7 +540,8 @@ import json, sys, time, re
  start_ts, end_ts, cmd_executed, timed_out, prompt_timeout,
  stdout_path, stderr_path,
  temp_before_c, temp_after_c, thermal_warning,
- profile, benchmark_mode) = sys.argv[1:22]
+ profile, benchmark_mode,
+ methodology_version, airplane_mode, post_reboot, background_apps, run_notes) = sys.argv[1:27]
 
 def read_text(path: str) -> str:
     try:
@@ -559,6 +598,11 @@ rec = {
   "thermal_warning": (thermal_warning == "true"),
   "profile": profile or "default",
   "benchmark_mode": benchmark_mode or "real_world",
+  "methodology_version": methodology_version or "v2",
+  "airplane_mode": airplane_mode.lower() == "true",
+  "post_reboot": post_reboot.lower() == "true",
+  "background_apps_estimate": background_apps.lower() == "true",
+  "run_notes": run_notes,
 }
 
 with open(jsonl_out, "a", encoding="utf-8") as f:
@@ -618,15 +662,33 @@ rm -f "$_TO_FILE" "$_EC_FILE" "$_STDOUT_FILE" "$_STDERR_FILE"
 
 "$SCRIPT_DIR/device_snapshot.sh" -l after -o "$SNAP_AFTER" --raw-out "$RAW_SNAP_AFTER"
 
+# Inject run environment metadata into snapshot_after
+python3 - "$SNAP_AFTER" "$METHODOLOGY_VERSION" "$BENCHMARK_MODE" \
+  "$POST_REBOOT" "$AIRPLANE_MODE" "$BACKGROUND_APPS" "$RUN_NOTES" <<'PY'
+import json, sys
+path, mv, bm, pr, am, ba, notes = sys.argv[1:]
+data = json.load(open(path, "r", encoding="utf-8"))
+data["environment"] = {
+    "methodology_version": mv,
+    "benchmark_mode": bm,
+    "post_reboot": pr.lower() == "true",
+    "airplane_mode": am.lower() == "true",
+    "background_apps_estimate": ba.lower() == "true",
+    "notes": notes,
+}
+open(path, "w", encoding="utf-8").write(json.dumps(data, ensure_ascii=False, indent=2))
+PY
+
 # ── Build summary ─────────────────────────────────────────────────────────────
 
 python3 - "$JSONL_OUT" "$CSV_OUT" "$MD_OUT" \
   "$DEVICE_LABEL" "$MODEL_ID" "$MODEL_MB" "$MAX_TOKENS" "$THREADS" "$LLAMA_BIN" "$PROMPT_TIMEOUT" \
   "${PROFILE:-default}" "$BENCHMARK_MODE" \
+  "$METHODOLOGY_VERSION" "$POST_REBOOT" "$AIRPLANE_MODE" "$BACKGROUND_APPS" "${RUN_NOTES:-}" \
   <<'PY'
 import csv, json, sys
 
-jsonl, csv_out, md_out, device, model, model_mb, max_tokens, threads, llama_bin, prompt_timeout, profile, benchmark_mode = sys.argv[1:13]
+jsonl, csv_out, md_out, device, model, model_mb, max_tokens, threads, llama_bin, prompt_timeout, profile, benchmark_mode, methodology_version, post_reboot, airplane_mode, background_apps, run_notes = sys.argv[1:18]
 
 rows = []
 with open(jsonl, "r", encoding="utf-8") as f:
@@ -675,11 +737,13 @@ with open(csv_out, "w", newline="", encoding="utf-8") as f:
     w.writerow(["device_label","model_id","model_mb","prompts","success","timeout","error",
                 "p50_duration_ms","p50_tokens_per_sec","max_tokens","threads","prompt_timeout_s",
                 "output_present","thermal_warning_count","max_temp_before_c","max_temp_after_c",
-                "llama_bin","profile","benchmark_mode"])
+                "llama_bin","profile","benchmark_mode",
+                "methodology_version","post_reboot","airplane_mode","background_apps_estimate","notes"])
     w.writerow([device, model, model_mb, len(rows), success_n, timeout_n, error_n,
                 p50(durations), p50(tokps_vals), max_tokens, threads, prompt_timeout,
                 output_present_n, thermal_warn_n, snap_before, snap_after, llama_bin,
-                profile, benchmark_mode])
+                profile, benchmark_mode,
+                methodology_version, post_reboot, airplane_mode, background_apps, run_notes])
     w.writerow([])
     w.writerow(["prompt_id","status","duration_ms","tokens_per_sec","timed_out","start_ts","end_ts"])
     for r in rows:
@@ -696,6 +760,11 @@ lines = [
     f"| llama.cpp | `{llama_bin}` |",
     f"| Profile | {profile} |",
     f"| Benchmark Mode | {benchmark_mode} |",
+    f"| Methodology Version | {methodology_version} |",
+    f"| Post-reboot | {post_reboot} |",
+    f"| Airplane mode | {airplane_mode} |",
+    f"| Background apps | {background_apps} |",
+    (f"| Notes | {run_notes} |" if run_notes else ""),
     f"| Max tokens | {max_tokens} |",
     f"| Threads | {threads} |",
     f"| Prompt timeout | {prompt_timeout}s |",
