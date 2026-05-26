@@ -5,11 +5,20 @@ on:
     branches: [main, phase-3-ai-lab]
     paths:
       - "ai-lab/results/**"
+      - "ai-lab/reports/**"
       - "ai-lab/analytics/**"
       - "ai-lab/quality/**"
       - "ai-lab/models/**"
+      - "ai-lab/schema/**"
       - "dashboards/**"
+      - "docs/**"
+      - "README.md"
       - ".github/workflows/dashboard.yml"
+      - ".github/workflows/ai-lab-ci.yml"
+  workflow_run:
+    workflows: ["AI Lab CI"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -24,6 +33,10 @@ concurrency:
 jobs:
   generate:
     name: Generate dashboard artifact
+    # Only proceed if:
+    # - triggered by workflow_dispatch or push (workflow_run check below)
+    # - OR triggered by workflow_run AND AI Lab CI concluded successfully
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
